@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="MAFinTEI.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Examples of the TEI customization for the Morphosyntactic Annotation Framework</title>
+                <author xml:id="bansp">Piotr Banski</author>
+                <author xml:id="LR">Laurent Romary</author>
+            </titleStmt>
+            <publicationStmt>
+                <p>filler</p>
+            </publicationStmt>
+            <sourceDesc>
+                <p>Created from scratch as an electronic resource.</p>
+            </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <div>
+                <head>Introduction</head>
+                <p>This document uses the TEI customization of ISO MAF in order to illustrate some
+                    of the constructs mentioned in the body of the standard, and to introduce some
+                    further informative examples.</p>
+            </div>
+            <div>
+                <head>Figure 4</head>
+                <p>
+                    <w xml:id="t1">The</w>
+                    <w xml:id="t2">victim</w>
+                    <w xml:id="t3">'s</w>
+                    <w xml:id="t4">friends</w>
+                    <w xml:id="t5">told</w>
+                    <w xml:id="t6">police</w>
+                    <w xml:id="t7">that</w>
+                    <w xml:id="t8">Krueger</w>
+                    <w xml:id="t9">drove</w>
+                    <w xml:id="t10">into</w>
+                    <w xml:id="t11">the</w>
+                    <w xml:id="t12">quarry</w>
+                    <w xml:id="t13">and</w>
+                    <w xml:id="t14">never</w>
+                    <w xml:id="t15">surfaced</w>
+                    <pc xml:id="t16">.</pc>
+                </p>
+            </div>
+            <div>
+                <head>Fig x</head>
+                <p>
+                    <s xml:id="s1">The victim's friends</s>
+                    <s>
+                        <w corresp="#string-range(s1,0,3)"/>
+                        <!-- The -->
+                        <w corresp="#string-range(s1,4,6)"/>
+                        <!-- victim -->
+                        <w corresp="#string-range(s1,10,2)"/>
+                        <!-- 's -->
+                        <w corresp="#string-range(s1,13,7)"/>
+                        <!-- friends -->
+                    </s>
+                </p>
+                <p>Customizing the w element in the following way 
+                    
+                    <!--
+                    <elementSpec ident="w" mode="change">
+                        <classes mode="change">
+                            <memberOf key="att.referring"/>
+                        </classes>
+                    </elementSpec>
+                    -->                    
+                    
+                    in order to index tokens by means of inter-character points:
+                    
+                    <!-- |T|h|e| |v|i|c|t|i|m|'|s| |f|r|i|e|n|d|s|    -->
+                    <!-- 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0-->
+                   
+                    allows us to use a more straightforward kind of encoding, as shown below
+
+                    <s corresp="#s1">
+                        <w from="0" to="3"/>
+                        <!-- The -->
+                        <w from="4" to="10"/>
+                        <!-- victim -->
+                        <w from="10" to="12"/>
+                        <!-- 's -->
+                        <w from="13" to="20"/>
+                        <!-- friends -->
+                    </s>
+                </p>
+            </div>
+            <div>
+                <head>Fig s</head>
+                <p>
+                     <w xml:id="w1">I</w>
+                         <w xml:id="w2">wanna</w>
+                         <w xml:id="w3">put</w>
+                         <w xml:id="w4">up</w>
+                         <w xml:id="w5">new</w>
+                         <w xml:id="w6">wallpaper</w>
+                         <pc>.</pc>
+                </p>
+                <spanGrp type="wordForm">
+                     <span target="#w1" ana="#fs1" corresp="#entry1"/>
+                     <span target="#w2" ana="#fs2" corresp="#entry2"/>
+                     <span target="#w2" ana="#fs3" corresp="#entry3"/>
+                     <span target="#w3 #w4" ana="#fs4" corresp="#entry4"/>
+                     <span target="#w5" ana="#fs5" corresp="#entry5"/>
+                     <span target="#w6" ana="#fs6" corresp="#entry6"/>
+                </spanGrp>
+                <fs xml:id="fs1" corresp="#entry1">
+                     <f name="lemma">
+                      <string>I</string>
+                     </f>
+                     <f name="pos">
+                      <symbol value="PP"/>
+                     </f>
+                </fs>
+                <fs xml:id="fs2">
+                     <f name="lemma">
+                      <string>want</string>
+                     </f>
+                     <f name="pos">
+                      <symbol value="VBP"/>
+                     </f>
+                </fs>
+                <fs xml:id="fs3">
+                     <f name="lemma">
+                      <string>to</string>
+                     </f>
+                     <f name="pos">
+                      <symbol value="TO"/>
+                     </f>
+                </fs>
+                <fs xml:id="fs4">
+                     <f name="lemma">
+                      <string>put up</string>
+                     </f>
+                     <f name="pos">
+                      <symbol value="VB"/>
+                     </f>
+                </fs>
+                <fs xml:id="fs5">
+                     <f name="lemma">
+                      <string>new</string>
+                     </f>
+                     <f name="pos">
+                      <symbol value="JJ"/>
+                     </f>
+                </fs>
+                <fs xml:id="fs6">
+                     <f name="lemma">
+                      <string>wallpaper</string>
+                     </f>
+                     <f name="pos">
+                      <symbol value="NN"/>
+                     </f>
+                </fs>
+                <entry xml:id="entry1">
+                     <form type="lemma">
+                      <orth>I</orth>
+                     </form>
+                </entry>
+                <entry xml:id="entry2">
+                     <form type="lemma">
+                      <orth>want</orth>
+                     </form>
+                </entry>
+                <entry xml:id="entry3">
+                     <form type="lemma">
+                      <orth>to</orth>
+                     </form>
+                </entry>
+                <entry xml:id="entry4">
+                     <form type="lemma">
+                      <orth>put up</orth>
+                     </form>
+                </entry>
+                <entry xml:id="entry5">
+                     <form type="lemma">
+                      <orth>new</orth>
+                     </form>
+                </entry>
+                <entry xml:id="entry6">
+                     <form type="lemma">
+                      <orth>wallpaper</orth>
+                     </form>
+                </entry>
+            </div>
+        </body>
+    </text>
+</TEI>
