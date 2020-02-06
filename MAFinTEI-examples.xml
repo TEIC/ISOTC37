@@ -134,7 +134,7 @@ Question: how do we standardize the context for pointing? LR:
             
             <div>
                 <head>Figure 13 (coarse)</head>
-                <p> NEVER KEEP a span UN-@typed
+                <p> NEVER KEEP a span UN-@typed, except if the type is on spanGrp
                     <w xml:id="t0">auquel</w>
                     <span lemma="à" pos="#pos.prep" corresp="#t0"/>
                     <span lemma="lequel" pos="#pos.pronrel" corresp="#t0"/>
