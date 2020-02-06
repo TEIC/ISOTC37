@@ -24,14 +24,7 @@
                 <p>This document uses the TEI customization of ISO MAF in order to illustrate some
                     of the constructs mentioned in the body of the standard, and to introduce some
                     further informative examples.</p>
-                <p>There needs to be a sentence here stating clearly that the TEI as such is
-                    oblivious to the level distinction between tokens and word forms: this needs a
-                    modelling layer that is properly described in the header and possibly the ODD.
-                    To wit, one can model the distinction with &lt;seg for tokens and &lt;w> for
-                    word forms (I happen to like this solution a lot). Or use &lt;w for tokens and
-                    &lt;span for word forms, as suggested in MAF. Or do a mixture, with &lt;w> for
-                    tokens but also happening to have word-form-level features (no issue for
-                    linguists, probably bad for others).</p>
+                
             </div>
             <div>
                 <head>Figure 4</head> 
@@ -86,8 +79,10 @@
                    
                     allows us to use a more straightforward kind of encoding, as shown below
 
+Question: how do we standardize the context for pointing? LR: 
+
                     <s corresp="#s1">
-                        <w from="0" to="3"/>
+                        <w from="0" to="3"/>    <!-- startPos  endPos    att.offset -->
                         <!-- The -->
                         <w from="4" to="10"/>
                         <!-- victim -->
@@ -102,12 +97,17 @@
                 <head>Figure 7+</head>
                 <p>
                     <w norm="etcetera">etc.</w>
+                    
                     <w norm="etcetera" phon="/etsettrə/" from="1251" to="1253"/>
+                    
                     <w norm="tzar">csar</w>
+                    
                     <w norm="tzar">tsar</w>
+                    
                     <!--<w transliteration="tsar">цар</w> @TRANS-->
                     <w norm="2003-02-23">February 23rd 2003</w>
                 </p>
+
             </div>
             <div>
                 <head>Figure 10+</head>
@@ -134,7 +134,7 @@
             
             <div>
                 <head>Figure 13 (coarse)</head>
-                <p>Let me stress that I am not super happy with this. I'd prefer a &lt;seg> vs. &lt;w> opposition. -P
+                <p> NEVER KEEP a span UN-@typed
                     <w xml:id="t0">auquel</w>
                     <span lemma="à" pos="#pos.prep" corresp="#t0"/>
                     <span lemma="lequel" pos="#pos.pronrel" corresp="#t0"/>
