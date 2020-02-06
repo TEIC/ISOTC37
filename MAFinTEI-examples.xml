@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?xml-model href="MAFinTEI.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="MAFinTEI.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader>
         <fileDesc>
@@ -23,8 +25,12 @@
                 <head>Introduction</head>
                 <p>This document uses the TEI customization of ISO MAF in order to illustrate some
                     of the constructs mentioned in the body of the standard, and to introduce some
-                    further informative examples.</p>
-                
+                    further informative examples. Despite this introduction, you are not looking at
+                    documentation, but rather "corpus samples". Please treat the content of &lt;p>
+                    elements simply as notes accompanying the samples.</p>
+                <p>The schema is defined in MAFinTEI.odd, i.e. the ODD file accompanying this document.</p>
+                <p>The figure references point at particular figures from the ISO MAF standard (ISO
+                    24611:2012), currently under revision.</p>
             </div>
             <div>
                 <head>Figure 4</head> 
@@ -62,33 +68,43 @@
                         <!-- friends -->
                     </s>
                 </p>
-                <p>Customizing the w element in the following way 
-                    
-                    <!--
-                    <elementSpec ident="w" mode="change">
+                <p>The example above uses the MAF 2012 way of encoding standoff relationships by
+                    means of XPointer that has never gotten implemented in the TEI (and has fallen
+                    out of use in general). The example below uses a new, direct way of encoding
+                    string offsets. It is enabled thanks to the ODD fragments that are provided in
+                    comments below:
+                    <!--                    
+                    <elementSpec ident="s" mode="change">
                         <classes mode="change">
-                            <memberOf key="att.referring"/>
+                            <memberOf key="att.offset"/>
                         </classes>
                     </elementSpec>
-                    -->                    
+
+                    <elementSpec ident="w" mode="change">
+                        <classes mode="change">
+                            <memberOf key="att.offset"/>
+                        </classes>
+                    </elementSpec>
+                    -->
                     
-                    in order to index tokens by means of inter-character points:
+                    These fragments enable the att.offset attribute class.
+                    
+                    token offsets are identified by means of inter-character points:
                     
                     <!-- |T|h|e| |v|i|c|t|i|m|'|s| |f|r|i|e|n|d|s|    -->
-                    <!-- 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0-->
-                   
-                    allows us to use a more straightforward kind of encoding, as shown below
-
-Question: how do we standardize the context for pointing? LR: 
-
-                    <s corresp="#s1">
-                        <w from="0" to="3"/>    <!-- startPos  endPos    att.offset -->
+                    <!-- 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0--> 
+                    
+                    @offsetBase is an attribute that has to be present either on the element that uses 
+                    @startPos and @endPos attributes, or on its ancestor
+                    
+                    <s offsetBase="#s1">
+                        <w startPos="0" endPos="3"/>
                         <!-- The -->
-                        <w from="4" to="10"/>
+                        <w startPos="4" endPos="10"/>
                         <!-- victim -->
-                        <w from="10" to="12"/>
+                        <w startPos="10" endPos="12"/>
                         <!-- 's -->
-                        <w from="13" to="20"/>
+                        <w startPos="13" endPos="20"/>
                         <!-- friends -->
                     </s>
                 </p>
@@ -96,85 +112,109 @@ Question: how do we standardize the context for pointing? LR:
             <div>
                 <head>Figure 7+</head>
                 <p>
-                    <w norm="etcetera">etc.</w>
                     
-                    <w norm="etcetera" phon="/etsettrə/" from="1251" to="1253"/>
-                    
-                    <w norm="tzar">csar</w>
-                    
-                    <w norm="tzar">tsar</w>
-                    
-                    <!--<w transliteration="tsar">цар</w> @TRANS-->
-                    <w norm="2003-02-23">February 23rd 2003</w>
+                 <!-- what follows is a set of separate examples; in theory each of them 
+                     should be wrapped in its own <s>                   -->
+                    <s>
+                        <w norm="etcetera">etc.</w>
+                        <w offsetBase="#xyz" norm="etcetera" phon="/etsettrə/" startPos="1251"
+                            endPos="1253"/>
+                        <w norm="tzar">csar</w>
+                        <w norm="tzar">tsar</w>
+                        <!--<w transliteration="tsar">цар</w> @TRANS-->
+                        <w norm="2003-02-23">February 23rd 2003</w>
+                    </s>
                 </p>
 
             </div>
             <div>
                 <head>Figure 10+</head>
-                <p>Just add an example with @join. This is straightforward. Probably comment on the global and streaming strategies (for "both")</p>
+                <p>Just add an example with @join. This is straightforward. Probably comment on the
+                    global and streaming strategies (for "both"), as it's done in the att.linguistic
+                    spec.</p>
                 
                 <p>
-                    <w norm="ϰαλὸϛ">ϰαλο</w>
-                    <w norm="ϰαι" join="left">ϰ</w>
-                    <w norm="αγαϑὸϛ" join="left">αγαϑὸϛ</w>
+                    <s>
+                        <w norm="ϰαλὸϛ">ϰαλο</w>
+                        <w norm="ϰαι" join="left">ϰ</w>
+                        <w norm="αγαϑὸϛ" join="left">αγαϑὸϛ</w>
+                    </s>
                 </p>
-                
             </div>
+
             <div>
                 <head>Figure 11 and 12</head>
                 <p>
-                    <w norm="etcetera" from="0" to="3"/>
-                    <w norm="." from="3" to="3"/>
+                    <s offsetBase="#xyz">
+                        <w norm="etcetera" startPos="0" endPos="3"/>
+                        <w norm="." startPos="3" endPos="3"/>
+                    </s>
+                    
+
+                    <!-- look: the <s> element also cirumscribes a domain that 
+                        can be identified by offsets:  -->
+                    <s offsetBase="#xyz" startPos="0" endPos="27">
+                        <w norm="etcetera" startPos="0" endPos="3"/>
+                        <w norm="." startPos="3" endPos="3"/>
+                    </s>
                 </p>
+
+                
+                <!-- Note the empty token below-->
                 <p>
-                    <w norm="etcetera">etc.</w>
-                    <w norm="." join="overlap"/>
+                    <s>
+                        <w norm="etcetera">etc.</w>
+                        <w norm="." join="overlap"/>
+                    </s>
                 </p>
             </div>
             
             <div>
                 <head>Figure 13 (coarse)</head>
-                <p> NEVER KEEP a span UN-@typed, except if the type is on spanGrp
+                <p> NEVER KEEP a span UN-@typed, except if the type is on spanGrp; 
+                    we probably need some Schematron to enforce that
+                    
                     <w xml:id="t0">auquel</w>
-                    <span lemma="à" pos="#pos.prep" corresp="#t0"/>
-                    <span lemma="lequel" pos="#pos.pronrel" corresp="#t0"/>
+                    <span type="wordForm" lemma="à" pos="#pos.prep" corresp="#t0"/>
+                    <span type="wordForm" lemma="lequel" pos="#pos.pronrel" corresp="#t0"/>
                 </p>
             </div>
-<!--       we need to take a decision on figure 14: empty tokens inline feel wrong     -->
+
+            <!--   we need to take a decision on figure 14: empty tokens inline feel wrong     -->
             <div>
                 <head>Figure 14 (fine)</head>
                 <p>
                     <w norm="a" xml:id="t01">auquel</w>
                     <w norm="lequel" xml:id="t111" join="overlap"/>
-                    <span lemma="à" pos="#pos.prep" corresp="#t01"/>
-                    <span lemma="lequel" pos="#pos.pronrel" corresp="#t111"/>
+                    <span type="wordForm" lemma="à" pos="#pos.prep" corresp="#t01"/>
+                    <span type="wordForm" lemma="lequel" pos="#pos.pronrel" corresp="#t111"/>
                 </p>
-                
             </div>
-            
+
             <div>
                 <head>Figure 19</head>
                 <p>Figures 15-18 are no challenge. </p>
-                <p>
+                <p><s>
                     <w xml:id="t411">to</w>
                     <w xml:id="t421">boldly</w>
                     <w xml:id="t43">go</w>
-                    <span lemmaRef="urn:lexicon:en:go:to" corresp="#t411 #t43"/>
-                    <span lemmaRef="urn:lexicon:en:boldly" corresp="#t421"/>
-                    <span lemmaRef="urn:lexicon:en:go:main" corresp="#t411 #t43"/>
-                </p>                
+                    <span type="wordForm" lemmaRef="urn:lexicon:en:go:to" corresp="#t411 #t43"/>
+                    <span type="wordForm" lemmaRef="urn:lexicon:en:boldly" corresp="#t421"/>
+                    <span type="wordForm" lemmaRef="urn:lexicon:en:go:main" corresp="#t411 #t43"/>
+                </s></p>                
             </div>
 
             <div>
                 <head>Figure 27</head>
                 <p>
-                     <w xml:id="w1">I</w>
+                     <s><w xml:id="w1">I</w>
                          <w xml:id="w2">wanna</w>
                          <w xml:id="w3">put</w>
                          <w xml:id="w4">up</w>
                          <w xml:id="w5">new</w>
                          <w xml:id="w6">wallpaper</w>
                          <pc>.</pc>
+                     </s>
                 </p>
                 <spanGrp type="wordForm">
                      <span target="#w1" ana="#fs1" corresp="#entry1"/>
@@ -184,6 +224,7 @@ Question: how do we standardize the context for pointing? LR:
                      <span target="#w5" ana="#fs5" corresp="#entry5"/>
                      <span target="#w6" ana="#fs6" corresp="#entry6"/>
                 </spanGrp>
+                
                 <fs xml:id="fs1" corresp="#entry1">
                      <f name="lemma">
                       <string>I</string>
@@ -266,7 +307,9 @@ Question: how do we standardize the context for pointing? LR:
             
             <div>
                 <head>More</head>
-                <p>I can't see any challenges -- apart from tagset definitions and lattices, but these are arguably slightly outside the scope (?) -P</p>
+                <p>I can't see any challenges -- apart from tagset definitions and lattices, but
+                    these can naturally be handled by means of feature structures and graph
+                    notation.</p>
             </div>
             
             

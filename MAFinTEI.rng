@@ -5,7 +5,7 @@
          xmlns:teix="http://www.tei-c.org/ns/Examples"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2020-02-06T03:14:32Z. .
+Schema generated from ODD source 2020-02-06T19:12:40Z. .
 TEI Edition: Version 3.6.0. Last updated on
 	16th July 2019, revision daa3cc0b9
 TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.6.0/
@@ -1782,7 +1782,6 @@ Sample values include: 1] main; 2] sub (subordinate); 3] alt (alternate); 4] sho
       <element name="seg">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(arbitrary segment) represents any segmentation of text below the chunk level. [16.3. Blocks, Segments, and Anchors 6.2. Components of the Verse Line 7.2.5. Speech Contents]</a:documentation>
          <ref name="tei_macro.paraContent"/>
-         <ref name="tei_att.referring.attributes"/>
          <ref name="tei_att.global.attributes"/>
          <ref name="tei_att.segLike.attributes"/>
          <ref name="tei_att.typed.attributes"/>
@@ -2149,6 +2148,7 @@ You must supply at least two values for @target on <name/>
       another: use seg instead</report>
             </rule>
          </pattern>
+         <ref name="tei_att.offset.attributes"/>
          <ref name="tei_att.global.attributes"/>
          <ref name="tei_att.segLike.attributes"/>
          <ref name="tei_att.typed.attributes"/>
@@ -2172,7 +2172,7 @@ You must supply at least two values for @target on <name/>
                <ref name="tei_model.pPart.edit"/>
             </choice>
          </zeroOrMore>
-         <ref name="tei_att.referring.attributes"/>
+         <ref name="tei_att.offset.attributes"/>
          <ref name="tei_att.global.attributes"/>
          <ref name="tei_att.segLike.attributes"/>
          <ref name="tei_att.typed.attributes"/>
@@ -2231,26 +2231,61 @@ You must supply at least two values for @target on <name/>
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">associates an interpretative annotation directly with a span of text. [17.3. Spans and Interpretations]</a:documentation>
          <ref name="tei_macro.phraseSeq.limited"/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="MAFinTEI-span-spanAlwaysTyped-constraint-rule-8">
+            <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                      xmlns="http://www.tei-c.org/ns/1.0"
+                      context="*[self::*:span]">
+                  <sch:assert test="@type or ancestor::*:spanGrp/@type">
+                  <sch:name/> must either carry a @type attribute, or be nested within a spanGrp that is @typed</sch:assert>
+                </sch:rule>
+         </pattern>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
                   id="MAFinTEI-span-targetfrom-constraint-report-9">
             <rule context="tei:span">
                <report test="@from and @target">
-                  Only one of the attributes @target and @from may be supplied on <name/>
-                </report>
+Only one of the attributes @target and @from may be supplied on <name/>
+               </report>
             </rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
                   id="MAFinTEI-span-targetto-constraint-report-10">
             <rule context="tei:span">
                <report test="@to and @target">
-                  Only one of the attributes @target and @to may be supplied on <name/>
-                </report>
+Only one of the attributes @target and @to may be supplied on <name/>
+               </report>
             </rule>
          </pattern>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="MAFinTEI-span-tonotfrom-constraint-report-11">
+            <rule context="tei:span">
+               <report test="@to and not(@from)">
+If @to is supplied on <name/>, @from must be supplied as well</report>
+            </rule>
+         </pattern>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="MAFinTEI-span-tofrom-constraint-report-12">
+            <rule context="tei:span">
+               <report test="contains(normalize-space(@to),' ') or contains(normalize-space(@from),' ')">
+The attributes @to and @from on <name/> may each contain only a single value</report>
+            </rule>
+         </pattern>
+         <ref name="tei_att.linguistic.attributes"/>
+         <ref name="tei_att.offset.attributes"/>
          <ref name="tei_att.global.attributes"/>
          <ref name="tei_att.interpLike.attributes"/>
          <ref name="tei_att.pointing.attributes"/>
-         <ref name="tei_att.referring.attributes"/>
-         <ref name="tei_att.linguistic.attributes"/>
+         <optional>
+            <attribute name="from">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">gives the identifier of the node which is the starting point of the span of text being annotated; if not accompanied by a <code xmlns="http://www.w3.org/1999/xhtml">@to</code> attribute, gives the identifier of the node of the entire span of text being annotated.</a:documentation>
+               <data type="anyURI"/>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="to">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">gives the identifier of the node which is the end-point of the span of text being annotated.</a:documentation>
+               <data type="anyURI"/>
+            </attribute>
+         </optional>
          <empty/>
       </element>
    </define>
@@ -3165,7 +3200,7 @@ Feature Value]</a:documentation>
             </optional>
          </group>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="MAFinTEI-div-abstractModel-structure-l-constraint-report-11">
+                  id="MAFinTEI-div-abstractModel-structure-l-constraint-report-13">
             <rule context="tei:div">
                <report test="ancestor::tei:l">
         Abstract model violation: Lines may not contain higher-level structural elements such as div.
@@ -3173,7 +3208,7 @@ Feature Value]</a:documentation>
             </rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="MAFinTEI-div-abstractModel-structure-p-constraint-report-12">
+                  id="MAFinTEI-div-abstractModel-structure-p-constraint-report-14">
             <rule context="tei:div">
                <report test="ancestor::tei:p or ancestor::tei:ab and not(ancestor::tei:floatingText)">
         Abstract model violation: p and ab may not contain higher-level structural elements such as div.
@@ -4074,113 +4109,61 @@ Sample values include: 1] cap (capital); 2] noHyph (no hyphen)</a:documentation>
          </attribute>
       </optional>
    </define>
-   <define name="tei_att.referring.attributes">
-      <ref name="tei_att.referring.attribute.referringMode"/>
-      <ref name="tei_att.referring.attribute.from"/>
-      <ref name="tei_att.referring.attribute.to"/>
+   <define name="tei_att.offset.attributes">
+      <ref name="tei_att.offset.attribute.offsetBase"/>
+      <ref name="tei_att.offset.attribute.startPos"/>
+      <ref name="tei_att.offset.attribute.endPos"/>
    </define>
-   <define name="tei_att.referring.attribute.referringMode">
+   <define name="tei_att.offset.attribute.offsetBase">
       <optional>
-         <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-                    name="referringMode"
-                    a:defaultValue="pointer">
-            <a:documentation>specifies whether the span/segment edges are identified as numeric offsets or as pointers (URIs or fragment identifiers). The default value of this attribute is pointer and it is optional in cases where edges are identified by pointing. Otherwise, it has to be present.</a:documentation>
-            <choice>
-               <value>pointer</value>
-               <a:documentation>edges are identified by pointing at elements (e.g. <code xmlns="http://www.w3.org/1999/xhtml">&lt;w&gt;</code>, <code xmlns="http://www.w3.org/1999/xhtml">&lt;c&gt;</code> or <code xmlns="http://www.w3.org/1999/xhtml">&lt;seg&gt;</code>) that can be pointed at by means of an URI (which most often means that they have <code xmlns="http://www.w3.org/1999/xhtml">@xml:id</code> attributes defined).</a:documentation>
-               <value>id</value>
-               <a:documentation>edges are identified by pointing at existing elements (e.g. <code xmlns="http://www.w3.org/1999/xhtml">&lt;w&gt;</code>, <code xmlns="http://www.w3.org/1999/xhtml">&lt;c&gt;</code> or <code xmlns="http://www.w3.org/1999/xhtml">&lt;seg&gt;</code>) that carry <code xmlns="http://www.w3.org/1999/xhtml">@xml:id</code> attributes; this value ensures ID validation -- in this respect, it is analogous to the IDREF data types of DTDs.</a:documentation>
-               <value>character</value>
-               <a:documentation>edges are identified by numeric offsets (non-negative integers); note that a separate project-specific convention regulates the value of the starting index (0 or 1).</a:documentation>
-               <value>icp</value>
-               <a:documentation>"icp" stands for "inter-character point". Edges are identified by numeric offsets (non-negative integers) identifying inter-character points. In e.g. the string "point", inter-character points are marked by vertical lines: |p|o|i|n|t| (by convention, there is an icp before the first character and after the last one); note that a separate project-specific convention regulates the value of the starting index (0 or 1). ISO LAF and ISO MAF advocate 0 as the start index.</a:documentation>
-               <value>byte</value>
-               <a:documentation>edges are identified by numeric offsets (non-negative integers) addressing bytes. Note that this low-level indexing type ignores XML or any other structuring.</a:documentation>
-            </choice>
+         <attribute name="offsetBase">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">points at the element that forms the basis for offset calculations in standoff annotations. An element using the <code xmlns="http://www.w3.org/1999/xhtml">@startPos</code> and <code xmlns="http://www.w3.org/1999/xhtml">@endPos</code> attributes either has to define <code xmlns="http://www.w3.org/1999/xhtml">@offsetBase</code> as well, or <code xmlns="http://www.w3.org/1999/xhtml">@offsetBase</code> should be defined on an ancestor element.</a:documentation>
+            <data type="anyURI"/>
          </attribute>
       </optional>
    </define>
-   <define name="tei_att.referring.attribute.from">
+   <define name="tei_att.offset.attribute.startPos">
       <optional>
-         <attribute name="from">
+         <attribute name="startPos">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the starting point of a sequence of characters or bytes, or of elements that can be pointed at with a URI.</a:documentation>
-            <choice>
-               <data type="nonNegativeInteger"/>
-               <data type="anyURI"/>
-            </choice>
+            <data type="nonNegativeInteger"/>
          </attribute>
       </optional>
    </define>
-   <define name="tei_att.referring.attribute.to">
+   <define name="tei_att.offset.attribute.endPos">
       <optional>
-         <attribute name="to">
+         <attribute name="endPos">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the end-point of a sequence of characters or bytes, or of elements that can be pointed at with a URI.</a:documentation>
-            <choice>
-               <data type="nonNegativeInteger"/>
-               <data type="anyURI"/>
-            </choice>
+            <data type="nonNegativeInteger"/>
          </attribute>
       </optional>
    </define>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="MAFinTEI-att.referring-default_mode-constraint-rule-8">
+            id="MAFinTEI-att.offset-endPosnotstartPos-constraint-rule-9">
       <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                 xmlns="http://www.tei-c.org/ns/1.0"
-                context="*[local-name() = ('span')][not(@referringMode) and @from and @to]">
-                  <sch:assert test="@from castable as xsd:anyURI">The default form of @from is a URI</sch:assert>
-                  <sch:assert test="@to castable as xsd:anyURI">The default form of @to is a URI</sch:assert>
+                context="*[@endPos]">
+                  <sch:assert test="@startPos">If @endPos is supplied on <sch:name/>, @startPos must
+                    be supplied as well</sch:assert>
                 </sch:rule>
    </pattern>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="MAFinTEI-att.referring-two-and-three-match-one-constraint-rule-9">
+            id="MAFinTEI-att.offset-startPosnotendPos-constraint-rule-10">
       <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                 xmlns="http://www.tei-c.org/ns/1.0"
-                context="*[@referringMode eq 'pointer']">
-                  <sch:assert test="@from castable as xsd:anyURI">When @referringMode is 'pointer',
-                    @from must be a URI</sch:assert>
-                  <sch:assert test="@to castable as xsd:anyURI">When @referringMode is 'pointer', @to
-                    must be a URI</sch:assert>
-                </sch:rule>
+                context="*[@startPos]">
+                  <sch:assert test="@endPos">If @startPos is supplied on
+                    <sch:name/>, @endPos must be supplied as well</sch:assert>
+      </sch:rule>
    </pattern>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="MAFinTEI-att.referring-two-and-three-match-one-constraint-rule-10">
+            id="MAFinTEI-att.offset-offsetBaseObligatory-constraint-rule-11">
       <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                 xmlns="http://www.tei-c.org/ns/1.0"
-                context="*[@referringMode eq 'id']">
-                  <sch:assert test="id(substring(@from,2))">When @referringMode is 'id',
-                    @from must be pointing at an existing local target</sch:assert>
-                  <sch:assert test="id(substring(@to,2))">When @referringMode is 'id',
-                    @to must be pointing at an existing local target</sch:assert>
-                </sch:rule>
-   </pattern>
-   <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="MAFinTEI-att.referring-two-and-three-match-one-constraint-rule-11">
-      <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                xmlns="http://www.tei-c.org/ns/1.0"
-                context="*[@referringMode = ('character','icp','byte')]">
-                  <sch:assert test="@from castable as xsd:int">When @referringMode is
-                    '<sch:value-of select="@referringMode"/>', @from must be a non-negative integer</sch:assert>
-                  <sch:assert test="@to castable as xsd:int">When @referringMode is
-                    '<sch:value-of select="@referringMode"/>', @to must be a non-negative integer</sch:assert>
-                </sch:rule>
-   </pattern>
-   <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="MAFinTEI-att.referring-tofrom-constraint-rule-12">
-      <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                xmlns="http://www.tei-c.org/ns/1.0"
-                context="*[local-name() = ('span')][@to or @from]">
-                  <sch:report test="contains(normalize-space(@to),' ') or contains(normalize-space(@from),' ')">The attributes @to and @from on <sch:name/> may each contain only a single
-                    value</sch:report>
-                </sch:rule>
-   </pattern>
-   <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="MAFinTEI-att.referring-tonotfrom-constraint-rule-13">
-      <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                xmlns="http://www.tei-c.org/ns/1.0"
-                context="*[local-name() = ('span')][@to]">
-                  <sch:report test="@to and not(@from)">If @to is supplied on <sch:name/>, @from must
-                    be supplied as well</sch:report>
-                </sch:rule>
+                context="*[@endPos]">
+         <sch:assert test="ancestor-or-self::*[@offsetBase]">offset attributes require @offsetBase to be defined in the same element or its
+                    ancestor</sch:assert>
+      </sch:rule>
    </pattern>
    <start>
       <ref name="tei_TEI"/>
