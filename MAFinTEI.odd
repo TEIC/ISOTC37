@@ -560,8 +560,21 @@ within it is the <gi>fileDesc</gi>, which contains only the following elements:
             </classes>
           </elementSpec>
           
+          <elementSpec ident="seg" mode="change">
+            <classes mode="change">
+              <memberOf key="att.referring"/>
+            </classes>
+          </elementSpec>
           
-        </schemaSpec>
+          <classSpec ident="att.linguistic" type="atts" mode="change">
+            <attList>
+              <attDef ident="phon" mode="change">
+                <desc versionDate="2020-02-06" xml:lang="en">This attribute encodes information on
+                  the pronunciation of the given element, according to the notation documented in
+                  the header and/orr ODD.</desc>
+              </attDef>
+            </attList>
+          </classSpec></schemaSpec>
       </div>
     </body>
   </text>

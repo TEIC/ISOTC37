@@ -5,7 +5,7 @@
          xmlns:teix="http://www.tei-c.org/ns/Examples"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2020-02-05T20:03:30Z. .
+Schema generated from ODD source 2020-02-06T02:20:52Z. .
 TEI Edition: Version 3.6.0. Last updated on
 	16th July 2019, revision daa3cc0b9
 TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 3.6.0/
@@ -617,7 +617,6 @@ Suggested values include: 1] below; 2] bottom; 3] margin; 4] top; 5] opposite; 6
    </define>
    <define name="tei_model.segLike">
       <choice>
-         <ref name="tei_seg"/>
          <ref name="tei_s"/>
          <ref name="tei_w"/>
          <ref name="tei_pc"/>
@@ -1778,17 +1777,6 @@ Sample values include: 1] main; 2] sub (subordinate); 3] alt (alternate); 4] sho
          <empty/>
       </element>
    </define>
-   <define name="tei_seg">
-      <element name="seg">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(arbitrary segment) represents any segmentation of text below the chunk level. [16.3. Blocks, Segments, and Anchors 6.2. Components of the Verse Line 7.2.5. Speech Contents]</a:documentation>
-         <ref name="tei_macro.paraContent"/>
-         <ref name="tei_att.global.attributes"/>
-         <ref name="tei_att.segLike.attributes"/>
-         <ref name="tei_att.typed.attributes"/>
-         <ref name="tei_att.notated.attributes"/>
-         <empty/>
-      </element>
-   </define>
    <define name="tei_when">
       <element name="when">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates a point in time either relative to other elements in the same timeline tag, or absolutely. [16.4.2. Placing Synchronous Events in Time]</a:documentation>
@@ -2053,11 +2041,20 @@ You must supply at least two values for @target on <name/>
       </element>
    </define>
    <define name="tei_att.linguistic.attributes">
+      <ref name="tei_att.linguistic.attribute.phon"/>
       <ref name="tei_att.linguistic.attribute.lemma"/>
       <ref name="tei_att.linguistic.attribute.lemmaRef"/>
       <ref name="tei_att.linguistic.attribute.pos"/>
       <ref name="tei_att.linguistic.attribute.msd"/>
       <ref name="tei_att.linguistic.attribute.join"/>
+   </define>
+   <define name="tei_att.linguistic.attribute.phon">
+      <optional>
+         <attribute name="phon">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">This attribute encodes information on the pronunciation of the given element, according to the notation documented in the header and/orr ODD.</a:documentation>
+            <text/>
+         </attribute>
+      </optional>
    </define>
    <define name="tei_att.linguistic.attribute.lemma">
       <optional>
@@ -2152,7 +2149,6 @@ You must supply at least two values for @target on <name/>
             <choice>
                <text/>
                <ref name="tei_model.gLike"/>
-               <ref name="tei_seg"/>
                <ref name="tei_w"/>
                <ref name="tei_pc"/>
                <ref name="tei_model.global"/>
