@@ -140,7 +140,7 @@ Question: how do we standardize the context for pointing? LR:
                     <span lemma="lequel" pos="#pos.pronrel" corresp="#t0"/>
                 </p>
             </div>
-            
+<!--       we need to take a decision on figure 14: empty tokens inline feel wrong     -->
             <div>
                 <head>Figure 14 (fine)</head>
                 <p>
@@ -154,7 +154,7 @@ Question: how do we standardize the context for pointing? LR:
             
             <div>
                 <head>Figure 19</head>
-                <p>Figures 15-18 are no challenge. But let me repeat that I am not happy with the w vs. span opposition</p>
+                <p>Figures 15-18 are no challenge. </p>
                 <p>
                     <w xml:id="t411">to</w>
                     <w xml:id="t421">boldly</w>
