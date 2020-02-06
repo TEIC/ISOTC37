@@ -503,6 +503,7 @@ within it is the <gi>fileDesc</gi>, which contains only the following elements:
               <memberOf key="att.interpLike"/>
               <memberOf key="att.pointing"/>
               <memberOf key="att.referring"/>
+              <memberOf key="att.linguistic"/> <!-- I'm not happy here -P -->
               <memberOf key="model.global.meta"/>
             </classes>
             <content>
@@ -567,6 +568,9 @@ within it is the <gi>fileDesc</gi>, which contains only the following elements:
           </elementSpec>
           
           <classSpec ident="att.linguistic" type="atts" mode="change">
+            <classes mode="change">
+              <memberOf key="att.normalized"/>
+            </classes>
             <attList>
               <attDef ident="phon" mode="change">
                 <desc versionDate="2020-02-06" xml:lang="en">This attribute encodes information on

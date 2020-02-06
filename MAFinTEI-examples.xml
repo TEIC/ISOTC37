@@ -17,15 +17,24 @@
         </fileDesc>
     </teiHeader>
     <text>
+        
         <body>
             <div>
                 <head>Introduction</head>
                 <p>This document uses the TEI customization of ISO MAF in order to illustrate some
                     of the constructs mentioned in the body of the standard, and to introduce some
                     further informative examples.</p>
+                <p>There needs to be a sentence here stating clearly that the TEI as such is
+                    oblivious to the level distinction between tokens and word forms: this needs a
+                    modelling layer that is properly described in the header and possibly the ODD.
+                    To wit, one can model the distinction with &lt;seg for tokens and &lt;w> for
+                    word forms (I happen to like this solution a lot). Or use &lt;w for tokens and
+                    &lt;span for word forms, as suggested in MAF. Or do a mixture, with &lt;w> for
+                    tokens but also happening to have word-form-level features (no issue for
+                    linguists, probably bad for others).</p>
             </div>
             <div>
-                <head>Figure 4</head>
+                <head>Figure 4</head> 
                 <p>
                     <w xml:id="t1">The</w>
                     <w xml:id="t2">victim</w>
@@ -46,7 +55,7 @@
                 </p>
             </div>
             <div>
-                <head>Fig x</head>
+                <head>Figure 6</head>
                 <p>
                     <s xml:id="s1">The victim's friends</s>
                     <s>
@@ -90,7 +99,74 @@
                 </p>
             </div>
             <div>
-                <head>Fig s</head>
+                <head>Figure 7+</head>
+                <p>
+                    <w norm="etcetera">etc.</w>
+                    <w norm="etcetera" phon="/etsettrə/" from="1251" to="1253"/>
+                    <w norm="tzar">csar</w>
+                    <w norm="tzar">tsar</w>
+                    <!--<w transliteration="tsar">цар</w> @TRANS-->
+                    <w norm="2003-02-23">February 23rd 2003</w>
+                </p>
+            </div>
+            <div>
+                <head>Figure 10+</head>
+                <p>Just add an example with @join. This is straightforward. Probably comment on the global and streaming strategies (for "both")</p>
+                
+                <p>
+                    <w norm="ϰαλὸϛ">ϰαλο</w>
+                    <w norm="ϰαι" join="left">ϰ</w>
+                    <w norm="αγαϑὸϛ" join="left">αγαϑὸϛ</w>
+                </p>
+                
+            </div>
+            <div>
+                <head>Figure 11 and 12</head>
+                <p>
+                    <w norm="etcetera" from="0" to="3"/>
+                    <w norm="." from="3" to="3"/>
+                </p>
+                <p>
+                    <w norm="etcetera">etc.</w>
+                    <w norm="." join="overlap"/>
+                </p>
+            </div>
+            
+            <div>
+                <head>Figure 13 (coarse)</head>
+                <p>Let me stress that I am not super happy with this. I'd prefer a &lt;seg> vs. &lt;w> opposition. -P
+                    <w xml:id="t0">auquel</w>
+                    <span lemma="à" pos="#pos.prep" corresp="#t0"/>
+                    <span lemma="lequel" pos="#pos.pronrel" corresp="#t0"/>
+                </p>
+            </div>
+            
+            <div>
+                <head>Figure 14 (fine)</head>
+                <p>
+                    <w norm="a" xml:id="t01">auquel</w>
+                    <w norm="lequel" xml:id="t111" join="overlap"/>
+                    <span lemma="à" pos="#pos.prep" corresp="#t01"/>
+                    <span lemma="lequel" pos="#pos.pronrel" corresp="#t111"/>
+                </p>
+                
+            </div>
+            
+            <div>
+                <head>Figure 19</head>
+                <p>Figures 15-18 are no challenge. But let me repeat that I am not happy with the w vs. span opposition</p>
+                <p>
+                    <w xml:id="t411">to</w>
+                    <w xml:id="t421">boldly</w>
+                    <w xml:id="t43">go</w>
+                    <span lemmaRef="urn:lexicon:en:go:to" corresp="#t411 #t43"/>
+                    <span lemmaRef="urn:lexicon:en:boldly" corresp="#t421"/>
+                    <span lemmaRef="urn:lexicon:en:go:main" corresp="#t411 #t43"/>
+                </p>                
+            </div>
+
+            <div>
+                <head>Figure 27</head>
                 <p>
                      <w xml:id="w1">I</w>
                          <w xml:id="w2">wanna</w>
@@ -187,6 +263,13 @@
                      </form>
                 </entry>
             </div>
+            
+            <div>
+                <head>More</head>
+                <p>I can't see any challenges -- apart from tagset definitions and lattices, but these are arguably slightly outside the scope (?) -P</p>
+            </div>
+            
+            
         </body>
     </text>
 </TEI>
