@@ -1,4 +1,6 @@
+![test](https://github.com/bansp/MAFinTEI/workflows/test/badge.svg?branch=test&event=push)
 # MAFinTEI
+
 The documents in this repository present the ongoing work on the TEI serialization of MAF (Morphosyntactic Annotation Framework, [ISO 24611](https://www.iso.org/standard/51934.html)).
 
 
