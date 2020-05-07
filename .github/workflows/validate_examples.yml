@@ -29,9 +29,11 @@ jobs:
     # so many config files. Oh well.
     # https://github.com/actions/virtual-environments/issues/423
     - name: install libxml2
-      run: sudo apt-get install libxml2-utils
+      run: |
+        sudo apt-get update
+        sudo apt-get install libxml2-utils
 
     # validate
     - name: Validate with xmllint --noout --xinclude 
       run: xmllint --noout --xinclude --relaxng $GITHUB_WORKSPACE/MAFinTEI.rng $GITHUB_WORKSPACE/MAFinTEI-examples.xml
-
+   
