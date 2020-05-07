@@ -1,16 +1,20 @@
-# This is a basic workflow to help you get started with Actions
+# This workflow validates the examples against the RNG schema
+# this is probably more proof-of-conceptish than actually useful, since one would expect
+# validation to happen even before a push. For the same reason, I don't want to dynamically
+# create the RNG from ODD, simply because I also expect this to be done before a push 
+# (or a pull request). But, who knows where we end up, so here's a piece of working functionality
 
 name: validate_examples
 
 # Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
+# events, for the master branch and also for the test branch (which can be created to
+# test some stuff, then deleted, and again.
 on:
   push:
     branches: [ master,  test]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  
   validate:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -21,6 +25,9 @@ jobs:
     - uses: actions/checkout@v2
       
     # install the necessary stuff
+    # it turns out that libxml is missing by design, although it's used to parse
+    # so many config files. Oh well.
+    # https://github.com/actions/virtual-environments/issues/423
     - name: install libxml2
       run: sudo apt-get install libxml2-utils
 
