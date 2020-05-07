@@ -5,7 +5,7 @@
          xmlns="http://relaxng.org/ns/structure/1.0"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2020-05-06T13:34:08Z. .
+Schema generated from ODD source 2020-05-07T16:38:07Z. .
 TEI Edition: Version 4.1.0a. Last updated on
 	4th May 2020, revision 38671fc
 TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 4.1.0a./
@@ -314,6 +314,7 @@ TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 4.1.0a./
       <ref name="tei_att.global.attribute.xmlid"/>
       <ref name="tei_att.global.attribute.n"/>
       <ref name="tei_att.global.attribute.xmllang"/>
+      <ref name="tei_att.global.attribute.xmlspace"/>
    </define>
    <define name="tei_att.global.attribute.xmlid">
       <optional>
@@ -342,6 +343,19 @@ TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 4.1.0a./
                   <value/>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
                </choice>
+            </choice>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_att.global.attribute.xmlspace">
+      <optional>
+         <attribute name="xml:space">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">signals an intention about how white space should be managed by applications.</a:documentation>
+            <choice>
+               <value>default</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">signals that the application's default white-space processing modes are acceptable</a:documentation>
+               <value>preserve</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates the intent that applications preserve all white space</a:documentation>
             </choice>
          </attribute>
       </optional>
