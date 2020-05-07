@@ -9,3 +9,7 @@ The documents in this repository present the ongoing work on the TEI serializati
 * MAFinTEI.rng is the RELAX NG schema, used by the example document
 * MAFinTEI-examples.xml is a test application of the ODD as well as a demo.
 
+The etc/ directory contains the current snapshot of the TEI Guidelines that the MAFinTEI.odd 
+is compiled against. This is because it depends on some bleeding edge features that are
+not yet officially released.
+
