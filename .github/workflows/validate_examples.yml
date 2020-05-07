@@ -26,5 +26,5 @@ jobs:
 
     # validate
     - name: Validate with xmllint --noout --xinclude 
-      run: xmllint --noout --xinclude --relaxng $GITHUB_WORKSPACE/MAFinTEI/MAFinTEI.rng $GITHUB_WORKSPACE/MAFinTEI/MAFinTEI-examples.xml
+      run: xmllint --noout --xinclude --relaxng $GITHUB_WORKSPACE/MAFinTEI.rng $GITHUB_WORKSPACE/MAFinTEI-examples.xml
 
