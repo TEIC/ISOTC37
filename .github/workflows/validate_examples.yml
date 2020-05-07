@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: test
+name: validate_examples
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -10,8 +10,8 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
+  
+  validate:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -20,12 +20,7 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    # Runs a single command using the runners shell
-    - name: Run a one-line script
-      run: echo Hello, world!
+    # validate
+    - name: Validate with xmllint --noout --xinclude 
+      run: xmllint --noout --xinclude --relaxng $GITHUB_WORKSPACE/MAFinTEI/MAFinTEI.rng $GITHUB_WORKSPACE/MAFinTEI/MAFinTEI-examples.xml
 
-    # Runs a set of commands using the runners shell
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
