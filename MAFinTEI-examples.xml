@@ -71,30 +71,31 @@
                 <p>The example above uses the MAF 2012 way of encoding standoff relationships by
                     means of XPointer that has never gotten implemented in the TEI (and has fallen
                     out of use in general). The example below uses a new, direct way of encoding
-                    string offsets. It is enabled thanks to the ODD fragments that are provided in
-                    comments below:
-                    <!--                    
-                    <elementSpec ident="s" mode="change">
-                        <classes mode="change">
-                            <memberOf key="att.offset"/>
-                        </classes>
-                    </elementSpec>
+                    string offsets. It is enabled thanks to the following ODD fragments:
+                                        
+                    <span type="code" xml:space="preserve">
+                    &lt;elementSpec ident="s" mode="change">
+                        &lt;classes mode="change">
+                            &lt;memberOf key="att.offset"/>
+                        &lt;/classes>
+                    &lt;/elementSpec>
 
-                    <elementSpec ident="w" mode="change">
-                        <classes mode="change">
-                            <memberOf key="att.offset"/>
-                        </classes>
-                    </elementSpec>
-                    -->
+                    &lt;elementSpec ident="w" mode="change">
+                        &lt;classes mode="change">
+                            &lt;memberOf key="att.offset"/>
+                        &lt;/classes>
+                    &lt;/elementSpec>
+                    </span></p>
                     
-                    These fragments enable the att.offset attribute class.
+                    <p>These fragments enable the att.offset attribute class.
                     
                     token offsets are identified by means of inter-character points:
                     
-                    <!-- |T|h|e| |v|i|c|t|i|m|'|s| |f|r|i|e|n|d|s|    -->
-                    <!-- 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0--> 
+                    <span type="code" xml:space="preserve">
+                     |T|h|e| |v|i|c|t|i|m|'|s| |f|r|i|e|n|d|s|    
+                     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0</span></p> 
                     
-                    @offsetBase is an attribute that has to be present either on the element that uses 
+                    <p>@offsetBase is an attribute that has to be present either on the element that uses 
                     @startPos and @endPos attributes, or on its ancestor
                     
                     <s offsetBase="#s1">

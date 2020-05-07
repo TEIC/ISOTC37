@@ -20,7 +20,12 @@
       </sourceDesc>
     </fileDesc>
     <revisionDesc>
-      <change when="2020-02-02" who="#bansp">initial version, derived from TEI Bare with certain LingSIG extensions (branches normAttribute and attReferring).</change>
+      <change when="2020-05-07" who="#bansp">added fragments of the standOff ODD (still in
+        development at <ref target="https://github.com/TEIC/TEI/tree/sydb-standOff">a TEI-C repo
+          branch</ref>); removed the normAttribute fragments, because they have just been merged
+        into the Guidelines; streamlined/described the ODD wrt the intended goals</change>
+      <change when="2020-02-02" who="#bansp">initial version, derived from TEI Bare with certain
+        LingSIG extensions (branches normAttribute and attReferring).</change>
     </revisionDesc>
   </teiHeader>
   <text>
@@ -90,10 +95,10 @@ within it is the <gi>fileDesc</gi>, which contains only the following elements:
       <div>
         <head>Class modifications</head>
         <p>Several of the TEI attribute classes are simplified (this largely follows the original
-          construction of the TEI Bare customization). The attributes <code>xml:space</code>, and
-            <code>xml:base</code> are removed from the <code>att.global class</code>, so that this
-          now makes available to all member elements only the following attributes:
-            <att>xml:id</att>, <att>n</att>, and <att>xml:lang</att>.</p>
+          construction of the TEI Bare customization). The attribute <code>xml:base</code> is
+          removed from the <code>att.global class</code>, so that this now makes available to all
+          member elements only the following attributes: <att>xml:id</att>, <att>n</att>, and
+            <att>xml:lang</att>.</p>
         <p>From <code>att.global.rendition</code> the attributes 
           <code>rend</code>, and <code>style</code> are removed, leaving 
           <code>rendition</code> as the sole attribute within this class.</p>
@@ -106,7 +111,6 @@ within it is the <gi>fileDesc</gi>, which contains only the following elements:
         <specGrp xml:id="classmods">
           <classSpec ident="att.global" mode="change" module="tei" type="atts">
             <attList>
-              <attDef ident="xml:space" mode="delete"/>
               <attDef ident="xml:base" mode="delete"/>
             </attList>
           </classSpec>
