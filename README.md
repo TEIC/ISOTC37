@@ -1,4 +1,4 @@
-![test](https://github.com/bansp/MAFinTEI/workflows/test/badge.svg?branch=test&event=push)
+![validate_examples](https://github.com/bansp/MAFinTEI/workflows/validate_examples/badge.svg?event=push)
 # MAFinTEI
 
 The documents in this repository present the ongoing work on the TEI serialization of MAF (Morphosyntactic Annotation Framework, [ISO 24611](https://www.iso.org/standard/51934.html)).
@@ -9,4 +9,3 @@ The documents in this repository present the ongoing work on the TEI serializati
 * MAFinTEI.rng is the RELAX NG schema, used by the example document
 * MAFinTEI-examples.xml is a test application of the ODD as well as a demo.
 
-just testing
