@@ -26,8 +26,7 @@
                 <p>This document uses the TEI customization of ISO MAF in order to illustrate some
                     of the constructs mentioned in the body of the standard, and to introduce some
                     further informative examples. Despite this introduction, you are not looking at
-                    documentation, but rather "corpus samples". Please treat the content of &lt;p>
-                    elements simply as notes accompanying the samples.</p>
+                    documentation, but rather "corpus samples" with accompanying notes.</p>
                 <p>The schema is defined in MAFinTEI.odd, i.e. the ODD file accompanying this document.</p>
                 <p>The figure references point at particular figures from the ISO MAF standard (ISO
                     24611:2012), currently under revision.</p>
@@ -69,35 +68,16 @@
                     </s>
                 </p>
                 <p>The example above uses the MAF 2012 way of encoding standoff relationships by
-                    means of XPointer that has never gotten implemented in the TEI (and has fallen
-                    out of use in general). The example below uses a new, direct way of encoding
-                    string offsets. It is enabled thanks to the following ODD fragments:
-                                        
-                    <span type="code" xml:space="preserve">
-                    &lt;elementSpec ident="s" mode="change">
-                        &lt;classes mode="change">
-                            &lt;memberOf key="att.offset"/>
-                        &lt;/classes>
-                    &lt;/elementSpec>
-
-                    &lt;elementSpec ident="w" mode="change">
-                        &lt;classes mode="change">
-                            &lt;memberOf key="att.offset"/>
-                        &lt;/classes>
-                    &lt;/elementSpec>
-                    </span></p>
-                    
-                    <p>These fragments enable the att.offset attribute class.
-                    
-                    token offsets are identified by means of inter-character points:
-                    
-                    <span type="code" xml:space="preserve">
-                     |T|h|e| |v|i|c|t|i|m|'|s| |f|r|i|e|n|d|s|    
-                     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0</span></p> 
-                    
-                    <p>@offsetBase is an attribute that has to be present either on the element that uses 
-                    @startPos and @endPos attributes, or on its ancestor
-                    
+                    means of XPointer that has never gotten implemented in the TEI, and has fallen
+                    out of use in general. This means that you would need a dedicated parser on top
+                    of any XML engine to intepret XPointers.</p>
+                <p>The example below uses a direct way of encoding string offsets provided by the
+                    att.offset class. Token offsets are identified by means of inter-character
+                    points (see the ODD documentation for more details). The @offsetBase attribute
+                    establishes the domain within which offsets are meaningful and thus it has to be
+                    present either on the element that uses @startPos and @endPos attributes, or on
+                    its ancestor.</p> 
+                <p>
                     <s offsetBase="#s1">
                         <w startPos="0" endPos="3"/>
                         <!-- The -->
@@ -112,10 +92,9 @@
             </div>
             <div>
                 <head>Figure 7+</head>
+                <p>What follows is a sequence of separate examples; in theory each of them 
+                     should be wrapped in its own &lt;s> element; they are combined here only for reasons of space</p>
                 <p>
-                    
-                 <!-- what follows is a set of separate examples; in theory each of them 
-                     should be wrapped in its own <s>                   -->
                     <s>
                         <w norm="etcetera">etc.</w>
                         <w offsetBase="#xyz" norm="etcetera" phon="/etsettrə/" startPos="1251"
