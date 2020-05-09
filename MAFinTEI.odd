@@ -117,7 +117,7 @@ within it is the <gi>fileDesc</gi>, which contains only the following elements:
           <classSpec ident="att.global.rendition" mode="change" module="tei" type="atts">
             <attList>
               <attDef ident="rend" mode="delete"/>
-              <attDef ident="style" mode="delete"/>
+              <attDef ident="rendition" mode="delete"/>
             </attList>
           </classSpec>
           <classSpec ident="att.fragmentable" mode="delete" module="tei" type="atts"/>

@@ -5,7 +5,7 @@
          xmlns="http://relaxng.org/ns/structure/1.0"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2020-05-07T16:38:07Z. .
+Schema generated from ODD source 2020-05-08T15:03:31Z. .
 TEI Edition: Version 4.1.0a. Last updated on
 	4th May 2020, revision 38671fc
 TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 4.1.0a./
@@ -293,17 +293,13 @@ TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 4.1.0a./
       </optional>
    </define>
    <define name="tei_att.global.rendition.attributes">
-      <ref name="tei_att.global.rendition.attribute.rendition"/>
+      <ref name="tei_att.global.rendition.attribute.style"/>
    </define>
-   <define name="tei_att.global.rendition.attribute.rendition">
+   <define name="tei_att.global.rendition.attribute.style">
       <optional>
-         <attribute name="rendition">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">points to a description of the rendering or presentation used for this element in the source text.</a:documentation>
-            <list>
-               <oneOrMore>
-                  <data type="anyURI"/>
-               </oneOrMore>
-            </list>
+         <attribute name="style">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains an expression in some formal style definition language which defines the rendering or presentation used for this element in the source text</a:documentation>
+            <data type="string"/>
          </attribute>
       </optional>
    </define>
