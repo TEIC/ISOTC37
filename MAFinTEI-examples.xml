@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?xml-model href="MAFinTEI.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="MAFinTEI.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
@@ -34,22 +33,22 @@
             <div>
                 <head>Figure 4</head> 
                 <p>
-                    <w xml:id="t1">The</w>
-                    <w xml:id="t2">victim</w>
-                    <w xml:id="t3">'s</w>
-                    <w xml:id="t4">friends</w>
-                    <w xml:id="t5">told</w>
-                    <w xml:id="t6">police</w>
-                    <w xml:id="t7">that</w>
-                    <w xml:id="t8">Krueger</w>
-                    <w xml:id="t9">drove</w>
-                    <w xml:id="t10">into</w>
-                    <w xml:id="t11">the</w>
-                    <w xml:id="t12">quarry</w>
-                    <w xml:id="t13">and</w>
-                    <w xml:id="t14">never</w>
-                    <w xml:id="t15">surfaced</w>
-                    <pc xml:id="t16">.</pc>
+                    <seg xml:id="t1">The</seg>
+                    <seg xml:id="t2">victim</seg>
+                    <seg xml:id="t3">'s</seg>
+                    <seg xml:id="t4">friends</seg>
+                    <seg xml:id="t5">told</seg>
+                    <seg xml:id="t6">police</seg>
+                    <seg xml:id="t7">that</seg>
+                    <seg xml:id="t8">Krueger</seg>
+                    <seg xml:id="t9">drove</seg>
+                    <seg xml:id="t10">into</seg>
+                    <seg xml:id="t11">the</seg>
+                    <seg xml:id="t12">quarry</seg>
+                    <seg xml:id="t13">and</seg>
+                    <seg xml:id="t14">never</seg>
+                    <seg xml:id="t15">surfaced</seg>
+                    <seg xml:id="t16">.</seg>
                 </p>
             </div>
             <div>
@@ -57,13 +56,13 @@
                 <p>
                     <s xml:id="s1">The victim's friends</s>
                     <s>
-                        <w corresp="#string-range(s1,0,3)"/>
+                        <seg corresp="#string-range(s1,0,3)"/>
                         <!-- The -->
-                        <w corresp="#string-range(s1,4,6)"/>
+                        <seg corresp="#string-range(s1,4,6)"/>
                         <!-- victim -->
-                        <w corresp="#string-range(s1,10,2)"/>
+                        <seg corresp="#string-range(s1,10,2)"/>
                         <!-- 's -->
-                        <w corresp="#string-range(s1,13,7)"/>
+                        <seg corresp="#string-range(s1,13,7)"/>
                         <!-- friends -->
                     </s>
                 </p>
@@ -79,13 +78,13 @@
                     its ancestor.</p> 
                 <p>
                     <s offsetBase="#s1">
-                        <w startPos="0" endPos="3"/>
+                        <seg startPos="0" endPos="3"/>
                         <!-- The -->
-                        <w startPos="4" endPos="10"/>
+                        <seg startPos="4" endPos="10"/>
                         <!-- victim -->
-                        <w startPos="10" endPos="12"/>
+                        <seg startPos="10" endPos="12"/>
                         <!-- 's -->
-                        <w startPos="13" endPos="20"/>
+                        <seg startPos="13" endPos="20"/>
                         <!-- friends -->
                     </s>
                 </p>
@@ -96,13 +95,13 @@
                      should be wrapped in its own &lt;s> element; they are combined here only for reasons of space</p>
                 <p>
                     <s>
-                        <w norm="etcetera">etc.</w>
-                        <w offsetBase="#xyz" norm="etcetera" phon="/etsettrə/" startPos="1251"
+                        <seg norm="etcetera">etc.</seg>
+                        <seg offsetBase="#xyz" norm="etcetera" phon="/etsettrə/" startPos="1251"
                             endPos="1253"/>
-                        <w norm="tzar">csar</w>
-                        <w norm="tzar">tsar</w>
-                        <!--<w transliteration="tsar">цар</w> @TRANS-->
-                        <w norm="2003-02-23">February 23rd 2003</w>
+                        <seg norm="tzar">csar</seg>
+                        <seg norm="tzar">tsar</seg>
+                        <!--<seg transliteration="tsar">цар</seg> @TRANS-->
+                        <seg norm="2003-02-23">February 23rd 2003</seg>
                     </s>
                 </p>
 
@@ -115,9 +114,9 @@
                 
                 <p>
                     <s>
-                        <w norm="ϰαλὸϛ">ϰαλο</w>
-                        <w norm="ϰαι" join="left">ϰ</w>
-                        <w norm="αγαϑὸϛ" join="left">αγαϑὸϛ</w>
+                        <seg norm="ϰαλὸϛ">ϰαλο</seg>
+                        <seg norm="ϰαι" join="left">ϰ</seg>
+                        <seg norm="αγαϑὸϛ" join="left">αγαϑὸϛ</seg>
                     </s>
                 </p>
             </div>
@@ -126,16 +125,16 @@
                 <head>Figure 11 and 12</head>
                 <p>
                     <s offsetBase="#xyz">
-                        <w norm="etcetera" startPos="0" endPos="3"/>
-                        <w norm="." startPos="3" endPos="3"/>
+                        <seg norm="etcetera" startPos="0" endPos="3"/>
+                        <seg norm="." startPos="3" endPos="3"/>
                     </s>
                     
 
                     <!-- look: the <s> element also cirumscribes a domain that 
                         can be identified by offsets:  -->
                     <s offsetBase="#xyz" startPos="0" endPos="27">
-                        <w norm="etcetera" startPos="0" endPos="3"/>
-                        <w norm="." startPos="3" endPos="3"/>
+                        <seg norm="etcetera" startPos="0" endPos="3"/>
+                        <seg norm="." startPos="3" endPos="3"/>
                     </s>
                 </p>
 
@@ -143,8 +142,8 @@
                 <!-- Note the empty token below-->
                 <p>
                     <s>
-                        <w norm="etcetera">etc.</w>
-                        <w norm="." join="overlap"/>
+                        <seg norm="etcetera">etc.</seg>
+                        <seg norm="." join="overlap"/>
                     </s>
                 </p>
             </div>
@@ -154,7 +153,7 @@
                 <p> NEVER KEEP a span UN-@typed, except if the type is on spanGrp; 
                     we probably need some Schematron to enforce that
                     
-                    <w xml:id="t0">auquel</w>
+                    <seg xml:id="t0">auquel</seg>
                     <span type="wordForm" lemma="à" pos="#pos.prep" corresp="#t0"/>
                     <span type="wordForm" lemma="lequel" pos="#pos.pronrel" corresp="#t0"/>
                 </p>
@@ -164,8 +163,8 @@
             <div>
                 <head>Figure 14 (fine)</head>
                 <p>
-                    <w norm="a" xml:id="t01">auquel</w>
-                    <w norm="lequel" xml:id="t111" join="overlap"/>
+                    <seg norm="a" xml:id="t01">auquel</seg>
+                    <seg norm="lequel" xml:id="t111" join="overlap"/>
                     <span type="wordForm" lemma="à" pos="#pos.prep" corresp="#t01"/>
                     <span type="wordForm" lemma="lequel" pos="#pos.pronrel" corresp="#t111"/>
                 </p>
@@ -175,9 +174,9 @@
                 <head>Figure 19</head>
                 <p>Figures 15-18 are no challenge. </p>
                 <p><s>
-                    <w xml:id="t411">to</w>
-                    <w xml:id="t421">boldly</w>
-                    <w xml:id="t43">go</w>
+                    <seg xml:id="t411">to</seg>
+                    <seg xml:id="t421">boldly</seg>
+                    <seg xml:id="t43">go</seg>
                     <span type="wordForm" lemmaRef="urn:lexicon:en:go:to" corresp="#t411 #t43"/>
                     <span type="wordForm" lemmaRef="urn:lexicon:en:boldly" corresp="#t421"/>
                     <span type="wordForm" lemmaRef="urn:lexicon:en:go:main" corresp="#t411 #t43"/>
@@ -187,13 +186,13 @@
             <div>
                 <head>Figure 27</head>
                 <p>
-                     <s><w xml:id="w1">I</w>
-                         <w xml:id="w2">wanna</w>
-                         <w xml:id="w3">put</w>
-                         <w xml:id="w4">up</w>
-                         <w xml:id="w5">new</w>
-                         <w xml:id="w6">wallpaper</w>
-                         <pc>.</pc>
+                     <s><seg xml:id="w1">I</seg>
+                         <seg xml:id="w2">wanna</seg>
+                         <seg xml:id="w3">put</seg>
+                         <seg xml:id="w4">up</seg>
+                         <seg xml:id="w5">new</seg>
+                         <seg xml:id="w6">wallpaper</seg>
+                         <seg>.</seg>
                      </s>
                 </p>
                 <spanGrp type="wordForm">

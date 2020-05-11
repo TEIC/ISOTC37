@@ -138,15 +138,16 @@ within it is the <gi>fileDesc</gi>, which contains only the following elements:
       <div>
         <head>Formal declaration</head>
         <schemaSpec ident="MAFinTEI" xml:lang="en" prefix="tei_" targetLang="en" docLang="en">
-          <moduleRef key="linking" include="ab standOff"/>
-          <moduleRef key="analysis" include="pc s spanGrp w span"/>
+          <moduleRef key="linking" include="ab seg standOff"/>
+          <moduleRef key="analysis" include="s spanGrp span"/>
           <moduleRef key="iso-fs" include="f fs string symbol"/>
           <moduleRef key="core" include="p list item label head author title note"/>
           <moduleRef key="spoken" include="annotationBlock"/>  <!--for standOff -->
           <moduleRef key="tei"/>
           <moduleRef key="header" include="teiHeader fileDesc titleStmt publicationStmt sourceDesc"/>
           <moduleRef key="textstructure" include="TEI text body div"/>
-          <moduleRef key="dictionaries" include="entry form orth gramGrp gram pos pron def"/>  <!-- for some examples of entries-->
+          <moduleRef key="dictionaries" include="entry form orth gramGrp gram pos pron def"/>  <!-- for some examples of entries; 
+                                                                            they will need to be removed from the normative version-->
           <specGrpRef target="#classmods"/>
           <specGrpRef target="#bodyfixes"/>
           <specGrpRef target="#hdrfixes"/>
@@ -490,8 +491,9 @@ within it is the <gi>fileDesc</gi>, which contains only the following elements:
             </constraintSpec>
           </elementSpec>
           
-          <elementSpec ident="w" mode="change">
+          <elementSpec ident="seg" mode="change">
             <classes mode="change">
+              <memberOf key="att.linguistic"/>
               <memberOf key="att.offset"/>
             </classes>
           </elementSpec>
