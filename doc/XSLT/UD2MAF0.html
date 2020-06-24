@@ -1,0 +1,2104 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Stylesheet documentation for: UD2MAF.xsl</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css" /><script type="text/javascript"><!--
+        
+        var parametersBoxes= new Array('prs_F_map_offsetsS_UD2MAF.xsl');
+
+        
+        var usedByBoxes= new Array('uB_P_pos_separatorS_UD2MAF.xsl', 
+				'uB_V_TABS_UD2MAF.xsl', 
+				'uB_V_CONLLUS_UD2MAF.xsl', 
+				'uB_V_unknown_id_prefS_UD2MAF.xsl', 
+				'uB_V_value_separatorS_UD2MAF.xsl', 
+				'uB_V_corpus_mapS_UD2MAF.xsl', 
+				'uB_V_metadata_mapS_UD2MAF.xsl', 
+				'uB_V_annotation_mapS_UD2MAF.xsl', 
+				'uB_V_plain_sentencesS_UD2MAF.xsl', 
+				'uB_V_sequential_annotationS_UD2MAF.xsl', 
+				'uB_F_map_offsetsS_UD2MAF.xsl');
+
+        var docBoxes= new Array('dS_UD2MAF.xsl', 
+				'dS_T_initial-templateS_UD2MAF.xsl', 
+				'dS_P_pos_separatorS_UD2MAF.xsl', 
+				'dS_V_columnsS_UD2MAF.xsl', 
+				'dS_V_value_separatorS_UD2MAF.xsl', 
+				'dS_V_corpus_mapS_UD2MAF.xsl', 
+				'dS_V_metadata_mapS_UD2MAF.xsl', 
+				'dS_V_annotation_mapS_UD2MAF.xsl', 
+				'dS_F_map_offsetsS_UD2MAF.xsl');
+
+        var sourceBoxes= new Array('src_T_initial-templateS_UD2MAF.xsl', 
+				'src_P_pos_separatorS_UD2MAF.xsl', 
+				'src_V_TABS_UD2MAF.xsl', 
+				'src_V_CONLLUS_UD2MAF.xsl', 
+				'src_V_unknown_id_prefS_UD2MAF.xsl', 
+				'src_V_columnsS_UD2MAF.xsl', 
+				'src_V_value_separatorS_UD2MAF.xsl', 
+				'src_V_corpus_mapS_UD2MAF.xsl', 
+				'src_V_metadata_mapS_UD2MAF.xsl', 
+				'src_V_annotation_mapS_UD2MAF.xsl', 
+				'src_V_plain_sentencesS_UD2MAF.xsl', 
+				'src_V_sequential_annotationS_UD2MAF.xsl', 
+				'src_F_map_offsetsS_UD2MAF.xsl', 
+				'src_O_S_UD2MAF.xsl');
+
+        
+        
+        var referencesBoxes= new Array('refs_T_initial-templateS_UD2MAF.xsl', 
+				'refs_V_columnsS_UD2MAF.xsl', 
+				'refs_V_value_separatorS_UD2MAF.xsl', 
+				'refs_V_metadata_mapS_UD2MAF.xsl', 
+				'refs_V_annotation_mapS_UD2MAF.xsl', 
+				'refs_V_plain_sentencesS_UD2MAF.xsl', 
+				'refs_V_sequential_annotationS_UD2MAF.xsl', 
+				'refs_F_map_offsetsS_UD2MAF.xsl');
+
+        
+        
+        
+        
+        var button_prefix = 'bt_';
+        
+        /**
+        * Get all DIV elements with a specified class name.
+        *
+        * @param className The class name. 
+        */
+        function getElementsByClassName(className) {
+            var results = [];
+    
+             if (document.getElementsByClassName == undefined) {
+                var allElements = document.getElementsByTagName("div");
+                var element;
+                for (var i = 0; i < allElements.length; i++) {
+                    var element = allElements[i];
+                	var elementClass = element.className;
+                	if (elementClass == className) { 
+                		results.push(element);
+                	}
+                }
+             } else {
+                results = document.getElementsByClassName(className);
+             }
+    
+            return results;
+        }
+            
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+
+       /**
+        * Switch between the compact list representation and the clasic list representation.
+        */
+       function switchMode(checkBox) {
+            if (checkBox == null) {
+                // Checkbox not found
+            } else if (checkBox.checked == 1) {
+                // Compact mode
+                var divs = getElementsByClassName('refItemBlock');
+                for (var i = 0; i < divs.length; i ++) {
+                    divs[i].style.display = "inline";
+                    var children = divs[i].children;
+                    var refItemSep = children[children.length - 1];
+                    if (refItemSep.className == "refItemSep") {
+                        children[children.length - 1].style.display = "inline";
+                    }
+                }
+            } else {
+                // Expanded mode
+                var divs = getElementsByClassName('refItemBlock');
+                for (var i = 0; i < divs.length; i ++) {
+                    divs[i].style.display = "block";
+                    var children = divs[i].children;
+                    var refItemSep = children[children.length - 1];
+                    if (refItemSep.className == "refItemSep") {
+                        children[children.length - 1].style.display = "none";
+                    }
+                }
+            }
+        }
+
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updPT(message) {
+            top.document.title = "Stylesheet documentation for: " + message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id){
+         var selectIds = new Array('toc_group_by_location', 'toc_group_by_component_type', 'toc_group_by_namespace', 'toc_group_by_mode');
+            // Make all the tabs invisible.
+            for (i = 0; i < 4; i++){
+               var tab = getElementObject(selectIds[i]);
+               tab.style.display = 'none';
+            }
+            var selTab = getElementObject(id);
+            selTab.style.display = 'block';            
+         }
+          
+
+    
+                    //--></script></head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cTL"></td>
+               <td class="rt_lT"></td>
+               <td class="rt_cTR"></td>
+            </tr>
+            <tr>
+               <td class="rt_lL"></td>
+               <td class="rt_cnt">
+                  <h3>Mode:</h3>
+                  <table>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchMode(this);" class="control" /></span><span class="globalControlName">Compact lists</span></td>
+                     </tr>
+                  </table>
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, docBoxes);" class="control" /></span><span class="globalControlName">Documentation
+                              </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, parametersBoxes);" class="control" /></span><span class="globalControlName">Parameters </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, usedByBoxes);" class="control" /></span><span class="globalControlName">Used by </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, referencesBoxes);" class="control" /></span><span class="globalControlName">References </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control" /></span><span class="globalControlName">Source </span></td>
+                     </tr>
+                  </table>
+                  <div align="right"><span><input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close" /></span></div>
+               </td>
+               <td class="rt_lR"></td>
+            </tr>
+            <tr>
+               <td class="rt_cBL"></td>
+               <td class="rt_lB"></td>
+               <td class="rt_cBR"></td>
+            </tr>
+         </table>
+      </div><a id="UD2MAF.xsl"></a><div class="cmpT">Main stylesheet
+         <span class="qname">UD2MAF.xsl</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_UD2MAF.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>
+                                 
+                                 <p><b>Created on:</b> May 23rd, 2020</p>
+                                 
+                                 <p><b>Author:</b>Piotr Banski</p>
+                                 
+                                 <p>Parse UD files into ISO MAF XML structures</p>
+                                 
+                                 <p>The current form of this script is a proof-of-concept prepared for the June 2020
+                                    ISO Conference, to demonstrate how the ISO MAF standard can be used to describe data
+                                    encoded in the Universal Dependencies format.</p>
+                                 
+                                 <p>Many routines below are redundant and sometimes even seem kludgy, but this is not
+                                    the production form of this script yet.</p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Stylesheet version</td>
+                        <td>3.0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Extension functions reliance</div>
+                        </td>
+                        <td>
+                           <div>
+                              <table class="attsT">
+                                 <th class="fCol">
+                                    <div class="flL">Namespace</div>
+                                 </th>
+                                 <th class="fCol">
+                                    <div class="flL">Functions</div>
+                                 </th>
+                                 <tr>
+                                    <td class="fCol">http://www.w3.org/2005/xpath-functions/map</td>
+                                    <td><span title="Arity: 1 Used in: UD2MAF.xsl&#xA;">keys</span>, <span title="Arity: 1 Used in: UD2MAF.xsl&#xA;">merge</span>, <span title="Arity: 1 Used in: UD2MAF.xsl&#xA;">size</span></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="T_initial-templateS_UD2MAF.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateName">xsl:initial-template</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_T_initial-templateS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_T_initial-templateS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_T_initial-templateS_UD2MAF.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>This is the 'main() function' -- the entry point.</div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>http://www.w3.org/1999/XSL/Transform</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">References</div>
+                           <div class="flR"><input id="bt_refs_T_initial-templateS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('refs_T_initial-templateS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="refs_T_initial-templateS_UD2MAF.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Variables</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#V_annotation_mapS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">annotation_map</a><span class="refItemSep">;</span></div>
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#V_metadata_mapS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">metadata_map</a><span class="refItemSep">;</span></div>
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#V_plain_sentencesS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">plain_sentences</a><span class="refItemSep">;</span></div>
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#V_sequential_annotationS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">sequential_annotation</a><span class="refItemSep">;</span></div>
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#V_unknown_id_prefS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">unknown_id_pref</a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="fCol">Function</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#F_map_offsetsS_UD2MAF.xsl" target="_self" title="func" onclick="updPT('UD2MAF.xsl')"><span>map_offsets (</span><span class="fParams">sentence, current_key, base_offset</span><span>)</span></a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="fCol">Parameter</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#P_pos_separatorS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">pos_separator</a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_T_initial-templateS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_T_initial-templateS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_T_initial-templateS_UD2MAF.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> name=</span><span class="tAV">"xsl:initial-template"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;TEI</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;teiHeader</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;fileDesc</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;titleStmt</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;title</span><span class="tEl">&gt;</span><span class="tT">Output of the UD2MAF.xml script</span><span class="tEl">&lt;/title&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/titleStmt&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;publicationStmt</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tEl">&gt;</span><span class="tT">This is free output of the tool UD2MAF, accompanying the ISO MAF (proposed, revised) standard.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/publicationStmt&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;sourceDesc</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tEl">&gt;</span><span class="tT">Created in the electronic form.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/sourceDesc&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/fileDesc&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/teiHeader&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;text</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;body</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;div</span><span class="tAN"> type=</span><span class="tAV">"'plain'"</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:sequence</span><span class="tAN"> select=</span><span class="tAV">"$plain_sentences"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/div&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;div</span><span class="tAN"> type=</span><span class="tAV">"'sequential'"</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:sequence</span><span class="tAN"> select=</span><span class="tAV">"$sequential_annotation"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/div&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/body&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/text&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;standOff</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"map:keys($metadata_map)"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:sort</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tAN"> order=</span><span class="tAV">"ascending"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"sent_id"</span><span class="tAN"> select=</span><span class="tAV">"if ($metadata_map(.)('sent_id')) then $metadata_map(.)('sent_id') else $unknown_id_pref || position()"</span><span class="tAN"> as=</span><span class="tAV">"xs:string"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"sent_number"</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tXSLEl">/&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"index_m"</span><span class="tAN"> as=</span><span class="tAV">"map(xs:integer, map(xs:string, xs:integer))"</span><span class="tAN"> select=</span><span class="tAV">"f:map_offsets($annotation_map($sent_number),1,0)"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;listAnnotation</span><span class="tAN"> corresp=</span><span class="tAV">"{'#' || $sent_id}"</span><span class="tAN"> xml:id=</span><span class="tAV">"{'ann_' || $sent_id}"</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;annotationBlock</span><span class="tAN"> type=</span><span class="tAV">"token"</span><span class="tAN"> offsetBase=</span><span class="tAV">"{'#' || $sent_id}"</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"map:keys($annotation_map($sent_number))"</span><span class="tXSLEl">&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;xsl:sort</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tAN"> order=</span><span class="tAV">"ascending"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"not($annotation_map($sent_number)(.)('excluded_by'))"</span><span class="tXSLEl">&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;seg</span><span class="tAN"> xml:id=</span><span class="tAV">"{'so-seg_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"</span><span class="tAN"> startPos=</span><span class="tAV">"{$index_m(position())('start')}"</span><span class="tAN"> endPos=</span><span class="tAV">"{$index_m(position())('end')}"</span><span class="tEl">/&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/annotationBlock&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;annotationBlock</span><span class="tAN"> type=</span><span class="tAV">"wordForm"</span><span class="tAN"> subtype=</span><span class="tAV">"LEMMA"</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'),'\d+-\d'))]"</span><span class="tXSLEl">&gt;</span><span class="tI">
+              </span><span class="tC">&lt;!-- excluding the portmanteaus by force, this feels like a kludge --&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;xsl:sort</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tAN"> order=</span><span class="tAV">"ascending"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;span</span><span class="tAN"> type=</span><span class="tAV">"wordForm"</span><span class="tAN"> xml:id=</span><span class="tAV">"{'so-wf_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"</span><span class="tAN"> lemma=</span><span class="tAV">"{$annotation_map($sent_number)(.)('LEMMA')}"</span><span class="tAN"> corresp=</span><span class="tAV">"{concat('#so-seg_',$sent_id, '-', if (not($annotation_map($sent_number)(.)('excluded_by'))) then $annotation_map($sent_number)(.)('ID') else $annotation_map($sent_number)(.)('excluded_by') )}"</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;/span&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/annotationBlock&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;annotationBlock</span><span class="tAN"> type=</span><span class="tAV">"wordForm"</span><span class="tAN"> subtype=</span><span class="tAV">"XPOS"</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'),'\d+-\d'))]"</span><span class="tXSLEl">&gt;</span><span class="tI">
+              </span><span class="tC">&lt;!-- excluding the portmanteaus by force, this feels like a kludge --&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;xsl:sort</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tAN"> order=</span><span class="tAV">"ascending"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;span</span><span class="tAN"> type=</span><span class="tAV">"wordForm"</span><span class="tAN"> xml:id=</span><span class="tAV">"{'so-wf_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"</span><span class="tAN"> lemma=</span><span class="tAV">"{$annotation_map($sent_number)(.)('LEMMA')}"</span><span class="tAN"> pos=</span><span class="tAV">"{$annotation_map($sent_number)(.)('XPOS')}"</span><span class="tAN"> corresp=</span><span class="tAV">"{concat('#so-seg_',$sent_id, '-', if (not($annotation_map($sent_number)(.)('excluded_by'))) then $annotation_map($sent_number)(.)('ID') else $annotation_map($sent_number)(.)('excluded_by') )}"</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;/span&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/annotationBlock&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;annotationBlock</span><span class="tAN"> type=</span><span class="tAV">"wordForm"</span><span class="tAN"> subtype=</span><span class="tAV">"UPOS"</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'),'\d+-\d'))]"</span><span class="tXSLEl">&gt;</span><span class="tI">
+              </span><span class="tC">&lt;!-- excluding the portmanteaus by force, this feels like a kludge --&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;xsl:sort</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tAN"> order=</span><span class="tAV">"ascending"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;span</span><span class="tAN"> type=</span><span class="tAV">"wordForm"</span><span class="tAN"> xml:id=</span><span class="tAV">"{'so-wf_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"</span><span class="tAN"> lemma=</span><span class="tAV">"{$annotation_map($sent_number)(.)('LEMMA')}"</span><span class="tAN"> pos=</span><span class="tAV">"{$annotation_map($sent_number)(.)('UPOS')}"</span><span class="tAN"> msd=</span><span class="tAV">"{$annotation_map($sent_number)(.)('FEATS')}"</span><span class="tAN"> corresp=</span><span class="tAV">"{concat('#so-seg_',$sent_id, '-', if (not($annotation_map($sent_number)(.)('excluded_by'))) then $annotation_map($sent_number)(.)('ID') else $annotation_map($sent_number)(.)('excluded_by') )}"</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;/span&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/annotationBlock&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:comment</span><span class="tXSLEl">&gt;</span><span class="tT">the following annotation block is overall spurious, but still interesting in how it mimics the merged UPOS:XPOS description in the &lt;text&gt; element above</span><span class="tXSLEl">&lt;/xsl:comment&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;annotationBlock</span><span class="tAN"> type=</span><span class="tAV">"wordForm"</span><span class="tAN"> subtype=</span><span class="tAV">"UPOS:XPOS"</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'),'\d+-\d'))]"</span><span class="tXSLEl">&gt;</span><span class="tI">
+              </span><span class="tC">&lt;!-- excluding the portmanteaus by force, this feels like a kludge --&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;xsl:sort</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tAN"> order=</span><span class="tAV">"ascending"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;span</span><span class="tAN"> type=</span><span class="tAV">"wordForm"</span><span class="tAN"> xml:id=</span><span class="tAV">"{'so-wf_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"</span><span class="tAN"> lemma=</span><span class="tAV">"{$annotation_map($sent_number)(.)('LEMMA')}"</span><span class="tAN"> pos=</span><span class="tAV">"{$annotation_map($sent_number)(.)('UPOS') || $pos_separator || $annotation_map($sent_number)(.)('XPOS')}"</span><span class="tAN"> msd=</span><span class="tAV">"{$annotation_map($sent_number)(.)('FEATS')}"</span><span class="tAN"> corresp=</span><span class="tAV">"{concat('#so-seg_',$sent_id, '-', if (not($annotation_map($sent_number)(.)('excluded_by'))) then $annotation_map($sent_number)(.)('ID') else $annotation_map($sent_number)(.)('excluded_by') )}"</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;/span&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/annotationBlock&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/listAnnotation&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/standOff&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/TEI&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="P_pos_separatorS_UD2MAF.xsl"></a><div class="cmpT">Parameter
+         <span class="qname">pos_separator</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_P_pos_separatorS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_P_pos_separatorS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_P_pos_separatorS_UD2MAF.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>
+                                 <pre>for sequential encoding where two values (XPOS and UPOS) need to be squeezed into a single attribute value
+the corresponding typing is: @type="wordForm" @subtype="UPOS:XPOS"</pre>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Select</td>
+                        <td>':'</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Type</td>
+                        <td>xs:string</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_P_pos_separatorS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('uB_P_pos_separatorS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_P_pos_separatorS_UD2MAF.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Template</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#T_initial-templateS_UD2MAF.xsl" target="_self" title="http://www.w3.org/1999/XSL/Transform" onclick="updPT('UD2MAF.xsl')"><span class="nRf">xsl:initial-template</span></a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="fCol">Variable</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#V_sequential_annotationS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">sequential_annotation</a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_P_pos_separatorS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_P_pos_separatorS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_P_pos_separatorS_UD2MAF.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"pos_separator"</span><span class="tAN"> select=</span><span class="tAV">"':'"</span><span class="tAN"> as=</span><span class="tAV">"xs:string"</span><span class="tXSLEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="V_TABS_UD2MAF.xsl"></a><div class="cmpT">Variable
+         <span class="qname">TAB</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Select</td>
+                        <td>'	'</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Type</td>
+                        <td>xs:string</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_V_TABS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('uB_V_TABS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_V_TABS_UD2MAF.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Variable</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#V_value_separatorS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">value_separator</a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_V_TABS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_V_TABS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_V_TABS_UD2MAF.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"TAB"</span><span class="tAN"> select=</span><span class="tAV">"'	'"</span><span class="tAN"> as=</span><span class="tAV">"xs:string"</span><span class="tXSLEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="V_CONLLUS_UD2MAF.xsl"></a><div class="cmpT">Variable
+         <span class="qname">CONLLU</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Select</td>
+                        <td>('ID','FORM','LEMMA','UPOS','XPOS','FEATS','HEAD','DEPREL','DEPS','MISC')</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Type</td>
+                        <td>xs:string+</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_V_CONLLUS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('uB_V_CONLLUS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_V_CONLLUS_UD2MAF.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Variable</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#V_columnsS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">columns</a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_V_CONLLUS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_V_CONLLUS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_V_CONLLUS_UD2MAF.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"CONLLU"</span><span class="tAN"> select=</span><span class="tAV">"('ID','FORM','LEMMA','UPOS','XPOS','FEATS','HEAD','DEPREL','DEPS','MISC')"</span><span class="tAN"> as=</span><span class="tAV">"xs:string+"</span><span class="tXSLEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="V_unknown_id_prefS_UD2MAF.xsl"></a><div class="cmpT">Variable
+         <span class="qname">unknown_id_pref</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Select</td>
+                        <td>'unk_'</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Type</td>
+                        <td>xs:string</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_V_unknown_id_prefS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('uB_V_unknown_id_prefS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_V_unknown_id_prefS_UD2MAF.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Template</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#T_initial-templateS_UD2MAF.xsl" target="_self" title="http://www.w3.org/1999/XSL/Transform" onclick="updPT('UD2MAF.xsl')"><span class="nRf">xsl:initial-template</span></a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="fCol">Variables</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#V_plain_sentencesS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">plain_sentences</a><span class="refItemSep">;</span></div>
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#V_sequential_annotationS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">sequential_annotation</a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_V_unknown_id_prefS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_V_unknown_id_prefS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_V_unknown_id_prefS_UD2MAF.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"unknown_id_pref"</span><span class="tAN"> select=</span><span class="tAV">"'unk_'"</span><span class="tAN"> as=</span><span class="tAV">"xs:string"</span><span class="tXSLEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="V_columnsS_UD2MAF.xsl"></a><div class="cmpT">Variable
+         <span class="qname">columns</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_V_columnsS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_V_columnsS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_V_columnsS_UD2MAF.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>
+                                 <pre>the following two utility variables, together with the constants above, are just a nod towards the potential later extension of this tool</pre>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Select</td>
+                        <td>$CONLLU</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Type</td>
+                        <td>xs:string+</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">References</div>
+                           <div class="flR"><input id="bt_refs_V_columnsS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('refs_V_columnsS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="refs_V_columnsS_UD2MAF.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Variable</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#V_CONLLUS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">CONLLU</a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_V_columnsS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_V_columnsS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_V_columnsS_UD2MAF.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"columns"</span><span class="tAN"> select=</span><span class="tAV">"$CONLLU"</span><span class="tAN"> as=</span><span class="tAV">"xs:string+"</span><span class="tXSLEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="V_value_separatorS_UD2MAF.xsl"></a><div class="cmpT">Variable
+         <span class="qname">value_separator</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_V_value_separatorS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_V_value_separatorS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_V_value_separatorS_UD2MAF.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>
+                                 <pre>    &lt;xsl:variable name="columns" select="($CONLLU, 'excluded_by')" as="xs:string+"/&gt;</pre>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Select</td>
+                        <td>$TAB</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Type</td>
+                        <td>xs:string</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_V_value_separatorS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('uB_V_value_separatorS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_V_value_separatorS_UD2MAF.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Variable</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#V_annotation_mapS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">annotation_map</a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">References</div>
+                           <div class="flR"><input id="bt_refs_V_value_separatorS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('refs_V_value_separatorS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="refs_V_value_separatorS_UD2MAF.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Variable</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#V_TABS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">TAB</a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_V_value_separatorS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_V_value_separatorS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_V_value_separatorS_UD2MAF.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"value_separator"</span><span class="tAN"> select=</span><span class="tAV">"$TAB"</span><span class="tAN"> as=</span><span class="tAV">"xs:string"</span><span class="tXSLEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="V_corpus_mapS_UD2MAF.xsl"></a><div class="cmpT">Variable
+         <span class="qname">corpus_map</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_V_corpus_mapS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_V_corpus_mapS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_V_corpus_mapS_UD2MAF.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>
+                                 
+                                 <p>This variable holds the entire corpus in a map indexed by sentence position, the
+                                    value being a sequence of lines (comments + annotations). This is simply an entry
+                                    point for further processing.</p>
+                                 
+                                 <p>Note that this variable is indexed with the position in the original grouping,
+                                    where the separator between sentences is also counted; but in both the dependent
+                                    variables ($metadata_map and $annotation_map), values are indexed by the position()
+                                    in this variable (so, effectively, 3 here becomes 2 there, because 2 here is the
+                                    separator, which we don't need for further processing).</p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Type</td>
+                        <td>map(xs:integer, xs:string+)</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_V_corpus_mapS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('uB_V_corpus_mapS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_V_corpus_mapS_UD2MAF.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Variables</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#V_annotation_mapS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">annotation_map</a><span class="refItemSep">;</span></div>
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#V_metadata_mapS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">metadata_map</a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_V_corpus_mapS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_V_corpus_mapS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_V_corpus_mapS_UD2MAF.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"corpus_map"</span><span class="tAN"> as=</span><span class="tAV">"map(xs:integer, xs:string+)"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:map</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:for-each-group</span><span class="tAN"> select=</span><span class="tAV">"unparsed-text-lines('deu-lem_pos_msd.conllu')"</span><span class="tAN"> group-adjacent=</span><span class="tAV">"not(. eq '')"</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"current-grouping-key()"</span><span class="tXSLEl">&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:map-entry</span><span class="tAN"> key=</span><span class="tAV">"position()"</span><span class="tAN"> select=</span><span class="tAV">"current-group()"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+          </span><span class="tC">&lt;!--  --&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:for-each-group&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:map&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:variable&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="V_metadata_mapS_UD2MAF.xsl"></a><div class="cmpT">Variable
+         <span class="qname">metadata_map</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_V_metadata_mapS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_V_metadata_mapS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_V_metadata_mapS_UD2MAF.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>
+                                 <p>This variable holds only attribute-value pairs, indexed by the position in the
+                                    $corpus_map. If a comment does not contain a '=' sign, it will not make it into here,
+                                    unless it is "newpar" or "newdoc", which are promoted to key status, with the value
+                                    of
+                                    "'1'".</p>
+                                 
+                                 <p>In other words, <i>#newpar</i> alone in the line yields 
+                                    <i>'newpar':'1'</i>.</p>
+                                 
+                                 <p>On the other hand,  <i>#newpar = my_id-34</i> yields two pairs: <i>'newpar': 'id'</i> and <i>'newpar_id': 'my_id-34'</i></p>
+                                 
+                                 
+                                 <p>Sample structure:
+                                    
+                                    <pre>map{
+1:map{"newpar":"1","newdoc_id":"dump-compars-deu.txt","sent_id":"deu-ab1seg1","text":"Der Dinosaurier ist ausgestorben.","newdoc":"id"},
+2:map{"sent_id":"deu-ab15seg2","text":"Genau das hat sie gesagt."},
+3:map{"newpar":"id","sent_id":"deu-ab64seg1","text":"Ein kleiner Junge versichert: ich habe ebenso viele Brüder wie Schwestern.","newpar_id":"test_par_id-2"},
+4:map{"sent_id":"deu-ab64seg2","text":"Seine Schwester antwortet: ich habe zweimal mehr Brüder als Schwestern."},
+5:map{"newpar":"1","text":"Ich habe mich im Winter in dich verliebt."}}</pre>
+                                 </p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Type</td>
+                        <td>map(xs:integer,map(xs:string, xs:string))</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_V_metadata_mapS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('uB_V_metadata_mapS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_V_metadata_mapS_UD2MAF.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Template</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#T_initial-templateS_UD2MAF.xsl" target="_self" title="http://www.w3.org/1999/XSL/Transform" onclick="updPT('UD2MAF.xsl')"><span class="nRf">xsl:initial-template</span></a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="fCol">Variables</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#V_plain_sentencesS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">plain_sentences</a><span class="refItemSep">;</span></div>
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#V_sequential_annotationS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">sequential_annotation</a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">References</div>
+                           <div class="flR"><input id="bt_refs_V_metadata_mapS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('refs_V_metadata_mapS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="refs_V_metadata_mapS_UD2MAF.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Variable</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#V_corpus_mapS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">corpus_map</a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_V_metadata_mapS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_V_metadata_mapS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_V_metadata_mapS_UD2MAF.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"metadata_map"</span><span class="tAN"> as=</span><span class="tAV">"map(xs:integer,map(xs:string, xs:string))"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:map</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"map:keys($corpus_map)"</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:map-entry</span><span class="tAN"> key=</span><span class="tAV">"position()"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:map</span><span class="tXSLEl">&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"$corpus_map(.)"</span><span class="tXSLEl">&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"matches(., '^#\s*newpar(\s|$)','i')"</span><span class="tXSLEl">&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
+                  </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"matches(., 'newpar\s+id\s*=','i')"</span><span class="tXSLEl">&gt;</span><span class="tI">
+                    </span><span class="tXSLEl">&lt;xsl:map-entry</span><span class="tAN"> key=</span><span class="tAV">"'newpar'"</span><span class="tAN"> select=</span><span class="tAV">"'id'"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+                    </span><span class="tXSLEl">&lt;xsl:map-entry</span><span class="tAN"> key=</span><span class="tAV">"'newpar_id'"</span><span class="tAN"> select=</span><span class="tAV">"tokenize(.,' ')[last()]"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+                  </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+                  </span><span class="tXSLEl">&lt;xsl:otherwise</span><span class="tXSLEl">&gt;</span><span class="tI">
+                    </span><span class="tXSLEl">&lt;xsl:map-entry</span><span class="tAN"> key=</span><span class="tAV">"'newpar'"</span><span class="tAN"> select=</span><span class="tAV">"'1'"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+                  </span><span class="tXSLEl">&lt;/xsl:otherwise&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"matches(., '^#\s*newdoc(\s|$)','i')"</span><span class="tXSLEl">&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
+                  </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"matches(., 'newdoc\s+id\s*=','i')"</span><span class="tXSLEl">&gt;</span><span class="tI">
+                    </span><span class="tXSLEl">&lt;xsl:map-entry</span><span class="tAN"> key=</span><span class="tAV">"'newdoc'"</span><span class="tAN"> select=</span><span class="tAV">"'id'"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+                    </span><span class="tXSLEl">&lt;xsl:map-entry</span><span class="tAN"> key=</span><span class="tAV">"'newdoc_id'"</span><span class="tAN"> select=</span><span class="tAV">"tokenize(.,' ')[last()]"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+                  </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+                  </span><span class="tXSLEl">&lt;xsl:otherwise</span><span class="tXSLEl">&gt;</span><span class="tI">
+                    </span><span class="tXSLEl">&lt;xsl:map-entry</span><span class="tAN"> key=</span><span class="tAV">"'newdoc'"</span><span class="tAN"> select=</span><span class="tAV">"'1'"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+                  </span><span class="tXSLEl">&lt;/xsl:otherwise&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"matches(.,'^#.*?=.*')"</span><span class="tXSLEl">&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"avm_seq"</span><span class="tAN"> select=</span><span class="tAV">"tokenize(.,' ')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+                </span><span class="tC">&lt;!-- assuming that the '=' sign is always surrounded by whitespace; if not, consider replace() followed by normalize-space() before tokenization  --&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"eq_pos"</span><span class="tAN"> select=</span><span class="tAV">"index-of($avm_seq,'=')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;xsl:map-entry</span><span class="tAN"> key=</span><span class="tAV">"$avm_seq[$eq_pos - 1]"</span><span class="tAN"> select=</span><span class="tAV">"string-join(subsequence($avm_seq, $eq_pos + 1),' ')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;/xsl:map&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:map-entry&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:map&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:variable&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="V_annotation_mapS_UD2MAF.xsl"></a><div class="cmpT">Variable
+         <span class="qname">annotation_map</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_V_annotation_mapS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_V_annotation_mapS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_V_annotation_mapS_UD2MAF.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>
+                                 
+                                 <p>Sample structure:
+                                    
+                                    <pre>map{
+...
+5:map{
+    1:map{"HEAD":"_","FEATS":"Case=Nom|Number=Sing|Person=1|PronType=Prs","FORM":"Ich","DEPS":"_","LEMMA":"ich","DEPREL":"_","MISC":"_","ID":"1","XPOS":"PPER","UPOS":"PRON"},
+    2:map{"HEAD":"_","FEATS":"Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin","FORM":"habe","DEPS":"_","LEMMA":"haben","DEPREL":"_","MISC":"_","ID":"2","XPOS":"VAFIN","UPOS":"AUX"},
+    3:map{"HEAD":"_","FEATS":"Case=Acc|Number=Sing|Person=1|PronType=Prs|Reflex=Yes","FORM":"mich","DEPS":"_","LEMMA":"ich","DEPREL":"_","MISC":"_","ID":"3","XPOS":"PRF","UPOS":"PRON"},
+    4:map{"HEAD":"_","FEATS":"_","FORM":"im","DEPS":"_","LEMMA":"_","DEPREL":"_","MISC":"_","ID":"4-5","XPOS":"_","UPOS":"_"},
+    5:map{"HEAD":"_","FEATS":"_","FORM":"in","DEPS":"_","LEMMA":"in","DEPREL":"_","MISC":"_","excluded_by":"4-5","ID":"4","XPOS":"APPR","UPOS":"ADP"},
+    6:map{"HEAD":"_","FEATS":"Case=Dat|Definite=Def|Gender=Masc|Number=Sing|PronType=Art","FORM":"dem","DEPS":"_","LEMMA":"der","DEPREL":"_","MISC":"_","excluded_by":"4-5","ID":"5","XPOS":"ART","UPOS":"DET"},
+    7:map{"HEAD":"_","FEATS":"Case=Dat|Gender=Masc|Number=Sing","FORM":"Winter","DEPS":"_","LEMMA":"Winter","DEPREL":"_","MISC":"_","ID":"6","XPOS":"NN","UPOS":"NOUN"},
+    8:map{"HEAD":"_","FEATS":"_","FORM":"in","DEPS":"_","LEMMA":"in","DEPREL":"_","MISC":"_","ID":"7","XPOS":"APPR","UPOS":"ADP"},
+    9:map{"HEAD":"_","FEATS":"Case=Acc|Number=Sing|Person=2|PronType=Prs|Reflex=Yes","FORM":"dich","DEPS":"_","LEMMA":"du","DEPREL":"_","MISC":"_","ID":"8","XPOS":"PRF","UPOS":"PRON"},
+    10:map{"HEAD":"_","FEATS":"Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin","FORM":"verliebt","DEPS":"_","LEMMA":"verlieben","DEPREL":"_","MISC":"SpaceAfter=No","ID":"9","XPOS":"VVFIN","UPOS":"VERB"},
+    11:map{"HEAD":"_","FEATS":"_","FORM":".","DEPS":"_","LEMMA":".","DEPREL":"_","MISC":"SpacesAfter=\n\n","ID":"10","XPOS":"$.","UPOS":"PUNCT"}
+    }
+}</pre>
+                                 </p>
+                                 </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Type</td>
+                        <td>map(xs:integer, map(xs:integer, map(xs:string, xs:string)))</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_V_annotation_mapS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('uB_V_annotation_mapS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_V_annotation_mapS_UD2MAF.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Template</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#T_initial-templateS_UD2MAF.xsl" target="_self" title="http://www.w3.org/1999/XSL/Transform" onclick="updPT('UD2MAF.xsl')"><span class="nRf">xsl:initial-template</span></a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="fCol">Variable</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#V_sequential_annotationS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">sequential_annotation</a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">References</div>
+                           <div class="flR"><input id="bt_refs_V_annotation_mapS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('refs_V_annotation_mapS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="refs_V_annotation_mapS_UD2MAF.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Variables</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#V_corpus_mapS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">corpus_map</a><span class="refItemSep">;</span></div>
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#V_value_separatorS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">value_separator</a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_V_annotation_mapS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_V_annotation_mapS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_V_annotation_mapS_UD2MAF.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"annotation_map"</span><span class="tAN"> as=</span><span class="tAV">"map(xs:integer, map(xs:integer, map(xs:string, xs:string)))"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:map</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"map:keys($corpus_map)"</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:map-entry</span><span class="tAN"> key=</span><span class="tAV">"position()"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:map</span><span class="tXSLEl">&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"exclusions"</span><span class="tAN"> as=</span><span class="tAV">"map(xs:string,xs:string)"</span><span class="tXSLEl">&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;xsl:map</span><span class="tXSLEl">&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"$corpus_map(.)[matches(., '^\d+-\d')]"</span><span class="tXSLEl">&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"my_id"</span><span class="tAN"> select=</span><span class="tAV">"substring-before(.,$value_separator)"</span><span class="tAN"> as=</span><span class="tAV">"xs:string"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"enumerated"</span><span class="tAN"> select=</span><span class="tAV">"xs:integer(substring-before($my_id, '-')) to xs:integer(substring-after($my_id, '-'))"</span><span class="tAN"> as=</span><span class="tAV">"xs:integer+"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"$enumerated"</span><span class="tXSLEl">&gt;</span><span class="tI">
+                  </span><span class="tXSLEl">&lt;xsl:map-entry</span><span class="tAN"> key=</span><span class="tAV">"xs:string(.)"</span><span class="tAN"> select=</span><span class="tAV">"$my_id"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;/xsl:map&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;/xsl:variable&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"$corpus_map(.)[matches(., '^\d')]"</span><span class="tXSLEl">&gt;</span><span class="tI">
+            </span><span class="tC">&lt;!-- both tokens and analyses thereof ('im'=4-5 as well as 'in'=4 + 'dem'=5) --&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"col_seq"</span><span class="tAN"> select=</span><span class="tAV">"tokenize(., $value_separator)"</span><span class="tAN"> as=</span><span class="tAV">"xs:string+"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;xsl:map-entry</span><span class="tAN"> key=</span><span class="tAV">"position()"</span><span class="tXSLEl">&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;xsl:map</span><span class="tXSLEl">&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"$col_seq"</span><span class="tXSLEl">&gt;</span><span class="tI">
+                  </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"pos"</span><span class="tAN"> select=</span><span class="tAV">"position()"</span><span class="tAN"> as=</span><span class="tAV">"xs:integer"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+                  </span><span class="tXSLEl">&lt;xsl:map-entry</span><span class="tAN"> key=</span><span class="tAV">"$columns[$pos]"</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tXSLEl">/&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+                </span><span class="tC">&lt;!--                                    handle excluded_by (and join?) here, but compute the values outside this loop 
+                                        (later: build a map to derive various values for @join) --&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"$exclusions($col_seq[1])"</span><span class="tXSLEl">&gt;</span><span class="tI">
+                  </span><span class="tXSLEl">&lt;xsl:map-entry</span><span class="tAN"> key=</span><span class="tAV">"'excluded_by'"</span><span class="tAN"> select=</span><span class="tAV">"$exclusions($col_seq[1])"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;/xsl:map&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;/xsl:map-entry&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;/xsl:map&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:map-entry&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:map&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:variable&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="V_plain_sentencesS_UD2MAF.xsl"></a><div class="cmpT">Variable
+         <span class="qname">plain_sentences</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Type</td>
+                        <td>element()+</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_V_plain_sentencesS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('uB_V_plain_sentencesS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_V_plain_sentencesS_UD2MAF.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Template</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#T_initial-templateS_UD2MAF.xsl" target="_self" title="http://www.w3.org/1999/XSL/Transform" onclick="updPT('UD2MAF.xsl')"><span class="nRf">xsl:initial-template</span></a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">References</div>
+                           <div class="flR"><input id="bt_refs_V_plain_sentencesS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('refs_V_plain_sentencesS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="refs_V_plain_sentencesS_UD2MAF.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Variables</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#V_metadata_mapS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">metadata_map</a><span class="refItemSep">;</span></div>
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#V_unknown_id_prefS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">unknown_id_pref</a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_V_plain_sentencesS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_V_plain_sentencesS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_V_plain_sentencesS_UD2MAF.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"plain_sentences"</span><span class="tAN"> as=</span><span class="tAV">"element()+"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"map:keys($metadata_map)"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:sort</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tAN"> order=</span><span class="tAV">"ascending"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"sent_id"</span><span class="tAN"> select=</span><span class="tAV">"if ($metadata_map(.)('sent_id')) then $metadata_map(.)('sent_id') else $unknown_id_pref || position()"</span><span class="tAN"> as=</span><span class="tAV">"xs:string"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;s</span><span class="tAN"> xml:id=</span><span class="tAV">"{$sent_id}"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"$metadata_map(.)('text')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/s&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:variable&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="V_sequential_annotationS_UD2MAF.xsl"></a><div class="cmpT">Variable
+         <span class="qname">sequential_annotation</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Type</td>
+                        <td>element()+</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_V_sequential_annotationS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('uB_V_sequential_annotationS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_V_sequential_annotationS_UD2MAF.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Template</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#T_initial-templateS_UD2MAF.xsl" target="_self" title="http://www.w3.org/1999/XSL/Transform" onclick="updPT('UD2MAF.xsl')"><span class="nRf">xsl:initial-template</span></a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">References</div>
+                           <div class="flR"><input id="bt_refs_V_sequential_annotationS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('refs_V_sequential_annotationS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="refs_V_sequential_annotationS_UD2MAF.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Variables</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#V_annotation_mapS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">annotation_map</a><span class="refItemSep">;</span></div>
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#V_metadata_mapS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">metadata_map</a><span class="refItemSep">;</span></div>
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#V_unknown_id_prefS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">unknown_id_pref</a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="fCol">Parameter</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#P_pos_separatorS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">pos_separator</a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_V_sequential_annotationS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_V_sequential_annotationS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_V_sequential_annotationS_UD2MAF.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"sequential_annotation"</span><span class="tAN"> as=</span><span class="tAV">"element()+"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"map:keys($metadata_map)"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:sort</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tAN"> order=</span><span class="tAV">"ascending"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tC">&lt;!--            &lt;xsl:variable name="sent_id" select="$metadata_map(.)('sent_id')" as="xs:string*"/&gt;--&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"sent_id"</span><span class="tAN"> select=</span><span class="tAV">"if ($metadata_map(.)('sent_id')) then $metadata_map(.)('sent_id') else $unknown_id_pref || position()"</span><span class="tAN"> as=</span><span class="tAV">"xs:string"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"sent_number"</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;s</span><span class="tAN"> xml:id=</span><span class="tAV">"{'seq_' || $sent_id}"</span><span class="tAN"> corresp=</span><span class="tAV">"{'#' || $sent_id}"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"map:keys($annotation_map($sent_number))"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tC">&lt;!--we use xsl:if here to see where the discontinuity happens, for debugging mostly--&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"not($annotation_map($sent_number)(.)('excluded_by'))"</span><span class="tXSLEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;seg</span><span class="tAN"> xml:id=</span><span class="tAV">"{'seq_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"matches($annotation_map($sent_number)(.)('MISC'),'SpaceAfter=No')"</span><span class="tXSLEl">&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;xsl:attribute</span><span class="tAN"> name=</span><span class="tAV">"join"</span><span class="tAN"> select=</span><span class="tAV">"'right'"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"$annotation_map($sent_number)(.)('FORM')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/seg&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'),'\d+-\d'))]"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tC">&lt;!-- excluding the portmanteaus by force, this feels like a kludge --&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;span</span><span class="tAN"> type=</span><span class="tAV">"wordForm"</span><span class="tAN"> subtype=</span><span class="tAV">"UPOS:XPOS"</span><span class="tAN"> xml:id=</span><span class="tAV">"{'seq-wf_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"</span><span class="tAN"> lemma=</span><span class="tAV">"{$annotation_map($sent_number)(.)('LEMMA')}"</span><span class="tAN"> pos=</span><span class="tAV">"{$annotation_map($sent_number)(.)('UPOS') || $pos_separator || $annotation_map($sent_number)(.)('XPOS')}"</span><span class="tAN"> msd=</span><span class="tAV">"{$annotation_map($sent_number)(.)('FEATS')}"</span><span class="tAN"> corresp=</span><span class="tAV">"{concat('#seq_',$sent_id, '-', if (not($annotation_map($sent_number)(.)('excluded_by'))) then $annotation_map($sent_number)(.)('ID') else $annotation_map($sent_number)(.)('excluded_by') )}"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/span&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/s&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:variable&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="F_map_offsetsS_UD2MAF.xsl"></a><div class="cmpT">Function
+         <span class="qname">f:map_offsets (<span class="fParams">sentence, current_key, base_offset</span>)</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_F_map_offsetsS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_F_map_offsetsS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_F_map_offsetsS_UD2MAF.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>There is nearly no excuse for this function to look as it does. But I needed something
+                                 quick to recursively compute token offsets
+                                 <table>
+                                    <tr>
+                                       <h4>Parameters</h4>
+                                       <td class="paramName"><b>sentence</b></td>
+                                       <td>The sentence for which the map is produced</td>
+                                    </tr>
+                                    <tr>
+                                       <td class="paramName"><b>current_key</b></td>
+                                       <td>Pointer at the current token</td>
+                                    </tr>
+                                    <tr>
+                                       <td class="paramName"><b>base_offset</b></td>
+                                       <td>Should point at the inter-character-point just before the current token</td>
+                                    </tr>
+                                 </table>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>func</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Type</td>
+                        <td>map(xs:integer, map(xs:string,xs:integer))</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_F_map_offsetsS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('uB_F_map_offsetsS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_F_map_offsetsS_UD2MAF.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Template</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#T_initial-templateS_UD2MAF.xsl" target="_self" title="http://www.w3.org/1999/XSL/Transform" onclick="updPT('UD2MAF.xsl')"><span class="nRf">xsl:initial-template</span></a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="fCol">Function</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#F_map_offsetsS_UD2MAF.xsl" target="_self" title="func" onclick="updPT('UD2MAF.xsl')"><span>f:map_offsets (</span><span class="fParams">sentence, current_key, base_offset</span><span>)</span></a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">References</div>
+                           <div class="flR"><input id="bt_refs_F_map_offsetsS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('refs_F_map_offsetsS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="refs_F_map_offsetsS_UD2MAF.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Function</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#F_map_offsetsS_UD2MAF.xsl" target="_self" title="func" onclick="updPT('UD2MAF.xsl')"><span>map_offsets (</span><span class="fParams">sentence, current_key, base_offset</span><span>)</span></a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Parameters</div>
+                           <div class="flR"><input id="bt_prs_F_map_offsetsS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('prs_F_map_offsetsS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="prs_F_map_offsetsS_UD2MAF.xsl" style="display:block">
+                              <table class="attsT">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th>Namespace</th>
+                                       <th>Type</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="fCol">base_offset</td>
+                                    <td>No namespace</td>
+                                    <td>xs:integer</td>
+                                 </tr>
+                                 <tr>
+                                    <td class="fCol">current_key</td>
+                                    <td>No namespace</td>
+                                    <td>xs:integer</td>
+                                 </tr>
+                                 <tr>
+                                    <td class="fCol">sentence</td>
+                                    <td>No namespace</td>
+                                    <td>map(xs:integer, map(xs:string, xs:string))</td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_F_map_offsetsS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_F_map_offsetsS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_F_map_offsetsS_UD2MAF.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tXSLEl">&lt;xsl:function</span><span class="tAN"> name=</span><span class="tAV">"f:map_offsets"</span><span class="tAN"> as=</span><span class="tAV">"map(xs:integer, map(xs:string,xs:integer))"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"sentence"</span><span class="tAN"> as=</span><span class="tAV">"map(xs:integer, map(xs:string, xs:string))"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"current_key"</span><span class="tAN"> as=</span><span class="tAV">"xs:integer"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"base_offset"</span><span class="tAN"> as=</span><span class="tAV">"xs:integer"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"adjusted_base"</span><span class="tAN"> as=</span><span class="tAV">"xs:integer"</span><span class="tAN"> select=</span><span class="tAV">"$base_offset"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tC">&lt;!--this variable is a tunnel for adjustments with @join="left" effects, to be done--&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"end_offset"</span><span class="tAN"> as=</span><span class="tAV">"xs:integer"</span><span class="tAN"> select=</span><span class="tAV">"$adjusted_base + string-length($sentence($current_key)('FORM'))"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"adjusted_end"</span><span class="tAN"> as=</span><span class="tAV">"xs:integer"</span><span class="tAN"> select=</span><span class="tAV">"if (matches($sentence($current_key)('MISC'),'SpaceAfter=No')) then $end_offset else $end_offset + 1"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"$sentence($current_key)('excluded_by')"</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:sequence</span><span class="tAN"> select=</span><span class="tAV">"f:map_offsets($sentence,$current_key +1,$base_offset)"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"$current_key lt map:size($sentence)"</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:sequence</span><span class="tAN"> select=</span><span class="tAV">"map:merge((map{$current_key : map{'start' : $adjusted_base, 'end' : $end_offset}}, f:map_offsets($sentence,$current_key +1,$adjusted_end)))"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:otherwise</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:map</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:map-entry</span><span class="tAN"> key=</span><span class="tAV">"$current_key"</span><span class="tAN"> select=</span><span class="tAV">"map{'start' : $adjusted_base, 'end' : $end_offset}"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:map&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:otherwise&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:function&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="O_S_UD2MAF.xsl"></a><div class="cmpT">Output
+         <span class="qname">(default)</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Output properties</div>
+                           <div class="flR"><input id="bt_o_" type="image" src="img/btM.gif" value="-" onclick="switchState('o_');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="o_" style="display:block">
+                              <table class="attsT">
+                                 <thead>
+                                    <tr>
+                                       <th>method</th>
+                                       <th>encoding</th>
+                                       <th>indent</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td>xml</td>
+                                    <td>UTF-8</td>
+                                    <td>yes</td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_O_S_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_O_S_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_O_S_UD2MAF.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tXSLEl">&lt;xsl:output</span><span class="tAN"> encoding=</span><span class="tAV">"UTF-8"</span><span class="tAN"> method=</span><span class="tAV">"xml"</span><span class="tAN"> indent=</span><span class="tAV">"yes"</span><span class="tXSLEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table>
+      <div class="footer">
+         <hr />
+         <div align="center">Stylesheet documentation generated by <a href="http://www.oxygenxml.com" target="_parent"><span class="oXygenLogo"><span class="redX">&lt;</span>o<span class="redX">X</span>ygen<span class="redX">/&gt;</span></span></a><sup>®</sup> XML Editor.</div>
+      </div><script type="text/javascript"><!--
+                    // The namespace is the selected option in the TOC combo.
+                    
+                    // The corresponding div is already visible conf. to its style attr.                     
+                    
+                            var selectToc = getElementObject('selectTOC');
+                            if(selectToc != null){
+                            // It can be null when having chunking, the combo of the TOC is in another frame.
+                            selectToc.selectedIndex = 0;
+                            }
+                        
+                    
+                    // Floats the toolbar.
+                    var globalControls = getElementObject("global_controls"); 
+                    
+                    if(globalControls != null){
+                    var browser=navigator.appName;
+                    var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+                    
+                    var IE6 = false;
+                    if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+                    IE6 = true;
+                    }
+                    
+                    //alert (IE6 + " |V| " + version);
+                    
+                    if(IE6){
+                    // On IE 6 the 'fixed' property is not supported. We must use javascript. 
+                    globalControls.style.position='absolute';                         
+                    // The global controls will do not exist in the TOC frame, when chunking.
+                    findAndFloat("global_controls", 225, 30);    
+                    } else {
+                    globalControls.style.position='fixed';                     	
+                    }
+                    
+                    globalControls.style.right='0';                       
+                    }
+                //--></script></body>
+</html>
