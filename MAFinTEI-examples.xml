@@ -39,54 +39,6 @@
                 <p><s xml:id="ex1.3">I want to put new wallpaper up.</s></p>
                 <p><s xml:id="ex1.4">Jean propose de partir.</s></p>
                 <p><s xml:id="ex1.5">Afin de grandir, il mange des pommes de terre.</s></p>
-                <p><s><seg>Ich</seg> <seg>habe</seg> <seg>mich</seg> <seg type="graph" next=""><seg type="surface">im</seg><seg type="">in</seg><seg>dem</seg></seg> <seg>Winter</seg> <seg>in</seg> <seg>dich</seg> <seg>verliebt</seg></s></p>
-                
-
-<!--
-                <token xml:id="t400">afin</token>
-                <token xml:id="t401">de</token>
-                <fsm init="s0" final="s2">
-                    <transition source="s0" target="s2">
-                        <wordForm tokens="#t400 #t401" entry="urn:lex:fr:afin_de" tag="#pos.prep"/>
-                    </transition>
-                    <transition source="s0" target="s1">
-                        <wordForm tokens="#t400" entry="urn:lex:fr:afin" tag="#pos.prep"/>
-                    </transition>
-                    <transition source="s1" target="s2">
-                        <wordForm tokens="#t401" entry="urn:lex:fr:de" tag="#pos.prep"/>
-                    </transition>
-                </fsm>
-                <token xml:id="t52">grandir</token>
-                <wordForm entry="urn:lex:fr:grandir" tag="#pos.verb ..." tokens="#t52"/>
-                <token xml:id="t53">,</token>
-                <wordForm entry="lexicon:," tag="#pos.ponct" tokens="#t53"/>
-                <token xml:id="t54">il</token>
-                <wordForm entry="urn:lex:fr:il" tag="#pos.pronoun ..." tokens="#t54"/>
-                <token xml:id="t55">mange</token>
-                <wordForm tokens="#t55" entry="urn:lex:fr:manger" tag="#pos.verb ..."/>
-                <token xml:id="t56">des</token>
-                <wordForm tokens="#t56" entry="urn:lex:fr:une" form="des" tag="#pos.det #num.pl ..."/>
-                <token xml:id="t57">pommes</token>
-                <token xml:id="t58">de</token>
-                <token xml:id="t59">terre</token>
-                <fsm init="s8" final="s11">
-                    <transition source="s8" target="s11">
-                        <wordForm tokens="#t57 #t58 #t59" entry="urn:lex:fr:pomme_de_terre"
-                            tag="#pos.noun ..."/>
-                    </transition>
-                    <transition source="s8" target="s9">
-                        <wordForm tokens="#t57" entry="urn:lex:fr:pomme" tag="#pos.noun ..."/>
-                    </transition>
-                    <transition source="s9" target="s10">
-                        <wordForm tokens="#t58" entry="urn:lex:fr:de" tag="#pos.prep"/>
-                    </transition>
-                    <transition source="s10" target="s11">
-                        <wordForm tokens="#t59" entry="urn:lex:fr:terre" tag="#pos.noun ..."/>
-                    </transition>
-                </fsm>
--->
-
-
             </div>
             <div>
                 <head>Figure 4</head> 
