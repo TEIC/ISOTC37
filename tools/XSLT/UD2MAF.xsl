@@ -288,12 +288,12 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"-->
             </teiHeader>
             <text>
                 <body>
-                    <div type="'plain'">
+                    <div type="plain">
                         <p>
                             <xsl:sequence select="$plain_sentences"/>
                         </p>
                     </div>
-                    <div type="'sequential'">
+                    <div type="sequential">
                         <p>
                             <xsl:sequence select="$sequential_annotation"/>
                         </p>
