@@ -5,9 +5,11 @@
     xmlns:map="http://www.w3.org/2005/xpath-functions/map"
     xmlns:tei="http://www.tei-c.org/ns/1.0"
     xpath-default-namespace="http://www.tei-c.org/ns/1.0"
-    exclude-result-prefixes="xs xd f map"
+    exclude-result-prefixes="xs xd f map tei"
     version="3.0"
     expand-text="yes">
+    
+    <xsl:output encoding="UTF-8" method="xml" indent="yes"/>
     
     <xd:doc scope="stylesheet">
         <xd:desc>
@@ -23,7 +25,7 @@
     </xd:doc>
 
 <!--for sequential encoding where two values (XPOS and UPOS) need to be squeezed into a single attribute value
-the corresponding typing is: @type="wordForm" @subtype="UPOS:XPOS"-->
+the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"-->
     <xsl:param name="pos_separator" select="':'" as="xs:string"/>
 
     <xsl:variable name="TAB" select="'&#9;'" as="xs:string"/>
@@ -51,7 +53,7 @@ the corresponding typing is: @type="wordForm" @subtype="UPOS:XPOS"-->
     </xd:doc>
     <xsl:variable name="corpus_map" as="map(xs:integer, xs:string+)">
         <xsl:map>
-            <xsl:for-each-group select="unparsed-text-lines('deu-lem_pos_msd.conllu')" group-adjacent="not(. eq '')">
+            <xsl:for-each-group select="unparsed-text-lines('../../etc/UD2MAF_sample_input-2020-06-24.conllu')" group-adjacent="not(. eq '')">
                 <xsl:choose>
                     <xsl:when test="current-grouping-key()">
                         <xsl:map-entry key="position()" select="current-group()"></xsl:map-entry>
@@ -185,7 +187,7 @@ the corresponding typing is: @type="wordForm" @subtype="UPOS:XPOS"-->
         </xsl:map>
     </xsl:variable>
 
-    <xsl:output encoding="UTF-8" method="xml" indent="yes"/>
+    
     
     <xsl:variable name="plain_sentences" as="element()+">
         <xsl:for-each select="map:keys($metadata_map)">
@@ -215,7 +217,7 @@ the corresponding typing is: @type="wordForm" @subtype="UPOS:XPOS"-->
                 </xsl:for-each>
                 <xsl:for-each select="map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'),'\d+-\d'))]">
                     <!-- excluding the portmanteaus by force, this feels like a kludge -->
-                    <span type="wordForm" subtype="UPOS:XPOS" xml:id="{'seq-wf_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"
+                    <span type="wordForm" n="UPOS:XPOS" xml:id="{'seq-wf_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"
                         lemma="{$annotation_map($sent_number)(.)('LEMMA')}"
                         pos="{$annotation_map($sent_number)(.)('UPOS') || $pos_separator || $annotation_map($sent_number)(.)('XPOS')}"
                         msd="{$annotation_map($sent_number)(.)('FEATS')}"
@@ -270,7 +272,7 @@ the corresponding typing is: @type="wordForm" @subtype="UPOS:XPOS"-->
     </xd:doc>
     <xsl:template name="xsl:initial-template">
         
-        <TEI>
+        <TEI xmlns="http://www.tei-c.org/ns/1.0">
             <teiHeader>
                 <fileDesc>
                     <titleStmt>
@@ -287,10 +289,14 @@ the corresponding typing is: @type="wordForm" @subtype="UPOS:XPOS"-->
             <text>
                 <body>
                     <div type="'plain'">
-                        <xsl:sequence select="$plain_sentences"/>
+                        <p>
+                            <xsl:sequence select="$plain_sentences"/>
+                        </p>
                     </div>
                     <div type="'sequential'">
-                        <xsl:sequence select="$sequential_annotation"/>
+                        <p>
+                            <xsl:sequence select="$sequential_annotation"/>
+                        </p>
                     </div>
                 </body>
             </text>
@@ -314,11 +320,11 @@ the corresponding typing is: @type="wordForm" @subtype="UPOS:XPOS"-->
                             </xsl:for-each>
                         </annotationBlock>
                         
-                        <annotationBlock type="wordForm" subtype="LEMMA">
+                        <annotationBlock type="wordForm" n="LEMMA">
                             <xsl:for-each select="map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'),'\d+-\d'))]">
                                 <!-- excluding the portmanteaus by force, this feels like a kludge -->
                                 <xsl:sort select="." order="ascending"/>
-                                <span type="wordForm" xml:id="{'so-wf_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"
+                                <span type="wordForm" xml:id="{'so-wf-lem_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"
                                     lemma="{$annotation_map($sent_number)(.)('LEMMA')}"
                                     corresp="{concat('#so-seg_',$sent_id, '-', if (not($annotation_map($sent_number)(.)('excluded_by'))) then $annotation_map($sent_number)(.)('ID') else $annotation_map($sent_number)(.)('excluded_by') )}"
                                     >
@@ -326,11 +332,11 @@ the corresponding typing is: @type="wordForm" @subtype="UPOS:XPOS"-->
                             </xsl:for-each>
                         </annotationBlock>
                         
-                        <annotationBlock type="wordForm" subtype="XPOS">
+                        <annotationBlock type="wordForm" n="XPOS">
                             <xsl:for-each select="map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'),'\d+-\d'))]">
                                 <!-- excluding the portmanteaus by force, this feels like a kludge -->
                                 <xsl:sort select="." order="ascending"/>
-                                <span type="wordForm" xml:id="{'so-wf_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"
+                                <span type="wordForm" xml:id="{'so-wf-x_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"
                                     lemma="{$annotation_map($sent_number)(.)('LEMMA')}"
                                     pos="{$annotation_map($sent_number)(.)('XPOS')}"
                                     corresp="{concat('#so-seg_',$sent_id, '-', if (not($annotation_map($sent_number)(.)('excluded_by'))) then $annotation_map($sent_number)(.)('ID') else $annotation_map($sent_number)(.)('excluded_by') )}"
@@ -339,11 +345,11 @@ the corresponding typing is: @type="wordForm" @subtype="UPOS:XPOS"-->
                             </xsl:for-each>
                         </annotationBlock>
                         
-                        <annotationBlock type="wordForm" subtype="UPOS">
+                        <annotationBlock type="wordForm" n="UPOS">
                             <xsl:for-each select="map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'),'\d+-\d'))]">
                                 <!-- excluding the portmanteaus by force, this feels like a kludge -->
                                 <xsl:sort select="." order="ascending"/>
-                                <span type="wordForm" xml:id="{'so-wf_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"
+                                <span type="wordForm" xml:id="{'so-wf-u_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"
                                     lemma="{$annotation_map($sent_number)(.)('LEMMA')}"
                                     pos="{$annotation_map($sent_number)(.)('UPOS')}"
                                     msd="{$annotation_map($sent_number)(.)('FEATS')}"
@@ -354,11 +360,11 @@ the corresponding typing is: @type="wordForm" @subtype="UPOS:XPOS"-->
                         </annotationBlock>
                         
                         <xsl:comment>the following annotation block is overall spurious, but still interesting in how it mimics the merged UPOS:XPOS description in the &lt;text> element above</xsl:comment>
-                        <annotationBlock type="wordForm" subtype="UPOS:XPOS">
+                        <annotationBlock type="wordForm" n="UPOS:XPOS">
                             <xsl:for-each select="map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'),'\d+-\d'))]">
                                 <!-- excluding the portmanteaus by force, this feels like a kludge -->
                                 <xsl:sort select="." order="ascending"/>
-                                <span type="wordForm" xml:id="{'so-wf_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"
+                                <span type="wordForm" xml:id="{'so-wf-ux_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"
                                     lemma="{$annotation_map($sent_number)(.)('LEMMA')}"
                                     pos="{$annotation_map($sent_number)(.)('UPOS') || $pos_separator || $annotation_map($sent_number)(.)('XPOS')}"
                                     msd="{$annotation_map($sent_number)(.)('FEATS')}"

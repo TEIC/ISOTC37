@@ -20,15 +20,73 @@
     <text>
         
         <body>
+            <head>ISO MAF -- examples of usage (non-normative)</head>
             <div>
                 <head>Introduction</head>
                 <p>This document uses the TEI customization of ISO MAF in order to illustrate some
                     of the constructs mentioned in the body of the standard, and to introduce some
                     further informative examples. Despite this introduction, you are not looking at
-                    documentation, but rather "corpus samples" with accompanying notes.</p>
+                    documentation per se, but rather at "corpus samples" with accompanying notes.</p>
                 <p>The schema is defined in MAFinTEI.odd, i.e. the ODD file accompanying this document.</p>
                 <p>The figure references point at particular figures from the ISO MAF standard (ISO
                     24611:2012), currently under revision.</p>
+            </div>
+            <div xml:id="ex1">
+                <head>Sentence-sized examples used in the remainder of this document</head>
+                
+                <p><s xml:id="ex1.1">The victim's friends told the police that Krueger dove into the quarry and never surfaced.</s></p>
+                <p><s xml:id="ex1.2">I wanna put up new wallpaper.</s></p>
+                <p><s xml:id="ex1.3">I want to put new wallpaper up.</s></p>
+                <p><s xml:id="ex1.4">Jean propose de partir.</s></p>
+                <p><s xml:id="ex1.5">Afin de grandir, il mange des pommes de terre.</s></p>
+                <p><s><seg>Ich</seg> <seg>habe</seg> <seg>mich</seg> <seg type="graph" next=""><seg type="surface">im</seg><seg type="">in</seg><seg>dem</seg></seg> <seg>Winter</seg> <seg>in</seg> <seg>dich</seg> <seg>verliebt</seg></s></p>
+                
+
+<!--
+                <token xml:id="t400">afin</token>
+                <token xml:id="t401">de</token>
+                <fsm init="s0" final="s2">
+                    <transition source="s0" target="s2">
+                        <wordForm tokens="#t400 #t401" entry="urn:lex:fr:afin_de" tag="#pos.prep"/>
+                    </transition>
+                    <transition source="s0" target="s1">
+                        <wordForm tokens="#t400" entry="urn:lex:fr:afin" tag="#pos.prep"/>
+                    </transition>
+                    <transition source="s1" target="s2">
+                        <wordForm tokens="#t401" entry="urn:lex:fr:de" tag="#pos.prep"/>
+                    </transition>
+                </fsm>
+                <token xml:id="t52">grandir</token>
+                <wordForm entry="urn:lex:fr:grandir" tag="#pos.verb ..." tokens="#t52"/>
+                <token xml:id="t53">,</token>
+                <wordForm entry="lexicon:," tag="#pos.ponct" tokens="#t53"/>
+                <token xml:id="t54">il</token>
+                <wordForm entry="urn:lex:fr:il" tag="#pos.pronoun ..." tokens="#t54"/>
+                <token xml:id="t55">mange</token>
+                <wordForm tokens="#t55" entry="urn:lex:fr:manger" tag="#pos.verb ..."/>
+                <token xml:id="t56">des</token>
+                <wordForm tokens="#t56" entry="urn:lex:fr:une" form="des" tag="#pos.det #num.pl ..."/>
+                <token xml:id="t57">pommes</token>
+                <token xml:id="t58">de</token>
+                <token xml:id="t59">terre</token>
+                <fsm init="s8" final="s11">
+                    <transition source="s8" target="s11">
+                        <wordForm tokens="#t57 #t58 #t59" entry="urn:lex:fr:pomme_de_terre"
+                            tag="#pos.noun ..."/>
+                    </transition>
+                    <transition source="s8" target="s9">
+                        <wordForm tokens="#t57" entry="urn:lex:fr:pomme" tag="#pos.noun ..."/>
+                    </transition>
+                    <transition source="s9" target="s10">
+                        <wordForm tokens="#t58" entry="urn:lex:fr:de" tag="#pos.prep"/>
+                    </transition>
+                    <transition source="s10" target="s11">
+                        <wordForm tokens="#t59" entry="urn:lex:fr:terre" tag="#pos.noun ..."/>
+                    </transition>
+                </fsm>
+-->
+
+
             </div>
             <div>
                 <head>Figure 4</head> 
@@ -38,17 +96,18 @@
                     <seg xml:id="t3">'s</seg>
                     <seg xml:id="t4">friends</seg>
                     <seg xml:id="t5">told</seg>
-                    <seg xml:id="t6">police</seg>
-                    <seg xml:id="t7">that</seg>
-                    <seg xml:id="t8">Krueger</seg>
-                    <seg xml:id="t9">drove</seg>
-                    <seg xml:id="t10">into</seg>
-                    <seg xml:id="t11">the</seg>
-                    <seg xml:id="t12">quarry</seg>
-                    <seg xml:id="t13">and</seg>
-                    <seg xml:id="t14">never</seg>
-                    <seg xml:id="t15">surfaced</seg>
-                    <seg xml:id="t16">.</seg>
+                    <seg xml:id="t6">the</seg>
+                    <seg xml:id="t7">police</seg>
+                    <seg xml:id="t8">that</seg>
+                    <seg xml:id="t9">Krueger</seg>
+                    <seg xml:id="t10">dove</seg>
+                    <seg xml:id="t11">into</seg>
+                    <seg xml:id="t12">the</seg>
+                    <seg xml:id="t13">quarry</seg>
+                    <seg xml:id="t14">and</seg>
+                    <seg xml:id="t15">never</seg>
+                    <seg xml:id="t16">surfaced</seg>
+                    <seg xml:id="t17">.</seg>
                 </p>
             </div>
             <div>
@@ -295,10 +354,171 @@
         </body>
     </text>
     <standOff>
-        <annotationBlock>
-            <spanGrp>
-                
-            </spanGrp>
-        </annotationBlock>
+        <listAnnotation corresp="#ex1.1" xml:id="std.ex1.1">
+            <annotationBlock type="token" offsetBase="#ex1.1">
+                <seg xml:id="std.ex1.1.tok1" startPos="0" endPos="3"/>
+                <seg xml:id="std.ex1.1.tok2" startPos="4" endPos="10"/>
+                <seg xml:id="std.ex1.1.tok3" startPos="10" endPos="12"/>
+                <seg xml:id="std.ex1.1.tok4" startPos="13" endPos="20"/>
+                <seg xml:id="std.ex1.1.tok5" startPos="21" endPos="25"/>
+                <seg xml:id="std.ex1.1.tok6" startPos="26" endPos="29"/>
+                <seg xml:id="std.ex1.1.tok7" startPos="30" endPos="36"/>
+                <seg xml:id="std.ex1.1.tok8" startPos="37" endPos="41"/>
+                <seg xml:id="std.ex1.1.tok9" startPos="42" endPos="49"/>
+                <seg xml:id="std.ex1.1.tok10" startPos="50" endPos="54"/>
+                <seg xml:id="std.ex1.1.tok11" startPos="55" endPos="60"/>
+                <seg xml:id="std.ex1.1.tok12" startPos="61" endPos="64"/>
+                <seg xml:id="std.ex1.1.tok13" startPos="65" endPos="71"/>
+                <seg xml:id="std.ex1.1.tok14" startPos="72" endPos="75"/>
+                <seg xml:id="std.ex1.1.tok15" startPos="76" endPos="81"/>
+                <seg xml:id="std.ex1.1.tok16" startPos="82" endPos="90"/>
+                <seg xml:id="std.ex1.1.tok17" startPos="90" endPos="91"/>
+            </annotationBlock>
+            <annotationBlock type="wordForm">
+                <span xml:id="std.ex1.1.wf1" corresp="#std.ex1.1tok1" pos="AT0"/>
+                <span xml:id="std.ex1.1.wf2" corresp="#std.ex1.1tok2" pos="NN1"/>
+                <span xml:id="std.ex1.1.wf3" corresp="#std.ex1.1tok3" pos="POS"/>
+                <span xml:id="std.ex1.1.wf4" corresp="#std.ex1.1tok4" pos="NN2"/>
+                <span xml:id="std.ex1.1.wf5" corresp="#std.ex1.1tok5" pos="VVD"/>
+                <span xml:id="std.ex1.1.wf6" corresp="#std.ex1.1tok6" pos="AT0"/>
+                <span xml:id="std.ex1.1.wf7" corresp="#std.ex1.1tok7" pos="NN2"/>
+                <span xml:id="std.ex1.1.wf8" corresp="#std.ex1.1tok8" pos="CJT"/>
+                <span xml:id="std.ex1.1.wf9" corresp="#std.ex1.1tok9" pos="VVB"/>
+                <span xml:id="std.ex1.1.wf10" corresp="#std.ex1.1tok10" pos="NN1"/>
+                <span xml:id="std.ex1.1.wf11" corresp="#std.ex1.1tok11" pos="NN1"/>
+                <span xml:id="std.ex1.1.wf12" corresp="#std.ex1.1tok12" pos="AT0"/>
+                <span xml:id="std.ex1.1.wf13" corresp="#std.ex1.1tok13" pos="NN1"/>
+                <span xml:id="std.ex1.1.wf14" corresp="#std.ex1.1tok14" pos="CJC"/>
+                <span xml:id="std.ex1.1.wf15" corresp="#std.ex1.1tok15" pos="AV0"/>
+                <span xml:id="std.ex1.1.wf16" corresp="#std.ex1.1tok16" pos="SENT"/>
+                <span xml:id="std.ex1.1.wf17" corresp="#std.ex1.1tok17" pos="PUN"/>
+            </annotationBlock>
+        </listAnnotation>
+        <listAnnotation corresp="#ex1.2" xml:id="std.ex1.2">
+            <annotationBlock type="token" offsetBase="#ex1.2">
+                <seg xml:id="std.ex1.2.tok1" startPos="0" endPos="1"/>
+                <seg xml:id="std.ex1.2.tok2" startPos="2" endPos="5"/>
+                <seg xml:id="std.ex1.2.tok3" startPos="5" endPos="7"/>
+                <seg xml:id="std.ex1.2.tok4" startPos="8" endPos="11"/>
+                <seg xml:id="std.ex1.2.tok5" startPos="12" endPos="14"/>
+                <seg xml:id="std.ex1.2.tok6" startPos="15" endPos="18"/>
+                <seg xml:id="std.ex1.2.tok7" startPos="19" endPos="23"/>
+                <seg xml:id="std.ex1.2.tok8" startPos="23" endPos="28"/>
+                <seg xml:id="std.ex1.2.tok9" startPos="28" endPos="29"/>
+            </annotationBlock>
+            <annotationBlock type="wordForm">
+                <span xml:id="std.ex1.2.wf1" corresp="#std.ex1.2tok1" pos="PNP"/>
+                <span xml:id="std.ex1.2.wf2" corresp="#std.ex1.2tok2" pos="VVB"/>
+                <span xml:id="std.ex1.2.wf3" corresp="#std.ex1.2tok3" pos="TO0"/>
+                <span xml:id="std.ex1.2.wf4" corresp="#std.ex1.2tok4" pos="VVI"/>
+                <span xml:id="std.ex1.2.wf5" corresp="#std.ex1.2tok5" pos="AVP"/>
+                <span xml:id="std.ex1.2.wf6" corresp="#std.ex1.2tok6" pos="AJ0"/>
+                <span xml:id="std.ex1.2.wf7" corresp="#std.ex1.2tok7" pos="SENT"/>
+                <span xml:id="std.ex1.2.wf8" corresp="#std.ex1.2tok8" pos="SENT"/>
+                <span xml:id="std.ex1.2.wf9" corresp="#std.ex1.2tok9" pos="PUN"/>
+            </annotationBlock>
+        </listAnnotation>
+        <listAnnotation corresp="#ex1.3" xml:id="std.ex1.3">
+            <annotationBlock type="token" offsetBase="#ex1.3">
+                <seg xml:id="std.ex1.3.tok1" startPos="0" endPos="1"/>
+                <seg xml:id="std.ex1.3.tok2" startPos="2" endPos="6"/>
+                <seg xml:id="std.ex1.3.tok3" startPos="7" endPos="9"/>
+                <seg xml:id="std.ex1.3.tok4" startPos="10" endPos="13"/>
+                <seg xml:id="std.ex1.3.tok5" startPos="14" endPos="17"/>
+                <seg xml:id="std.ex1.3.tok6" startPos="18" endPos="27"/>
+                <seg xml:id="std.ex1.3.tok7" startPos="28" endPos="30"/>
+                <seg xml:id="std.ex1.3.tok8" startPos="31" endPos="32"/>
+            </annotationBlock>
+            <annotationBlock type="wordForm">
+                <span xml:id="std.ex1.3.wf1" corresp="#std.ex1.3tok1" pos="PNP"/>
+                <span xml:id="std.ex1.3.wf2" corresp="#std.ex1.3tok2" pos="VVB"/>
+                <span xml:id="std.ex1.3.wf3" corresp="#std.ex1.3tok3" pos="TO0"/>
+                <span xml:id="std.ex1.3.wf4" corresp="#std.ex1.3tok4" pos="VVI"/>
+                <span xml:id="std.ex1.3.wf5" corresp="#std.ex1.3tok5" pos="AJ0"/>
+                <span xml:id="std.ex1.3.wf6" corresp="#std.ex1.3tok6" pos="NN1"/>
+                <span xml:id="std.ex1.3.wf7" corresp="#std.ex1.3tok7" pos="SENT"/>
+                <span xml:id="std.ex1.3.wf8" corresp="#std.ex1.3tok8" pos="PUN"/>
+            </annotationBlock>
+        </listAnnotation>
+            <!-- c5         The_AT0 victim_NN1 's_POS friends_NN2 told_VVD the_AT0 police_NN2 that_CJT 
+Krueger_VVB dove_NN1 intro_NN1 the_AT0 quarry_NN1 and_CJC never_AV0 
+surfaced_SENT ._PUN    -->
+            
+<!-- c5
+            <w id="2.1" pos="PNP">I</w> <w id="2.2" pos="VVB">wan</w> 
+<w id="2.3" pos="TO0">na</w> <w id="2.4" pos="VVI">put</w> 
+<w id="2.5" pos="AVP">up</w> <w id="2.6" pos="AJ0">new</w> 
+<w id="2.7" pos="SENT">wallpaper</w> <w id="2.8" pos="PUN">.</w>
+
+
+
+        <w id="2.1" pos="PNP">I</w> <w id="2.2" pos="VVB">want</w> 
+        <w id="2.3" pos="TO0">to</w> <w id="2.4" pos="VVI">put</w> 
+        <w id="2.5" pos="AJ0">new</w> <w id="2.6" pos="NN1">wallpaper</w> 
+        <w id="2.7" pos="SENT">up</w> <w id="2.8" pos="PUN">.</w> 
+
+            -->
+<!--  c7  
+            <w id="2.1" pos="PPIS1">I</w> <w id="2.2" pos="VV0">wan</w> 
+<w id="2.3" pos="TO">na</w> <w id="2.4" pos="VVI">put</w> 
+<w id="2.5" pos="RP">up</w> <w id="2.6" pos="JJ">new</w> 
+<w id="2.7" pos="NN1">wallpaper</w> <w id="2.8" pos=".">.</w> 
+
+0000003 010 I                                           93 [PPIS1/100] ZZ1@/0 MC1@/0
+0000003 020 want                                        96 VV0
+0000003 030 to                                          97 TO
+0000003 040 put                                         97 VVI
+0000003 050 up                                          93 [RP/93] II@/7 VV0%/0
+0000003 060 new                                         93 JJ
+0000003 070 wallpaper                                   93 NN1
+0000003 071 .                                           03 .
+
+
+0000003 010 I                                           93 [PPIS1/100] ZZ1@/0 MC1@/0
+0000003 020 wan                       >                 98 VV0
+0000003 021 na                        <                 98 TO
+0000003 030 put                                         98 VVI
+0000003 040 up                                          93 [RP/94] II@/6 VV0%/0
+0000003 050 new                                         93 JJ
+0000003 060 wallpaper                                   93 NN1
+0000003 061 .                                           03 .
+
+0000003 010 I                                           93 [PPIS1/100] ZZ1@/0 MC1@/0
+0000003 020 wan                       >                 98 VV0
+0000003 021 na                        <                 98 TO
+0000003 030 put                                         98 VVI
+0000003 040 new                                         93 JJ
+0000003 050 wallpaper                                   93 NN1
+0000003 060 up                                          93 [RP/99] II@/1 VV0%/0
+0000003 061 .                                           03 .
+
+        
+        
+        
+        
+        -->
+        
+        
+        
+        
+        
+<!--    UD 2.5, EWT
+            # newdoc
+# newpar
+# sent_id = 1
+# text = I wanna put up new wallpaper.
+1	I	I	PRON	PRP	Case=Nom|Number=Sing|Person=1|PronType=Prs	2	nsubj	_	_
+2	wan	want	VERB	VBP	Abbr=Yes|Mood=Ind|Tense=Pres|VerbForm=Fin	0	root	_	SpaceAfter=No
+3	na	to	PART	TO	Abbr=Yes	4	mark	_	_
+4	put	put	VERB	VB	VerbForm=Inf	2	xcomp	_	_
+5	up	up	ADP	RP	_	4	compound:prt	_	_
+6	new	new	ADJ	JJ	Degree=Pos	7	amod	_	_
+7	wallpaper	wallpaper	NOUN	NN	Number=Sing	4	obj	_	SpaceAfter=No
+8	.	.	PUNCT	.	_	2	punct	_	SpaceAfter=No
+
+            -->
+            
+            
+        
     </standOff>
 </TEI>

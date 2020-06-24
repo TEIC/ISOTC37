@@ -182,11 +182,15 @@ within it is the <gi>fileDesc</gi>, which contains only the following elements:
               <memberOf key="att.ascribed"/>
               <memberOf key="att.timed"/>
               <memberOf key="att.global"/>
+              <memberOf key="att.typed"/>
+              <memberOf key="att.offset"/>
             </classes>
             <content>
               <alternate minOccurs="0" maxOccurs="unbounded">
                 <elementRef key="u"/>
-                <elementRef key="spanGrp"/>
+                <elementRef key="spanGrp"/>    <!-- or perhaps model.global.meta ? -->
+                <elementRef key="span"/>
+                <elementRef key="seg"/>
                 <classRef key="model.global.spoken"/>
               </alternate>
             </content>
@@ -485,10 +489,19 @@ within it is the <gi>fileDesc</gi>, which contains only the following elements:
               xmlns:sch="http://purl.oclc.org/dsdl/schematron">
               <constraint>
                 <sch:rule context="*[self::*:span]">
-                  <sch:assert test="@type or ancestor::*:spanGrp/@type"><sch:name/> must either carry a @type attribute, or be nested within a spanGrp that is @typed</sch:assert>
+                  <sch:assert
+                    test="@type or ancestor::*:spanGrp/@type or ancestor::*:annotationBlock/@type"
+                    ><sch:name/> must either carry a @type attribute, or be nested within a spanGrp or annotationBlock
+                    that is @typed</sch:assert>
                 </sch:rule>
               </constraint>
             </constraintSpec>
+          </elementSpec>
+          
+          <elementSpec ident="spanGrp" mode="change">
+            <classes mode="change">
+              <memberOf key="att.offset"/>
+            </classes>
           </elementSpec>
           
           <elementSpec ident="seg" mode="change">

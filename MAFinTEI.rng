@@ -5,7 +5,7 @@
          xmlns="http://relaxng.org/ns/structure/1.0"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2020-05-11T12:52:11Z. .
+Schema generated from ODD source 2020-05-21T14:30:28Z. .
 TEI Edition: Version 4.1.0a. Last updated on
 	4th May 2020, revision 38671fc
 TEI Edition Location: http://www.tei-c.org/Vault/P5/Version 4.1.0a./
@@ -1874,8 +1874,9 @@ Sample values include: 1] main; 2] sub (subordinate); 3] alt (alternate); 4] sho
             <sch:rule xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                       xmlns="http://www.tei-c.org/ns/1.0"
                       context="*[self::*:span]">
-               <sch:assert test="@type or ancestor::*:spanGrp/@type">
-                  <sch:name/> must either carry a @type attribute, or be nested within a spanGrp that is @typed</sch:assert>
+               <sch:assert test="@type or ancestor::*:spanGrp/@type or ancestor::*:annotationBlock/@type">
+                  <sch:name/> must either carry a @type attribute, or be nested within a spanGrp or annotationBlock
+                    that is @typed</sch:assert>
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
@@ -1934,6 +1935,7 @@ The attributes @to and @from on <name/> may each contain only a single value</re
          <zeroOrMore>
             <ref name="tei_span"/>
          </zeroOrMore>
+         <ref name="tei_att.offset.attributes"/>
          <ref name="tei_att.global.attributes"/>
          <ref name="tei_att.interpLike.attributes"/>
          <empty/>
@@ -2057,12 +2059,16 @@ Feature Value]</a:documentation>
          <zeroOrMore>
             <choice>
                <ref name="tei_spanGrp"/>
+               <ref name="tei_span"/>
+               <ref name="tei_seg"/>
                <ref name="tei_model.global.spoken"/>
             </choice>
          </zeroOrMore>
          <ref name="tei_att.ascribed.attributes"/>
          <ref name="tei_att.timed.attributes"/>
          <ref name="tei_att.global.attributes"/>
+         <ref name="tei_att.typed.attributes"/>
+         <ref name="tei_att.offset.attributes"/>
          <empty/>
       </element>
    </define>

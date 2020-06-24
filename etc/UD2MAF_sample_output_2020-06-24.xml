@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TEI xmlns:tei="http://www.tei-c.org/ns/1.0">
+<?xml-model href="../MAFinTEI.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../MAFinTEI.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
    <teiHeader>
       <fileDesc>
          <titleStmt>
@@ -16,390 +18,394 @@
    <text>
       <body>
          <div type="'plain'">
-            <s xml:id="deu-ab1seg1">Der Dinosaurier ist ausgestorben.</s>
-            <s xml:id="deu-ab15seg2">Genau das hat sie gesagt.</s>
-            <s xml:id="deu-ab64seg1">Ein kleiner Junge versichert: ich habe ebenso viele Brüder wie Schwestern.</s>
-            <s xml:id="deu-ab64seg2">Seine Schwester antwortet: ich habe zweimal mehr Brüder als Schwestern.</s>
-            <s xml:id="unk_5">Ich habe mich im Winter in dich verliebt.</s>
+            <p>
+               <s xml:id="deu-ab1seg1">Der Dinosaurier ist ausgestorben.</s>
+               <s xml:id="deu-ab15seg2">Genau das hat sie gesagt.</s>
+               <s xml:id="deu-ab64seg1">Ein kleiner Junge versichert: ich habe ebenso viele Brüder wie Schwestern.</s>
+               <s xml:id="deu-ab64seg2">Seine Schwester antwortet: ich habe zweimal mehr Brüder als Schwestern.</s>
+               <s xml:id="unk_5">Ich habe mich im Winter in dich verliebt.</s>
+            </p>
          </div>
          <div type="'sequential'">
-            <s xml:id="seq_deu-ab1seg1" corresp="#deu-ab1seg1">
-               <seg xml:id="seq_deu-ab1seg1-1">Der</seg>
-               <seg xml:id="seq_deu-ab1seg1-2">Dinosaurier</seg>
-               <seg xml:id="seq_deu-ab1seg1-3">ist</seg>
-               <seg xml:id="seq_deu-ab1seg1-4" join="right">ausgestorben</seg>
-               <seg xml:id="seq_deu-ab1seg1-5">.</seg>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab1seg1-1"
-                     lemma="der"
-                     pos="DET:ART"
-                     msd="Case=Nom|Definite=Def|Gender=Masc|Number=Sing|PronType=Art"
-                     corresp="#seq_deu-ab1seg1-1"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab1seg1-2"
-                     lemma="Dinosaurier"
-                     pos="NOUN:NN"
-                     msd="Case=Nom|Gender=Masc|Number=Sing"
-                     corresp="#seq_deu-ab1seg1-2"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab1seg1-3"
-                     lemma="sein"
-                     pos="AUX:ADJD"
-                     msd="_"
-                     corresp="#seq_deu-ab1seg1-3"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab1seg1-4"
-                     lemma="aussterben"
-                     pos="ADJ:VVPP"
-                     msd="VerbForm=Part"
-                     corresp="#seq_deu-ab1seg1-4"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab1seg1-5"
-                     lemma="."
-                     pos="PUNCT:$."
-                     msd="_"
-                     corresp="#seq_deu-ab1seg1-5"/>
-            </s>
-            <s xml:id="seq_deu-ab15seg2" corresp="#deu-ab15seg2">
-               <seg xml:id="seq_deu-ab15seg2-1">Genau</seg>
-               <seg xml:id="seq_deu-ab15seg2-2">das</seg>
-               <seg xml:id="seq_deu-ab15seg2-3">hat</seg>
-               <seg xml:id="seq_deu-ab15seg2-4">sie</seg>
-               <seg xml:id="seq_deu-ab15seg2-5" join="right">gesagt</seg>
-               <seg xml:id="seq_deu-ab15seg2-6">.</seg>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab15seg2-1"
-                     lemma="genau"
-                     pos="PROPN:ADV"
-                     msd="_"
-                     corresp="#seq_deu-ab15seg2-1"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab15seg2-2"
-                     lemma="der"
-                     pos="DET:PDS"
-                     msd="Case=Nom|Gender=Neut|Number=Sing|PronType=Dem"
-                     corresp="#seq_deu-ab15seg2-2"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab15seg2-3"
-                     lemma="haben"
-                     pos="AUX:VAFIN"
-                     msd="Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"
-                     corresp="#seq_deu-ab15seg2-3"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab15seg2-4"
-                     lemma="sie"
-                     pos="PRON:ADJA"
-                     msd="Case=Nom|Gender=Fem|Number=Plur"
-                     corresp="#seq_deu-ab15seg2-4"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab15seg2-5"
-                     lemma="sagen"
-                     pos="VERB:VVPP"
-                     msd="VerbForm=Part"
-                     corresp="#seq_deu-ab15seg2-5"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab15seg2-6"
-                     lemma="."
-                     pos="PUNCT:$."
-                     msd="_"
-                     corresp="#seq_deu-ab15seg2-6"/>
-            </s>
-            <s xml:id="seq_deu-ab64seg1" corresp="#deu-ab64seg1">
-               <seg xml:id="seq_deu-ab64seg1-1">Ein</seg>
-               <seg xml:id="seq_deu-ab64seg1-2">kleiner</seg>
-               <seg xml:id="seq_deu-ab64seg1-3">Junge</seg>
-               <seg xml:id="seq_deu-ab64seg1-4" join="right">versichert</seg>
-               <seg xml:id="seq_deu-ab64seg1-5">:</seg>
-               <seg xml:id="seq_deu-ab64seg1-6">ich</seg>
-               <seg xml:id="seq_deu-ab64seg1-7">habe</seg>
-               <seg xml:id="seq_deu-ab64seg1-8">ebenso</seg>
-               <seg xml:id="seq_deu-ab64seg1-9">viele</seg>
-               <seg xml:id="seq_deu-ab64seg1-10">Brüder</seg>
-               <seg xml:id="seq_deu-ab64seg1-11">wie</seg>
-               <seg xml:id="seq_deu-ab64seg1-12" join="right">Schwestern</seg>
-               <seg xml:id="seq_deu-ab64seg1-13">.</seg>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab64seg1-1"
-                     lemma="ein"
-                     pos="DET:ART"
-                     msd="Case=Nom|Definite=Ind|Gender=Masc|Number=Sing|PronType=Art"
-                     corresp="#seq_deu-ab64seg1-1"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab64seg1-2"
-                     lemma="klein"
-                     pos="ADJ:ADJA"
-                     msd="Case=Nom|Gender=Masc|Number=Sing"
-                     corresp="#seq_deu-ab64seg1-2"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab64seg1-3"
-                     lemma="Junge"
-                     pos="NOUN:NN"
-                     msd="Case=Nom|Gender=Masc|Number=Sing"
-                     corresp="#seq_deu-ab64seg1-3"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab64seg1-4"
-                     lemma="versichern"
-                     pos="VERB:VVPP"
-                     msd="VerbForm=Part"
-                     corresp="#seq_deu-ab64seg1-4"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab64seg1-5"
-                     lemma=":"
-                     pos="PUNCT:$."
-                     msd="_"
-                     corresp="#seq_deu-ab64seg1-5"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab64seg1-6"
-                     lemma="ich"
-                     pos="PRON:PPER"
-                     msd="Case=Nom|Number=Sing|Person=1|PronType=Prs"
-                     corresp="#seq_deu-ab64seg1-6"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab64seg1-7"
-                     lemma="haben"
-                     pos="VERB:VAFIN"
-                     msd="Mood=Sub|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"
-                     corresp="#seq_deu-ab64seg1-7"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab64seg1-8"
-                     lemma="ebenso"
-                     pos="ADV:ADV"
-                     msd="_"
-                     corresp="#seq_deu-ab64seg1-8"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab64seg1-9"
-                     lemma="viel"
-                     pos="DET:NN"
-                     msd="Case=Gen|Gender=Neut|Number=Plur"
-                     corresp="#seq_deu-ab64seg1-9"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab64seg1-10"
-                     lemma="Bruder"
-                     pos="NOUN:NE"
-                     msd="Case=Gen|Gender=Neut|Number=Plur"
-                     corresp="#seq_deu-ab64seg1-10"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab64seg1-11"
-                     lemma="wie"
-                     pos="ADP:NE"
-                     msd="Case=Gen|Gender=Neut|Number=Sing"
-                     corresp="#seq_deu-ab64seg1-11"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab64seg1-12"
-                     lemma="Schwester"
-                     pos="PROPN:NN"
-                     msd="Case=Gen|Gender=Fem|Number=Plur"
-                     corresp="#seq_deu-ab64seg1-12"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab64seg1-13"
-                     lemma="."
-                     pos="PUNCT:$."
-                     msd="_"
-                     corresp="#seq_deu-ab64seg1-13"/>
-            </s>
-            <s xml:id="seq_deu-ab64seg2" corresp="#deu-ab64seg2">
-               <seg xml:id="seq_deu-ab64seg2-1">Seine</seg>
-               <seg xml:id="seq_deu-ab64seg2-2">Schwester</seg>
-               <seg xml:id="seq_deu-ab64seg2-3" join="right">antwortet</seg>
-               <seg xml:id="seq_deu-ab64seg2-4">:</seg>
-               <seg xml:id="seq_deu-ab64seg2-5">ich</seg>
-               <seg xml:id="seq_deu-ab64seg2-6">habe</seg>
-               <seg xml:id="seq_deu-ab64seg2-7">zweimal</seg>
-               <seg xml:id="seq_deu-ab64seg2-8">mehr</seg>
-               <seg xml:id="seq_deu-ab64seg2-9">Brüder</seg>
-               <seg xml:id="seq_deu-ab64seg2-10">als</seg>
-               <seg xml:id="seq_deu-ab64seg2-11" join="right">Schwestern</seg>
-               <seg xml:id="seq_deu-ab64seg2-12">.</seg>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab64seg2-1"
-                     lemma="sein"
-                     pos="DET:PPOSAT"
-                     msd="Case=Nom|Gender=Fem|Number=Sing|Poss=Yes"
-                     corresp="#seq_deu-ab64seg2-1"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab64seg2-2"
-                     lemma="Schwester"
-                     pos="NOUN:NN"
-                     msd="Case=Nom|Gender=Fem|Number=Sing"
-                     corresp="#seq_deu-ab64seg2-2"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab64seg2-3"
-                     lemma="antworten"
-                     pos="VERB:VVPP"
-                     msd="Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"
-                     corresp="#seq_deu-ab64seg2-3"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab64seg2-4"
-                     lemma=":"
-                     pos="PUNCT:$."
-                     msd="_"
-                     corresp="#seq_deu-ab64seg2-4"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab64seg2-5"
-                     lemma="ich"
-                     pos="PRON:PPER"
-                     msd="Case=Nom|Number=Sing|Person=1|PronType=Prs"
-                     corresp="#seq_deu-ab64seg2-5"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab64seg2-6"
-                     lemma="haben"
-                     pos="AUX:VAFIN"
-                     msd="Mood=Sub|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"
-                     corresp="#seq_deu-ab64seg2-6"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab64seg2-7"
-                     lemma="zweimal"
-                     pos="ADV:$("
-                     msd="_"
-                     corresp="#seq_deu-ab64seg2-7"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab64seg2-8"
-                     lemma="mehr"
-                     pos="ADV:ADV"
-                     msd="_"
-                     corresp="#seq_deu-ab64seg2-8"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab64seg2-9"
-                     lemma="Bruder"
-                     pos="NOUN:NN"
-                     msd="Case=Nom|Gender=Masc|Number=Plur"
-                     corresp="#seq_deu-ab64seg2-9"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab64seg2-10"
-                     lemma="als"
-                     pos="ADP:KOKOM"
-                     msd="_"
-                     corresp="#seq_deu-ab64seg2-10"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab64seg2-11"
-                     lemma="Schwester"
-                     pos="NOUN:NN"
-                     msd="Case=Nom|Gender=Fem|Number=Plur"
-                     corresp="#seq_deu-ab64seg2-11"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_deu-ab64seg2-12"
-                     lemma="."
-                     pos="PUNCT:$."
-                     msd="_"
-                     corresp="#seq_deu-ab64seg2-12"/>
-            </s>
-            <s xml:id="seq_unk_5" corresp="#unk_5">
-               <seg xml:id="seq_unk_5-1">Ich</seg>
-               <seg xml:id="seq_unk_5-2">habe</seg>
-               <seg xml:id="seq_unk_5-3">mich</seg>
-               <seg xml:id="seq_unk_5-4-5">im</seg>
-               <seg xml:id="seq_unk_5-6">Winter</seg>
-               <seg xml:id="seq_unk_5-7">in</seg>
-               <seg xml:id="seq_unk_5-8">dich</seg>
-               <seg xml:id="seq_unk_5-9" join="right">verliebt</seg>
-               <seg xml:id="seq_unk_5-10">.</seg>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_unk_5-1"
-                     lemma="ich"
-                     pos="PRON:PPER"
-                     msd="Case=Nom|Number=Sing|Person=1|PronType=Prs"
-                     corresp="#seq_unk_5-1"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_unk_5-2"
-                     lemma="haben"
-                     pos="AUX:VAFIN"
-                     msd="Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin"
-                     corresp="#seq_unk_5-2"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_unk_5-3"
-                     lemma="ich"
-                     pos="PRON:PRF"
-                     msd="Case=Acc|Number=Sing|Person=1|PronType=Prs|Reflex=Yes"
-                     corresp="#seq_unk_5-3"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_unk_5-4"
-                     lemma="in"
-                     pos="ADP:APPR"
-                     msd="_"
-                     corresp="#seq_unk_5-4-5"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_unk_5-5"
-                     lemma="der"
-                     pos="DET:ART"
-                     msd="Case=Dat|Definite=Def|Gender=Masc|Number=Sing|PronType=Art"
-                     corresp="#seq_unk_5-4-5"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_unk_5-6"
-                     lemma="Winter"
-                     pos="NOUN:NN"
-                     msd="Case=Dat|Gender=Masc|Number=Sing"
-                     corresp="#seq_unk_5-6"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_unk_5-7"
-                     lemma="in"
-                     pos="ADP:APPR"
-                     msd="_"
-                     corresp="#seq_unk_5-7"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_unk_5-8"
-                     lemma="du"
-                     pos="PRON:PRF"
-                     msd="Case=Acc|Number=Sing|Person=2|PronType=Prs|Reflex=Yes"
-                     corresp="#seq_unk_5-8"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_unk_5-9"
-                     lemma="verlieben"
-                     pos="VERB:VVFIN"
-                     msd="Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"
-                     corresp="#seq_unk_5-9"/>
-               <span type="wordForm"
-                     subtype="UPOS:XPOS"
-                     xml:id="seq-wf_unk_5-10"
-                     lemma="."
-                     pos="PUNCT:$."
-                     msd="_"
-                     corresp="#seq_unk_5-10"/>
-            </s>
+            <p>
+               <s xml:id="seq_deu-ab1seg1" corresp="#deu-ab1seg1">
+                  <seg xml:id="seq_deu-ab1seg1-1">Der</seg>
+                  <seg xml:id="seq_deu-ab1seg1-2">Dinosaurier</seg>
+                  <seg xml:id="seq_deu-ab1seg1-3">ist</seg>
+                  <seg xml:id="seq_deu-ab1seg1-4" join="right">ausgestorben</seg>
+                  <seg xml:id="seq_deu-ab1seg1-5">.</seg>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab1seg1-1"
+                        lemma="der"
+                        pos="DET:ART"
+                        msd="Case=Nom|Definite=Def|Gender=Masc|Number=Sing|PronType=Art"
+                        corresp="#seq_deu-ab1seg1-1"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab1seg1-2"
+                        lemma="Dinosaurier"
+                        pos="NOUN:NN"
+                        msd="Case=Nom|Gender=Masc|Number=Sing"
+                        corresp="#seq_deu-ab1seg1-2"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab1seg1-3"
+                        lemma="sein"
+                        pos="AUX:ADJD"
+                        msd="_"
+                        corresp="#seq_deu-ab1seg1-3"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab1seg1-4"
+                        lemma="aussterben"
+                        pos="ADJ:VVPP"
+                        msd="VerbForm=Part"
+                        corresp="#seq_deu-ab1seg1-4"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab1seg1-5"
+                        lemma="."
+                        pos="PUNCT:$."
+                        msd="_"
+                        corresp="#seq_deu-ab1seg1-5"/>
+               </s>
+               <s xml:id="seq_deu-ab15seg2" corresp="#deu-ab15seg2">
+                  <seg xml:id="seq_deu-ab15seg2-1">Genau</seg>
+                  <seg xml:id="seq_deu-ab15seg2-2">das</seg>
+                  <seg xml:id="seq_deu-ab15seg2-3">hat</seg>
+                  <seg xml:id="seq_deu-ab15seg2-4">sie</seg>
+                  <seg xml:id="seq_deu-ab15seg2-5" join="right">gesagt</seg>
+                  <seg xml:id="seq_deu-ab15seg2-6">.</seg>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab15seg2-1"
+                        lemma="genau"
+                        pos="PROPN:ADV"
+                        msd="_"
+                        corresp="#seq_deu-ab15seg2-1"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab15seg2-2"
+                        lemma="der"
+                        pos="DET:PDS"
+                        msd="Case=Nom|Gender=Neut|Number=Sing|PronType=Dem"
+                        corresp="#seq_deu-ab15seg2-2"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab15seg2-3"
+                        lemma="haben"
+                        pos="AUX:VAFIN"
+                        msd="Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"
+                        corresp="#seq_deu-ab15seg2-3"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab15seg2-4"
+                        lemma="sie"
+                        pos="PRON:ADJA"
+                        msd="Case=Nom|Gender=Fem|Number=Plur"
+                        corresp="#seq_deu-ab15seg2-4"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab15seg2-5"
+                        lemma="sagen"
+                        pos="VERB:VVPP"
+                        msd="VerbForm=Part"
+                        corresp="#seq_deu-ab15seg2-5"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab15seg2-6"
+                        lemma="."
+                        pos="PUNCT:$."
+                        msd="_"
+                        corresp="#seq_deu-ab15seg2-6"/>
+               </s>
+               <s xml:id="seq_deu-ab64seg1" corresp="#deu-ab64seg1">
+                  <seg xml:id="seq_deu-ab64seg1-1">Ein</seg>
+                  <seg xml:id="seq_deu-ab64seg1-2">kleiner</seg>
+                  <seg xml:id="seq_deu-ab64seg1-3">Junge</seg>
+                  <seg xml:id="seq_deu-ab64seg1-4" join="right">versichert</seg>
+                  <seg xml:id="seq_deu-ab64seg1-5">:</seg>
+                  <seg xml:id="seq_deu-ab64seg1-6">ich</seg>
+                  <seg xml:id="seq_deu-ab64seg1-7">habe</seg>
+                  <seg xml:id="seq_deu-ab64seg1-8">ebenso</seg>
+                  <seg xml:id="seq_deu-ab64seg1-9">viele</seg>
+                  <seg xml:id="seq_deu-ab64seg1-10">Brüder</seg>
+                  <seg xml:id="seq_deu-ab64seg1-11">wie</seg>
+                  <seg xml:id="seq_deu-ab64seg1-12" join="right">Schwestern</seg>
+                  <seg xml:id="seq_deu-ab64seg1-13">.</seg>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg1-1"
+                        lemma="ein"
+                        pos="DET:ART"
+                        msd="Case=Nom|Definite=Ind|Gender=Masc|Number=Sing|PronType=Art"
+                        corresp="#seq_deu-ab64seg1-1"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg1-2"
+                        lemma="klein"
+                        pos="ADJ:ADJA"
+                        msd="Case=Nom|Gender=Masc|Number=Sing"
+                        corresp="#seq_deu-ab64seg1-2"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg1-3"
+                        lemma="Junge"
+                        pos="NOUN:NN"
+                        msd="Case=Nom|Gender=Masc|Number=Sing"
+                        corresp="#seq_deu-ab64seg1-3"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg1-4"
+                        lemma="versichern"
+                        pos="VERB:VVPP"
+                        msd="VerbForm=Part"
+                        corresp="#seq_deu-ab64seg1-4"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg1-5"
+                        lemma=":"
+                        pos="PUNCT:$."
+                        msd="_"
+                        corresp="#seq_deu-ab64seg1-5"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg1-6"
+                        lemma="ich"
+                        pos="PRON:PPER"
+                        msd="Case=Nom|Number=Sing|Person=1|PronType=Prs"
+                        corresp="#seq_deu-ab64seg1-6"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg1-7"
+                        lemma="haben"
+                        pos="VERB:VAFIN"
+                        msd="Mood=Sub|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"
+                        corresp="#seq_deu-ab64seg1-7"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg1-8"
+                        lemma="ebenso"
+                        pos="ADV:ADV"
+                        msd="_"
+                        corresp="#seq_deu-ab64seg1-8"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg1-9"
+                        lemma="viel"
+                        pos="DET:NN"
+                        msd="Case=Gen|Gender=Neut|Number=Plur"
+                        corresp="#seq_deu-ab64seg1-9"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg1-10"
+                        lemma="Bruder"
+                        pos="NOUN:NE"
+                        msd="Case=Gen|Gender=Neut|Number=Plur"
+                        corresp="#seq_deu-ab64seg1-10"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg1-11"
+                        lemma="wie"
+                        pos="ADP:NE"
+                        msd="Case=Gen|Gender=Neut|Number=Sing"
+                        corresp="#seq_deu-ab64seg1-11"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg1-12"
+                        lemma="Schwester"
+                        pos="PROPN:NN"
+                        msd="Case=Gen|Gender=Fem|Number=Plur"
+                        corresp="#seq_deu-ab64seg1-12"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg1-13"
+                        lemma="."
+                        pos="PUNCT:$."
+                        msd="_"
+                        corresp="#seq_deu-ab64seg1-13"/>
+               </s>
+               <s xml:id="seq_deu-ab64seg2" corresp="#deu-ab64seg2">
+                  <seg xml:id="seq_deu-ab64seg2-1">Seine</seg>
+                  <seg xml:id="seq_deu-ab64seg2-2">Schwester</seg>
+                  <seg xml:id="seq_deu-ab64seg2-3" join="right">antwortet</seg>
+                  <seg xml:id="seq_deu-ab64seg2-4">:</seg>
+                  <seg xml:id="seq_deu-ab64seg2-5">ich</seg>
+                  <seg xml:id="seq_deu-ab64seg2-6">habe</seg>
+                  <seg xml:id="seq_deu-ab64seg2-7">zweimal</seg>
+                  <seg xml:id="seq_deu-ab64seg2-8">mehr</seg>
+                  <seg xml:id="seq_deu-ab64seg2-9">Brüder</seg>
+                  <seg xml:id="seq_deu-ab64seg2-10">als</seg>
+                  <seg xml:id="seq_deu-ab64seg2-11" join="right">Schwestern</seg>
+                  <seg xml:id="seq_deu-ab64seg2-12">.</seg>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg2-1"
+                        lemma="sein"
+                        pos="DET:PPOSAT"
+                        msd="Case=Nom|Gender=Fem|Number=Sing|Poss=Yes"
+                        corresp="#seq_deu-ab64seg2-1"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg2-2"
+                        lemma="Schwester"
+                        pos="NOUN:NN"
+                        msd="Case=Nom|Gender=Fem|Number=Sing"
+                        corresp="#seq_deu-ab64seg2-2"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg2-3"
+                        lemma="antworten"
+                        pos="VERB:VVPP"
+                        msd="Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"
+                        corresp="#seq_deu-ab64seg2-3"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg2-4"
+                        lemma=":"
+                        pos="PUNCT:$."
+                        msd="_"
+                        corresp="#seq_deu-ab64seg2-4"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg2-5"
+                        lemma="ich"
+                        pos="PRON:PPER"
+                        msd="Case=Nom|Number=Sing|Person=1|PronType=Prs"
+                        corresp="#seq_deu-ab64seg2-5"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg2-6"
+                        lemma="haben"
+                        pos="AUX:VAFIN"
+                        msd="Mood=Sub|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"
+                        corresp="#seq_deu-ab64seg2-6"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg2-7"
+                        lemma="zweimal"
+                        pos="ADV:$("
+                        msd="_"
+                        corresp="#seq_deu-ab64seg2-7"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg2-8"
+                        lemma="mehr"
+                        pos="ADV:ADV"
+                        msd="_"
+                        corresp="#seq_deu-ab64seg2-8"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg2-9"
+                        lemma="Bruder"
+                        pos="NOUN:NN"
+                        msd="Case=Nom|Gender=Masc|Number=Plur"
+                        corresp="#seq_deu-ab64seg2-9"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg2-10"
+                        lemma="als"
+                        pos="ADP:KOKOM"
+                        msd="_"
+                        corresp="#seq_deu-ab64seg2-10"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg2-11"
+                        lemma="Schwester"
+                        pos="NOUN:NN"
+                        msd="Case=Nom|Gender=Fem|Number=Plur"
+                        corresp="#seq_deu-ab64seg2-11"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg2-12"
+                        lemma="."
+                        pos="PUNCT:$."
+                        msd="_"
+                        corresp="#seq_deu-ab64seg2-12"/>
+               </s>
+               <s xml:id="seq_unk_5" corresp="#unk_5">
+                  <seg xml:id="seq_unk_5-1">Ich</seg>
+                  <seg xml:id="seq_unk_5-2">habe</seg>
+                  <seg xml:id="seq_unk_5-3">mich</seg>
+                  <seg xml:id="seq_unk_5-4-5">im</seg>
+                  <seg xml:id="seq_unk_5-6">Winter</seg>
+                  <seg xml:id="seq_unk_5-7">in</seg>
+                  <seg xml:id="seq_unk_5-8">dich</seg>
+                  <seg xml:id="seq_unk_5-9" join="right">verliebt</seg>
+                  <seg xml:id="seq_unk_5-10">.</seg>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_unk_5-1"
+                        lemma="ich"
+                        pos="PRON:PPER"
+                        msd="Case=Nom|Number=Sing|Person=1|PronType=Prs"
+                        corresp="#seq_unk_5-1"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_unk_5-2"
+                        lemma="haben"
+                        pos="AUX:VAFIN"
+                        msd="Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin"
+                        corresp="#seq_unk_5-2"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_unk_5-3"
+                        lemma="ich"
+                        pos="PRON:PRF"
+                        msd="Case=Acc|Number=Sing|Person=1|PronType=Prs|Reflex=Yes"
+                        corresp="#seq_unk_5-3"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_unk_5-4"
+                        lemma="in"
+                        pos="ADP:APPR"
+                        msd="_"
+                        corresp="#seq_unk_5-4-5"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_unk_5-5"
+                        lemma="der"
+                        pos="DET:ART"
+                        msd="Case=Dat|Definite=Def|Gender=Masc|Number=Sing|PronType=Art"
+                        corresp="#seq_unk_5-4-5"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_unk_5-6"
+                        lemma="Winter"
+                        pos="NOUN:NN"
+                        msd="Case=Dat|Gender=Masc|Number=Sing"
+                        corresp="#seq_unk_5-6"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_unk_5-7"
+                        lemma="in"
+                        pos="ADP:APPR"
+                        msd="_"
+                        corresp="#seq_unk_5-7"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_unk_5-8"
+                        lemma="du"
+                        pos="PRON:PRF"
+                        msd="Case=Acc|Number=Sing|Person=2|PronType=Prs|Reflex=Yes"
+                        corresp="#seq_unk_5-8"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_unk_5-9"
+                        lemma="verlieben"
+                        pos="VERB:VVFIN"
+                        msd="Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"
+                        corresp="#seq_unk_5-9"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_unk_5-10"
+                        lemma="."
+                        pos="PUNCT:$."
+                        msd="_"
+                        corresp="#seq_unk_5-10"/>
+               </s>
+            </p>
          </div>
       </body>
    </text>
@@ -412,115 +418,115 @@
             <seg xml:id="so-seg_deu-ab1seg1-4" startPos="20" endPos="32"/>
             <seg xml:id="so-seg_deu-ab1seg1-5" startPos="32" endPos="33"/>
          </annotationBlock>
-         <annotationBlock type="wordForm" subtype="LEMMA">
+         <annotationBlock type="wordForm" n="LEMMA">
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab1seg1-1"
+                  xml:id="so-wf-lem_deu-ab1seg1-1"
                   lemma="der"
                   corresp="#so-seg_deu-ab1seg1-1"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab1seg1-2"
+                  xml:id="so-wf-lem_deu-ab1seg1-2"
                   lemma="Dinosaurier"
                   corresp="#so-seg_deu-ab1seg1-2"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab1seg1-3"
+                  xml:id="so-wf-lem_deu-ab1seg1-3"
                   lemma="sein"
                   corresp="#so-seg_deu-ab1seg1-3"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab1seg1-4"
+                  xml:id="so-wf-lem_deu-ab1seg1-4"
                   lemma="aussterben"
                   corresp="#so-seg_deu-ab1seg1-4"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab1seg1-5"
+                  xml:id="so-wf-lem_deu-ab1seg1-5"
                   lemma="."
                   corresp="#so-seg_deu-ab1seg1-5"/>
          </annotationBlock>
-         <annotationBlock type="wordForm" subtype="XPOS">
+         <annotationBlock type="wordForm" n="XPOS">
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab1seg1-1"
+                  xml:id="so-wf-x_deu-ab1seg1-1"
                   lemma="der"
                   pos="ART"
                   corresp="#so-seg_deu-ab1seg1-1"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab1seg1-2"
+                  xml:id="so-wf-x_deu-ab1seg1-2"
                   lemma="Dinosaurier"
                   pos="NN"
                   corresp="#so-seg_deu-ab1seg1-2"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab1seg1-3"
+                  xml:id="so-wf-x_deu-ab1seg1-3"
                   lemma="sein"
                   pos="ADJD"
                   corresp="#so-seg_deu-ab1seg1-3"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab1seg1-4"
+                  xml:id="so-wf-x_deu-ab1seg1-4"
                   lemma="aussterben"
                   pos="VVPP"
                   corresp="#so-seg_deu-ab1seg1-4"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab1seg1-5"
+                  xml:id="so-wf-x_deu-ab1seg1-5"
                   lemma="."
                   pos="$."
                   corresp="#so-seg_deu-ab1seg1-5"/>
          </annotationBlock>
-         <annotationBlock type="wordForm" subtype="UPOS">
+         <annotationBlock type="wordForm" n="UPOS">
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab1seg1-1"
+                  xml:id="so-wf-u_deu-ab1seg1-1"
                   lemma="der"
                   pos="DET"
                   msd="Case=Nom|Definite=Def|Gender=Masc|Number=Sing|PronType=Art"
                   corresp="#so-seg_deu-ab1seg1-1"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab1seg1-2"
+                  xml:id="so-wf-u_deu-ab1seg1-2"
                   lemma="Dinosaurier"
                   pos="NOUN"
                   msd="Case=Nom|Gender=Masc|Number=Sing"
                   corresp="#so-seg_deu-ab1seg1-2"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab1seg1-3"
+                  xml:id="so-wf-u_deu-ab1seg1-3"
                   lemma="sein"
                   pos="AUX"
                   msd="_"
                   corresp="#so-seg_deu-ab1seg1-3"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab1seg1-4"
+                  xml:id="so-wf-u_deu-ab1seg1-4"
                   lemma="aussterben"
                   pos="ADJ"
                   msd="VerbForm=Part"
                   corresp="#so-seg_deu-ab1seg1-4"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab1seg1-5"
+                  xml:id="so-wf-u_deu-ab1seg1-5"
                   lemma="."
                   pos="PUNCT"
                   msd="_"
                   corresp="#so-seg_deu-ab1seg1-5"/>
          </annotationBlock>
          <!--the following annotation block is overall spurious, but still interesting in how it mimics the merged UPOS:XPOS description in the <text> element above-->
-         <annotationBlock type="wordForm" subtype="UPOS:XPOS">
+         <annotationBlock type="wordForm" n="UPOS:XPOS">
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab1seg1-1"
+                  xml:id="so-wf-ux_deu-ab1seg1-1"
                   lemma="der"
                   pos="DET:ART"
                   msd="Case=Nom|Definite=Def|Gender=Masc|Number=Sing|PronType=Art"
                   corresp="#so-seg_deu-ab1seg1-1"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab1seg1-2"
+                  xml:id="so-wf-ux_deu-ab1seg1-2"
                   lemma="Dinosaurier"
                   pos="NOUN:NN"
                   msd="Case=Nom|Gender=Masc|Number=Sing"
                   corresp="#so-seg_deu-ab1seg1-2"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab1seg1-3"
+                  xml:id="so-wf-ux_deu-ab1seg1-3"
                   lemma="sein"
                   pos="AUX:ADJD"
                   msd="_"
                   corresp="#so-seg_deu-ab1seg1-3"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab1seg1-4"
+                  xml:id="so-wf-ux_deu-ab1seg1-4"
                   lemma="aussterben"
                   pos="ADJ:VVPP"
                   msd="VerbForm=Part"
                   corresp="#so-seg_deu-ab1seg1-4"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab1seg1-5"
+                  xml:id="so-wf-ux_deu-ab1seg1-5"
                   lemma="."
                   pos="PUNCT:$."
                   msd="_"
@@ -536,136 +542,136 @@
             <seg xml:id="so-seg_deu-ab15seg2-5" startPos="18" endPos="24"/>
             <seg xml:id="so-seg_deu-ab15seg2-6" startPos="24" endPos="25"/>
          </annotationBlock>
-         <annotationBlock type="wordForm" subtype="LEMMA">
+         <annotationBlock type="wordForm" n="LEMMA">
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab15seg2-1"
+                  xml:id="so-wf-lem_deu-ab15seg2-1"
                   lemma="genau"
                   corresp="#so-seg_deu-ab15seg2-1"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab15seg2-2"
+                  xml:id="so-wf-lem_deu-ab15seg2-2"
                   lemma="der"
                   corresp="#so-seg_deu-ab15seg2-2"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab15seg2-3"
+                  xml:id="so-wf-lem_deu-ab15seg2-3"
                   lemma="haben"
                   corresp="#so-seg_deu-ab15seg2-3"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab15seg2-4"
+                  xml:id="so-wf-lem_deu-ab15seg2-4"
                   lemma="sie"
                   corresp="#so-seg_deu-ab15seg2-4"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab15seg2-5"
+                  xml:id="so-wf-lem_deu-ab15seg2-5"
                   lemma="sagen"
                   corresp="#so-seg_deu-ab15seg2-5"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab15seg2-6"
+                  xml:id="so-wf-lem_deu-ab15seg2-6"
                   lemma="."
                   corresp="#so-seg_deu-ab15seg2-6"/>
          </annotationBlock>
-         <annotationBlock type="wordForm" subtype="XPOS">
+         <annotationBlock type="wordForm" n="XPOS">
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab15seg2-1"
+                  xml:id="so-wf-x_deu-ab15seg2-1"
                   lemma="genau"
                   pos="ADV"
                   corresp="#so-seg_deu-ab15seg2-1"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab15seg2-2"
+                  xml:id="so-wf-x_deu-ab15seg2-2"
                   lemma="der"
                   pos="PDS"
                   corresp="#so-seg_deu-ab15seg2-2"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab15seg2-3"
+                  xml:id="so-wf-x_deu-ab15seg2-3"
                   lemma="haben"
                   pos="VAFIN"
                   corresp="#so-seg_deu-ab15seg2-3"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab15seg2-4"
+                  xml:id="so-wf-x_deu-ab15seg2-4"
                   lemma="sie"
                   pos="ADJA"
                   corresp="#so-seg_deu-ab15seg2-4"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab15seg2-5"
+                  xml:id="so-wf-x_deu-ab15seg2-5"
                   lemma="sagen"
                   pos="VVPP"
                   corresp="#so-seg_deu-ab15seg2-5"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab15seg2-6"
+                  xml:id="so-wf-x_deu-ab15seg2-6"
                   lemma="."
                   pos="$."
                   corresp="#so-seg_deu-ab15seg2-6"/>
          </annotationBlock>
-         <annotationBlock type="wordForm" subtype="UPOS">
+         <annotationBlock type="wordForm" n="UPOS">
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab15seg2-1"
+                  xml:id="so-wf-u_deu-ab15seg2-1"
                   lemma="genau"
                   pos="PROPN"
                   msd="_"
                   corresp="#so-seg_deu-ab15seg2-1"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab15seg2-2"
+                  xml:id="so-wf-u_deu-ab15seg2-2"
                   lemma="der"
                   pos="DET"
                   msd="Case=Nom|Gender=Neut|Number=Sing|PronType=Dem"
                   corresp="#so-seg_deu-ab15seg2-2"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab15seg2-3"
+                  xml:id="so-wf-u_deu-ab15seg2-3"
                   lemma="haben"
                   pos="AUX"
                   msd="Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"
                   corresp="#so-seg_deu-ab15seg2-3"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab15seg2-4"
+                  xml:id="so-wf-u_deu-ab15seg2-4"
                   lemma="sie"
                   pos="PRON"
                   msd="Case=Nom|Gender=Fem|Number=Plur"
                   corresp="#so-seg_deu-ab15seg2-4"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab15seg2-5"
+                  xml:id="so-wf-u_deu-ab15seg2-5"
                   lemma="sagen"
                   pos="VERB"
                   msd="VerbForm=Part"
                   corresp="#so-seg_deu-ab15seg2-5"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab15seg2-6"
+                  xml:id="so-wf-u_deu-ab15seg2-6"
                   lemma="."
                   pos="PUNCT"
                   msd="_"
                   corresp="#so-seg_deu-ab15seg2-6"/>
          </annotationBlock>
          <!--the following annotation block is overall spurious, but still interesting in how it mimics the merged UPOS:XPOS description in the <text> element above-->
-         <annotationBlock type="wordForm" subtype="UPOS:XPOS">
+         <annotationBlock type="wordForm" n="UPOS:XPOS">
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab15seg2-1"
+                  xml:id="so-wf-ux_deu-ab15seg2-1"
                   lemma="genau"
                   pos="PROPN:ADV"
                   msd="_"
                   corresp="#so-seg_deu-ab15seg2-1"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab15seg2-2"
+                  xml:id="so-wf-ux_deu-ab15seg2-2"
                   lemma="der"
                   pos="DET:PDS"
                   msd="Case=Nom|Gender=Neut|Number=Sing|PronType=Dem"
                   corresp="#so-seg_deu-ab15seg2-2"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab15seg2-3"
+                  xml:id="so-wf-ux_deu-ab15seg2-3"
                   lemma="haben"
                   pos="AUX:VAFIN"
                   msd="Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"
                   corresp="#so-seg_deu-ab15seg2-3"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab15seg2-4"
+                  xml:id="so-wf-ux_deu-ab15seg2-4"
                   lemma="sie"
                   pos="PRON:ADJA"
                   msd="Case=Nom|Gender=Fem|Number=Plur"
                   corresp="#so-seg_deu-ab15seg2-4"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab15seg2-5"
+                  xml:id="so-wf-ux_deu-ab15seg2-5"
                   lemma="sagen"
                   pos="VERB:VVPP"
                   msd="VerbForm=Part"
                   corresp="#so-seg_deu-ab15seg2-5"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab15seg2-6"
+                  xml:id="so-wf-ux_deu-ab15seg2-6"
                   lemma="."
                   pos="PUNCT:$."
                   msd="_"
@@ -688,283 +694,283 @@
             <seg xml:id="so-seg_deu-ab64seg1-12" startPos="63" endPos="73"/>
             <seg xml:id="so-seg_deu-ab64seg1-13" startPos="73" endPos="74"/>
          </annotationBlock>
-         <annotationBlock type="wordForm" subtype="LEMMA">
+         <annotationBlock type="wordForm" n="LEMMA">
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-1"
+                  xml:id="so-wf-lem_deu-ab64seg1-1"
                   lemma="ein"
                   corresp="#so-seg_deu-ab64seg1-1"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-2"
+                  xml:id="so-wf-lem_deu-ab64seg1-2"
                   lemma="klein"
                   corresp="#so-seg_deu-ab64seg1-2"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-3"
+                  xml:id="so-wf-lem_deu-ab64seg1-3"
                   lemma="Junge"
                   corresp="#so-seg_deu-ab64seg1-3"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-4"
+                  xml:id="so-wf-lem_deu-ab64seg1-4"
                   lemma="versichern"
                   corresp="#so-seg_deu-ab64seg1-4"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-5"
+                  xml:id="so-wf-lem_deu-ab64seg1-5"
                   lemma=":"
                   corresp="#so-seg_deu-ab64seg1-5"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-6"
+                  xml:id="so-wf-lem_deu-ab64seg1-6"
                   lemma="ich"
                   corresp="#so-seg_deu-ab64seg1-6"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-7"
+                  xml:id="so-wf-lem_deu-ab64seg1-7"
                   lemma="haben"
                   corresp="#so-seg_deu-ab64seg1-7"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-8"
+                  xml:id="so-wf-lem_deu-ab64seg1-8"
                   lemma="ebenso"
                   corresp="#so-seg_deu-ab64seg1-8"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-9"
+                  xml:id="so-wf-lem_deu-ab64seg1-9"
                   lemma="viel"
                   corresp="#so-seg_deu-ab64seg1-9"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-10"
+                  xml:id="so-wf-lem_deu-ab64seg1-10"
                   lemma="Bruder"
                   corresp="#so-seg_deu-ab64seg1-10"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-11"
+                  xml:id="so-wf-lem_deu-ab64seg1-11"
                   lemma="wie"
                   corresp="#so-seg_deu-ab64seg1-11"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-12"
+                  xml:id="so-wf-lem_deu-ab64seg1-12"
                   lemma="Schwester"
                   corresp="#so-seg_deu-ab64seg1-12"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-13"
+                  xml:id="so-wf-lem_deu-ab64seg1-13"
                   lemma="."
                   corresp="#so-seg_deu-ab64seg1-13"/>
          </annotationBlock>
-         <annotationBlock type="wordForm" subtype="XPOS">
+         <annotationBlock type="wordForm" n="XPOS">
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-1"
+                  xml:id="so-wf-x_deu-ab64seg1-1"
                   lemma="ein"
                   pos="ART"
                   corresp="#so-seg_deu-ab64seg1-1"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-2"
+                  xml:id="so-wf-x_deu-ab64seg1-2"
                   lemma="klein"
                   pos="ADJA"
                   corresp="#so-seg_deu-ab64seg1-2"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-3"
+                  xml:id="so-wf-x_deu-ab64seg1-3"
                   lemma="Junge"
                   pos="NN"
                   corresp="#so-seg_deu-ab64seg1-3"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-4"
+                  xml:id="so-wf-x_deu-ab64seg1-4"
                   lemma="versichern"
                   pos="VVPP"
                   corresp="#so-seg_deu-ab64seg1-4"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-5"
+                  xml:id="so-wf-x_deu-ab64seg1-5"
                   lemma=":"
                   pos="$."
                   corresp="#so-seg_deu-ab64seg1-5"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-6"
+                  xml:id="so-wf-x_deu-ab64seg1-6"
                   lemma="ich"
                   pos="PPER"
                   corresp="#so-seg_deu-ab64seg1-6"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-7"
+                  xml:id="so-wf-x_deu-ab64seg1-7"
                   lemma="haben"
                   pos="VAFIN"
                   corresp="#so-seg_deu-ab64seg1-7"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-8"
+                  xml:id="so-wf-x_deu-ab64seg1-8"
                   lemma="ebenso"
                   pos="ADV"
                   corresp="#so-seg_deu-ab64seg1-8"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-9"
+                  xml:id="so-wf-x_deu-ab64seg1-9"
                   lemma="viel"
                   pos="NN"
                   corresp="#so-seg_deu-ab64seg1-9"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-10"
+                  xml:id="so-wf-x_deu-ab64seg1-10"
                   lemma="Bruder"
                   pos="NE"
                   corresp="#so-seg_deu-ab64seg1-10"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-11"
+                  xml:id="so-wf-x_deu-ab64seg1-11"
                   lemma="wie"
                   pos="NE"
                   corresp="#so-seg_deu-ab64seg1-11"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-12"
+                  xml:id="so-wf-x_deu-ab64seg1-12"
                   lemma="Schwester"
                   pos="NN"
                   corresp="#so-seg_deu-ab64seg1-12"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-13"
+                  xml:id="so-wf-x_deu-ab64seg1-13"
                   lemma="."
                   pos="$."
                   corresp="#so-seg_deu-ab64seg1-13"/>
          </annotationBlock>
-         <annotationBlock type="wordForm" subtype="UPOS">
+         <annotationBlock type="wordForm" n="UPOS">
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-1"
+                  xml:id="so-wf-u_deu-ab64seg1-1"
                   lemma="ein"
                   pos="DET"
                   msd="Case=Nom|Definite=Ind|Gender=Masc|Number=Sing|PronType=Art"
                   corresp="#so-seg_deu-ab64seg1-1"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-2"
+                  xml:id="so-wf-u_deu-ab64seg1-2"
                   lemma="klein"
                   pos="ADJ"
                   msd="Case=Nom|Gender=Masc|Number=Sing"
                   corresp="#so-seg_deu-ab64seg1-2"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-3"
+                  xml:id="so-wf-u_deu-ab64seg1-3"
                   lemma="Junge"
                   pos="NOUN"
                   msd="Case=Nom|Gender=Masc|Number=Sing"
                   corresp="#so-seg_deu-ab64seg1-3"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-4"
+                  xml:id="so-wf-u_deu-ab64seg1-4"
                   lemma="versichern"
                   pos="VERB"
                   msd="VerbForm=Part"
                   corresp="#so-seg_deu-ab64seg1-4"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-5"
+                  xml:id="so-wf-u_deu-ab64seg1-5"
                   lemma=":"
                   pos="PUNCT"
                   msd="_"
                   corresp="#so-seg_deu-ab64seg1-5"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-6"
+                  xml:id="so-wf-u_deu-ab64seg1-6"
                   lemma="ich"
                   pos="PRON"
                   msd="Case=Nom|Number=Sing|Person=1|PronType=Prs"
                   corresp="#so-seg_deu-ab64seg1-6"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-7"
+                  xml:id="so-wf-u_deu-ab64seg1-7"
                   lemma="haben"
                   pos="VERB"
                   msd="Mood=Sub|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"
                   corresp="#so-seg_deu-ab64seg1-7"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-8"
+                  xml:id="so-wf-u_deu-ab64seg1-8"
                   lemma="ebenso"
                   pos="ADV"
                   msd="_"
                   corresp="#so-seg_deu-ab64seg1-8"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-9"
+                  xml:id="so-wf-u_deu-ab64seg1-9"
                   lemma="viel"
                   pos="DET"
                   msd="Case=Gen|Gender=Neut|Number=Plur"
                   corresp="#so-seg_deu-ab64seg1-9"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-10"
+                  xml:id="so-wf-u_deu-ab64seg1-10"
                   lemma="Bruder"
                   pos="NOUN"
                   msd="Case=Gen|Gender=Neut|Number=Plur"
                   corresp="#so-seg_deu-ab64seg1-10"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-11"
+                  xml:id="so-wf-u_deu-ab64seg1-11"
                   lemma="wie"
                   pos="ADP"
                   msd="Case=Gen|Gender=Neut|Number=Sing"
                   corresp="#so-seg_deu-ab64seg1-11"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-12"
+                  xml:id="so-wf-u_deu-ab64seg1-12"
                   lemma="Schwester"
                   pos="PROPN"
                   msd="Case=Gen|Gender=Fem|Number=Plur"
                   corresp="#so-seg_deu-ab64seg1-12"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-13"
+                  xml:id="so-wf-u_deu-ab64seg1-13"
                   lemma="."
                   pos="PUNCT"
                   msd="_"
                   corresp="#so-seg_deu-ab64seg1-13"/>
          </annotationBlock>
          <!--the following annotation block is overall spurious, but still interesting in how it mimics the merged UPOS:XPOS description in the <text> element above-->
-         <annotationBlock type="wordForm" subtype="UPOS:XPOS">
+         <annotationBlock type="wordForm" n="UPOS:XPOS">
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-1"
+                  xml:id="so-wf-ux_deu-ab64seg1-1"
                   lemma="ein"
                   pos="DET:ART"
                   msd="Case=Nom|Definite=Ind|Gender=Masc|Number=Sing|PronType=Art"
                   corresp="#so-seg_deu-ab64seg1-1"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-2"
+                  xml:id="so-wf-ux_deu-ab64seg1-2"
                   lemma="klein"
                   pos="ADJ:ADJA"
                   msd="Case=Nom|Gender=Masc|Number=Sing"
                   corresp="#so-seg_deu-ab64seg1-2"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-3"
+                  xml:id="so-wf-ux_deu-ab64seg1-3"
                   lemma="Junge"
                   pos="NOUN:NN"
                   msd="Case=Nom|Gender=Masc|Number=Sing"
                   corresp="#so-seg_deu-ab64seg1-3"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-4"
+                  xml:id="so-wf-ux_deu-ab64seg1-4"
                   lemma="versichern"
                   pos="VERB:VVPP"
                   msd="VerbForm=Part"
                   corresp="#so-seg_deu-ab64seg1-4"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-5"
+                  xml:id="so-wf-ux_deu-ab64seg1-5"
                   lemma=":"
                   pos="PUNCT:$."
                   msd="_"
                   corresp="#so-seg_deu-ab64seg1-5"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-6"
+                  xml:id="so-wf-ux_deu-ab64seg1-6"
                   lemma="ich"
                   pos="PRON:PPER"
                   msd="Case=Nom|Number=Sing|Person=1|PronType=Prs"
                   corresp="#so-seg_deu-ab64seg1-6"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-7"
+                  xml:id="so-wf-ux_deu-ab64seg1-7"
                   lemma="haben"
                   pos="VERB:VAFIN"
                   msd="Mood=Sub|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"
                   corresp="#so-seg_deu-ab64seg1-7"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-8"
+                  xml:id="so-wf-ux_deu-ab64seg1-8"
                   lemma="ebenso"
                   pos="ADV:ADV"
                   msd="_"
                   corresp="#so-seg_deu-ab64seg1-8"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-9"
+                  xml:id="so-wf-ux_deu-ab64seg1-9"
                   lemma="viel"
                   pos="DET:NN"
                   msd="Case=Gen|Gender=Neut|Number=Plur"
                   corresp="#so-seg_deu-ab64seg1-9"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-10"
+                  xml:id="so-wf-ux_deu-ab64seg1-10"
                   lemma="Bruder"
                   pos="NOUN:NE"
                   msd="Case=Gen|Gender=Neut|Number=Plur"
                   corresp="#so-seg_deu-ab64seg1-10"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-11"
+                  xml:id="so-wf-ux_deu-ab64seg1-11"
                   lemma="wie"
                   pos="ADP:NE"
                   msd="Case=Gen|Gender=Neut|Number=Sing"
                   corresp="#so-seg_deu-ab64seg1-11"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-12"
+                  xml:id="so-wf-ux_deu-ab64seg1-12"
                   lemma="Schwester"
                   pos="PROPN:NN"
                   msd="Case=Gen|Gender=Fem|Number=Plur"
                   corresp="#so-seg_deu-ab64seg1-12"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg1-13"
+                  xml:id="so-wf-ux_deu-ab64seg1-13"
                   lemma="."
                   pos="PUNCT:$."
                   msd="_"
@@ -986,262 +992,262 @@
             <seg xml:id="so-seg_deu-ab64seg2-11" startPos="60" endPos="70"/>
             <seg xml:id="so-seg_deu-ab64seg2-12" startPos="70" endPos="71"/>
          </annotationBlock>
-         <annotationBlock type="wordForm" subtype="LEMMA">
+         <annotationBlock type="wordForm" n="LEMMA">
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-1"
+                  xml:id="so-wf-lem_deu-ab64seg2-1"
                   lemma="sein"
                   corresp="#so-seg_deu-ab64seg2-1"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-2"
+                  xml:id="so-wf-lem_deu-ab64seg2-2"
                   lemma="Schwester"
                   corresp="#so-seg_deu-ab64seg2-2"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-3"
+                  xml:id="so-wf-lem_deu-ab64seg2-3"
                   lemma="antworten"
                   corresp="#so-seg_deu-ab64seg2-3"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-4"
+                  xml:id="so-wf-lem_deu-ab64seg2-4"
                   lemma=":"
                   corresp="#so-seg_deu-ab64seg2-4"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-5"
+                  xml:id="so-wf-lem_deu-ab64seg2-5"
                   lemma="ich"
                   corresp="#so-seg_deu-ab64seg2-5"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-6"
+                  xml:id="so-wf-lem_deu-ab64seg2-6"
                   lemma="haben"
                   corresp="#so-seg_deu-ab64seg2-6"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-7"
+                  xml:id="so-wf-lem_deu-ab64seg2-7"
                   lemma="zweimal"
                   corresp="#so-seg_deu-ab64seg2-7"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-8"
+                  xml:id="so-wf-lem_deu-ab64seg2-8"
                   lemma="mehr"
                   corresp="#so-seg_deu-ab64seg2-8"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-9"
+                  xml:id="so-wf-lem_deu-ab64seg2-9"
                   lemma="Bruder"
                   corresp="#so-seg_deu-ab64seg2-9"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-10"
+                  xml:id="so-wf-lem_deu-ab64seg2-10"
                   lemma="als"
                   corresp="#so-seg_deu-ab64seg2-10"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-11"
+                  xml:id="so-wf-lem_deu-ab64seg2-11"
                   lemma="Schwester"
                   corresp="#so-seg_deu-ab64seg2-11"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-12"
+                  xml:id="so-wf-lem_deu-ab64seg2-12"
                   lemma="."
                   corresp="#so-seg_deu-ab64seg2-12"/>
          </annotationBlock>
-         <annotationBlock type="wordForm" subtype="XPOS">
+         <annotationBlock type="wordForm" n="XPOS">
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-1"
+                  xml:id="so-wf-x_deu-ab64seg2-1"
                   lemma="sein"
                   pos="PPOSAT"
                   corresp="#so-seg_deu-ab64seg2-1"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-2"
+                  xml:id="so-wf-x_deu-ab64seg2-2"
                   lemma="Schwester"
                   pos="NN"
                   corresp="#so-seg_deu-ab64seg2-2"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-3"
+                  xml:id="so-wf-x_deu-ab64seg2-3"
                   lemma="antworten"
                   pos="VVPP"
                   corresp="#so-seg_deu-ab64seg2-3"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-4"
+                  xml:id="so-wf-x_deu-ab64seg2-4"
                   lemma=":"
                   pos="$."
                   corresp="#so-seg_deu-ab64seg2-4"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-5"
+                  xml:id="so-wf-x_deu-ab64seg2-5"
                   lemma="ich"
                   pos="PPER"
                   corresp="#so-seg_deu-ab64seg2-5"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-6"
+                  xml:id="so-wf-x_deu-ab64seg2-6"
                   lemma="haben"
                   pos="VAFIN"
                   corresp="#so-seg_deu-ab64seg2-6"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-7"
+                  xml:id="so-wf-x_deu-ab64seg2-7"
                   lemma="zweimal"
                   pos="$("
                   corresp="#so-seg_deu-ab64seg2-7"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-8"
+                  xml:id="so-wf-x_deu-ab64seg2-8"
                   lemma="mehr"
                   pos="ADV"
                   corresp="#so-seg_deu-ab64seg2-8"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-9"
+                  xml:id="so-wf-x_deu-ab64seg2-9"
                   lemma="Bruder"
                   pos="NN"
                   corresp="#so-seg_deu-ab64seg2-9"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-10"
+                  xml:id="so-wf-x_deu-ab64seg2-10"
                   lemma="als"
                   pos="KOKOM"
                   corresp="#so-seg_deu-ab64seg2-10"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-11"
+                  xml:id="so-wf-x_deu-ab64seg2-11"
                   lemma="Schwester"
                   pos="NN"
                   corresp="#so-seg_deu-ab64seg2-11"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-12"
+                  xml:id="so-wf-x_deu-ab64seg2-12"
                   lemma="."
                   pos="$."
                   corresp="#so-seg_deu-ab64seg2-12"/>
          </annotationBlock>
-         <annotationBlock type="wordForm" subtype="UPOS">
+         <annotationBlock type="wordForm" n="UPOS">
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-1"
+                  xml:id="so-wf-u_deu-ab64seg2-1"
                   lemma="sein"
                   pos="DET"
                   msd="Case=Nom|Gender=Fem|Number=Sing|Poss=Yes"
                   corresp="#so-seg_deu-ab64seg2-1"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-2"
+                  xml:id="so-wf-u_deu-ab64seg2-2"
                   lemma="Schwester"
                   pos="NOUN"
                   msd="Case=Nom|Gender=Fem|Number=Sing"
                   corresp="#so-seg_deu-ab64seg2-2"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-3"
+                  xml:id="so-wf-u_deu-ab64seg2-3"
                   lemma="antworten"
                   pos="VERB"
                   msd="Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"
                   corresp="#so-seg_deu-ab64seg2-3"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-4"
+                  xml:id="so-wf-u_deu-ab64seg2-4"
                   lemma=":"
                   pos="PUNCT"
                   msd="_"
                   corresp="#so-seg_deu-ab64seg2-4"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-5"
+                  xml:id="so-wf-u_deu-ab64seg2-5"
                   lemma="ich"
                   pos="PRON"
                   msd="Case=Nom|Number=Sing|Person=1|PronType=Prs"
                   corresp="#so-seg_deu-ab64seg2-5"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-6"
+                  xml:id="so-wf-u_deu-ab64seg2-6"
                   lemma="haben"
                   pos="AUX"
                   msd="Mood=Sub|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"
                   corresp="#so-seg_deu-ab64seg2-6"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-7"
+                  xml:id="so-wf-u_deu-ab64seg2-7"
                   lemma="zweimal"
                   pos="ADV"
                   msd="_"
                   corresp="#so-seg_deu-ab64seg2-7"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-8"
+                  xml:id="so-wf-u_deu-ab64seg2-8"
                   lemma="mehr"
                   pos="ADV"
                   msd="_"
                   corresp="#so-seg_deu-ab64seg2-8"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-9"
+                  xml:id="so-wf-u_deu-ab64seg2-9"
                   lemma="Bruder"
                   pos="NOUN"
                   msd="Case=Nom|Gender=Masc|Number=Plur"
                   corresp="#so-seg_deu-ab64seg2-9"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-10"
+                  xml:id="so-wf-u_deu-ab64seg2-10"
                   lemma="als"
                   pos="ADP"
                   msd="_"
                   corresp="#so-seg_deu-ab64seg2-10"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-11"
+                  xml:id="so-wf-u_deu-ab64seg2-11"
                   lemma="Schwester"
                   pos="NOUN"
                   msd="Case=Nom|Gender=Fem|Number=Plur"
                   corresp="#so-seg_deu-ab64seg2-11"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-12"
+                  xml:id="so-wf-u_deu-ab64seg2-12"
                   lemma="."
                   pos="PUNCT"
                   msd="_"
                   corresp="#so-seg_deu-ab64seg2-12"/>
          </annotationBlock>
          <!--the following annotation block is overall spurious, but still interesting in how it mimics the merged UPOS:XPOS description in the <text> element above-->
-         <annotationBlock type="wordForm" subtype="UPOS:XPOS">
+         <annotationBlock type="wordForm" n="UPOS:XPOS">
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-1"
+                  xml:id="so-wf-ux_deu-ab64seg2-1"
                   lemma="sein"
                   pos="DET:PPOSAT"
                   msd="Case=Nom|Gender=Fem|Number=Sing|Poss=Yes"
                   corresp="#so-seg_deu-ab64seg2-1"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-2"
+                  xml:id="so-wf-ux_deu-ab64seg2-2"
                   lemma="Schwester"
                   pos="NOUN:NN"
                   msd="Case=Nom|Gender=Fem|Number=Sing"
                   corresp="#so-seg_deu-ab64seg2-2"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-3"
+                  xml:id="so-wf-ux_deu-ab64seg2-3"
                   lemma="antworten"
                   pos="VERB:VVPP"
                   msd="Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"
                   corresp="#so-seg_deu-ab64seg2-3"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-4"
+                  xml:id="so-wf-ux_deu-ab64seg2-4"
                   lemma=":"
                   pos="PUNCT:$."
                   msd="_"
                   corresp="#so-seg_deu-ab64seg2-4"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-5"
+                  xml:id="so-wf-ux_deu-ab64seg2-5"
                   lemma="ich"
                   pos="PRON:PPER"
                   msd="Case=Nom|Number=Sing|Person=1|PronType=Prs"
                   corresp="#so-seg_deu-ab64seg2-5"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-6"
+                  xml:id="so-wf-ux_deu-ab64seg2-6"
                   lemma="haben"
                   pos="AUX:VAFIN"
                   msd="Mood=Sub|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"
                   corresp="#so-seg_deu-ab64seg2-6"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-7"
+                  xml:id="so-wf-ux_deu-ab64seg2-7"
                   lemma="zweimal"
                   pos="ADV:$("
                   msd="_"
                   corresp="#so-seg_deu-ab64seg2-7"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-8"
+                  xml:id="so-wf-ux_deu-ab64seg2-8"
                   lemma="mehr"
                   pos="ADV:ADV"
                   msd="_"
                   corresp="#so-seg_deu-ab64seg2-8"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-9"
+                  xml:id="so-wf-ux_deu-ab64seg2-9"
                   lemma="Bruder"
                   pos="NOUN:NN"
                   msd="Case=Nom|Gender=Masc|Number=Plur"
                   corresp="#so-seg_deu-ab64seg2-9"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-10"
+                  xml:id="so-wf-ux_deu-ab64seg2-10"
                   lemma="als"
                   pos="ADP:KOKOM"
                   msd="_"
                   corresp="#so-seg_deu-ab64seg2-10"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-11"
+                  xml:id="so-wf-ux_deu-ab64seg2-11"
                   lemma="Schwester"
                   pos="NOUN:NN"
                   msd="Case=Nom|Gender=Fem|Number=Plur"
                   corresp="#so-seg_deu-ab64seg2-11"/>
             <span type="wordForm"
-                  xml:id="so-wf_deu-ab64seg2-12"
+                  xml:id="so-wf-ux_deu-ab64seg2-12"
                   lemma="."
                   pos="PUNCT:$."
                   msd="_"
@@ -1260,220 +1266,220 @@
             <seg xml:id="so-seg_unk_5-9" startPos="32" endPos="40"/>
             <seg xml:id="so-seg_unk_5-10" startPos="40" endPos="41"/>
          </annotationBlock>
-         <annotationBlock type="wordForm" subtype="LEMMA">
+         <annotationBlock type="wordForm" n="LEMMA">
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-1"
+                  xml:id="so-wf-lem_unk_5-1"
                   lemma="ich"
                   corresp="#so-seg_unk_5-1"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-2"
+                  xml:id="so-wf-lem_unk_5-2"
                   lemma="haben"
                   corresp="#so-seg_unk_5-2"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-3"
+                  xml:id="so-wf-lem_unk_5-3"
                   lemma="ich"
                   corresp="#so-seg_unk_5-3"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-4"
+                  xml:id="so-wf-lem_unk_5-4"
                   lemma="in"
                   corresp="#so-seg_unk_5-4-5"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-5"
+                  xml:id="so-wf-lem_unk_5-5"
                   lemma="der"
                   corresp="#so-seg_unk_5-4-5"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-6"
+                  xml:id="so-wf-lem_unk_5-6"
                   lemma="Winter"
                   corresp="#so-seg_unk_5-6"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-7"
+                  xml:id="so-wf-lem_unk_5-7"
                   lemma="in"
                   corresp="#so-seg_unk_5-7"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-8"
+                  xml:id="so-wf-lem_unk_5-8"
                   lemma="du"
                   corresp="#so-seg_unk_5-8"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-9"
+                  xml:id="so-wf-lem_unk_5-9"
                   lemma="verlieben"
                   corresp="#so-seg_unk_5-9"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-10"
+                  xml:id="so-wf-lem_unk_5-10"
                   lemma="."
                   corresp="#so-seg_unk_5-10"/>
          </annotationBlock>
-         <annotationBlock type="wordForm" subtype="XPOS">
+         <annotationBlock type="wordForm" n="XPOS">
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-1"
+                  xml:id="so-wf-x_unk_5-1"
                   lemma="ich"
                   pos="PPER"
                   corresp="#so-seg_unk_5-1"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-2"
+                  xml:id="so-wf-x_unk_5-2"
                   lemma="haben"
                   pos="VAFIN"
                   corresp="#so-seg_unk_5-2"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-3"
+                  xml:id="so-wf-x_unk_5-3"
                   lemma="ich"
                   pos="PRF"
                   corresp="#so-seg_unk_5-3"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-4"
+                  xml:id="so-wf-x_unk_5-4"
                   lemma="in"
                   pos="APPR"
                   corresp="#so-seg_unk_5-4-5"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-5"
+                  xml:id="so-wf-x_unk_5-5"
                   lemma="der"
                   pos="ART"
                   corresp="#so-seg_unk_5-4-5"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-6"
+                  xml:id="so-wf-x_unk_5-6"
                   lemma="Winter"
                   pos="NN"
                   corresp="#so-seg_unk_5-6"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-7"
+                  xml:id="so-wf-x_unk_5-7"
                   lemma="in"
                   pos="APPR"
                   corresp="#so-seg_unk_5-7"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-8"
+                  xml:id="so-wf-x_unk_5-8"
                   lemma="du"
                   pos="PRF"
                   corresp="#so-seg_unk_5-8"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-9"
+                  xml:id="so-wf-x_unk_5-9"
                   lemma="verlieben"
                   pos="VVFIN"
                   corresp="#so-seg_unk_5-9"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-10"
+                  xml:id="so-wf-x_unk_5-10"
                   lemma="."
                   pos="$."
                   corresp="#so-seg_unk_5-10"/>
          </annotationBlock>
-         <annotationBlock type="wordForm" subtype="UPOS">
+         <annotationBlock type="wordForm" n="UPOS">
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-1"
+                  xml:id="so-wf-u_unk_5-1"
                   lemma="ich"
                   pos="PRON"
                   msd="Case=Nom|Number=Sing|Person=1|PronType=Prs"
                   corresp="#so-seg_unk_5-1"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-2"
+                  xml:id="so-wf-u_unk_5-2"
                   lemma="haben"
                   pos="AUX"
                   msd="Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin"
                   corresp="#so-seg_unk_5-2"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-3"
+                  xml:id="so-wf-u_unk_5-3"
                   lemma="ich"
                   pos="PRON"
                   msd="Case=Acc|Number=Sing|Person=1|PronType=Prs|Reflex=Yes"
                   corresp="#so-seg_unk_5-3"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-4"
+                  xml:id="so-wf-u_unk_5-4"
                   lemma="in"
                   pos="ADP"
                   msd="_"
                   corresp="#so-seg_unk_5-4-5"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-5"
+                  xml:id="so-wf-u_unk_5-5"
                   lemma="der"
                   pos="DET"
                   msd="Case=Dat|Definite=Def|Gender=Masc|Number=Sing|PronType=Art"
                   corresp="#so-seg_unk_5-4-5"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-6"
+                  xml:id="so-wf-u_unk_5-6"
                   lemma="Winter"
                   pos="NOUN"
                   msd="Case=Dat|Gender=Masc|Number=Sing"
                   corresp="#so-seg_unk_5-6"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-7"
+                  xml:id="so-wf-u_unk_5-7"
                   lemma="in"
                   pos="ADP"
                   msd="_"
                   corresp="#so-seg_unk_5-7"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-8"
+                  xml:id="so-wf-u_unk_5-8"
                   lemma="du"
                   pos="PRON"
                   msd="Case=Acc|Number=Sing|Person=2|PronType=Prs|Reflex=Yes"
                   corresp="#so-seg_unk_5-8"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-9"
+                  xml:id="so-wf-u_unk_5-9"
                   lemma="verlieben"
                   pos="VERB"
                   msd="Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"
                   corresp="#so-seg_unk_5-9"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-10"
+                  xml:id="so-wf-u_unk_5-10"
                   lemma="."
                   pos="PUNCT"
                   msd="_"
                   corresp="#so-seg_unk_5-10"/>
          </annotationBlock>
          <!--the following annotation block is overall spurious, but still interesting in how it mimics the merged UPOS:XPOS description in the <text> element above-->
-         <annotationBlock type="wordForm" subtype="UPOS:XPOS">
+         <annotationBlock type="wordForm" n="UPOS:XPOS">
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-1"
+                  xml:id="so-wf-ux_unk_5-1"
                   lemma="ich"
                   pos="PRON:PPER"
                   msd="Case=Nom|Number=Sing|Person=1|PronType=Prs"
                   corresp="#so-seg_unk_5-1"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-2"
+                  xml:id="so-wf-ux_unk_5-2"
                   lemma="haben"
                   pos="AUX:VAFIN"
                   msd="Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin"
                   corresp="#so-seg_unk_5-2"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-3"
+                  xml:id="so-wf-ux_unk_5-3"
                   lemma="ich"
                   pos="PRON:PRF"
                   msd="Case=Acc|Number=Sing|Person=1|PronType=Prs|Reflex=Yes"
                   corresp="#so-seg_unk_5-3"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-4"
+                  xml:id="so-wf-ux_unk_5-4"
                   lemma="in"
                   pos="ADP:APPR"
                   msd="_"
                   corresp="#so-seg_unk_5-4-5"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-5"
+                  xml:id="so-wf-ux_unk_5-5"
                   lemma="der"
                   pos="DET:ART"
                   msd="Case=Dat|Definite=Def|Gender=Masc|Number=Sing|PronType=Art"
                   corresp="#so-seg_unk_5-4-5"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-6"
+                  xml:id="so-wf-ux_unk_5-6"
                   lemma="Winter"
                   pos="NOUN:NN"
                   msd="Case=Dat|Gender=Masc|Number=Sing"
                   corresp="#so-seg_unk_5-6"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-7"
+                  xml:id="so-wf-ux_unk_5-7"
                   lemma="in"
                   pos="ADP:APPR"
                   msd="_"
                   corresp="#so-seg_unk_5-7"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-8"
+                  xml:id="so-wf-ux_unk_5-8"
                   lemma="du"
                   pos="PRON:PRF"
                   msd="Case=Acc|Number=Sing|Person=2|PronType=Prs|Reflex=Yes"
                   corresp="#so-seg_unk_5-8"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-9"
+                  xml:id="so-wf-ux_unk_5-9"
                   lemma="verlieben"
                   pos="VERB:VVFIN"
                   msd="Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"
                   corresp="#so-seg_unk_5-9"/>
             <span type="wordForm"
-                  xml:id="so-wf_unk_5-10"
+                  xml:id="so-wf-ux_unk_5-10"
                   lemma="."
                   pos="PUNCT:$."
                   msd="_"
