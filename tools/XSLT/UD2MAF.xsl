@@ -193,7 +193,7 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"-->
         <xsl:for-each select="map:keys($metadata_map)">
             <xsl:sort select="." order="ascending"/>
             <xsl:variable name="sent_id" select="if ($metadata_map(.)('sent_id')) then $metadata_map(.)('sent_id') else $unknown_id_pref || position()" as="xs:string"/>
-            <s xml:id="{$sent_id}"><xsl:value-of select="$metadata_map(.)('text')"/></s>
+            <tei:s xml:id="{$sent_id}"><xsl:value-of select="$metadata_map(.)('text')"/></tei:s>
         </xsl:for-each>
     </xsl:variable>
     
@@ -203,29 +203,29 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"-->
 <!--            <xsl:variable name="sent_id" select="$metadata_map(.)('sent_id')" as="xs:string*"/>-->
             <xsl:variable name="sent_id" select="if ($metadata_map(.)('sent_id')) then $metadata_map(.)('sent_id') else $unknown_id_pref || position()" as="xs:string"/>
             <xsl:variable name="sent_number" select="."/>
-            <s xml:id="{'seq_' || $sent_id}" corresp="{'#' || $sent_id}">
+            <tei:s xml:id="{'seq_' || $sent_id}" corresp="{'#' || $sent_id}">
                 <xsl:for-each select="map:keys($annotation_map($sent_number))">
                     <!--we use xsl:if here to see where the discontinuity happens, for debugging mostly-->
                     <xsl:if test="not($annotation_map($sent_number)(.)('excluded_by'))">
-                        <seg xml:id="{'seq_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}">
+                        <tei:seg xml:id="{'seq_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}">
                             <xsl:if test="matches($annotation_map($sent_number)(.)('MISC'),'SpaceAfter=No')">
                                 <xsl:attribute name="join" select="'right'"/>
                             </xsl:if>
                             <xsl:value-of select="$annotation_map($sent_number)(.)('FORM')"/>
-                        </seg>
+                        </tei:seg>
                     </xsl:if>
                 </xsl:for-each>
                 <xsl:for-each select="map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'),'\d+-\d'))]">
                     <!-- excluding the portmanteaus by force, this feels like a kludge -->
-                    <span type="wordForm" n="UPOS:XPOS" xml:id="{'seq-wf_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"
+                    <tei:span type="wordForm" n="UPOS:XPOS" xml:id="{'seq-wf_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"
                         lemma="{$annotation_map($sent_number)(.)('LEMMA')}"
                         pos="{$annotation_map($sent_number)(.)('UPOS') || $pos_separator || $annotation_map($sent_number)(.)('XPOS')}"
                         msd="{$annotation_map($sent_number)(.)('FEATS')}"
                         corresp="{concat('#seq_',$sent_id, '-', if (not($annotation_map($sent_number)(.)('excluded_by'))) then $annotation_map($sent_number)(.)('ID') else $annotation_map($sent_number)(.)('excluded_by') )}"
                         >
-                    </span>
+                    </tei:span>
                 </xsl:for-each>
-            </s>
+            </tei:s>
         </xsl:for-each>
     </xsl:variable>
     
