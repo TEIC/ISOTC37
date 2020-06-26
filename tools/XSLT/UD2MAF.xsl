@@ -2,8 +2,8 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
     xmlns:f="func" xmlns:map="http://www.w3.org/2005/xpath-functions/map"
-    xmlns:tei="http://www.tei-c.org/ns/1.0" xpath-default-namespace="http://www.tei-c.org/ns/1.0"
-    exclude-result-prefixes="xs xd f map tei" version="3.0" expand-text="yes">
+    xpath-default-namespace="http://www.tei-c.org/ns/1.0"
+    exclude-result-prefixes="xs xd f map" version="3.0" expand-text="yes">
 
     <xsl:output encoding="UTF-8" method="xml" indent="yes"/>
 
@@ -215,9 +215,9 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"-->
                     else
                         $unknown_id_pref || position()"
                 as="xs:string"/>
-            <tei:s xml:id="{$sent_id}">
+            <s xmlns="http://www.tei-c.org/ns/1.0" xml:id="{$sent_id}">
                 <xsl:value-of select="$metadata_map(.)('text')"/>
-            </tei:s>
+            </s>
         </xsl:for-each>
     </xsl:variable>
 
@@ -233,32 +233,32 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"-->
                         $unknown_id_pref || position()"
                 as="xs:string"/>
             <xsl:variable name="sent_number" select="."/>
-            <tei:s xml:id="{'seq_' || $sent_id}" corresp="{'#' || $sent_id}">
+            <s xmlns="http://www.tei-c.org/ns/1.0" xml:id="{'seq_' || $sent_id}" corresp="{'#' || $sent_id}">
                 <xsl:for-each select="map:keys($annotation_map($sent_number))">
                     <!--we use xsl:if here to see where the discontinuity happens, for debugging mostly-->
                     <xsl:if test="not($annotation_map($sent_number)(.)('excluded_by'))">
-                        <tei:seg
+                        <seg
                             xml:id="{'seq_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}">
                             <xsl:if
                                 test="matches($annotation_map($sent_number)(.)('MISC'), 'SpaceAfter=No')">
                                 <xsl:attribute name="join" select="'right'"/>
                             </xsl:if>
                             <xsl:value-of select="$annotation_map($sent_number)(.)('FORM')"/>
-                        </tei:seg>
+                        </seg>
                     </xsl:if>
                 </xsl:for-each>
                 <xsl:for-each
                     select="map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'), '\d+-\d'))]">
                     <!-- excluding the portmanteaus by force, this feels like a kludge -->
-                    <tei:span type="wordForm" n="UPOS:XPOS"
+                    <span xmlns="http://www.tei-c.org/ns/1.0" type="wordForm" n="UPOS:XPOS"
                         xml:id="{'seq-wf_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"
                         lemma="{$annotation_map($sent_number)(.)('LEMMA')}"
                         pos="{$annotation_map($sent_number)(.)('UPOS') || $pos_separator || $annotation_map($sent_number)(.)('XPOS')}"
                         msd="{$annotation_map($sent_number)(.)('FEATS')}"
                         corresp="{concat('#seq_',$sent_id, '-', if (not($annotation_map($sent_number)(.)('excluded_by'))) then $annotation_map($sent_number)(.)('ID') else $annotation_map($sent_number)(.)('excluded_by') )}"
-                    > </tei:span>
+                    > </span>
                 </xsl:for-each>
-            </tei:s>
+            </s>
         </xsl:for-each>
     </xsl:variable>
 
@@ -309,7 +309,7 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"-->
     <xd:doc>
         <xd:desc>This is the 'main() function' -- the entry point.</xd:desc>
     </xd:doc>
-    <xsl:template name="xsl:initial-template" exclude-result-prefixes="tei">
+    <xsl:template name="xsl:initial-template">
 
         <TEI xmlns="http://www.tei-c.org/ns/1.0">
             <teiHeader>
@@ -362,7 +362,7 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"-->
                             as="map(xs:integer, map(xs:string, xs:integer))"
                             select="f:map_offsets($annotation_map($sent_number), 1, 0)"/>
 
-                        <tei:listAnnotation corresp="{'#' || $sent_id}"
+                        <listAnnotation xmlns="http://www.tei-c.org/ns/1.0" corresp="{'#' || $sent_id}"
                             xml:id="{'ann_' || $sent_id}">
                             <annotationBlock type="token" offsetBase="{'#' || $sent_id}">
                                 <xsl:for-each select="map:keys($annotation_map($sent_number))">
@@ -437,7 +437,7 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"-->
                                     > </span>
                                 </xsl:for-each>
                             </annotationBlock>
-                        </tei:listAnnotation>
+                        </listAnnotation>
                     </xsl:for-each>
                 </standOff>
             </xsl:if>

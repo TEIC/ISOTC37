@@ -8,7 +8,8 @@
             <title>Output of the UD2MAF.xml script</title>
          </titleStmt>
          <publicationStmt>
-            <p>This is free output of the tool UD2MAF, accompanying the ISO MAF (proposed, revised) standard.</p>
+            <p>This is free output of the tool UD2MAF, accompanying the ISO MAF
+                            (proposed, revised) standard.</p>
          </publicationStmt>
          <sourceDesc>
             <p>Created in the electronic form.</p>
@@ -19,402 +20,392 @@
       <body>
          <div type="plain">
             <p>
-               <tei:s xmlns:tei="http://www.tei-c.org/ns/1.0" xml:id="deu-ab1seg1">Der Dinosaurier ist ausgestorben.</tei:s>
-               <tei:s xmlns:tei="http://www.tei-c.org/ns/1.0" xml:id="deu-ab15seg2">Genau das hat sie gesagt.</tei:s>
-               <tei:s xmlns:tei="http://www.tei-c.org/ns/1.0" xml:id="deu-ab64seg1">Ein kleiner Junge versichert: ich habe ebenso viele Brüder wie Schwestern.</tei:s>
-               <tei:s xmlns:tei="http://www.tei-c.org/ns/1.0" xml:id="deu-ab64seg2">Seine Schwester antwortet: ich habe zweimal mehr Brüder als Schwestern.</tei:s>
-               <tei:s xmlns:tei="http://www.tei-c.org/ns/1.0" xml:id="unk_5">Ich habe mich im Winter in dich verliebt.</tei:s>
+               <s xml:id="deu-ab1seg1">Der Dinosaurier ist ausgestorben.</s>
+               <s xml:id="deu-ab15seg2">Genau das hat sie gesagt.</s>
+               <s xml:id="deu-ab64seg1">Ein kleiner Junge versichert: ich habe ebenso viele Brüder wie Schwestern.</s>
+               <s xml:id="deu-ab64seg2">Seine Schwester antwortet: ich habe zweimal mehr Brüder als Schwestern.</s>
+               <s xml:id="unk_5">Ich habe mich im Winter in dich verliebt.</s>
             </p>
          </div>
          <div type="sequential">
             <p>
-               <tei:s xmlns:tei="http://www.tei-c.org/ns/1.0"
-                      xml:id="seq_deu-ab1seg1"
-                      corresp="#deu-ab1seg1">
-                  <tei:seg xml:id="seq_deu-ab1seg1-1">Der</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab1seg1-2">Dinosaurier</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab1seg1-3">ist</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab1seg1-4" join="right">ausgestorben</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab1seg1-5">.</tei:seg>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab1seg1-1"
-                            lemma="der"
-                            pos="DET:ART"
-                            msd="Case=Nom|Definite=Def|Gender=Masc|Number=Sing|PronType=Art"
-                            corresp="#seq_deu-ab1seg1-1"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab1seg1-2"
-                            lemma="Dinosaurier"
-                            pos="NOUN:NN"
-                            msd="Case=Nom|Gender=Masc|Number=Sing"
-                            corresp="#seq_deu-ab1seg1-2"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab1seg1-3"
-                            lemma="sein"
-                            pos="AUX:ADJD"
-                            msd="_"
-                            corresp="#seq_deu-ab1seg1-3"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab1seg1-4"
-                            lemma="aussterben"
-                            pos="ADJ:VVPP"
-                            msd="VerbForm=Part"
-                            corresp="#seq_deu-ab1seg1-4"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab1seg1-5"
-                            lemma="."
-                            pos="PUNCT:$."
-                            msd="_"
-                            corresp="#seq_deu-ab1seg1-5"/>
-               </tei:s>
-               <tei:s xmlns:tei="http://www.tei-c.org/ns/1.0"
-                      xml:id="seq_deu-ab15seg2"
-                      corresp="#deu-ab15seg2">
-                  <tei:seg xml:id="seq_deu-ab15seg2-1">Genau</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab15seg2-2">das</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab15seg2-3">hat</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab15seg2-4">sie</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab15seg2-5" join="right">gesagt</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab15seg2-6">.</tei:seg>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab15seg2-1"
-                            lemma="genau"
-                            pos="PROPN:ADV"
-                            msd="_"
-                            corresp="#seq_deu-ab15seg2-1"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab15seg2-2"
-                            lemma="der"
-                            pos="DET:PDS"
-                            msd="Case=Nom|Gender=Neut|Number=Sing|PronType=Dem"
-                            corresp="#seq_deu-ab15seg2-2"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab15seg2-3"
-                            lemma="haben"
-                            pos="AUX:VAFIN"
-                            msd="Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"
-                            corresp="#seq_deu-ab15seg2-3"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab15seg2-4"
-                            lemma="sie"
-                            pos="PRON:ADJA"
-                            msd="Case=Nom|Gender=Fem|Number=Plur"
-                            corresp="#seq_deu-ab15seg2-4"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab15seg2-5"
-                            lemma="sagen"
-                            pos="VERB:VVPP"
-                            msd="VerbForm=Part"
-                            corresp="#seq_deu-ab15seg2-5"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab15seg2-6"
-                            lemma="."
-                            pos="PUNCT:$."
-                            msd="_"
-                            corresp="#seq_deu-ab15seg2-6"/>
-               </tei:s>
-               <tei:s xmlns:tei="http://www.tei-c.org/ns/1.0"
-                      xml:id="seq_deu-ab64seg1"
-                      corresp="#deu-ab64seg1">
-                  <tei:seg xml:id="seq_deu-ab64seg1-1">Ein</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab64seg1-2">kleiner</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab64seg1-3">Junge</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab64seg1-4" join="right">versichert</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab64seg1-5">:</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab64seg1-6">ich</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab64seg1-7">habe</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab64seg1-8">ebenso</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab64seg1-9">viele</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab64seg1-10">Brüder</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab64seg1-11">wie</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab64seg1-12" join="right">Schwestern</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab64seg1-13">.</tei:seg>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab64seg1-1"
-                            lemma="ein"
-                            pos="DET:ART"
-                            msd="Case=Nom|Definite=Ind|Gender=Masc|Number=Sing|PronType=Art"
-                            corresp="#seq_deu-ab64seg1-1"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab64seg1-2"
-                            lemma="klein"
-                            pos="ADJ:ADJA"
-                            msd="Case=Nom|Gender=Masc|Number=Sing"
-                            corresp="#seq_deu-ab64seg1-2"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab64seg1-3"
-                            lemma="Junge"
-                            pos="NOUN:NN"
-                            msd="Case=Nom|Gender=Masc|Number=Sing"
-                            corresp="#seq_deu-ab64seg1-3"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab64seg1-4"
-                            lemma="versichern"
-                            pos="VERB:VVPP"
-                            msd="VerbForm=Part"
-                            corresp="#seq_deu-ab64seg1-4"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab64seg1-5"
-                            lemma=":"
-                            pos="PUNCT:$."
-                            msd="_"
-                            corresp="#seq_deu-ab64seg1-5"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab64seg1-6"
-                            lemma="ich"
-                            pos="PRON:PPER"
-                            msd="Case=Nom|Number=Sing|Person=1|PronType=Prs"
-                            corresp="#seq_deu-ab64seg1-6"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab64seg1-7"
-                            lemma="haben"
-                            pos="VERB:VAFIN"
-                            msd="Mood=Sub|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"
-                            corresp="#seq_deu-ab64seg1-7"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab64seg1-8"
-                            lemma="ebenso"
-                            pos="ADV:ADV"
-                            msd="_"
-                            corresp="#seq_deu-ab64seg1-8"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab64seg1-9"
-                            lemma="viel"
-                            pos="DET:NN"
-                            msd="Case=Gen|Gender=Neut|Number=Plur"
-                            corresp="#seq_deu-ab64seg1-9"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab64seg1-10"
-                            lemma="Bruder"
-                            pos="NOUN:NE"
-                            msd="Case=Gen|Gender=Neut|Number=Plur"
-                            corresp="#seq_deu-ab64seg1-10"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab64seg1-11"
-                            lemma="wie"
-                            pos="ADP:NE"
-                            msd="Case=Gen|Gender=Neut|Number=Sing"
-                            corresp="#seq_deu-ab64seg1-11"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab64seg1-12"
-                            lemma="Schwester"
-                            pos="PROPN:NN"
-                            msd="Case=Gen|Gender=Fem|Number=Plur"
-                            corresp="#seq_deu-ab64seg1-12"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab64seg1-13"
-                            lemma="."
-                            pos="PUNCT:$."
-                            msd="_"
-                            corresp="#seq_deu-ab64seg1-13"/>
-               </tei:s>
-               <tei:s xmlns:tei="http://www.tei-c.org/ns/1.0"
-                      xml:id="seq_deu-ab64seg2"
-                      corresp="#deu-ab64seg2">
-                  <tei:seg xml:id="seq_deu-ab64seg2-1">Seine</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab64seg2-2">Schwester</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab64seg2-3" join="right">antwortet</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab64seg2-4">:</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab64seg2-5">ich</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab64seg2-6">habe</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab64seg2-7">zweimal</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab64seg2-8">mehr</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab64seg2-9">Brüder</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab64seg2-10">als</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab64seg2-11" join="right">Schwestern</tei:seg>
-                  <tei:seg xml:id="seq_deu-ab64seg2-12">.</tei:seg>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab64seg2-1"
-                            lemma="sein"
-                            pos="DET:PPOSAT"
-                            msd="Case=Nom|Gender=Fem|Number=Sing|Poss=Yes"
-                            corresp="#seq_deu-ab64seg2-1"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab64seg2-2"
-                            lemma="Schwester"
-                            pos="NOUN:NN"
-                            msd="Case=Nom|Gender=Fem|Number=Sing"
-                            corresp="#seq_deu-ab64seg2-2"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab64seg2-3"
-                            lemma="antworten"
-                            pos="VERB:VVPP"
-                            msd="Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"
-                            corresp="#seq_deu-ab64seg2-3"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab64seg2-4"
-                            lemma=":"
-                            pos="PUNCT:$."
-                            msd="_"
-                            corresp="#seq_deu-ab64seg2-4"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab64seg2-5"
-                            lemma="ich"
-                            pos="PRON:PPER"
-                            msd="Case=Nom|Number=Sing|Person=1|PronType=Prs"
-                            corresp="#seq_deu-ab64seg2-5"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab64seg2-6"
-                            lemma="haben"
-                            pos="AUX:VAFIN"
-                            msd="Mood=Sub|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"
-                            corresp="#seq_deu-ab64seg2-6"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab64seg2-7"
-                            lemma="zweimal"
-                            pos="ADV:$("
-                            msd="_"
-                            corresp="#seq_deu-ab64seg2-7"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab64seg2-8"
-                            lemma="mehr"
-                            pos="ADV:ADV"
-                            msd="_"
-                            corresp="#seq_deu-ab64seg2-8"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab64seg2-9"
-                            lemma="Bruder"
-                            pos="NOUN:NN"
-                            msd="Case=Nom|Gender=Masc|Number=Plur"
-                            corresp="#seq_deu-ab64seg2-9"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab64seg2-10"
-                            lemma="als"
-                            pos="ADP:KOKOM"
-                            msd="_"
-                            corresp="#seq_deu-ab64seg2-10"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab64seg2-11"
-                            lemma="Schwester"
-                            pos="NOUN:NN"
-                            msd="Case=Nom|Gender=Fem|Number=Plur"
-                            corresp="#seq_deu-ab64seg2-11"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_deu-ab64seg2-12"
-                            lemma="."
-                            pos="PUNCT:$."
-                            msd="_"
-                            corresp="#seq_deu-ab64seg2-12"/>
-               </tei:s>
-               <tei:s xmlns:tei="http://www.tei-c.org/ns/1.0"
-                      xml:id="seq_unk_5"
-                      corresp="#unk_5">
-                  <tei:seg xml:id="seq_unk_5-1">Ich</tei:seg>
-                  <tei:seg xml:id="seq_unk_5-2">habe</tei:seg>
-                  <tei:seg xml:id="seq_unk_5-3">mich</tei:seg>
-                  <tei:seg xml:id="seq_unk_5-4-5">im</tei:seg>
-                  <tei:seg xml:id="seq_unk_5-6">Winter</tei:seg>
-                  <tei:seg xml:id="seq_unk_5-7">in</tei:seg>
-                  <tei:seg xml:id="seq_unk_5-8">dich</tei:seg>
-                  <tei:seg xml:id="seq_unk_5-9" join="right">verliebt</tei:seg>
-                  <tei:seg xml:id="seq_unk_5-10">.</tei:seg>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_unk_5-1"
-                            lemma="ich"
-                            pos="PRON:PPER"
-                            msd="Case=Nom|Number=Sing|Person=1|PronType=Prs"
-                            corresp="#seq_unk_5-1"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_unk_5-2"
-                            lemma="haben"
-                            pos="AUX:VAFIN"
-                            msd="Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin"
-                            corresp="#seq_unk_5-2"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_unk_5-3"
-                            lemma="ich"
-                            pos="PRON:PRF"
-                            msd="Case=Acc|Number=Sing|Person=1|PronType=Prs|Reflex=Yes"
-                            corresp="#seq_unk_5-3"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_unk_5-4"
-                            lemma="in"
-                            pos="ADP:APPR"
-                            msd="_"
-                            corresp="#seq_unk_5-4-5"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_unk_5-5"
-                            lemma="der"
-                            pos="DET:ART"
-                            msd="Case=Dat|Definite=Def|Gender=Masc|Number=Sing|PronType=Art"
-                            corresp="#seq_unk_5-4-5"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_unk_5-6"
-                            lemma="Winter"
-                            pos="NOUN:NN"
-                            msd="Case=Dat|Gender=Masc|Number=Sing"
-                            corresp="#seq_unk_5-6"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_unk_5-7"
-                            lemma="in"
-                            pos="ADP:APPR"
-                            msd="_"
-                            corresp="#seq_unk_5-7"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_unk_5-8"
-                            lemma="du"
-                            pos="PRON:PRF"
-                            msd="Case=Acc|Number=Sing|Person=2|PronType=Prs|Reflex=Yes"
-                            corresp="#seq_unk_5-8"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_unk_5-9"
-                            lemma="verlieben"
-                            pos="VERB:VVFIN"
-                            msd="Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"
-                            corresp="#seq_unk_5-9"/>
-                  <tei:span type="wordForm"
-                            n="UPOS:XPOS"
-                            xml:id="seq-wf_unk_5-10"
-                            lemma="."
-                            pos="PUNCT:$."
-                            msd="_"
-                            corresp="#seq_unk_5-10"/>
-               </tei:s>
+               <s xml:id="seq_deu-ab1seg1" corresp="#deu-ab1seg1">
+                  <seg xml:id="seq_deu-ab1seg1-1">Der</seg>
+                  <seg xml:id="seq_deu-ab1seg1-2">Dinosaurier</seg>
+                  <seg xml:id="seq_deu-ab1seg1-3">ist</seg>
+                  <seg xml:id="seq_deu-ab1seg1-4" join="right">ausgestorben</seg>
+                  <seg xml:id="seq_deu-ab1seg1-5">.</seg>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab1seg1-1"
+                        lemma="der"
+                        pos="DET:ART"
+                        msd="Case=Nom|Definite=Def|Gender=Masc|Number=Sing|PronType=Art"
+                        corresp="#seq_deu-ab1seg1-1"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab1seg1-2"
+                        lemma="Dinosaurier"
+                        pos="NOUN:NN"
+                        msd="Case=Nom|Gender=Masc|Number=Sing"
+                        corresp="#seq_deu-ab1seg1-2"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab1seg1-3"
+                        lemma="sein"
+                        pos="AUX:ADJD"
+                        msd="_"
+                        corresp="#seq_deu-ab1seg1-3"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab1seg1-4"
+                        lemma="aussterben"
+                        pos="ADJ:VVPP"
+                        msd="VerbForm=Part"
+                        corresp="#seq_deu-ab1seg1-4"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab1seg1-5"
+                        lemma="."
+                        pos="PUNCT:$."
+                        msd="_"
+                        corresp="#seq_deu-ab1seg1-5"/>
+               </s>
+               <s xml:id="seq_deu-ab15seg2" corresp="#deu-ab15seg2">
+                  <seg xml:id="seq_deu-ab15seg2-1">Genau</seg>
+                  <seg xml:id="seq_deu-ab15seg2-2">das</seg>
+                  <seg xml:id="seq_deu-ab15seg2-3">hat</seg>
+                  <seg xml:id="seq_deu-ab15seg2-4">sie</seg>
+                  <seg xml:id="seq_deu-ab15seg2-5" join="right">gesagt</seg>
+                  <seg xml:id="seq_deu-ab15seg2-6">.</seg>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab15seg2-1"
+                        lemma="genau"
+                        pos="PROPN:ADV"
+                        msd="_"
+                        corresp="#seq_deu-ab15seg2-1"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab15seg2-2"
+                        lemma="der"
+                        pos="DET:PDS"
+                        msd="Case=Nom|Gender=Neut|Number=Sing|PronType=Dem"
+                        corresp="#seq_deu-ab15seg2-2"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab15seg2-3"
+                        lemma="haben"
+                        pos="AUX:VAFIN"
+                        msd="Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"
+                        corresp="#seq_deu-ab15seg2-3"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab15seg2-4"
+                        lemma="sie"
+                        pos="PRON:ADJA"
+                        msd="Case=Nom|Gender=Fem|Number=Plur"
+                        corresp="#seq_deu-ab15seg2-4"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab15seg2-5"
+                        lemma="sagen"
+                        pos="VERB:VVPP"
+                        msd="VerbForm=Part"
+                        corresp="#seq_deu-ab15seg2-5"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab15seg2-6"
+                        lemma="."
+                        pos="PUNCT:$."
+                        msd="_"
+                        corresp="#seq_deu-ab15seg2-6"/>
+               </s>
+               <s xml:id="seq_deu-ab64seg1" corresp="#deu-ab64seg1">
+                  <seg xml:id="seq_deu-ab64seg1-1">Ein</seg>
+                  <seg xml:id="seq_deu-ab64seg1-2">kleiner</seg>
+                  <seg xml:id="seq_deu-ab64seg1-3">Junge</seg>
+                  <seg xml:id="seq_deu-ab64seg1-4" join="right">versichert</seg>
+                  <seg xml:id="seq_deu-ab64seg1-5">:</seg>
+                  <seg xml:id="seq_deu-ab64seg1-6">ich</seg>
+                  <seg xml:id="seq_deu-ab64seg1-7">habe</seg>
+                  <seg xml:id="seq_deu-ab64seg1-8">ebenso</seg>
+                  <seg xml:id="seq_deu-ab64seg1-9">viele</seg>
+                  <seg xml:id="seq_deu-ab64seg1-10">Brüder</seg>
+                  <seg xml:id="seq_deu-ab64seg1-11">wie</seg>
+                  <seg xml:id="seq_deu-ab64seg1-12" join="right">Schwestern</seg>
+                  <seg xml:id="seq_deu-ab64seg1-13">.</seg>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg1-1"
+                        lemma="ein"
+                        pos="DET:ART"
+                        msd="Case=Nom|Definite=Ind|Gender=Masc|Number=Sing|PronType=Art"
+                        corresp="#seq_deu-ab64seg1-1"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg1-2"
+                        lemma="klein"
+                        pos="ADJ:ADJA"
+                        msd="Case=Nom|Gender=Masc|Number=Sing"
+                        corresp="#seq_deu-ab64seg1-2"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg1-3"
+                        lemma="Junge"
+                        pos="NOUN:NN"
+                        msd="Case=Nom|Gender=Masc|Number=Sing"
+                        corresp="#seq_deu-ab64seg1-3"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg1-4"
+                        lemma="versichern"
+                        pos="VERB:VVPP"
+                        msd="VerbForm=Part"
+                        corresp="#seq_deu-ab64seg1-4"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg1-5"
+                        lemma=":"
+                        pos="PUNCT:$."
+                        msd="_"
+                        corresp="#seq_deu-ab64seg1-5"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg1-6"
+                        lemma="ich"
+                        pos="PRON:PPER"
+                        msd="Case=Nom|Number=Sing|Person=1|PronType=Prs"
+                        corresp="#seq_deu-ab64seg1-6"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg1-7"
+                        lemma="haben"
+                        pos="VERB:VAFIN"
+                        msd="Mood=Sub|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"
+                        corresp="#seq_deu-ab64seg1-7"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg1-8"
+                        lemma="ebenso"
+                        pos="ADV:ADV"
+                        msd="_"
+                        corresp="#seq_deu-ab64seg1-8"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg1-9"
+                        lemma="viel"
+                        pos="DET:NN"
+                        msd="Case=Gen|Gender=Neut|Number=Plur"
+                        corresp="#seq_deu-ab64seg1-9"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg1-10"
+                        lemma="Bruder"
+                        pos="NOUN:NE"
+                        msd="Case=Gen|Gender=Neut|Number=Plur"
+                        corresp="#seq_deu-ab64seg1-10"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg1-11"
+                        lemma="wie"
+                        pos="ADP:NE"
+                        msd="Case=Gen|Gender=Neut|Number=Sing"
+                        corresp="#seq_deu-ab64seg1-11"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg1-12"
+                        lemma="Schwester"
+                        pos="PROPN:NN"
+                        msd="Case=Gen|Gender=Fem|Number=Plur"
+                        corresp="#seq_deu-ab64seg1-12"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg1-13"
+                        lemma="."
+                        pos="PUNCT:$."
+                        msd="_"
+                        corresp="#seq_deu-ab64seg1-13"/>
+               </s>
+               <s xml:id="seq_deu-ab64seg2" corresp="#deu-ab64seg2">
+                  <seg xml:id="seq_deu-ab64seg2-1">Seine</seg>
+                  <seg xml:id="seq_deu-ab64seg2-2">Schwester</seg>
+                  <seg xml:id="seq_deu-ab64seg2-3" join="right">antwortet</seg>
+                  <seg xml:id="seq_deu-ab64seg2-4">:</seg>
+                  <seg xml:id="seq_deu-ab64seg2-5">ich</seg>
+                  <seg xml:id="seq_deu-ab64seg2-6">habe</seg>
+                  <seg xml:id="seq_deu-ab64seg2-7">zweimal</seg>
+                  <seg xml:id="seq_deu-ab64seg2-8">mehr</seg>
+                  <seg xml:id="seq_deu-ab64seg2-9">Brüder</seg>
+                  <seg xml:id="seq_deu-ab64seg2-10">als</seg>
+                  <seg xml:id="seq_deu-ab64seg2-11" join="right">Schwestern</seg>
+                  <seg xml:id="seq_deu-ab64seg2-12">.</seg>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg2-1"
+                        lemma="sein"
+                        pos="DET:PPOSAT"
+                        msd="Case=Nom|Gender=Fem|Number=Sing|Poss=Yes"
+                        corresp="#seq_deu-ab64seg2-1"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg2-2"
+                        lemma="Schwester"
+                        pos="NOUN:NN"
+                        msd="Case=Nom|Gender=Fem|Number=Sing"
+                        corresp="#seq_deu-ab64seg2-2"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg2-3"
+                        lemma="antworten"
+                        pos="VERB:VVPP"
+                        msd="Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"
+                        corresp="#seq_deu-ab64seg2-3"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg2-4"
+                        lemma=":"
+                        pos="PUNCT:$."
+                        msd="_"
+                        corresp="#seq_deu-ab64seg2-4"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg2-5"
+                        lemma="ich"
+                        pos="PRON:PPER"
+                        msd="Case=Nom|Number=Sing|Person=1|PronType=Prs"
+                        corresp="#seq_deu-ab64seg2-5"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg2-6"
+                        lemma="haben"
+                        pos="AUX:VAFIN"
+                        msd="Mood=Sub|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"
+                        corresp="#seq_deu-ab64seg2-6"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg2-7"
+                        lemma="zweimal"
+                        pos="ADV:$("
+                        msd="_"
+                        corresp="#seq_deu-ab64seg2-7"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg2-8"
+                        lemma="mehr"
+                        pos="ADV:ADV"
+                        msd="_"
+                        corresp="#seq_deu-ab64seg2-8"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg2-9"
+                        lemma="Bruder"
+                        pos="NOUN:NN"
+                        msd="Case=Nom|Gender=Masc|Number=Plur"
+                        corresp="#seq_deu-ab64seg2-9"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg2-10"
+                        lemma="als"
+                        pos="ADP:KOKOM"
+                        msd="_"
+                        corresp="#seq_deu-ab64seg2-10"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg2-11"
+                        lemma="Schwester"
+                        pos="NOUN:NN"
+                        msd="Case=Nom|Gender=Fem|Number=Plur"
+                        corresp="#seq_deu-ab64seg2-11"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_deu-ab64seg2-12"
+                        lemma="."
+                        pos="PUNCT:$."
+                        msd="_"
+                        corresp="#seq_deu-ab64seg2-12"/>
+               </s>
+               <s xml:id="seq_unk_5" corresp="#unk_5">
+                  <seg xml:id="seq_unk_5-1">Ich</seg>
+                  <seg xml:id="seq_unk_5-2">habe</seg>
+                  <seg xml:id="seq_unk_5-3">mich</seg>
+                  <seg xml:id="seq_unk_5-4-5">im</seg>
+                  <seg xml:id="seq_unk_5-6">Winter</seg>
+                  <seg xml:id="seq_unk_5-7">in</seg>
+                  <seg xml:id="seq_unk_5-8">dich</seg>
+                  <seg xml:id="seq_unk_5-9" join="right">verliebt</seg>
+                  <seg xml:id="seq_unk_5-10">.</seg>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_unk_5-1"
+                        lemma="ich"
+                        pos="PRON:PPER"
+                        msd="Case=Nom|Number=Sing|Person=1|PronType=Prs"
+                        corresp="#seq_unk_5-1"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_unk_5-2"
+                        lemma="haben"
+                        pos="AUX:VAFIN"
+                        msd="Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin"
+                        corresp="#seq_unk_5-2"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_unk_5-3"
+                        lemma="ich"
+                        pos="PRON:PRF"
+                        msd="Case=Acc|Number=Sing|Person=1|PronType=Prs|Reflex=Yes"
+                        corresp="#seq_unk_5-3"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_unk_5-4"
+                        lemma="in"
+                        pos="ADP:APPR"
+                        msd="_"
+                        corresp="#seq_unk_5-4-5"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_unk_5-5"
+                        lemma="der"
+                        pos="DET:ART"
+                        msd="Case=Dat|Definite=Def|Gender=Masc|Number=Sing|PronType=Art"
+                        corresp="#seq_unk_5-4-5"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_unk_5-6"
+                        lemma="Winter"
+                        pos="NOUN:NN"
+                        msd="Case=Dat|Gender=Masc|Number=Sing"
+                        corresp="#seq_unk_5-6"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_unk_5-7"
+                        lemma="in"
+                        pos="ADP:APPR"
+                        msd="_"
+                        corresp="#seq_unk_5-7"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_unk_5-8"
+                        lemma="du"
+                        pos="PRON:PRF"
+                        msd="Case=Acc|Number=Sing|Person=2|PronType=Prs|Reflex=Yes"
+                        corresp="#seq_unk_5-8"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_unk_5-9"
+                        lemma="verlieben"
+                        pos="VERB:VVFIN"
+                        msd="Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"
+                        corresp="#seq_unk_5-9"/>
+                  <span type="wordForm"
+                        n="UPOS:XPOS"
+                        xml:id="seq-wf_unk_5-10"
+                        lemma="."
+                        pos="PUNCT:$."
+                        msd="_"
+                        corresp="#seq_unk_5-10"/>
+               </s>
             </p>
          </div>
       </body>
@@ -509,7 +500,8 @@
                   msd="_"
                   corresp="#so-seg_deu-ab1seg1-5"/>
          </annotationBlock>
-         <!--the following annotation block is overall spurious, but still interesting in how it mimics the merged UPOS:XPOS description in the <text> element above-->
+         <!--the following annotation block is overall spurious, but still interesting in how it mirrors 
+		the merged sequential UPOS:XPOS description in the <text> element above-->
          <annotationBlock type="wordForm" n="UPOS:XPOS">
             <span type="wordForm"
                   xml:id="so-wf-ux_deu-ab1seg1-1"
@@ -648,7 +640,8 @@
                   msd="_"
                   corresp="#so-seg_deu-ab15seg2-6"/>
          </annotationBlock>
-         <!--the following annotation block is overall spurious, but still interesting in how it mimics the merged UPOS:XPOS description in the <text> element above-->
+         <!--the following annotation block is overall spurious, but still interesting in how it mirrors 
+		the merged sequential UPOS:XPOS description in the <text> element above-->
          <annotationBlock type="wordForm" n="UPOS:XPOS">
             <span type="wordForm"
                   xml:id="so-wf-ux_deu-ab15seg2-1"
@@ -905,7 +898,8 @@
                   msd="_"
                   corresp="#so-seg_deu-ab64seg1-13"/>
          </annotationBlock>
-         <!--the following annotation block is overall spurious, but still interesting in how it mimics the merged UPOS:XPOS description in the <text> element above-->
+         <!--the following annotation block is overall spurious, but still interesting in how it mirrors 
+		the merged sequential UPOS:XPOS description in the <text> element above-->
          <annotationBlock type="wordForm" n="UPOS:XPOS">
             <span type="wordForm"
                   xml:id="so-wf-ux_deu-ab64seg1-1"
@@ -1188,7 +1182,8 @@
                   msd="_"
                   corresp="#so-seg_deu-ab64seg2-12"/>
          </annotationBlock>
-         <!--the following annotation block is overall spurious, but still interesting in how it mimics the merged UPOS:XPOS description in the <text> element above-->
+         <!--the following annotation block is overall spurious, but still interesting in how it mirrors 
+		the merged sequential UPOS:XPOS description in the <text> element above-->
          <annotationBlock type="wordForm" n="UPOS:XPOS">
             <span type="wordForm"
                   xml:id="so-wf-ux_deu-ab64seg2-1"
@@ -1432,7 +1427,8 @@
                   msd="_"
                   corresp="#so-seg_unk_5-10"/>
          </annotationBlock>
-         <!--the following annotation block is overall spurious, but still interesting in how it mimics the merged UPOS:XPOS description in the <text> element above-->
+         <!--the following annotation block is overall spurious, but still interesting in how it mirrors 
+		the merged sequential UPOS:XPOS description in the <text> element above-->
          <annotationBlock type="wordForm" n="UPOS:XPOS">
             <span type="wordForm"
                   xml:id="so-wf-ux_unk_5-1"
