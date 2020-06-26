@@ -37,9 +37,10 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"-->
         select="('ID', 'FORM', 'LEMMA', 'UPOS', 'XPOS', 'FEATS', 'HEAD', 'DEPREL', 'DEPS', 'MISC')"
         as="xs:string+"/>
 
+<!-- used when the UD representation lacks sent_id altogether (as it happens in the output of some tools) -->
     <xsl:variable name="unknown_id_pref" select="'unk_'" as="xs:string"/>
 
-    <!--the following two utility variables, together with the constants above, are just a nod towards the potential later extension of this tool-->
+    <!--the following two utility variables, together with the constants above, are just a nod towards the potential future extension of this tool-->
     <xsl:variable name="columns" select="$CONLLU" as="xs:string+"/>
     <!--    <xsl:variable name="columns" select="($CONLLU, 'excluded_by')" as="xs:string+"/>-->
     <xsl:variable name="value_separator" select="$TAB" as="xs:string"/>
