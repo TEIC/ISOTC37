@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:f="func"
-    xmlns:map="http://www.w3.org/2005/xpath-functions/map"
-    xmlns:tei="http://www.tei-c.org/ns/1.0"
-    xpath-default-namespace="http://www.tei-c.org/ns/1.0"
-    exclude-result-prefixes="xs xd f map tei"
-    version="3.0"
-    expand-text="yes">
-    
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
+    xmlns:f="func" xmlns:map="http://www.w3.org/2005/xpath-functions/map"
+    xmlns:tei="http://www.tei-c.org/ns/1.0" xpath-default-namespace="http://www.tei-c.org/ns/1.0"
+    exclude-result-prefixes="xs xd f map tei" version="3.0" expand-text="yes">
+
     <xsl:output encoding="UTF-8" method="xml" indent="yes"/>
-    
+
     <xd:doc scope="stylesheet">
         <xd:desc>
             <xd:p><xd:b>Created on:</xd:b> May 23rd, 2020</xd:p>
@@ -24,21 +20,30 @@
         </xd:desc>
     </xd:doc>
 
-<!--for sequential encoding where two values (XPOS and UPOS) need to be squeezed into a single attribute value
+    <!--for sequential encoding where two values (XPOS and UPOS) need to be squeezed into a single attribute value
 the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"-->
     <xsl:param name="pos_separator" select="':'" as="xs:string"/>
 
+    <!--  The rationale for these parameters is that the output of this script is expected to be part of your workflow, and so
+      the excess doesn't really hurt, because you will only take what you need out of it anyway. Still, for large datasets, the 
+      excess may be too excessive, so you can suppress the individual bits. -->
+    <xsl:param name="suppress_plain" select="false()" as="xs:boolean"/>
+    <xsl:param name="suppress_sequential" select="false()" as="xs:boolean"/>
+    <xsl:param name="suppress_standoff" select="false()" as="xs:boolean"/>
+
     <xsl:variable name="TAB" select="'&#9;'" as="xs:string"/>
 
-    <xsl:variable name="CONLLU" select="('ID','FORM','LEMMA','UPOS','XPOS','FEATS','HEAD','DEPREL','DEPS','MISC')" as="xs:string+"/>
-    
+    <xsl:variable name="CONLLU"
+        select="('ID', 'FORM', 'LEMMA', 'UPOS', 'XPOS', 'FEATS', 'HEAD', 'DEPREL', 'DEPS', 'MISC')"
+        as="xs:string+"/>
+
     <xsl:variable name="unknown_id_pref" select="'unk_'" as="xs:string"/>
 
     <!--the following two utility variables, together with the constants above, are just a nod towards the potential later extension of this tool-->
     <xsl:variable name="columns" select="$CONLLU" as="xs:string+"/>
-<!--    <xsl:variable name="columns" select="($CONLLU, 'excluded_by')" as="xs:string+"/>-->
+    <!--    <xsl:variable name="columns" select="($CONLLU, 'excluded_by')" as="xs:string+"/>-->
     <xsl:variable name="value_separator" select="$TAB" as="xs:string"/>
-    
+
     <xd:doc>
         <xd:desc>
             <xd:p>This variable holds the entire corpus in a map indexed by sentence position, the
@@ -53,26 +58,30 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"-->
     </xd:doc>
     <xsl:variable name="corpus_map" as="map(xs:integer, xs:string+)">
         <xsl:map>
-            <xsl:for-each-group select="unparsed-text-lines('../../etc/UD2MAF_sample_input-2020-06-24.conllu')" group-adjacent="not(. eq '')">
+            <xsl:for-each-group
+                select="unparsed-text-lines('../../etc/UD2MAF_sample_input-2020-06-24.conllu')"
+                group-adjacent="not(. eq '')">
                 <xsl:choose>
                     <xsl:when test="current-grouping-key()">
-                        <xsl:map-entry key="position()" select="current-group()"></xsl:map-entry>
+                        <xsl:map-entry key="position()" select="current-group()"/>
                         <!--  -->
                     </xsl:when>
                 </xsl:choose>
             </xsl:for-each-group>
         </xsl:map>
     </xsl:variable>
-    
+
     <xd:doc>
-        <xd:desc><xd:p>This variable holds only attribute-value pairs, indexed by the position in the
-            $corpus_map. If a comment does not contain a '=' sign, it will not make it into here,
-            unless it is "newpar" or "newdoc", which are promoted to key status, with the value of
-            "'1'".</xd:p>
-        <xd:p>In other words, <xd:i>#newpar</xd:i> alone in the line yields 
-                <xd:i>'newpar':'1'</xd:i>.</xd:p>
-            <xd:p>On the other hand,  <xd:i>#newpar = my_id-34</xd:i> yields two pairs: <xd:i>'newpar': 'id'</xd:i> and <xd:i>'newpar_id': 'my_id-34'</xd:i></xd:p>
-            
+        <xd:desc>
+            <xd:p>This variable holds only attribute-value pairs, indexed by the position in the
+                $corpus_map. If a comment does not contain a '=' sign, it will not make it into
+                here, unless it is "newpar" or "newdoc", which are promoted to key status, with the
+                value of "'1'".</xd:p>
+            <xd:p>In other words, <xd:i>#newpar</xd:i> alone in the line yields
+                    <xd:i>'newpar':'1'</xd:i>.</xd:p>
+            <xd:p>On the other hand, <xd:i>#newpar = my_id-34</xd:i> yields two pairs:
+                    <xd:i>'newpar': 'id'</xd:i> and <xd:i>'newpar_id': 'my_id-34'</xd:i></xd:p>
+
             <xd:p>Sample structure:
                 <xd:pre>map{
 1:map{"newpar":"1","newdoc_id":"dump-compars-deu.txt","sent_id":"deu-ab1seg1","text":"Der Dinosaurier ist ausgestorben.","newdoc":"id"},
@@ -89,34 +98,37 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"-->
                     <xsl:map>
                         <xsl:for-each select="$corpus_map(.)">
                             <xsl:choose>
-                                <xsl:when test="matches(., '^#\s*newpar(\s|$)','i')">
+                                <xsl:when test="matches(., '^#\s*newpar(\s|$)', 'i')">
                                     <xsl:choose>
-                                        <xsl:when test="matches(., 'newpar\s+id\s*=','i')">
+                                        <xsl:when test="matches(., 'newpar\s+id\s*=', 'i')">
                                             <xsl:map-entry key="'newpar'" select="'id'"/>
-                                            <xsl:map-entry key="'newpar_id'" select="tokenize(.,' ')[last()]"/>
+                                            <xsl:map-entry key="'newpar_id'"
+                                                select="tokenize(., ' ')[last()]"/>
                                         </xsl:when>
                                         <xsl:otherwise>
                                             <xsl:map-entry key="'newpar'" select="'1'"/>
                                         </xsl:otherwise>
                                     </xsl:choose>
                                 </xsl:when>
-                                <xsl:when test="matches(., '^#\s*newdoc(\s|$)','i')">
+                                <xsl:when test="matches(., '^#\s*newdoc(\s|$)', 'i')">
                                     <xsl:choose>
-                                        <xsl:when test="matches(., 'newdoc\s+id\s*=','i')">
+                                        <xsl:when test="matches(., 'newdoc\s+id\s*=', 'i')">
                                             <xsl:map-entry key="'newdoc'" select="'id'"/>
-                                            <xsl:map-entry key="'newdoc_id'" select="tokenize(.,' ')[last()]"/>
+                                            <xsl:map-entry key="'newdoc_id'"
+                                                select="tokenize(., ' ')[last()]"/>
                                         </xsl:when>
                                         <xsl:otherwise>
                                             <xsl:map-entry key="'newdoc'" select="'1'"/>
                                         </xsl:otherwise>
                                     </xsl:choose>
                                 </xsl:when>
-                                <xsl:when test="matches(.,'^#.*?=.*')">
-                                    <xsl:variable name="avm_seq" select="tokenize(.,' ')"/>
-<!-- assuming that the '=' sign is always surrounded by whitespace; if not, consider replace() followed by normalize-space() before tokenization  -->
-                                    <xsl:variable name="eq_pos" select="index-of($avm_seq,'=')"/>
+                                <xsl:when test="matches(., '^#.*?=.*')">
+                                    <xsl:variable name="avm_seq" select="tokenize(., ' ')"/>
+                                    <!-- assuming that the '=' sign is always surrounded by whitespace; if not, consider replace() followed by normalize-space() before tokenization  -->
+                                    <xsl:variable name="eq_pos" select="index-of($avm_seq, '=')"/>
                                     <xsl:map-entry key="$avm_seq[$eq_pos - 1]"
-                                        select="string-join(subsequence($avm_seq, $eq_pos + 1),' ')"/>
+                                        select="string-join(subsequence($avm_seq, $eq_pos + 1), ' ')"
+                                    />
                                 </xsl:when>
                             </xsl:choose>
                         </xsl:for-each>
@@ -125,9 +137,9 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"-->
             </xsl:for-each>
         </xsl:map>
     </xsl:variable>
-<xd:doc>
-    <xd:p>Sample structure:
-        <xd:pre>map{
+    <xd:doc>
+        <xd:p>Sample structure:
+            <xd:pre>map{
 ...
 5:map{
     1:map{"HEAD":"_","FEATS":"Case=Nom|Number=Sing|Person=1|PronType=Prs","FORM":"Ich","DEPS":"_","LEMMA":"ich","DEPREL":"_","MISC":"_","ID":"1","XPOS":"PPER","UPOS":"PRON"},
@@ -142,7 +154,8 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"-->
     10:map{"HEAD":"_","FEATS":"Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin","FORM":"verliebt","DEPS":"_","LEMMA":"verlieben","DEPREL":"_","MISC":"SpaceAfter=No","ID":"9","XPOS":"VVFIN","UPOS":"VERB"},
     11:map{"HEAD":"_","FEATS":"_","FORM":".","DEPS":"_","LEMMA":".","DEPREL":"_","MISC":"SpacesAfter=\n\n","ID":"10","XPOS":"$.","UPOS":"PUNCT"}
     }
-}</xd:pre></xd:p></xd:doc>
+}</xd:pre></xd:p>
+    </xd:doc>
     <xsl:variable name="annotation_map"
         as="map(xs:integer, map(xs:integer, map(xs:string, xs:string)))">
         <xsl:map>
@@ -152,7 +165,9 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"-->
                         <xsl:variable name="exclusions" as="map(xs:string,xs:string)">
                             <xsl:map>
                                 <xsl:for-each select="$corpus_map(.)[matches(., '^\d+-\d')]">
-                                    <xsl:variable name="my_id" select="substring-before(.,$value_separator)" as="xs:string"/>
+                                    <xsl:variable name="my_id"
+                                        select="substring-before(., $value_separator)"
+                                        as="xs:string"/>
                                     <xsl:variable name="enumerated"
                                         select="xs:integer(substring-before($my_id, '-')) to xs:integer(substring-after($my_id, '-'))"
                                         as="xs:integer+"/>
@@ -173,10 +188,11 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"-->
                                         <xsl:variable name="pos" select="position()" as="xs:integer"/>
                                         <xsl:map-entry key="$columns[$pos]" select="."/>
                                     </xsl:for-each>
-<!--                                    handle excluded_by (and join?) here, but compute the values outside this loop 
+                                    <!--                                    handle excluded_by (and join?) here, but compute the values outside this loop 
                                         (later: build a map to derive various values for @join) -->
                                     <xsl:if test="$exclusions($col_seq[1])">
-                                        <xsl:map-entry key="'excluded_by'" select="$exclusions($col_seq[1])"/>
+                                        <xsl:map-entry key="'excluded_by'"
+                                            select="$exclusions($col_seq[1])"/>
                                     </xsl:if>
                                 </xsl:map>
                             </xsl:map-entry>
@@ -187,53 +203,73 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"-->
         </xsl:map>
     </xsl:variable>
 
-    
-    
+
+
     <xsl:variable name="plain_sentences" as="element()+">
         <xsl:for-each select="map:keys($metadata_map)">
             <xsl:sort select="." order="ascending"/>
-            <xsl:variable name="sent_id" select="if ($metadata_map(.)('sent_id')) then $metadata_map(.)('sent_id') else $unknown_id_pref || position()" as="xs:string"/>
-            <tei:s xml:id="{$sent_id}"><xsl:value-of select="$metadata_map(.)('text')"/></tei:s>
+            <xsl:variable name="sent_id"
+                select="
+                    if ($metadata_map(.)('sent_id')) then
+                        $metadata_map(.)('sent_id')
+                    else
+                        $unknown_id_pref || position()"
+                as="xs:string"/>
+            <tei:s xml:id="{$sent_id}">
+                <xsl:value-of select="$metadata_map(.)('text')"/>
+            </tei:s>
         </xsl:for-each>
     </xsl:variable>
-    
+
     <xsl:variable name="sequential_annotation" as="element()+">
         <xsl:for-each select="map:keys($metadata_map)">
             <xsl:sort select="." order="ascending"/>
-<!--            <xsl:variable name="sent_id" select="$metadata_map(.)('sent_id')" as="xs:string*"/>-->
-            <xsl:variable name="sent_id" select="if ($metadata_map(.)('sent_id')) then $metadata_map(.)('sent_id') else $unknown_id_pref || position()" as="xs:string"/>
+            <!--            <xsl:variable name="sent_id" select="$metadata_map(.)('sent_id')" as="xs:string*"/>-->
+            <xsl:variable name="sent_id"
+                select="
+                    if ($metadata_map(.)('sent_id')) then
+                        $metadata_map(.)('sent_id')
+                    else
+                        $unknown_id_pref || position()"
+                as="xs:string"/>
             <xsl:variable name="sent_number" select="."/>
             <tei:s xml:id="{'seq_' || $sent_id}" corresp="{'#' || $sent_id}">
                 <xsl:for-each select="map:keys($annotation_map($sent_number))">
                     <!--we use xsl:if here to see where the discontinuity happens, for debugging mostly-->
                     <xsl:if test="not($annotation_map($sent_number)(.)('excluded_by'))">
-                        <tei:seg xml:id="{'seq_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}">
-                            <xsl:if test="matches($annotation_map($sent_number)(.)('MISC'),'SpaceAfter=No')">
+                        <tei:seg
+                            xml:id="{'seq_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}">
+                            <xsl:if
+                                test="matches($annotation_map($sent_number)(.)('MISC'), 'SpaceAfter=No')">
                                 <xsl:attribute name="join" select="'right'"/>
                             </xsl:if>
                             <xsl:value-of select="$annotation_map($sent_number)(.)('FORM')"/>
                         </tei:seg>
                     </xsl:if>
                 </xsl:for-each>
-                <xsl:for-each select="map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'),'\d+-\d'))]">
+                <xsl:for-each
+                    select="map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'), '\d+-\d'))]">
                     <!-- excluding the portmanteaus by force, this feels like a kludge -->
-                    <tei:span type="wordForm" n="UPOS:XPOS" xml:id="{'seq-wf_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"
+                    <tei:span type="wordForm" n="UPOS:XPOS"
+                        xml:id="{'seq-wf_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"
                         lemma="{$annotation_map($sent_number)(.)('LEMMA')}"
                         pos="{$annotation_map($sent_number)(.)('UPOS') || $pos_separator || $annotation_map($sent_number)(.)('XPOS')}"
                         msd="{$annotation_map($sent_number)(.)('FEATS')}"
                         corresp="{concat('#seq_',$sent_id, '-', if (not($annotation_map($sent_number)(.)('excluded_by'))) then $annotation_map($sent_number)(.)('ID') else $annotation_map($sent_number)(.)('excluded_by') )}"
-                        >
-                    </tei:span>
+                    > </tei:span>
                 </xsl:for-each>
             </tei:s>
         </xsl:for-each>
     </xsl:variable>
-    
+
     <xd:doc>
-        <xd:desc>There is nearly no excuse for this function to look as it does. But I needed something quick to recursively compute token offsets</xd:desc>
-        <xd:param name="sentence">The sentence for which the map is produced</xd:param>
+        <xd:desc>There is nearly no excuse for this function to look as it does. But I needed
+            something quick to recursively compute token offsets</xd:desc>
+        <xd:param name="sentence">The sentence for which the map is produced, as a sub-map of the
+            annotation_map.</xd:param>
         <xd:param name="current_key">Pointer at the current token</xd:param>
-        <xd:param name="base_offset">Should point at the inter-character-point just before the current token</xd:param>
+        <xd:param name="base_offset">Should point at the inter-character-point just before the
+            current token</xd:param>
     </xd:doc>
     <xsl:function name="f:map_offsets" as="map(xs:integer, map(xs:string,xs:integer))">
         <xsl:param name="sentence" as="map(xs:integer, map(xs:string, xs:string))"/>
@@ -243,14 +279,18 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"-->
         <xsl:variable name="adjusted_base" as="xs:integer" select="$base_offset"/>
         <!--this variable is a tunnel for adjustments with @join="left" effects, to be done-->
 
-        <xsl:variable name="end_offset" as="xs:integer" select="$adjusted_base + string-length($sentence($current_key)('FORM'))"/>
-        <xsl:variable name="adjusted_end" as="xs:integer" select="if (matches($sentence($current_key)('MISC'),'SpaceAfter=No')) then $end_offset else $end_offset + 1"/>
-        
+        <xsl:variable name="end_offset" as="xs:integer"
+            select="$adjusted_base + string-length($sentence($current_key)('FORM'))"/>
+        <xsl:variable name="adjusted_end" as="xs:integer"
+            select="
+                if (matches($sentence($current_key)('MISC'), 'SpaceAfter=No')) then
+                    $end_offset
+                else
+                    $end_offset + 1"/>
+
         <xsl:choose>
             <xsl:when test="$sentence($current_key)('excluded_by')">
-                <xsl:sequence
-                    select="f:map_offsets($sentence,$current_key +1,$base_offset)"
-                />
+                <xsl:sequence select="f:map_offsets($sentence, $current_key + 1, $base_offset)"/>
             </xsl:when>
             <xsl:when test="$current_key lt map:size($sentence)">
                 <xsl:sequence
@@ -258,7 +298,6 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"-->
                 />
             </xsl:when>
             <xsl:otherwise>
-                
                 <xsl:map>
                     <xsl:map-entry key="$current_key"
                         select="map{'start' : $adjusted_base, 'end' : $end_offset}"/>
@@ -266,12 +305,12 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"-->
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
-    
+
     <xd:doc>
         <xd:desc>This is the 'main() function' -- the entry point.</xd:desc>
     </xd:doc>
-    <xsl:template name="xsl:initial-template">
-        
+    <xsl:template name="xsl:initial-template" exclude-result-prefixes="tei">
+
         <TEI xmlns="http://www.tei-c.org/ns/1.0">
             <teiHeader>
                 <fileDesc>
@@ -279,105 +318,131 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"-->
                         <title>Output of the UD2MAF.xml script</title>
                     </titleStmt>
                     <publicationStmt>
-                        <p>This is free output of the tool UD2MAF, accompanying the ISO MAF (proposed, revised) standard.</p>
+                        <p>This is free output of the tool UD2MAF, accompanying the ISO MAF
+                            (proposed, revised) standard.</p>
                     </publicationStmt>
                     <sourceDesc>
                         <p>Created in the electronic form.</p>
                     </sourceDesc>
                 </fileDesc>
             </teiHeader>
-            <text>
-                <body>
-                    <div type="plain">
-                        <p>
-                            <xsl:sequence select="$plain_sentences"/>
-                        </p>
-                    </div>
-                    <div type="sequential">
-                        <p>
-                            <xsl:sequence select="$sequential_annotation"/>
-                        </p>
-                    </div>
-                </body>
-            </text>
-            <standOff>
-                <xsl:for-each select="map:keys($metadata_map)">
-                    <xsl:sort select="." order="ascending"/>
-                    <xsl:variable name="sent_id" select="if ($metadata_map(.)('sent_id')) then $metadata_map(.)('sent_id') else $unknown_id_pref || position()" as="xs:string"/>
-                    <xsl:variable name="sent_number" select="."/>
-                    <xsl:variable name="index_m" as="map(xs:integer, map(xs:string, xs:integer))" select="f:map_offsets($annotation_map($sent_number),1,0)"/>
-                    
-                    <listAnnotation corresp="{'#' || $sent_id}" xml:id="{'ann_' || $sent_id}">
-                        <annotationBlock type="token" offsetBase="{'#' || $sent_id}">
-                            <xsl:for-each select="map:keys($annotation_map($sent_number))">
-                                <xsl:sort select="." order="ascending"/>
-                                <xsl:if test="not($annotation_map($sent_number)(.)('excluded_by'))">
-                                    <seg
-                                        xml:id="{'so-seg_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"
-                                        startPos="{$index_m(position())('start')}"
-                                        endPos="{$index_m(position())('end')}"/>
-                                </xsl:if>
-                            </xsl:for-each>
-                        </annotationBlock>
-                        
-                        <annotationBlock type="wordForm" n="LEMMA">
-                            <xsl:for-each select="map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'),'\d+-\d'))]">
-                                <!-- excluding the portmanteaus by force, this feels like a kludge -->
-                                <xsl:sort select="." order="ascending"/>
-                                <span type="wordForm" xml:id="{'so-wf-lem_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"
-                                    lemma="{$annotation_map($sent_number)(.)('LEMMA')}"
-                                    corresp="{concat('#so-seg_',$sent_id, '-', if (not($annotation_map($sent_number)(.)('excluded_by'))) then $annotation_map($sent_number)(.)('ID') else $annotation_map($sent_number)(.)('excluded_by') )}"
-                                    >
-                                </span>
-                            </xsl:for-each>
-                        </annotationBlock>
-                        
-                        <annotationBlock type="wordForm" n="XPOS">
-                            <xsl:for-each select="map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'),'\d+-\d'))]">
-                                <!-- excluding the portmanteaus by force, this feels like a kludge -->
-                                <xsl:sort select="." order="ascending"/>
-                                <span type="wordForm" xml:id="{'so-wf-x_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"
-                                    lemma="{$annotation_map($sent_number)(.)('LEMMA')}"
-                                    pos="{$annotation_map($sent_number)(.)('XPOS')}"
-                                    corresp="{concat('#so-seg_',$sent_id, '-', if (not($annotation_map($sent_number)(.)('excluded_by'))) then $annotation_map($sent_number)(.)('ID') else $annotation_map($sent_number)(.)('excluded_by') )}"
-                                    >
-                                </span>
-                            </xsl:for-each>
-                        </annotationBlock>
-                        
-                        <annotationBlock type="wordForm" n="UPOS">
-                            <xsl:for-each select="map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'),'\d+-\d'))]">
-                                <!-- excluding the portmanteaus by force, this feels like a kludge -->
-                                <xsl:sort select="." order="ascending"/>
-                                <span type="wordForm" xml:id="{'so-wf-u_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"
-                                    lemma="{$annotation_map($sent_number)(.)('LEMMA')}"
-                                    pos="{$annotation_map($sent_number)(.)('UPOS')}"
-                                    msd="{$annotation_map($sent_number)(.)('FEATS')}"
-                                    corresp="{concat('#so-seg_',$sent_id, '-', if (not($annotation_map($sent_number)(.)('excluded_by'))) then $annotation_map($sent_number)(.)('ID') else $annotation_map($sent_number)(.)('excluded_by') )}"
-                                    >
-                                </span>
-                            </xsl:for-each>
-                        </annotationBlock>
-                        
-                        <xsl:comment>the following annotation block is overall spurious, but still interesting in how it mimics the merged UPOS:XPOS description in the &lt;text> element above</xsl:comment>
-                        <annotationBlock type="wordForm" n="UPOS:XPOS">
-                            <xsl:for-each select="map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'),'\d+-\d'))]">
-                                <!-- excluding the portmanteaus by force, this feels like a kludge -->
-                                <xsl:sort select="." order="ascending"/>
-                                <span type="wordForm" xml:id="{'so-wf-ux_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"
-                                    lemma="{$annotation_map($sent_number)(.)('LEMMA')}"
-                                    pos="{$annotation_map($sent_number)(.)('UPOS') || $pos_separator || $annotation_map($sent_number)(.)('XPOS')}"
-                                    msd="{$annotation_map($sent_number)(.)('FEATS')}"
-                                    corresp="{concat('#so-seg_',$sent_id, '-', if (not($annotation_map($sent_number)(.)('excluded_by'))) then $annotation_map($sent_number)(.)('ID') else $annotation_map($sent_number)(.)('excluded_by') )}"
-                                    >
-                                </span>
-                            </xsl:for-each>
-                        </annotationBlock>
-                    </listAnnotation>
-                </xsl:for-each>
-            </standOff>
+            <xsl:if test="not($suppress_plain and $suppress_sequential)">
+                <text>
+                    <body>
+                        <xsl:if test="not($suppress_plain)">
+                            <div type="plain">
+                                <p>
+                                    <xsl:sequence select="$plain_sentences"/>
+                                </p>
+                            </div>
+                        </xsl:if>
+                        <xsl:if test="not($suppress_sequential)">
+                        <div type="sequential">
+                            <p>
+                                <xsl:sequence select="$sequential_annotation"/>
+                            </p>
+                        </div>
+                        </xsl:if>
+                    </body>
+                </text>
+            </xsl:if>
+            <xsl:if test="not($suppress_standoff)">
+                <standOff>
+                    <xsl:for-each select="map:keys($metadata_map)">
+                        <xsl:sort select="." order="ascending"/>
+                        <xsl:variable name="sent_id"
+                            select="
+                                if ($metadata_map(.)('sent_id')) then
+                                    $metadata_map(.)('sent_id')
+                                else
+                                    $unknown_id_pref || position()"
+                            as="xs:string"/>
+                        <xsl:variable name="sent_number" select="."/>
+                        <xsl:variable name="index_m"
+                            as="map(xs:integer, map(xs:string, xs:integer))"
+                            select="f:map_offsets($annotation_map($sent_number), 1, 0)"/>
+
+                        <tei:listAnnotation corresp="{'#' || $sent_id}"
+                            xml:id="{'ann_' || $sent_id}">
+                            <annotationBlock type="token" offsetBase="{'#' || $sent_id}">
+                                <xsl:for-each select="map:keys($annotation_map($sent_number))">
+                                    <xsl:sort select="." order="ascending"/>
+                                    <xsl:if
+                                        test="not($annotation_map($sent_number)(.)('excluded_by'))">
+                                        <seg
+                                            xml:id="{'so-seg_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"
+                                            startPos="{$index_m(position())('start')}"
+                                            endPos="{$index_m(position())('end')}"/>
+                                    </xsl:if>
+                                </xsl:for-each>
+                            </annotationBlock>
+
+                            <!-- the redundancy below is intentional: this is supposed to show the various ways in which this kind 
+                                of information can be represented, depending on the project goals  -->
+
+                            <annotationBlock type="wordForm" n="LEMMA">
+                                <xsl:for-each
+                                    select="map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'), '\d+-\d'))]">
+                                    <!-- excluding the portmanteaus by force, this feels like a kludge -->
+                                    <xsl:sort select="." order="ascending"/>
+                                    <span type="wordForm"
+                                        xml:id="{'so-wf-lem_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"
+                                        lemma="{$annotation_map($sent_number)(.)('LEMMA')}"
+                                        corresp="{concat('#so-seg_',$sent_id, '-', if (not($annotation_map($sent_number)(.)('excluded_by'))) then $annotation_map($sent_number)(.)('ID') else $annotation_map($sent_number)(.)('excluded_by') )}"
+                                    > </span>
+                                </xsl:for-each>
+                            </annotationBlock>
+
+                            <annotationBlock type="wordForm" n="XPOS">
+                                <xsl:for-each
+                                    select="map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'), '\d+-\d'))]">
+                                    <!-- excluding the portmanteaus by force, this feels like a kludge -->
+                                    <xsl:sort select="." order="ascending"/>
+                                    <span type="wordForm"
+                                        xml:id="{'so-wf-x_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"
+                                        lemma="{$annotation_map($sent_number)(.)('LEMMA')}"
+                                        pos="{$annotation_map($sent_number)(.)('XPOS')}"
+                                        corresp="{concat('#so-seg_',$sent_id, '-', if (not($annotation_map($sent_number)(.)('excluded_by'))) then $annotation_map($sent_number)(.)('ID') else $annotation_map($sent_number)(.)('excluded_by') )}"
+                                    > </span>
+                                </xsl:for-each>
+                            </annotationBlock>
+
+                            <annotationBlock type="wordForm" n="UPOS">
+                                <xsl:for-each
+                                    select="map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'), '\d+-\d'))]">
+                                    <!-- excluding the portmanteaus by force, this feels like a kludge -->
+                                    <xsl:sort select="." order="ascending"/>
+                                    <span type="wordForm"
+                                        xml:id="{'so-wf-u_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"
+                                        lemma="{$annotation_map($sent_number)(.)('LEMMA')}"
+                                        pos="{$annotation_map($sent_number)(.)('UPOS')}"
+                                        msd="{$annotation_map($sent_number)(.)('FEATS')}"
+                                        corresp="{concat('#so-seg_',$sent_id, '-', if (not($annotation_map($sent_number)(.)('excluded_by'))) then $annotation_map($sent_number)(.)('ID') else $annotation_map($sent_number)(.)('excluded_by') )}"
+                                    > </span>
+                                </xsl:for-each>
+                            </annotationBlock>
+
+                            <xsl:comment>the following annotation block is overall spurious, but still interesting in how it mirrors &#10;&#9;&#9;the merged sequential UPOS:XPOS description in the &lt;text> element above</xsl:comment>
+                            <annotationBlock type="wordForm" n="UPOS:XPOS">
+                                <xsl:for-each
+                                    select="map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'), '\d+-\d'))]">
+                                    <!-- excluding the portmanteaus by force, this feels like a kludge -->
+                                    <xsl:sort select="." order="ascending"/>
+                                    <span type="wordForm"
+                                        xml:id="{'so-wf-ux_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"
+                                        lemma="{$annotation_map($sent_number)(.)('LEMMA')}"
+                                        pos="{$annotation_map($sent_number)(.)('UPOS') || $pos_separator || $annotation_map($sent_number)(.)('XPOS')}"
+                                        msd="{$annotation_map($sent_number)(.)('FEATS')}"
+                                        corresp="{concat('#so-seg_',$sent_id, '-', if (not($annotation_map($sent_number)(.)('excluded_by'))) then $annotation_map($sent_number)(.)('ID') else $annotation_map($sent_number)(.)('excluded_by') )}"
+                                    > </span>
+                                </xsl:for-each>
+                            </annotationBlock>
+                        </tei:listAnnotation>
+                    </xsl:for-each>
+                </standOff>
+            </xsl:if>
         </TEI>
-        
+
     </xsl:template>
-    
+
 </xsl:stylesheet>
