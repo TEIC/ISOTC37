@@ -10,6 +10,9 @@
 
         
         var usedByBoxes= new Array('uB_P_pos_separatorS_UD2MAF.xsl', 
+				'uB_P_suppress_plainS_UD2MAF.xsl', 
+				'uB_P_suppress_sequentialS_UD2MAF.xsl', 
+				'uB_P_suppress_standoffS_UD2MAF.xsl', 
 				'uB_V_TABS_UD2MAF.xsl', 
 				'uB_V_CONLLUS_UD2MAF.xsl', 
 				'uB_V_unknown_id_prefS_UD2MAF.xsl', 
@@ -24,6 +27,8 @@
         var docBoxes= new Array('dS_UD2MAF.xsl', 
 				'dS_T_initial-templateS_UD2MAF.xsl', 
 				'dS_P_pos_separatorS_UD2MAF.xsl', 
+				'dS_P_suppress_plainS_UD2MAF.xsl', 
+				'dS_V_unknown_id_prefS_UD2MAF.xsl', 
 				'dS_V_columnsS_UD2MAF.xsl', 
 				'dS_V_value_separatorS_UD2MAF.xsl', 
 				'dS_V_corpus_mapS_UD2MAF.xsl', 
@@ -33,6 +38,9 @@
 
         var sourceBoxes= new Array('src_T_initial-templateS_UD2MAF.xsl', 
 				'src_P_pos_separatorS_UD2MAF.xsl', 
+				'src_P_suppress_plainS_UD2MAF.xsl', 
+				'src_P_suppress_sequentialS_UD2MAF.xsl', 
+				'src_P_suppress_standoffS_UD2MAF.xsl', 
 				'src_V_TABS_UD2MAF.xsl', 
 				'src_V_CONLLUS_UD2MAF.xsl', 
 				'src_V_unknown_id_prefS_UD2MAF.xsl', 
@@ -494,6 +502,17 @@
                            <div id="refs_T_initial-templateS_UD2MAF.xsl" style="display:block">
                               <table class="uBT">
                                  <tr>
+                                    <td class="fCol">Parameters</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#P_pos_separatorS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">pos_separator</a><span class="refItemSep">;</span></div>
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#P_suppress_plainS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">suppress_plain</a><span class="refItemSep">;</span></div>
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#P_suppress_sequentialS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">suppress_sequential</a><span class="refItemSep">;</span></div>
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#P_suppress_standoffS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">suppress_standoff</a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 <tr>
                                     <td class="fCol">Variables</td>
                                     <td>
                                        <div class="listGrouping">
@@ -510,14 +529,6 @@
                                     <td>
                                        <div class="listGrouping">
                                           <div class="refItemBlock"><a href="UD2MAF0.html#F_map_offsetsS_UD2MAF.xsl" target="_self" title="func" onclick="updPT('UD2MAF.xsl')"><span>map_offsets (</span><span class="fParams">sentence, current_key, base_offset</span><span>)</span></a></div>
-                                       </div>
-                                    </td>
-                                 </tr>
-                                 <tr>
-                                    <td class="fCol">Parameter</td>
-                                    <td>
-                                       <div class="listGrouping">
-                                          <div class="refItemBlock"><a href="UD2MAF0.html#P_pos_separatorS_UD2MAF.xsl" target="_self" title="No namespace" onclick="updPT('UD2MAF.xsl')">pos_separator</a></div>
                                        </div>
                                     </td>
                                  </tr>
@@ -547,78 +558,90 @@
           </span><span class="tEl">&lt;title</span><span class="tEl">&gt;</span><span class="tT">Output of the UD2MAF.xml script</span><span class="tEl">&lt;/title&gt;</span><span class="tI">
         </span><span class="tEl">&lt;/titleStmt&gt;</span><span class="tI">
         </span><span class="tEl">&lt;publicationStmt</span><span class="tEl">&gt;</span><span class="tI">
-          </span><span class="tEl">&lt;p</span><span class="tEl">&gt;</span><span class="tT">This is free output of the tool UD2MAF, accompanying the ISO MAF (proposed, revised) standard.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;p</span><span class="tEl">&gt;</span><span class="tT">This is free output of the tool UD2MAF, accompanying the ISO MAF
+                            (proposed, revised) standard.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
         </span><span class="tEl">&lt;/publicationStmt&gt;</span><span class="tI">
         </span><span class="tEl">&lt;sourceDesc</span><span class="tEl">&gt;</span><span class="tI">
           </span><span class="tEl">&lt;p</span><span class="tEl">&gt;</span><span class="tT">Created in the electronic form.</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
         </span><span class="tEl">&lt;/sourceDesc&gt;</span><span class="tI">
       </span><span class="tEl">&lt;/fileDesc&gt;</span><span class="tI">
     </span><span class="tEl">&lt;/teiHeader&gt;</span><span class="tI">
-    </span><span class="tEl">&lt;text</span><span class="tEl">&gt;</span><span class="tI">
-      </span><span class="tEl">&lt;body</span><span class="tEl">&gt;</span><span class="tI">
-        </span><span class="tEl">&lt;div</span><span class="tAN"> type=</span><span class="tAV">"'plain'"</span><span class="tEl">&gt;</span><span class="tI">
-          </span><span class="tEl">&lt;p</span><span class="tEl">&gt;</span><span class="tI">
-            </span><span class="tXSLEl">&lt;xsl:sequence</span><span class="tAN"> select=</span><span class="tAV">"$plain_sentences"</span><span class="tXSLEl">/&gt;</span><span class="tI">
-          </span><span class="tEl">&lt;/p&gt;</span><span class="tI">
-        </span><span class="tEl">&lt;/div&gt;</span><span class="tI">
-        </span><span class="tEl">&lt;div</span><span class="tAN"> type=</span><span class="tAV">"'sequential'"</span><span class="tEl">&gt;</span><span class="tI">
-          </span><span class="tEl">&lt;p</span><span class="tEl">&gt;</span><span class="tI">
-            </span><span class="tXSLEl">&lt;xsl:sequence</span><span class="tAN"> select=</span><span class="tAV">"$sequential_annotation"</span><span class="tXSLEl">/&gt;</span><span class="tI">
-          </span><span class="tEl">&lt;/p&gt;</span><span class="tI">
-        </span><span class="tEl">&lt;/div&gt;</span><span class="tI">
-      </span><span class="tEl">&lt;/body&gt;</span><span class="tI">
-    </span><span class="tEl">&lt;/text&gt;</span><span class="tI">
-    </span><span class="tEl">&lt;standOff</span><span class="tEl">&gt;</span><span class="tI">
-      </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"map:keys($metadata_map)"</span><span class="tXSLEl">&gt;</span><span class="tI">
-        </span><span class="tXSLEl">&lt;xsl:sort</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tAN"> order=</span><span class="tAV">"ascending"</span><span class="tXSLEl">/&gt;</span><span class="tI">
-        </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"sent_id"</span><span class="tAN"> select=</span><span class="tAV">"if ($metadata_map(.)('sent_id')) then $metadata_map(.)('sent_id') else $unknown_id_pref || position()"</span><span class="tAN"> as=</span><span class="tAV">"xs:string"</span><span class="tXSLEl">/&gt;</span><span class="tI">
-        </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"sent_number"</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tXSLEl">/&gt;</span><span class="tI">
-        </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"index_m"</span><span class="tAN"> as=</span><span class="tAV">"map(xs:integer, map(xs:string, xs:integer))"</span><span class="tAN"> select=</span><span class="tAV">"f:map_offsets($annotation_map($sent_number),1,0)"</span><span class="tXSLEl">/&gt;</span><span class="tI">
-        </span><span class="tEl">&lt;listAnnotation</span><span class="tAN"> corresp=</span><span class="tAV">"{'#' || $sent_id}"</span><span class="tAN"> xml:id=</span><span class="tAV">"{'ann_' || $sent_id}"</span><span class="tEl">&gt;</span><span class="tI">
-          </span><span class="tEl">&lt;annotationBlock</span><span class="tAN"> type=</span><span class="tAV">"token"</span><span class="tAN"> offsetBase=</span><span class="tAV">"{'#' || $sent_id}"</span><span class="tEl">&gt;</span><span class="tI">
-            </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"map:keys($annotation_map($sent_number))"</span><span class="tXSLEl">&gt;</span><span class="tI">
-              </span><span class="tXSLEl">&lt;xsl:sort</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tAN"> order=</span><span class="tAV">"ascending"</span><span class="tXSLEl">/&gt;</span><span class="tI">
-              </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"not($annotation_map($sent_number)(.)('excluded_by'))"</span><span class="tXSLEl">&gt;</span><span class="tI">
-                </span><span class="tEl">&lt;seg</span><span class="tAN"> xml:id=</span><span class="tAV">"{'so-seg_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"</span><span class="tAN"> startPos=</span><span class="tAV">"{$index_m(position())('start')}"</span><span class="tAN"> endPos=</span><span class="tAV">"{$index_m(position())('end')}"</span><span class="tEl">/&gt;</span><span class="tI">
-              </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
-            </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
-          </span><span class="tEl">&lt;/annotationBlock&gt;</span><span class="tI">
-          </span><span class="tEl">&lt;annotationBlock</span><span class="tAN"> type=</span><span class="tAV">"wordForm"</span><span class="tAN"> n=</span><span class="tAV">"LEMMA"</span><span class="tEl">&gt;</span><span class="tI">
-            </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'),'\d+-\d'))]"</span><span class="tXSLEl">&gt;</span><span class="tI">
-              </span><span class="tC">&lt;!-- excluding the portmanteaus by force, this feels like a kludge --&gt;</span><span class="tI">
-              </span><span class="tXSLEl">&lt;xsl:sort</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tAN"> order=</span><span class="tAV">"ascending"</span><span class="tXSLEl">/&gt;</span><span class="tI">
-              </span><span class="tEl">&lt;span</span><span class="tAN"> type=</span><span class="tAV">"wordForm"</span><span class="tAN"> xml:id=</span><span class="tAV">"{'so-wf-lem_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"</span><span class="tAN"> lemma=</span><span class="tAV">"{$annotation_map($sent_number)(.)('LEMMA')}"</span><span class="tAN"> corresp=</span><span class="tAV">"{concat('#so-seg_',$sent_id, '-', if (not($annotation_map($sent_number)(.)('excluded_by'))) then $annotation_map($sent_number)(.)('ID') else $annotation_map($sent_number)(.)('excluded_by') )}"</span><span class="tEl">&gt;</span><span class="tI">
-              </span><span class="tEl">&lt;/span&gt;</span><span class="tI">
-            </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
-          </span><span class="tEl">&lt;/annotationBlock&gt;</span><span class="tI">
-          </span><span class="tEl">&lt;annotationBlock</span><span class="tAN"> type=</span><span class="tAV">"wordForm"</span><span class="tAN"> n=</span><span class="tAV">"XPOS"</span><span class="tEl">&gt;</span><span class="tI">
-            </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'),'\d+-\d'))]"</span><span class="tXSLEl">&gt;</span><span class="tI">
-              </span><span class="tC">&lt;!-- excluding the portmanteaus by force, this feels like a kludge --&gt;</span><span class="tI">
-              </span><span class="tXSLEl">&lt;xsl:sort</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tAN"> order=</span><span class="tAV">"ascending"</span><span class="tXSLEl">/&gt;</span><span class="tI">
-              </span><span class="tEl">&lt;span</span><span class="tAN"> type=</span><span class="tAV">"wordForm"</span><span class="tAN"> xml:id=</span><span class="tAV">"{'so-wf-x_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"</span><span class="tAN"> lemma=</span><span class="tAV">"{$annotation_map($sent_number)(.)('LEMMA')}"</span><span class="tAN"> pos=</span><span class="tAV">"{$annotation_map($sent_number)(.)('XPOS')}"</span><span class="tAN"> corresp=</span><span class="tAV">"{concat('#so-seg_',$sent_id, '-', if (not($annotation_map($sent_number)(.)('excluded_by'))) then $annotation_map($sent_number)(.)('ID') else $annotation_map($sent_number)(.)('excluded_by') )}"</span><span class="tEl">&gt;</span><span class="tI">
-              </span><span class="tEl">&lt;/span&gt;</span><span class="tI">
-            </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
-          </span><span class="tEl">&lt;/annotationBlock&gt;</span><span class="tI">
-          </span><span class="tEl">&lt;annotationBlock</span><span class="tAN"> type=</span><span class="tAV">"wordForm"</span><span class="tAN"> n=</span><span class="tAV">"UPOS"</span><span class="tEl">&gt;</span><span class="tI">
-            </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'),'\d+-\d'))]"</span><span class="tXSLEl">&gt;</span><span class="tI">
-              </span><span class="tC">&lt;!-- excluding the portmanteaus by force, this feels like a kludge --&gt;</span><span class="tI">
-              </span><span class="tXSLEl">&lt;xsl:sort</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tAN"> order=</span><span class="tAV">"ascending"</span><span class="tXSLEl">/&gt;</span><span class="tI">
-              </span><span class="tEl">&lt;span</span><span class="tAN"> type=</span><span class="tAV">"wordForm"</span><span class="tAN"> xml:id=</span><span class="tAV">"{'so-wf-u_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"</span><span class="tAN"> lemma=</span><span class="tAV">"{$annotation_map($sent_number)(.)('LEMMA')}"</span><span class="tAN"> pos=</span><span class="tAV">"{$annotation_map($sent_number)(.)('UPOS')}"</span><span class="tAN"> msd=</span><span class="tAV">"{$annotation_map($sent_number)(.)('FEATS')}"</span><span class="tAN"> corresp=</span><span class="tAV">"{concat('#so-seg_',$sent_id, '-', if (not($annotation_map($sent_number)(.)('excluded_by'))) then $annotation_map($sent_number)(.)('ID') else $annotation_map($sent_number)(.)('excluded_by') )}"</span><span class="tEl">&gt;</span><span class="tI">
-              </span><span class="tEl">&lt;/span&gt;</span><span class="tI">
-            </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
-          </span><span class="tEl">&lt;/annotationBlock&gt;</span><span class="tI">
-          </span><span class="tXSLEl">&lt;xsl:comment</span><span class="tXSLEl">&gt;</span><span class="tT">the following annotation block is overall spurious, but still interesting in how it mimics the merged UPOS:XPOS description in the &lt;text&gt; element above</span><span class="tXSLEl">&lt;/xsl:comment&gt;</span><span class="tI">
-          </span><span class="tEl">&lt;annotationBlock</span><span class="tAN"> type=</span><span class="tAV">"wordForm"</span><span class="tAN"> n=</span><span class="tAV">"UPOS:XPOS"</span><span class="tEl">&gt;</span><span class="tI">
-            </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'),'\d+-\d'))]"</span><span class="tXSLEl">&gt;</span><span class="tI">
-              </span><span class="tC">&lt;!-- excluding the portmanteaus by force, this feels like a kludge --&gt;</span><span class="tI">
-              </span><span class="tXSLEl">&lt;xsl:sort</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tAN"> order=</span><span class="tAV">"ascending"</span><span class="tXSLEl">/&gt;</span><span class="tI">
-              </span><span class="tEl">&lt;span</span><span class="tAN"> type=</span><span class="tAV">"wordForm"</span><span class="tAN"> xml:id=</span><span class="tAV">"{'so-wf-ux_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"</span><span class="tAN"> lemma=</span><span class="tAV">"{$annotation_map($sent_number)(.)('LEMMA')}"</span><span class="tAN"> pos=</span><span class="tAV">"{$annotation_map($sent_number)(.)('UPOS') || $pos_separator || $annotation_map($sent_number)(.)('XPOS')}"</span><span class="tAN"> msd=</span><span class="tAV">"{$annotation_map($sent_number)(.)('FEATS')}"</span><span class="tAN"> corresp=</span><span class="tAV">"{concat('#so-seg_',$sent_id, '-', if (not($annotation_map($sent_number)(.)('excluded_by'))) then $annotation_map($sent_number)(.)('ID') else $annotation_map($sent_number)(.)('excluded_by') )}"</span><span class="tEl">&gt;</span><span class="tI">
-              </span><span class="tEl">&lt;/span&gt;</span><span class="tI">
-            </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
-          </span><span class="tEl">&lt;/annotationBlock&gt;</span><span class="tI">
-        </span><span class="tEl">&lt;/listAnnotation&gt;</span><span class="tI">
-      </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
-    </span><span class="tEl">&lt;/standOff&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"not($suppress_plain and $suppress_sequential)"</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;text</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;body</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"not($suppress_plain)"</span><span class="tXSLEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;div</span><span class="tAN"> type=</span><span class="tAV">"plain"</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;p</span><span class="tEl">&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;xsl:sequence</span><span class="tAN"> select=</span><span class="tAV">"$plain_sentences"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/div&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"not($suppress_sequential)"</span><span class="tXSLEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;div</span><span class="tAN"> type=</span><span class="tAV">"sequential"</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;p</span><span class="tEl">&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;xsl:sequence</span><span class="tAN"> select=</span><span class="tAV">"$sequential_annotation"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/div&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/body&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/text&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"not($suppress_standoff)"</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;standOff</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"map:keys($metadata_map)"</span><span class="tXSLEl">&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:sort</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tAN"> order=</span><span class="tAV">"ascending"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"sent_id"</span><span class="tAN"> select=</span><span class="tAV">"                                 if ($metadata_map(.)('sent_id')) then                                     $metadata_map(.)('sent_id')                                 else                                     $unknown_id_pref || position()"</span><span class="tAN"> as=</span><span class="tAV">"xs:string"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"sent_number"</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tXSLEl">/&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"index_m"</span><span class="tAN"> as=</span><span class="tAV">"map(xs:integer, map(xs:string, xs:integer))"</span><span class="tAN"> select=</span><span class="tAV">"f:map_offsets($annotation_map($sent_number), 1, 0)"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;listAnnotation</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.tei-c.org/ns/1.0"</span><span class="tAN"> corresp=</span><span class="tAV">"{'#' || $sent_id}"</span><span class="tAN"> xml:id=</span><span class="tAV">"{'ann_' || $sent_id}"</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;annotationBlock</span><span class="tAN"> type=</span><span class="tAV">"token"</span><span class="tAN"> offsetBase=</span><span class="tAV">"{'#' || $sent_id}"</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"map:keys($annotation_map($sent_number))"</span><span class="tXSLEl">&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;xsl:sort</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tAN"> order=</span><span class="tAV">"ascending"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"not($annotation_map($sent_number)(.)('excluded_by'))"</span><span class="tXSLEl">&gt;</span><span class="tI">
+                  </span><span class="tEl">&lt;seg</span><span class="tAN"> xml:id=</span><span class="tAV">"{'so-seg_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"</span><span class="tAN"> startPos=</span><span class="tAV">"{$index_m(position())('start')}"</span><span class="tAN"> endPos=</span><span class="tAV">"{$index_m(position())('end')}"</span><span class="tEl">/&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/annotationBlock&gt;</span><span class="tI">
+            </span><span class="tC">&lt;!-- the redundancy below is intentional: this is supposed to show the various ways in which this kind 
+                                of information can be represented, depending on the project goals  --&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;annotationBlock</span><span class="tAN"> type=</span><span class="tAV">"wordForm"</span><span class="tAN"> n=</span><span class="tAV">"LEMMA"</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'), '\d+-\d'))]"</span><span class="tXSLEl">&gt;</span><span class="tI">
+                </span><span class="tC">&lt;!-- excluding the portmanteaus by force, this feels like a kludge --&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;xsl:sort</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tAN"> order=</span><span class="tAV">"ascending"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;span</span><span class="tAN"> type=</span><span class="tAV">"wordForm"</span><span class="tAN"> xml:id=</span><span class="tAV">"{'so-wf-lem_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"</span><span class="tAN"> lemma=</span><span class="tAV">"{$annotation_map($sent_number)(.)('LEMMA')}"</span><span class="tAN"> corresp=</span><span class="tAV">"{concat('#so-seg_',$sent_id, '-', if (not($annotation_map($sent_number)(.)('excluded_by'))) then $annotation_map($sent_number)(.)('ID') else $annotation_map($sent_number)(.)('excluded_by') )}"</span><span class="tEl">&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;/span&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/annotationBlock&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;annotationBlock</span><span class="tAN"> type=</span><span class="tAV">"wordForm"</span><span class="tAN"> n=</span><span class="tAV">"XPOS"</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'), '\d+-\d'))]"</span><span class="tXSLEl">&gt;</span><span class="tI">
+                </span><span class="tC">&lt;!-- excluding the portmanteaus by force, this feels like a kludge --&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;xsl:sort</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tAN"> order=</span><span class="tAV">"ascending"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;span</span><span class="tAN"> type=</span><span class="tAV">"wordForm"</span><span class="tAN"> xml:id=</span><span class="tAV">"{'so-wf-x_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"</span><span class="tAN"> lemma=</span><span class="tAV">"{$annotation_map($sent_number)(.)('LEMMA')}"</span><span class="tAN"> pos=</span><span class="tAV">"{$annotation_map($sent_number)(.)('XPOS')}"</span><span class="tAN"> corresp=</span><span class="tAV">"{concat('#so-seg_',$sent_id, '-', if (not($annotation_map($sent_number)(.)('excluded_by'))) then $annotation_map($sent_number)(.)('ID') else $annotation_map($sent_number)(.)('excluded_by') )}"</span><span class="tEl">&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;/span&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/annotationBlock&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;annotationBlock</span><span class="tAN"> type=</span><span class="tAV">"wordForm"</span><span class="tAN"> n=</span><span class="tAV">"UPOS"</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'), '\d+-\d'))]"</span><span class="tXSLEl">&gt;</span><span class="tI">
+                </span><span class="tC">&lt;!-- excluding the portmanteaus by force, this feels like a kludge --&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;xsl:sort</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tAN"> order=</span><span class="tAV">"ascending"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;span</span><span class="tAN"> type=</span><span class="tAV">"wordForm"</span><span class="tAN"> xml:id=</span><span class="tAV">"{'so-wf-u_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"</span><span class="tAN"> lemma=</span><span class="tAV">"{$annotation_map($sent_number)(.)('LEMMA')}"</span><span class="tAN"> pos=</span><span class="tAV">"{$annotation_map($sent_number)(.)('UPOS')}"</span><span class="tAN"> msd=</span><span class="tAV">"{$annotation_map($sent_number)(.)('FEATS')}"</span><span class="tAN"> corresp=</span><span class="tAV">"{concat('#so-seg_',$sent_id, '-', if (not($annotation_map($sent_number)(.)('excluded_by'))) then $annotation_map($sent_number)(.)('ID') else $annotation_map($sent_number)(.)('excluded_by') )}"</span><span class="tEl">&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;/span&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/annotationBlock&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;xsl:comment</span><span class="tXSLEl">&gt;</span><span class="tT">the following annotation block is overall spurious, but still interesting in how it mirrors 
+		the merged sequential UPOS:XPOS description in the &lt;text&gt; element above</span><span class="tXSLEl">&lt;/xsl:comment&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;annotationBlock</span><span class="tAN"> type=</span><span class="tAV">"wordForm"</span><span class="tAN"> n=</span><span class="tAV">"UPOS:XPOS"</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'), '\d+-\d'))]"</span><span class="tXSLEl">&gt;</span><span class="tI">
+                </span><span class="tC">&lt;!-- excluding the portmanteaus by force, this feels like a kludge --&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;xsl:sort</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tAN"> order=</span><span class="tAV">"ascending"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;span</span><span class="tAN"> type=</span><span class="tAV">"wordForm"</span><span class="tAN"> xml:id=</span><span class="tAV">"{'so-wf-ux_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"</span><span class="tAN"> lemma=</span><span class="tAV">"{$annotation_map($sent_number)(.)('LEMMA')}"</span><span class="tAN"> pos=</span><span class="tAV">"{$annotation_map($sent_number)(.)('UPOS') || $pos_separator || $annotation_map($sent_number)(.)('XPOS')}"</span><span class="tAN"> msd=</span><span class="tAV">"{$annotation_map($sent_number)(.)('FEATS')}"</span><span class="tAN"> corresp=</span><span class="tAV">"{concat('#so-seg_',$sent_id, '-', if (not($annotation_map($sent_number)(.)('excluded_by'))) then $annotation_map($sent_number)(.)('ID') else $annotation_map($sent_number)(.)('excluded_by') )}"</span><span class="tEl">&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;/span&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/annotationBlock&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/listAnnotation&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/standOff&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
   </span><span class="tEl">&lt;/TEI&gt;</span><span class="tI">
 </span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre>
                                     </td>
@@ -732,6 +755,238 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"</pre>
             <td class="rt_lB"></td>
             <td class="rt_cBR"></td>
          </tr>
+      </table><a id="P_suppress_plainS_UD2MAF.xsl"></a><div class="cmpT">Parameter
+         <span class="qname">suppress_plain</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_P_suppress_plainS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_P_suppress_plainS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_P_suppress_plainS_UD2MAF.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>
+                                 <pre>  The rationale for these parameters is that the output of this script is expected to be part of your workflow, and so
+      the excess doesn't really hurt, because you will only take what you need out of it anyway. Still, for large datasets, the 
+      excess may be too excessive, so you can suppress the individual bits. </pre>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Select</td>
+                        <td>false()</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Type</td>
+                        <td>xs:boolean</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_P_suppress_plainS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('uB_P_suppress_plainS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_P_suppress_plainS_UD2MAF.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Template</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#T_initial-templateS_UD2MAF.xsl" target="_self" title="http://www.w3.org/1999/XSL/Transform" onclick="updPT('UD2MAF.xsl')"><span class="nRf">xsl:initial-template</span></a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_P_suppress_plainS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_P_suppress_plainS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_P_suppress_plainS_UD2MAF.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"suppress_plain"</span><span class="tAN"> select=</span><span class="tAV">"false()"</span><span class="tAN"> as=</span><span class="tAV">"xs:boolean"</span><span class="tXSLEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="P_suppress_sequentialS_UD2MAF.xsl"></a><div class="cmpT">Parameter
+         <span class="qname">suppress_sequential</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Select</td>
+                        <td>false()</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Type</td>
+                        <td>xs:boolean</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_P_suppress_sequentialS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('uB_P_suppress_sequentialS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_P_suppress_sequentialS_UD2MAF.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Template</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#T_initial-templateS_UD2MAF.xsl" target="_self" title="http://www.w3.org/1999/XSL/Transform" onclick="updPT('UD2MAF.xsl')"><span class="nRf">xsl:initial-template</span></a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_P_suppress_sequentialS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_P_suppress_sequentialS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_P_suppress_sequentialS_UD2MAF.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"suppress_sequential"</span><span class="tAN"> select=</span><span class="tAV">"false()"</span><span class="tAN"> as=</span><span class="tAV">"xs:boolean"</span><span class="tXSLEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="P_suppress_standoffS_UD2MAF.xsl"></a><div class="cmpT">Parameter
+         <span class="qname">suppress_standoff</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Select</td>
+                        <td>false()</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Type</td>
+                        <td>xs:boolean</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_P_suppress_standoffS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('uB_P_suppress_standoffS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_P_suppress_standoffS_UD2MAF.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Template</td>
+                                    <td>
+                                       <div class="listGrouping">
+                                          <div class="refItemBlock"><a href="UD2MAF0.html#T_initial-templateS_UD2MAF.xsl" target="_self" title="http://www.w3.org/1999/XSL/Transform" onclick="updPT('UD2MAF.xsl')"><span class="nRf">xsl:initial-template</span></a></div>
+                                       </div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_P_suppress_standoffS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('src_P_suppress_standoffS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_P_suppress_standoffS_UD2MAF.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%">
+                                       <pre><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"suppress_standoff"</span><span class="tAN"> select=</span><span class="tAV">"false()"</span><span class="tAN"> as=</span><span class="tAV">"xs:boolean"</span><span class="tXSLEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
       </table><a id="V_TABS_UD2MAF.xsl"></a><div class="cmpT">Variable
          <span class="qname">TAB</span></div>
       <table class="rt">
@@ -823,7 +1078,7 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"</pre>
                      </tr>
                      <tr>
                         <td class="fCol">Select</td>
-                        <td>('ID','FORM','LEMMA','UPOS','XPOS','FEATS','HEAD','DEPREL','DEPS','MISC')</td>
+                        <td>('ID', 'FORM', 'LEMMA', 'UPOS', 'XPOS', 'FEATS', 'HEAD', 'DEPREL', 'DEPS', 'MISC')</td>
                      </tr>
                      <tr>
                         <td class="fCol">Type</td>
@@ -859,7 +1114,7 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"</pre>
                               <table class="pWCont">
                                  <tr>
                                     <td width="100%">
-                                       <pre><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"CONLLU"</span><span class="tAN"> select=</span><span class="tAV">"('ID','FORM','LEMMA','UPOS','XPOS','FEATS','HEAD','DEPREL','DEPS','MISC')"</span><span class="tAN"> as=</span><span class="tAV">"xs:string+"</span><span class="tXSLEl">/&gt;</span></pre>
+                                       <pre><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"CONLLU"</span><span class="tAN"> select=</span><span class="tAV">"('ID', 'FORM', 'LEMMA', 'UPOS', 'XPOS', 'FEATS', 'HEAD', 'DEPREL', 'DEPS', 'MISC')"</span><span class="tAN"> as=</span><span class="tAV">"xs:string+"</span><span class="tXSLEl">/&gt;</span></pre>
                                     </td>
                                  </tr>
                               </table>
@@ -889,6 +1144,20 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"</pre>
             <td class="rt_cnt">
                <table class="component">
                   <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_V_unknown_id_prefS_UD2MAF.xsl" type="image" src="img/btM.gif" value="-" onclick="switchState('dS_V_unknown_id_prefS_UD2MAF.xsl');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_V_unknown_id_prefS_UD2MAF.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3>
+                                 <pre> used when the UD representation lacks sent_id altogether (as it happens in the output of some tools) </pre>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
                      <tr>
                         <td class="fCol">Namespace</td>
                         <td>No namespace</td>
@@ -979,7 +1248,7 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"</pre>
                            <div id="dS_V_columnsS_UD2MAF.xsl" style="display:block">
                               <div>
                                  <h3>Description</h3>
-                                 <pre>the following two utility variables, together with the constants above, are just a nod towards the potential later extension of this tool</pre>
+                                 <pre>the following two utility variables, together with the constants above, are just a nod towards the potential future extension of this tool</pre>
                               </div>
                            </div>
                         </td>
@@ -1274,16 +1543,17 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"</pre>
                            <div id="dS_V_metadata_mapS_UD2MAF.xsl" style="display:block">
                               <div>
                                  <h3>Description</h3>
-                                 <p>This variable holds only attribute-value pairs, indexed by the position in the
-                                    $corpus_map. If a comment does not contain a '=' sign, it will not make it into here,
-                                    unless it is "newpar" or "newdoc", which are promoted to key status, with the value
-                                    of
-                                    "'1'".</p>
                                  
-                                 <p>In other words, <i>#newpar</i> alone in the line yields 
+                                 <p>This variable holds only attribute-value pairs, indexed by the position in the
+                                    $corpus_map. If a comment does not contain a '=' sign, it will not make it into
+                                    here, unless it is "newpar" or "newdoc", which are promoted to key status, with the
+                                    value of "'1'".</p>
+                                 
+                                 <p>In other words, <i>#newpar</i> alone in the line yields
                                     <i>'newpar':'1'</i>.</p>
                                  
-                                 <p>On the other hand,  <i>#newpar = my_id-34</i> yields two pairs: <i>'newpar': 'id'</i> and <i>'newpar_id': 'my_id-34'</i></p>
+                                 <p>On the other hand, <i>#newpar = my_id-34</i> yields two pairs:
+                                    <i>'newpar': 'id'</i> and <i>'newpar_id': 'my_id-34'</i></p>
                                  
                                  
                                  <p>Sample structure:
@@ -1373,33 +1643,33 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"</pre>
         </span><span class="tXSLEl">&lt;xsl:map</span><span class="tXSLEl">&gt;</span><span class="tI">
           </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"$corpus_map(.)"</span><span class="tXSLEl">&gt;</span><span class="tI">
             </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
-              </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"matches(., '^#\s*newpar(\s|$)','i')"</span><span class="tXSLEl">&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"matches(., '^#\s*newpar(\s|$)', 'i')"</span><span class="tXSLEl">&gt;</span><span class="tI">
                 </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
-                  </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"matches(., 'newpar\s+id\s*=','i')"</span><span class="tXSLEl">&gt;</span><span class="tI">
+                  </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"matches(., 'newpar\s+id\s*=', 'i')"</span><span class="tXSLEl">&gt;</span><span class="tI">
                     </span><span class="tXSLEl">&lt;xsl:map-entry</span><span class="tAN"> key=</span><span class="tAV">"'newpar'"</span><span class="tAN"> select=</span><span class="tAV">"'id'"</span><span class="tXSLEl">/&gt;</span><span class="tI">
-                    </span><span class="tXSLEl">&lt;xsl:map-entry</span><span class="tAN"> key=</span><span class="tAV">"'newpar_id'"</span><span class="tAN"> select=</span><span class="tAV">"tokenize(.,' ')[last()]"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+                    </span><span class="tXSLEl">&lt;xsl:map-entry</span><span class="tAN"> key=</span><span class="tAV">"'newpar_id'"</span><span class="tAN"> select=</span><span class="tAV">"tokenize(., ' ')[last()]"</span><span class="tXSLEl">/&gt;</span><span class="tI">
                   </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
                   </span><span class="tXSLEl">&lt;xsl:otherwise</span><span class="tXSLEl">&gt;</span><span class="tI">
                     </span><span class="tXSLEl">&lt;xsl:map-entry</span><span class="tAN"> key=</span><span class="tAV">"'newpar'"</span><span class="tAN"> select=</span><span class="tAV">"'1'"</span><span class="tXSLEl">/&gt;</span><span class="tI">
                   </span><span class="tXSLEl">&lt;/xsl:otherwise&gt;</span><span class="tI">
                 </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
               </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
-              </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"matches(., '^#\s*newdoc(\s|$)','i')"</span><span class="tXSLEl">&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"matches(., '^#\s*newdoc(\s|$)', 'i')"</span><span class="tXSLEl">&gt;</span><span class="tI">
                 </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
-                  </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"matches(., 'newdoc\s+id\s*=','i')"</span><span class="tXSLEl">&gt;</span><span class="tI">
+                  </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"matches(., 'newdoc\s+id\s*=', 'i')"</span><span class="tXSLEl">&gt;</span><span class="tI">
                     </span><span class="tXSLEl">&lt;xsl:map-entry</span><span class="tAN"> key=</span><span class="tAV">"'newdoc'"</span><span class="tAN"> select=</span><span class="tAV">"'id'"</span><span class="tXSLEl">/&gt;</span><span class="tI">
-                    </span><span class="tXSLEl">&lt;xsl:map-entry</span><span class="tAN"> key=</span><span class="tAV">"'newdoc_id'"</span><span class="tAN"> select=</span><span class="tAV">"tokenize(.,' ')[last()]"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+                    </span><span class="tXSLEl">&lt;xsl:map-entry</span><span class="tAN"> key=</span><span class="tAV">"'newdoc_id'"</span><span class="tAN"> select=</span><span class="tAV">"tokenize(., ' ')[last()]"</span><span class="tXSLEl">/&gt;</span><span class="tI">
                   </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
                   </span><span class="tXSLEl">&lt;xsl:otherwise</span><span class="tXSLEl">&gt;</span><span class="tI">
                     </span><span class="tXSLEl">&lt;xsl:map-entry</span><span class="tAN"> key=</span><span class="tAV">"'newdoc'"</span><span class="tAN"> select=</span><span class="tAV">"'1'"</span><span class="tXSLEl">/&gt;</span><span class="tI">
                   </span><span class="tXSLEl">&lt;/xsl:otherwise&gt;</span><span class="tI">
                 </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
               </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
-              </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"matches(.,'^#.*?=.*')"</span><span class="tXSLEl">&gt;</span><span class="tI">
-                </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"avm_seq"</span><span class="tAN"> select=</span><span class="tAV">"tokenize(.,' ')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"matches(., '^#.*?=.*')"</span><span class="tXSLEl">&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"avm_seq"</span><span class="tAN"> select=</span><span class="tAV">"tokenize(., ' ')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
                 </span><span class="tC">&lt;!-- assuming that the '=' sign is always surrounded by whitespace; if not, consider replace() followed by normalize-space() before tokenization  --&gt;</span><span class="tI">
-                </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"eq_pos"</span><span class="tAN"> select=</span><span class="tAV">"index-of($avm_seq,'=')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
-                </span><span class="tXSLEl">&lt;xsl:map-entry</span><span class="tAN"> key=</span><span class="tAV">"$avm_seq[$eq_pos - 1]"</span><span class="tAN"> select=</span><span class="tAV">"string-join(subsequence($avm_seq, $eq_pos + 1),' ')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"eq_pos"</span><span class="tAN"> select=</span><span class="tAV">"index-of($avm_seq, '=')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;xsl:map-entry</span><span class="tAN"> key=</span><span class="tAV">"$avm_seq[$eq_pos - 1]"</span><span class="tAN"> select=</span><span class="tAV">"string-join(subsequence($avm_seq, $eq_pos + 1), ' ')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
               </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
             </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
           </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
@@ -1523,7 +1793,7 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"</pre>
           </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"exclusions"</span><span class="tAN"> as=</span><span class="tAV">"map(xs:string,xs:string)"</span><span class="tXSLEl">&gt;</span><span class="tI">
             </span><span class="tXSLEl">&lt;xsl:map</span><span class="tXSLEl">&gt;</span><span class="tI">
               </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"$corpus_map(.)[matches(., '^\d+-\d')]"</span><span class="tXSLEl">&gt;</span><span class="tI">
-                </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"my_id"</span><span class="tAN"> select=</span><span class="tAV">"substring-before(.,$value_separator)"</span><span class="tAN"> as=</span><span class="tAV">"xs:string"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"my_id"</span><span class="tAN"> select=</span><span class="tAV">"substring-before(., $value_separator)"</span><span class="tAN"> as=</span><span class="tAV">"xs:string"</span><span class="tXSLEl">/&gt;</span><span class="tI">
                 </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"enumerated"</span><span class="tAN"> select=</span><span class="tAV">"xs:integer(substring-before($my_id, '-')) to xs:integer(substring-after($my_id, '-'))"</span><span class="tAN"> as=</span><span class="tAV">"xs:integer+"</span><span class="tXSLEl">/&gt;</span><span class="tI">
                 </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"$enumerated"</span><span class="tXSLEl">&gt;</span><span class="tI">
                   </span><span class="tXSLEl">&lt;xsl:map-entry</span><span class="tAN"> key=</span><span class="tAV">"xs:string(.)"</span><span class="tAN"> select=</span><span class="tAV">"$my_id"</span><span class="tXSLEl">/&gt;</span><span class="tI">
@@ -1644,8 +1914,8 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"</pre>
                                        <pre><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"plain_sentences"</span><span class="tAN"> as=</span><span class="tAV">"element()+"</span><span class="tXSLEl">&gt;</span><span class="tI">
   </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"map:keys($metadata_map)"</span><span class="tXSLEl">&gt;</span><span class="tI">
     </span><span class="tXSLEl">&lt;xsl:sort</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tAN"> order=</span><span class="tAV">"ascending"</span><span class="tXSLEl">/&gt;</span><span class="tI">
-    </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"sent_id"</span><span class="tAN"> select=</span><span class="tAV">"if ($metadata_map(.)('sent_id')) then $metadata_map(.)('sent_id') else $unknown_id_pref || position()"</span><span class="tAN"> as=</span><span class="tAV">"xs:string"</span><span class="tXSLEl">/&gt;</span><span class="tI">
-    </span><span class="tEl">&lt;s</span><span class="tAN"> xml:id=</span><span class="tAV">"{$sent_id}"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"sent_id"</span><span class="tAN"> select=</span><span class="tAV">"                     if ($metadata_map(.)('sent_id')) then                         $metadata_map(.)('sent_id')                     else                         $unknown_id_pref || position()"</span><span class="tAN"> as=</span><span class="tAV">"xs:string"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;s</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.tei-c.org/ns/1.0"</span><span class="tAN"> xml:id=</span><span class="tAV">"{$sent_id}"</span><span class="tEl">&gt;</span><span class="tI">
       </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"$metadata_map(.)('text')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
     </span><span class="tEl">&lt;/s&gt;</span><span class="tI">
   </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
@@ -1751,23 +2021,23 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"</pre>
   </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"map:keys($metadata_map)"</span><span class="tXSLEl">&gt;</span><span class="tI">
     </span><span class="tXSLEl">&lt;xsl:sort</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tAN"> order=</span><span class="tAV">"ascending"</span><span class="tXSLEl">/&gt;</span><span class="tI">
     </span><span class="tC">&lt;!--            &lt;xsl:variable name="sent_id" select="$metadata_map(.)('sent_id')" as="xs:string*"/&gt;--&gt;</span><span class="tI">
-    </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"sent_id"</span><span class="tAN"> select=</span><span class="tAV">"if ($metadata_map(.)('sent_id')) then $metadata_map(.)('sent_id') else $unknown_id_pref || position()"</span><span class="tAN"> as=</span><span class="tAV">"xs:string"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"sent_id"</span><span class="tAN"> select=</span><span class="tAV">"                     if ($metadata_map(.)('sent_id')) then                         $metadata_map(.)('sent_id')                     else                         $unknown_id_pref || position()"</span><span class="tAN"> as=</span><span class="tAV">"xs:string"</span><span class="tXSLEl">/&gt;</span><span class="tI">
     </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"sent_number"</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tXSLEl">/&gt;</span><span class="tI">
-    </span><span class="tEl">&lt;s</span><span class="tAN"> xml:id=</span><span class="tAV">"{'seq_' || $sent_id}"</span><span class="tAN"> corresp=</span><span class="tAV">"{'#' || $sent_id}"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;s</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.tei-c.org/ns/1.0"</span><span class="tAN"> xml:id=</span><span class="tAV">"{'seq_' || $sent_id}"</span><span class="tAN"> corresp=</span><span class="tAV">"{'#' || $sent_id}"</span><span class="tEl">&gt;</span><span class="tI">
       </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"map:keys($annotation_map($sent_number))"</span><span class="tXSLEl">&gt;</span><span class="tI">
         </span><span class="tC">&lt;!--we use xsl:if here to see where the discontinuity happens, for debugging mostly--&gt;</span><span class="tI">
         </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"not($annotation_map($sent_number)(.)('excluded_by'))"</span><span class="tXSLEl">&gt;</span><span class="tI">
           </span><span class="tEl">&lt;seg</span><span class="tAN"> xml:id=</span><span class="tAV">"{'seq_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"</span><span class="tEl">&gt;</span><span class="tI">
-            </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"matches($annotation_map($sent_number)(.)('MISC'),'SpaceAfter=No')"</span><span class="tXSLEl">&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"matches($annotation_map($sent_number)(.)('MISC'), 'SpaceAfter=No')"</span><span class="tXSLEl">&gt;</span><span class="tI">
               </span><span class="tXSLEl">&lt;xsl:attribute</span><span class="tAN"> name=</span><span class="tAV">"join"</span><span class="tAN"> select=</span><span class="tAV">"'right'"</span><span class="tXSLEl">/&gt;</span><span class="tI">
             </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
             </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"$annotation_map($sent_number)(.)('FORM')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
           </span><span class="tEl">&lt;/seg&gt;</span><span class="tI">
         </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
       </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
-      </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'),'\d+-\d'))]"</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"map:keys($annotation_map($sent_number))[not(matches($annotation_map($sent_number)(.)('ID'), '\d+-\d'))]"</span><span class="tXSLEl">&gt;</span><span class="tI">
         </span><span class="tC">&lt;!-- excluding the portmanteaus by force, this feels like a kludge --&gt;</span><span class="tI">
-        </span><span class="tEl">&lt;span</span><span class="tAN"> type=</span><span class="tAV">"wordForm"</span><span class="tAN"> n=</span><span class="tAV">"UPOS:XPOS"</span><span class="tAN"> xml:id=</span><span class="tAV">"{'seq-wf_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"</span><span class="tAN"> lemma=</span><span class="tAV">"{$annotation_map($sent_number)(.)('LEMMA')}"</span><span class="tAN"> pos=</span><span class="tAV">"{$annotation_map($sent_number)(.)('UPOS') || $pos_separator || $annotation_map($sent_number)(.)('XPOS')}"</span><span class="tAN"> msd=</span><span class="tAV">"{$annotation_map($sent_number)(.)('FEATS')}"</span><span class="tAN"> corresp=</span><span class="tAV">"{concat('#seq_',$sent_id, '-', if (not($annotation_map($sent_number)(.)('excluded_by'))) then $annotation_map($sent_number)(.)('ID') else $annotation_map($sent_number)(.)('excluded_by') )}"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;span</span><span class="tAN"> xmlns=</span><span class="tAV">"http://www.tei-c.org/ns/1.0"</span><span class="tAN"> type=</span><span class="tAV">"wordForm"</span><span class="tAN"> n=</span><span class="tAV">"UPOS:XPOS"</span><span class="tAN"> xml:id=</span><span class="tAV">"{'seq-wf_' || $sent_id || '-' || $annotation_map($sent_number)(.)('ID')}"</span><span class="tAN"> lemma=</span><span class="tAV">"{$annotation_map($sent_number)(.)('LEMMA')}"</span><span class="tAN"> pos=</span><span class="tAV">"{$annotation_map($sent_number)(.)('UPOS') || $pos_separator || $annotation_map($sent_number)(.)('XPOS')}"</span><span class="tAN"> msd=</span><span class="tAV">"{$annotation_map($sent_number)(.)('FEATS')}"</span><span class="tAN"> corresp=</span><span class="tAV">"{concat('#seq_',$sent_id, '-', if (not($annotation_map($sent_number)(.)('excluded_by'))) then $annotation_map($sent_number)(.)('ID') else $annotation_map($sent_number)(.)('excluded_by') )}"</span><span class="tEl">&gt;</span><span class="tI">
         </span><span class="tEl">&lt;/span&gt;</span><span class="tI">
       </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
     </span><span class="tEl">&lt;/s&gt;</span><span class="tI">
@@ -1810,13 +2080,14 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"</pre>
                         <td>
                            <div id="dS_F_map_offsetsS_UD2MAF.xsl" style="display:block">
                               <div>
-                                 <h3>Description</h3>There is nearly no excuse for this function to look as it does. But I needed something
-                                 quick to recursively compute token offsets
+                                 <h3>Description</h3>There is nearly no excuse for this function to look as it does. But I needed
+                                 something quick to recursively compute token offsets
                                  <table>
                                     <tr>
                                        <h4>Parameters</h4>
                                        <td class="paramName"><b>sentence</b></td>
-                                       <td>The sentence for which the map is produced</td>
+                                       <td>The sentence for which the map is produced, as a sub-map of the
+                                          annotation_map.</td>
                                     </tr>
                                     <tr>
                                        <td class="paramName"><b>current_key</b></td>
@@ -1824,7 +2095,8 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"</pre>
                                     </tr>
                                     <tr>
                                        <td class="paramName"><b>base_offset</b></td>
-                                       <td>Should point at the inter-character-point just before the current token</td>
+                                       <td>Should point at the inter-character-point just before the
+                                          current token</td>
                                     </tr>
                                  </table>
                               </div>
@@ -1942,10 +2214,10 @@ the corresponding typing is: @type="wordForm" @n="UPOS:XPOS"</pre>
   </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"adjusted_base"</span><span class="tAN"> as=</span><span class="tAV">"xs:integer"</span><span class="tAN"> select=</span><span class="tAV">"$base_offset"</span><span class="tXSLEl">/&gt;</span><span class="tI">
   </span><span class="tC">&lt;!--this variable is a tunnel for adjustments with @join="left" effects, to be done--&gt;</span><span class="tI">
   </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"end_offset"</span><span class="tAN"> as=</span><span class="tAV">"xs:integer"</span><span class="tAN"> select=</span><span class="tAV">"$adjusted_base + string-length($sentence($current_key)('FORM'))"</span><span class="tXSLEl">/&gt;</span><span class="tI">
-  </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"adjusted_end"</span><span class="tAN"> as=</span><span class="tAV">"xs:integer"</span><span class="tAN"> select=</span><span class="tAV">"if (matches($sentence($current_key)('MISC'),'SpaceAfter=No')) then $end_offset else $end_offset + 1"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:variable</span><span class="tAN"> name=</span><span class="tAV">"adjusted_end"</span><span class="tAN"> as=</span><span class="tAV">"xs:integer"</span><span class="tAN"> select=</span><span class="tAV">"                 if (matches($sentence($current_key)('MISC'), 'SpaceAfter=No')) then                     $end_offset                 else                     $end_offset + 1"</span><span class="tXSLEl">/&gt;</span><span class="tI">
   </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
     </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"$sentence($current_key)('excluded_by')"</span><span class="tXSLEl">&gt;</span><span class="tI">
-      </span><span class="tXSLEl">&lt;xsl:sequence</span><span class="tAN"> select=</span><span class="tAV">"f:map_offsets($sentence,$current_key +1,$base_offset)"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:sequence</span><span class="tAN"> select=</span><span class="tAV">"f:map_offsets($sentence, $current_key + 1, $base_offset)"</span><span class="tXSLEl">/&gt;</span><span class="tI">
     </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
     </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"$current_key lt map:size($sentence)"</span><span class="tXSLEl">&gt;</span><span class="tI">
       </span><span class="tXSLEl">&lt;xsl:sequence</span><span class="tAN"> select=</span><span class="tAV">"map:merge((map{$current_key : map{'start' : $adjusted_base, 'end' : $end_offset}}, f:map_offsets($sentence,$current_key +1,$adjusted_end)))"</span><span class="tXSLEl">/&gt;</span><span class="tI">
