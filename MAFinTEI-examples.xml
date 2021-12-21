@@ -42,7 +42,7 @@
             </div>
             <div>
                 <head>Figure 4</head> 
-                <p>
+                <p><s corresp="#ex1.1">
                     <seg xml:id="t1">The</seg>
                     <seg xml:id="t2">victim</seg>
                     <seg xml:id="t3">'s</seg>
@@ -60,7 +60,7 @@
                     <seg xml:id="t15">never</seg>
                     <seg xml:id="t16">surfaced</seg>
                     <seg xml:id="t17">.</seg>
-                </p>
+                </s></p>
             </div>
             <div>
                 <head>Figure 6</head>
