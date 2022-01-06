@@ -20,6 +20,10 @@
       </sourceDesc>
     </fileDesc>
     <revisionDesc>
+      <change when="2022-01-06" who="#bansp">update against <ref target="#ABTEI4">version</ref> <ref
+          target="../../readme-4.4.0.html">4.4.0a</ref>. Last updated on <date when="2022-01-05">5th
+          January 2022</date>, revision <ref target="https://github.com/TEIC/TEI/commit/7a5abdc"
+          >7a5abdc</ref></change>
       <change when="2020-05-07" who="#bansp">added fragments of the standOff ODD (still in
         development at <ref target="https://github.com/TEIC/TEI/tree/sydb-standOff">a TEI-C repo
           branch</ref>); removed the normAttribute fragments, because they have just been merged
@@ -138,11 +142,11 @@ within it is the <gi>fileDesc</gi>, which contains only the following elements:
       <div>
         <head>Formal declaration</head>
         <schemaSpec ident="MAFinTEI" xml:lang="en" prefix="tei_" targetLang="en" docLang="en">
-          <moduleRef key="linking" include="ab seg standOff"/>
+          <moduleRef key="linking" include="ab seg standOff listAnnotation"/>
           <moduleRef key="analysis" include="s spanGrp span"/>
           <moduleRef key="iso-fs" include="f fs string symbol"/>
           <moduleRef key="core" include="p list item label head author title note"/>
-          <moduleRef key="spoken" include="annotationBlock"/>  <!--for standOff -->
+          <moduleRef key="spoken" include="annotationBlock"/> 
           <moduleRef key="tei"/>
           <moduleRef key="header" include="teiHeader fileDesc titleStmt publicationStmt sourceDesc"/>
           <moduleRef key="textstructure" include="TEI text body div"/>
@@ -152,38 +156,10 @@ within it is the <gi>fileDesc</gi>, which contains only the following elements:
           <specGrpRef target="#bodyfixes"/>
           <specGrpRef target="#hdrfixes"/>
           
-          
-          <!--  standOff stuff, see https://github.com/TEIC/TEI/compare/sydb-standOff  -->
-          
-          <classSpec xmlns="http://www.tei-c.org/ns/1.0" module="tei" type="model" ident="model.annotationLike" mode="add">
-            <desc versionDate="2020-03-11" xml:lang="en">groups elements used to represent annotations.</desc>
-            <classes>
-              <memberOf key="model.standOffPart"/>
-            </classes>
-            <listRef>
-              <ptr target="#FIXME"/>
-            </listRef>
-          </classSpec>
-          
-          <elementSpec xmlns="http://www.tei-c.org/ns/1.0" module="core" ident="note" mode="change">
+          <elementSpec ident="annotationBlock" module="spoken" xmlns="http://www.tei-c.org/ns/1.0" mode="change">
             <classes mode="change">
-              <memberOf key="model.annotationLike" mode="add"/>
-            </classes>
-          </elementSpec>
-          
-          <elementSpec ident="annotationBlock" module="spoken" xmlns="http://www.tei-c.org/ns/1.0" mode="replace">
-            <!-- should this be in spoken module or analysis ? -->
-            <desc xml:lang="en" versionDate="2016-02-27">groups together various annotations, e.g.
-              for parallel interpretations of a spoken segment.</desc>
-            <desc xml:lang="ja" versionDate="2018-12-28">様々な注釈をグループ化する．例えば，話されたセグメントの並行解釈のためなど．</desc>
-            <classes>
-              <memberOf key="model.divPart.spoken"/>
-              <memberOf key="model.annotationLike"/>
-              <memberOf key="att.ascribed"/>
-              <memberOf key="att.timed"/>
-              <memberOf key="att.global"/>
-              <memberOf key="att.typed"/>
-              <memberOf key="att.offset"/>
+              <memberOf key="att.typed" mode="add"/>
+              <memberOf key="att.offset" mode="add"/>
             </classes>
             <content>
               <alternate minOccurs="0" maxOccurs="unbounded">
@@ -194,121 +170,7 @@ within it is the <gi>fileDesc</gi>, which contains only the following elements:
                 <classRef key="model.global.spoken"/>
               </alternate>
             </content>
-            <!-- shd there be a constraint to say if no child element is
-       supplied the @corresp attrib must be used -->
-            <exemplum xml:lang="en">
-              <egXML xmlns="http://www.tei-c.org/ns/Examples" source="#NONE">
-                <annotationBlock who="#SPK1" start="#T2" end="#T3" xml:id="ag20">
-                  <u xml:id="u20">
-                    <seg xml:id="seg37" type="utterance" subtype="modeless">
-                      <w xml:id="w46">Yeah</w>
-                    </seg>
-                  </u>
-                </annotationBlock>
-                <annotationBlock who="#SPK1" start="#T5" end="#T6" xml:id="ag21">
-                  <u xml:id="u21">
-                    <seg xml:id="seg38" type="utterance" subtype="modeless">
-                      <w xml:id="w47">Mhm</w>
-                    </seg>
-                  </u>
-                </annotationBlock>
-              </egXML>
-            </exemplum>
-            <listRef>
-              <ptr target="#TSTPAC"/>
-            </listRef>
           </elementSpec>
-          
-          <elementSpec xmlns="http://www.tei-c.org/ns/1.0"
-            ident="listAnnotation" mode="add" module="linking"
-            xmlns:sch="http://purl.oclc.org/dsdl/schematron">
-            <desc versionDate="2020-03-08" xml:lang="en">contains a list of
-              annotations, typically encoded as <gi>annotation</gi>,
-              <gi>annotationBlock</gi>, or <gi>note</gi>, possibly organized with
-              nested <gi>listAnnotation</gi> elements.</desc>
-            <classes>
-              <memberOf key="att.global"/>
-              <memberOf key="att.typed"/>
-              <memberOf key="att.notated"/>
-              <memberOf key="att.declaring"/>
-              <memberOf key="model.annotationLike"/>
-            </classes>
-            <content>
-              <sequence>
-                <classRef key="model.headLike" minOccurs="0" maxOccurs="unbounded"/>
-                <classRef key="model.labelLike" minOccurs="0" maxOccurs="unbounded"/>
-                <classRef key="model.annotationLike" minOccurs="1" maxOccurs="unbounded"/>
-              </sequence>
-            </content>
-            <exemplum xml:lang="en">
-              <egXML xmlns="http://www.tei-c.org/ns/Examples" source="#NONE">
-                <standOff>
-                  <listAnnotation>
-                    <note target="#RotAM.4.15" place="margin" resp="#STC" type="gloss">
-                      The spell begins to break
-                    </note>
-                    <note target="#RotAM.4.15" place="bottom" resp="#JLL">
-                      The turning point of the poem...
-                    </note>
-                  </listAnnotation>
-                </standOff>
-                <!-- ... -->
-                <lg xml:id="RotAM.4.15" rhyme="ABCB">
-                  <l>The self-same moment I could pray;</l>
-                  <l>And from my neck so free</l>
-                  <l>The albatross fell off, and sank</l>
-                  <l>Like lead into the sea.</l>
-                </lg>
-              </egXML>
-            </exemplum>
-            <exemplum xml:lang="en">
-              <egXML xmlns="http://www.tei-c.org/ns/Examples" source="#UND">
-                <listAnnotation>
-                  <annotationBlock corresp="#u1">
-                    <spanGrp type="pos">
-                      <span from="#e14.w1" to="#e14.w1">CONJ</span>
-                      <span from="#e14.w2" to="#e14.w2">RELPRO</span>
-                      <span from="#e14.w3" to="#e14.w3">V</span>
-                    </spanGrp>
-                    <spanGrp type="prosody">
-                      <span from="#T0" to="#T1">faster</span>
-                    </spanGrp>
-                  </annotationBlock>
-                  <!-- ... annotationBlocks for #u2 through #u27 here -->
-                </listAnnotation>
-              </egXML>
-            </exemplum>
-            <exemplum xml:lang="en">
-              <egXML xmlns="http://www.tei-c.org/ns/Examples" source="#UND">
-                example THREE here, perhaps from one of: benger.geniad.xml,
-                seward.cook.xml, smith.conversations.xml, francis.song.xml.
-              </egXML>
-            </exemplum>
-            <exemplum xml:lang="en">
-              <egXML xmlns="http://www.tei-c.org/ns/Examples" source="#UND">
-                example FOUR here
-              </egXML>
-            </exemplum>
-            <exemplum xml:lang="en">
-              <egXML xmlns="http://www.tei-c.org/ns/Examples" source="#UND">
-                example FIVE here
-              </egXML>
-            </exemplum>
-            <remarks versionDate="2020-03-09" xml:lang="en">
-              <p>The enclosed annotations may use the general-purpose
-                <gi>note</gi> element; or, for annotations pertaining to
-                transcriptions of speech, the special-purpose
-                <gi>annotationBlock</gi> element; or the <gi>annotation</gi>
-                element, which is intended to map cleanly onto the <ref
-                  target="#WADM">Web Annotation Data Model</ref>.</p>
-            </remarks>
-            <listRef>
-              <ptr target="#FIXME"/>
-            </listRef>
-          </elementSpec>
-          
-          
-          
           
           <!--offset attributes for standoff-->
           <classSpec xmlns="http://www.tei-c.org/ns/1.0" module="tei" type="atts" ident="att.offset" mode="add">
@@ -522,7 +384,17 @@ within it is the <gi>fileDesc</gi>, which contains only the following elements:
               <attDef ident="phon" mode="change">
                 <desc versionDate="2020-02-06" xml:lang="en">This attribute encodes information on
                   the pronunciation of the given element, according to the notation documented in
-                  the header and/orr ODD.</desc>
+                  the header and/or ODD.</desc>
+              </attDef>
+              <attDef ident="transcr" mode="change">
+                <desc versionDate="2021-12-23" xml:lang="en">This attribute encodes information on
+                  the general transcription of the given element, according to the notation documented in
+                  the header and/or ODD.</desc>
+              </attDef>
+              <attDef ident="translit" mode="change">
+                <desc versionDate="2021-12-23" xml:lang="en">This attribute encodes information on
+                  the transliteration of the given element, according to the notation documented in
+                  the header and/or ODD.</desc>
               </attDef>
             </attList>
           </classSpec></schemaSpec>

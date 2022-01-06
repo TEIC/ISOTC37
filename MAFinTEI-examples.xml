@@ -40,12 +40,24 @@
                 <p><s xml:id="ex1.4">Jean propose de partir.</s></p>
                 <p><s xml:id="ex1.5">Afin de grandir, il mange des pommes de terre.</s></p>
             </div>
+            
+            <div xml:id="ex1.inline">
+                <head>Example of inline markup, with the original whitespace</head>
+                
+                <p>
+<s xml:id="ex1i.1" xml:space="preserve"><seg xml:id="ti.1">The</seg> <seg xml:id="ti.2">victim</seg><seg xml:id="ti.3">'s</seg> 
+<seg xml:id="ti.4">friends</seg> <seg xml:id="ti.5">told</seg> <seg xml:id="ti.6">the</seg> <seg xml:id="ti.7">police</seg> 
+<seg xml:id="ti.8">that</seg> <seg xml:id="ti.9">Krueger</seg> <seg xml:id="ti.10">dove</seg> <seg xml:id="ti.11">into</seg> 
+<seg xml:id="ti.12">the</seg> <seg xml:id="ti.13">quarry</seg> <seg xml:id="ti.14">and</seg> <seg xml:id="ti.15">never</seg> 
+<seg xml:id="ti.16">surfaced</seg><seg xml:id="ti.17">.</seg></s></p>
+            </div>
+            
             <div>
                 <head>Figure 4</head> 
                 <p><s corresp="#ex1.1">
                     <seg xml:id="t1">The</seg>
                     <seg xml:id="t2">victim</seg>
-                    <seg xml:id="t3">'s</seg>
+                    <seg xml:id="t3" join="left">'s</seg>
                     <seg xml:id="t4">friends</seg>
                     <seg xml:id="t5">told</seg>
                     <seg xml:id="t6">the</seg>
@@ -59,9 +71,10 @@
                     <seg xml:id="t14">and</seg>
                     <seg xml:id="t15">never</seg>
                     <seg xml:id="t16">surfaced</seg>
-                    <seg xml:id="t17">.</seg>
+                    <seg xml:id="t17" join="left">.</seg>
                 </s></p>
             </div>
+            
             <div>
                 <head>Figure 6</head>
                 <p>
@@ -105,15 +118,15 @@
                 <p>What follows is a sequence of separate examples; in theory each of them 
                      should be wrapped in its own &lt;s> element; they are combined here only for reasons of space</p>
                 <p>
-                    <s>
-                        <seg norm="etcetera">etc.</seg>
-                        <seg offsetBase="#xyz" norm="etcetera" phon="/etsettrə/" startPos="1251"
-                            endPos="1253"/>
-                        <seg norm="tzar">csar</seg>
-                        <seg norm="tzar">tsar</seg>
-                        <!--<seg transliteration="tsar">цар</seg> @TRANS-->
-                        <seg norm="2003-02-23">February 23rd 2003</seg>
-                    </s>
+          <s>
+            <seg norm="etcetera">etc.</seg>
+            <seg offsetBase="#xyz" norm="etcetera" phon="/etsettrə/" startPos="1251" endPos="1253"/>
+            <seg norm="tzar">csar</seg>
+            <seg norm="tzar">tsar</seg>
+            <seg translit="tsar">цар</seg>
+            <seg norm="2003-02-23">February 23rd 2003</seg>
+            <seg translit="妈" norm="mā" phon="/ma˥/">媽</seg>
+          </s>
                 </p>
 
             </div>
@@ -143,9 +156,10 @@
 
                     <!-- look: the <s> element also cirumscribes a domain that 
                         can be identified by offsets:  -->
-                    <s offsetBase="#xyz" startPos="0" endPos="27">
+                    <s offsetBase="#sentence_xyz" startPos="0" endPos="27">
                         <seg norm="etcetera" startPos="0" endPos="3"/>
                         <seg norm="." startPos="3" endPos="3"/>
+                        ....
                     </s>
                 </p>
 
@@ -165,8 +179,8 @@
                     we probably need some Schematron to enforce that
                     
                     <seg xml:id="t0">auquel</seg>
-                    <span type="wordForm" lemma="à" pos="#pos.prep" corresp="#t0"/>
-                    <span type="wordForm" lemma="lequel" pos="#pos.pronrel" corresp="#t0"/>
+                    <span type="wordForm" lemma="à" pos="#pos.prep" target="#t0"/>
+                    <span type="wordForm" lemma="lequel" pos="#pos.pronrel" target="#t0"/>
                 </p>
             </div>
 
@@ -176,8 +190,8 @@
                 <p>
                     <seg norm="a" xml:id="t01">auquel</seg>
                     <seg norm="lequel" xml:id="t111" join="overlap"/>
-                    <span type="wordForm" lemma="à" pos="#pos.prep" corresp="#t01"/>
-                    <span type="wordForm" lemma="lequel" pos="#pos.pronrel" corresp="#t111"/>
+                    <span type="wordForm" lemma="à" pos="#pos.prep" target="#t01"/>
+                    <span type="wordForm" lemma="lequel" pos="#pos.pronrel" target="#t111"/>
                 </p>
             </div>
 
@@ -188,9 +202,9 @@
                     <seg xml:id="t411">to</seg>
                     <seg xml:id="t421">boldly</seg>
                     <seg xml:id="t43">go</seg>
-                    <span type="wordForm" lemmaRef="urn:lexicon:en:go:to" corresp="#t411 #t43"/>
-                    <span type="wordForm" lemmaRef="urn:lexicon:en:boldly" corresp="#t421"/>
-                    <span type="wordForm" lemmaRef="urn:lexicon:en:go:main" corresp="#t411 #t43"/>
+                    <span type="wordForm" lemmaRef="urn:lexicon:en:go:to" target="#t411 #t43"/>
+                  <span type="wordForm" lemmaRef="urn:lexicon:en:boldly" target="#t421"/>
+                  <span type="wordForm" lemmaRef="urn:lexicon:en:go:main" target="#t411 #t43"/>
                 </s></p>                
             </div>
 
@@ -207,15 +221,15 @@
                      </s>
                 </p>
                 <spanGrp type="wordForm">
-                     <span target="#w1" ana="#fs1" corresp="#entry1"/>
-                     <span target="#w2" ana="#fs2" corresp="#entry2"/>
-                     <span target="#w2" ana="#fs3" corresp="#entry3"/>
-                     <span target="#w3 #w4" ana="#fs4" corresp="#entry4"/>
-                     <span target="#w5" ana="#fs5" corresp="#entry5"/>
-                     <span target="#w6" ana="#fs6" corresp="#entry6"/>
+                     <span target="#w1" ana="#fs1" lemmaRef="#entry1"/>
+                     <span target="#w2" ana="#fs2" lemmaRef="#entry2"/>
+                     <span target="#w2" ana="#fs3" lemmaRef="#entry3"/>
+                     <span target="#w3 #w4" ana="#fs4" lemmaRef="#entry4"/>
+                     <span target="#w5" ana="#fs5" lemmaRef="#entry5"/>
+                     <span target="#w6" ana="#fs6" lemmaRef="#entry6"/>
                 </spanGrp>
                 
-                <fs xml:id="fs1" corresp="#entry1">
+                <fs xml:id="fs1">
                      <f name="lemma">
                       <string>I</string>
                      </f>
@@ -327,23 +341,23 @@
                 <seg xml:id="std.ex1.1.tok17" startPos="90" endPos="91"/>
             </annotationBlock>
             <annotationBlock type="wordForm">
-                <span xml:id="std.ex1.1.wf1" corresp="#std.ex1.1tok1" pos="AT0"/>
-                <span xml:id="std.ex1.1.wf2" corresp="#std.ex1.1tok2" pos="NN1"/>
-                <span xml:id="std.ex1.1.wf3" corresp="#std.ex1.1tok3" pos="POS"/>
-                <span xml:id="std.ex1.1.wf4" corresp="#std.ex1.1tok4" pos="NN2"/>
-                <span xml:id="std.ex1.1.wf5" corresp="#std.ex1.1tok5" pos="VVD"/>
-                <span xml:id="std.ex1.1.wf6" corresp="#std.ex1.1tok6" pos="AT0"/>
-                <span xml:id="std.ex1.1.wf7" corresp="#std.ex1.1tok7" pos="NN2"/>
-                <span xml:id="std.ex1.1.wf8" corresp="#std.ex1.1tok8" pos="CJT"/>
-                <span xml:id="std.ex1.1.wf9" corresp="#std.ex1.1tok9" pos="VVB"/>
-                <span xml:id="std.ex1.1.wf10" corresp="#std.ex1.1tok10" pos="NN1"/>
-                <span xml:id="std.ex1.1.wf11" corresp="#std.ex1.1tok11" pos="NN1"/>
-                <span xml:id="std.ex1.1.wf12" corresp="#std.ex1.1tok12" pos="AT0"/>
-                <span xml:id="std.ex1.1.wf13" corresp="#std.ex1.1tok13" pos="NN1"/>
-                <span xml:id="std.ex1.1.wf14" corresp="#std.ex1.1tok14" pos="CJC"/>
-                <span xml:id="std.ex1.1.wf15" corresp="#std.ex1.1tok15" pos="AV0"/>
-                <span xml:id="std.ex1.1.wf16" corresp="#std.ex1.1tok16" pos="SENT"/>
-                <span xml:id="std.ex1.1.wf17" corresp="#std.ex1.1tok17" pos="PUN"/>
+                <span xml:id="std.ex1.1.wf1" target="#std.ex1.1tok1" pos="AT0"/>
+                <span xml:id="std.ex1.1.wf2" target="#std.ex1.1tok2" pos="NN1"/>
+                <span xml:id="std.ex1.1.wf3" target="#std.ex1.1tok3" pos="POS"/>
+                <span xml:id="std.ex1.1.wf4" target="#std.ex1.1tok4" pos="NN2"/>
+                <span xml:id="std.ex1.1.wf5" target="#std.ex1.1tok5" pos="VVD"/>
+                <span xml:id="std.ex1.1.wf6" target="#std.ex1.1tok6" pos="AT0"/>
+                <span xml:id="std.ex1.1.wf7" target="#std.ex1.1tok7" pos="NN2"/>
+                <span xml:id="std.ex1.1.wf8" target="#std.ex1.1tok8" pos="CJT"/>
+                <span xml:id="std.ex1.1.wf9" target="#std.ex1.1tok9" pos="VVB"/>
+                <span xml:id="std.ex1.1.wf10" target="#std.ex1.1tok10" pos="NN1"/>
+                <span xml:id="std.ex1.1.wf11" target="#std.ex1.1tok11" pos="NN1"/>
+                <span xml:id="std.ex1.1.wf12" target="#std.ex1.1tok12" pos="AT0"/>
+                <span xml:id="std.ex1.1.wf13" target="#std.ex1.1tok13" pos="NN1"/>
+                <span xml:id="std.ex1.1.wf14" target="#std.ex1.1tok14" pos="CJC"/>
+                <span xml:id="std.ex1.1.wf15" target="#std.ex1.1tok15" pos="AV0"/>
+                <span xml:id="std.ex1.1.wf16" target="#std.ex1.1tok16" pos="SENT"/>
+                <span xml:id="std.ex1.1.wf17" target="#std.ex1.1tok17" pos="PUN"/>
             </annotationBlock>
         </listAnnotation>
         <listAnnotation corresp="#ex1.2" xml:id="std.ex1.2">
@@ -359,15 +373,15 @@
                 <seg xml:id="std.ex1.2.tok9" startPos="28" endPos="29"/>
             </annotationBlock>
             <annotationBlock type="wordForm">
-                <span xml:id="std.ex1.2.wf1" corresp="#std.ex1.2tok1" pos="PNP"/>
-                <span xml:id="std.ex1.2.wf2" corresp="#std.ex1.2tok2" pos="VVB"/>
-                <span xml:id="std.ex1.2.wf3" corresp="#std.ex1.2tok3" pos="TO0"/>
-                <span xml:id="std.ex1.2.wf4" corresp="#std.ex1.2tok4" pos="VVI"/>
-                <span xml:id="std.ex1.2.wf5" corresp="#std.ex1.2tok5" pos="AVP"/>
-                <span xml:id="std.ex1.2.wf6" corresp="#std.ex1.2tok6" pos="AJ0"/>
-                <span xml:id="std.ex1.2.wf7" corresp="#std.ex1.2tok7" pos="SENT"/>
-                <span xml:id="std.ex1.2.wf8" corresp="#std.ex1.2tok8" pos="SENT"/>
-                <span xml:id="std.ex1.2.wf9" corresp="#std.ex1.2tok9" pos="PUN"/>
+                <span xml:id="std.ex1.2.wf1" target="#std.ex1.2tok1" pos="PNP"/>
+                <span xml:id="std.ex1.2.wf2" target="#std.ex1.2tok2" pos="VVB"/>
+                <span xml:id="std.ex1.2.wf3" target="#std.ex1.2tok3" pos="TO0"/>
+                <span xml:id="std.ex1.2.wf4" target="#std.ex1.2tok4" pos="VVI"/>
+                <span xml:id="std.ex1.2.wf5" target="#std.ex1.2tok5" pos="AVP"/>
+                <span xml:id="std.ex1.2.wf6" target="#std.ex1.2tok6" pos="AJ0"/>
+                <span xml:id="std.ex1.2.wf7" target="#std.ex1.2tok7" pos="SENT"/>
+                <span xml:id="std.ex1.2.wf8" target="#std.ex1.2tok8" pos="SENT"/>
+                <span xml:id="std.ex1.2.wf9" target="#std.ex1.2tok9" pos="PUN"/>
             </annotationBlock>
         </listAnnotation>
         <listAnnotation corresp="#ex1.3" xml:id="std.ex1.3">
@@ -382,14 +396,14 @@
                 <seg xml:id="std.ex1.3.tok8" startPos="31" endPos="32"/>
             </annotationBlock>
             <annotationBlock type="wordForm">
-                <span xml:id="std.ex1.3.wf1" corresp="#std.ex1.3tok1" pos="PNP"/>
-                <span xml:id="std.ex1.3.wf2" corresp="#std.ex1.3tok2" pos="VVB"/>
-                <span xml:id="std.ex1.3.wf3" corresp="#std.ex1.3tok3" pos="TO0"/>
-                <span xml:id="std.ex1.3.wf4" corresp="#std.ex1.3tok4" pos="VVI"/>
-                <span xml:id="std.ex1.3.wf5" corresp="#std.ex1.3tok5" pos="AJ0"/>
-                <span xml:id="std.ex1.3.wf6" corresp="#std.ex1.3tok6" pos="NN1"/>
-                <span xml:id="std.ex1.3.wf7" corresp="#std.ex1.3tok7" pos="SENT"/>
-                <span xml:id="std.ex1.3.wf8" corresp="#std.ex1.3tok8" pos="PUN"/>
+                <span xml:id="std.ex1.3.wf1" target="#std.ex1.3tok1" pos="PNP"/>
+                <span xml:id="std.ex1.3.wf2" target="#std.ex1.3tok2" pos="VVB"/>
+                <span xml:id="std.ex1.3.wf3" target="#std.ex1.3tok3" pos="TO0"/>
+                <span xml:id="std.ex1.3.wf4" target="#std.ex1.3tok4" pos="VVI"/>
+                <span xml:id="std.ex1.3.wf5" target="#std.ex1.3tok5" pos="AJ0"/>
+                <span xml:id="std.ex1.3.wf6" target="#std.ex1.3tok6" pos="NN1"/>
+                <span xml:id="std.ex1.3.wf7" target="#std.ex1.3tok7" pos="SENT"/>
+                <span xml:id="std.ex1.3.wf8" target="#std.ex1.3tok8" pos="PUN"/>
             </annotationBlock>
         </listAnnotation>
             <!-- c5         The_AT0 victim_NN1 's_POS friends_NN2 told_VVD the_AT0 police_NN2 that_CJT 
