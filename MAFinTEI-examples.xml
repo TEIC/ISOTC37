@@ -29,7 +29,7 @@
                     documentation per se, but rather at "corpus samples" with accompanying notes.</p>
                 <p>The schema is defined in MAFinTEI.odd, i.e. the ODD file accompanying this document.</p>
                 <p>The figure references point at particular figures from the ISO MAF standard (ISO
-                    24611:2012), currently under revision.</p>
+                    24611:2012), currently under revision, as well as figures from the revised version.</p>
             </div>
             <div xml:id="ex1">
                 <head>Sentence-sized examples used in the remainder of this document</head>
@@ -125,7 +125,12 @@
             <seg norm="tzar">tsar</seg>
             <seg translit="tsar">цар</seg>
             <seg norm="2003-02-23">February 23rd 2003</seg>
-            <seg translit="妈" norm="mā" phon="/ma˥/">媽</seg>
+            <seg translit="妈" transcr="mā" phon="/ma˥/">媽</seg>
+            <seg transcr="jūjutsu" translit="zyûzyutu" norm="じゅうじゅつ" phon="dʑɯ:dʑɯtsɯ" lemmaRef="https://jpdct.com/FGCG">柔術</seg>
+            <seg phon="じゅうじゅつ">柔術</seg>
+            <seg translit="jūjutsu" norm="柔術">じゅうじゅつ</seg>
+            <!--     jūjutsu is Rōmaji (Hepburn) transcription of the hiragana じゅうじゅつ      -->
+            <!--     zyûzyutu is Nihon-shiki romanization of the same, which in this case can be thought of as transliteration of a kana transcription of the kanji 柔術        -->
           </s>
                 </p>
 
@@ -277,7 +282,8 @@
                       <symbol value="NN"/>
                      </f>
                 </fs>
-                <entry xml:id="entry1">
+<!--
+              <entry xml:id="entry1">
                      <form type="lemma">
                       <orth>I</orth>
                      </form>
@@ -307,6 +313,7 @@
                       <orth>wallpaper</orth>
                      </form>
                 </entry>
+-->
             </div>
             
             <div>

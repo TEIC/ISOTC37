@@ -49,9 +49,9 @@
       <div>
         <head>Basic text structure</head>
         <p>The example MAF application contains <gi>TEI</gi> as the root element, consisting of the
-            <gi>teiHeader</gi>, and a <gi>text</gi>
-          <!--and a <gi>standOff</gi>--> element. The <gi>text</gi> element contains a
-            <gi>body</gi>, where only the following elements are permitted: <specList>
+          obligatory <gi>teiHeader</gi>, followed by the <gi>text</gi> and <gi>standOff</gi>
+          elements. The <gi>text</gi> element contains a <gi>body</gi>, where only the following
+          elements are permitted: <specList>
             <specDesc key="div"/>
             <specDesc key="head"/>
             <specDesc key="list"/>
@@ -131,8 +131,7 @@ within it is the <gi>fileDesc</gi>, which contains only the following elements:
           <classSpec ident="att.global.source" mode="delete" module="tei" type="atts"/>
           <classSpec ident="att.global.responsibility" mode="delete" module="tei" type="atts"/>
         </specGrp>
-        <p>This customization adds the attribute classes <code>att.offset</code>
-          <!--and <code>att.transcoding</code>-->. They serve as ways to enable the attributes
+        <p>This customization adds the attribute class <code>att.offset</code>, which enables the attributes
             <att>startPos</att> and <att>endPos</att> on the elements <gi>w</gi>, <gi>pc</gi>,
             <gi>seg</gi> and <gi>span</gi>.</p>
         <p>Numerous word-level attributes for the encoding of grammatical information are provided
@@ -150,8 +149,6 @@ within it is the <gi>fileDesc</gi>, which contains only the following elements:
           <moduleRef key="tei"/>
           <moduleRef key="header" include="teiHeader fileDesc titleStmt publicationStmt sourceDesc"/>
           <moduleRef key="textstructure" include="TEI text body div"/>
-          <moduleRef key="dictionaries" include="entry form orth gramGrp gram pos pron def"/>  <!-- for some examples of entries; 
-                                                                            they will need to be removed from the normative version-->
           <specGrpRef target="#classmods"/>
           <specGrpRef target="#bodyfixes"/>
           <specGrpRef target="#hdrfixes"/>
@@ -264,14 +261,14 @@ within it is the <gi>fileDesc</gi>, which contains only the following elements:
               </attDef>-->
               <attDef ident="startPos" usage="opt">
                 <desc versionDate="2020-02-06" xml:lang="en">specifies the starting point of a sequence of characters
-                  or bytes, or of elements that can be pointed at with a URI.</desc>
+                  or bytes, or of elements that can be pointed at with a URI provided by <att>offsetBase</att>.</desc>
                 <datatype minOccurs="1" maxOccurs="1">
                   <dataRef key="teidata.count"/>
                 </datatype>
               </attDef>
               <attDef ident="endPos" usage="opt">
                 <desc versionDate="2020-02-06" xml:lang="en">specifies the end-point of a sequence of characters
-                  or bytes, or of elements that can be pointed at with a URI.</desc>
+                  or bytes, or of elements that can be pointed at with a URI provided by <att>offsetBase</att>.</desc>
                 <datatype minOccurs="1" maxOccurs="1">
                   <dataRef key="teidata.count"/>
                 </datatype>
@@ -381,23 +378,27 @@ within it is the <gi>fileDesc</gi>, which contains only the following elements:
           
           <classSpec ident="att.linguistic" type="atts" mode="change">
             <attList>
-              <attDef ident="phon" mode="change">
+              <attDef ident="phon" mode="add">
                 <desc versionDate="2020-02-06" xml:lang="en">This attribute encodes information on
                   the pronunciation of the given element, according to the notation documented in
                   the header and/or ODD.</desc>
+                <datatype><dataRef key="teidata.text"/></datatype>
               </attDef>
-              <attDef ident="transcr" mode="change">
+              <attDef ident="transcr" mode="add">
                 <desc versionDate="2021-12-23" xml:lang="en">This attribute encodes information on
                   the general transcription of the given element, according to the notation documented in
                   the header and/or ODD.</desc>
+                <datatype><dataRef key="teidata.text"/></datatype>
               </attDef>
-              <attDef ident="translit" mode="change">
+              <attDef ident="translit" mode="add">
                 <desc versionDate="2021-12-23" xml:lang="en">This attribute encodes information on
                   the transliteration of the given element, according to the notation documented in
                   the header and/or ODD.</desc>
+                <datatype><dataRef key="teidata.text"/></datatype>
               </attDef>
             </attList>
-          </classSpec></schemaSpec>
+          </classSpec>
+        </schemaSpec>
       </div>
     </body>
   </text>
