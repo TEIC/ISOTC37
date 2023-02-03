@@ -20,6 +20,7 @@
       </sourceDesc>
     </fileDesc>
     <revisionDesc>
+      <change when="2023-02-03" who="#bansp">specify TEI 4.5.0 explicitly as the source; add: fvLib fLib vAlt.</change>
       <change when="2022-01-06" who="#bansp">update against <ref target="#ABTEI4">version</ref> <ref
           target="../../readme-4.4.0.html">4.4.0a</ref>. Last updated on <date when="2022-01-05">5th
           January 2022</date>, revision <ref target="https://github.com/TEIC/TEI/commit/7a5abdc"
@@ -140,10 +141,10 @@ within it is the <gi>fileDesc</gi>, which contains only the following elements:
       </div>
       <div>
         <head>Formal declaration</head>
-        <schemaSpec ident="MAFinTEI" xml:lang="en" prefix="tei_" targetLang="en" docLang="en">
+        <schemaSpec ident="MAFinTEI" xml:lang="en" prefix="tei_" targetLang="en" docLang="en" source="tei:4.5.0">
           <moduleRef key="linking" include="ab seg standOff listAnnotation"/>
           <moduleRef key="analysis" include="s spanGrp span"/>
-          <moduleRef key="iso-fs" include="f fs string symbol"/>
+          <moduleRef key="iso-fs" include="fvLib fLib f fs string symbol vAlt"/>
           <moduleRef key="core" include="p list item label head author title note"/>
           <moduleRef key="spoken" include="annotationBlock"/> 
           <moduleRef key="tei"/>
