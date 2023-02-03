@@ -19,105 +19,105 @@
     </teiHeader>
     <text>
         
-        <body>
-            <head>ISO MAF -- examples of usage (non-normative)</head>
-            <div>
-                <head>Introduction</head>
-                <p>This document uses the TEI customization of ISO MAF in order to illustrate some
-                    of the constructs mentioned in the body of the standard, and to introduce some
-                    further informative examples. Despite this introduction, you are not looking at
-                    documentation per se, but rather at "corpus samples" with accompanying notes.</p>
-                <p>The schema is defined in MAFinTEI.odd, i.e. the ODD file accompanying this document.</p>
-                <p>The figure references point at particular figures from the ISO MAF standard (ISO
-                    24611:2012), currently under revision, as well as figures from the revised version.</p>
-            </div>
-            <div xml:id="ex1">
-                <head>Sentence-sized examples used in the remainder of this document</head>
-                
-                <p><s xml:id="ex1.1">The victim's friends told the police that Krueger dove into the quarry and never surfaced.</s></p>
-                <p><s xml:id="ex1.2">I wanna put up new wallpaper.</s></p>
-                <p><s xml:id="ex1.3">I want to put new wallpaper up.</s></p>
-                <p><s xml:id="ex1.4">Jean propose de partir.</s></p>
-                <p><s xml:id="ex1.5">Afin de grandir, il mange des pommes de terre.</s></p>
-            </div>
-            
-            <div xml:id="ex1.inline">
-                <head>Example of inline markup, with the original whitespace</head>
-                
-                <p>
-<s xml:id="ex1i.1" xml:space="preserve"><seg xml:id="ti.1">The</seg> <seg xml:id="ti.2">victim</seg><seg xml:id="ti.3">'s</seg> 
+    <body>
+      <head>ISO MAF -- examples of usage (non-normative)</head>
+      <div>
+        <head>Introduction</head>
+        <p>This document uses the TEI customization of ISO MAF in order to illustrate some of the
+          constructs mentioned in the body of the standard, and to introduce some further
+          informative examples. Despite this introduction, you are not looking at documentation per
+          se, but rather at "corpus samples" with accompanying notes.</p>
+        <p>The schema is defined in MAFinTEI.odd, i.e. the ODD file accompanying this document.</p>
+        <p>The figure references point at particular figures from the ISO MAF standard (ISO
+          24611:2012), currently under revision, as well as figures from the revised version.</p>
+      </div>
+      <div xml:id="ex1">
+        <head>Sentence-sized examples used in the remainder of this document</head>
+
+        <p><s xml:id="ex1.1">The victim's friends told the police that Krueger dove into the quarry
+            and never surfaced.</s></p>
+        <p><s xml:id="ex1.2">I wanna put up new wallpaper.</s></p>
+        <p><s xml:id="ex1.3">I want to put new wallpaper up.</s></p>
+        <p><s xml:id="ex1.4">Jean propose de partir.</s></p>
+        <p><s xml:id="ex1.5">Afin de grandir, il mange des pommes de terre.</s></p>
+      </div>
+
+      <div xml:id="ex1.inline">
+        <head>Example of inline markup, with the original whitespace</head>
+
+        <p>
+          <s xml:id="ex1i.1" xml:space="preserve"><seg xml:id="ti.1">The</seg> <seg xml:id="ti.2">victim</seg><seg xml:id="ti.3">'s</seg> 
 <seg xml:id="ti.4">friends</seg> <seg xml:id="ti.5">told</seg> <seg xml:id="ti.6">the</seg> <seg xml:id="ti.7">police</seg> 
 <seg xml:id="ti.8">that</seg> <seg xml:id="ti.9">Krueger</seg> <seg xml:id="ti.10">dove</seg> <seg xml:id="ti.11">into</seg> 
 <seg xml:id="ti.12">the</seg> <seg xml:id="ti.13">quarry</seg> <seg xml:id="ti.14">and</seg> <seg xml:id="ti.15">never</seg> 
 <seg xml:id="ti.16">surfaced</seg><seg xml:id="ti.17">.</seg></s></p>
-            </div>
-            
-            <div>
-                <head>Figure 4</head> 
-                <p><s corresp="#ex1.1">
-                    <seg xml:id="t1">The</seg>
-                    <seg xml:id="t2">victim</seg>
-                    <seg xml:id="t3" join="left">'s</seg>
-                    <seg xml:id="t4">friends</seg>
-                    <seg xml:id="t5">told</seg>
-                    <seg xml:id="t6">the</seg>
-                    <seg xml:id="t7">police</seg>
-                    <seg xml:id="t8">that</seg>
-                    <seg xml:id="t9">Krueger</seg>
-                    <seg xml:id="t10">dove</seg>
-                    <seg xml:id="t11">into</seg>
-                    <seg xml:id="t12">the</seg>
-                    <seg xml:id="t13">quarry</seg>
-                    <seg xml:id="t14">and</seg>
-                    <seg xml:id="t15">never</seg>
-                    <seg xml:id="t16">surfaced</seg>
-                    <seg xml:id="t17" join="left">.</seg>
-                </s></p>
-            </div>
-            
-            <div>
-                <head>Figure 6</head>
-                <p>
-                    <s xml:id="s1">The victim's friends</s>
-                    <s>
-                        <seg corresp="#string-range(s1,0,3)"/>
-                        <!-- The -->
-                        <seg corresp="#string-range(s1,4,6)"/>
-                        <!-- victim -->
-                        <seg corresp="#string-range(s1,10,2)"/>
-                        <!-- 's -->
-                        <seg corresp="#string-range(s1,13,7)"/>
-                        <!-- friends -->
-                    </s>
-                </p>
-                <p>The example above uses the MAF 2012 way of encoding standoff relationships by
-                    means of XPointer that has never gotten implemented in the TEI, and has fallen
-                    out of use in general. This means that you would need a dedicated parser on top
-                    of any XML engine to intepret XPointers.</p>
-                <p>The example below uses a direct way of encoding string offsets provided by the
-                    att.offset class. Token offsets are identified by means of inter-character
-                    points (see the ODD documentation for more details). The @offsetBase attribute
-                    establishes the domain within which offsets are meaningful and thus it has to be
-                    present either on the element that uses @startPos and @endPos attributes, or on
-                    its ancestor.</p> 
-                <p>
-                    <s offsetBase="#s1">
-                        <seg startPos="0" endPos="3"/>
-                        <!-- The -->
-                        <seg startPos="4" endPos="10"/>
-                        <!-- victim -->
-                        <seg startPos="10" endPos="12"/>
-                        <!-- 's -->
-                        <seg startPos="13" endPos="20"/>
-                        <!-- friends -->
-                    </s>
-                </p>
-            </div>
-            <div>
-                <head>Figure 7+</head>
-                <p>What follows is a sequence of separate examples; in theory each of them 
-                     should be wrapped in its own &lt;s> element; they are combined here only for reasons of space</p>
-                <p>
+      </div>
+
+      <div>
+        <head>Figure 4</head>
+        <p><s corresp="#ex1.1">
+            <seg xml:id="t1">The</seg>
+            <seg xml:id="t2">victim</seg>
+            <seg xml:id="t3" join="left">'s</seg>
+            <seg xml:id="t4">friends</seg>
+            <seg xml:id="t5">told</seg>
+            <seg xml:id="t6">the</seg>
+            <seg xml:id="t7">police</seg>
+            <seg xml:id="t8">that</seg>
+            <seg xml:id="t9">Krueger</seg>
+            <seg xml:id="t10">dove</seg>
+            <seg xml:id="t11">into</seg>
+            <seg xml:id="t12">the</seg>
+            <seg xml:id="t13">quarry</seg>
+            <seg xml:id="t14">and</seg>
+            <seg xml:id="t15">never</seg>
+            <seg xml:id="t16">surfaced</seg>
+            <seg xml:id="t17" join="left">.</seg>
+          </s></p>
+      </div>
+
+      <div>
+        <head>Figure 6</head>
+        <p>
+          <s xml:id="s1">The victim's friends</s>
+          <s>
+            <seg corresp="#string-range(s1,0,3)"/>
+            <!-- The -->
+            <seg corresp="#string-range(s1,4,6)"/>
+            <!-- victim -->
+            <seg corresp="#string-range(s1,10,2)"/>
+            <!-- 's -->
+            <seg corresp="#string-range(s1,13,7)"/>
+            <!-- friends -->
+          </s>
+        </p>
+        <p>The example above uses the MAF 2012 way of encoding standoff relationships by means of
+          XPointer that has never gotten implemented in the TEI, and has fallen out of use in
+          general. This means that you would need a dedicated parser on top of any XML engine to
+          intepret XPointers.</p>
+        <p>The example below uses a direct way of encoding string offsets provided by the att.offset
+          class. Token offsets are identified by means of inter-character points (see the ODD
+          documentation for more details). The @offsetBase attribute establishes the domain within
+          which offsets are meaningful and thus it has to be present either on the element that uses
+          @startPos and @endPos attributes, or on its ancestor.</p>
+        <p>
+          <s offsetBase="#s1">
+            <seg startPos="0" endPos="3"/>
+            <!-- The -->
+            <seg startPos="4" endPos="10"/>
+            <!-- victim -->
+            <seg startPos="10" endPos="12"/>
+            <!-- 's -->
+            <seg startPos="13" endPos="20"/>
+            <!-- friends -->
+          </s>
+        </p>
+      </div>
+      <div>
+        <head>Figure 7+</head>
+        <p>What follows is a sequence of separate examples; in theory each of them should be wrapped
+          in its own &lt;s> element; they are combined here only for reasons of space</p>
+        <p>
           <s>
             <seg norm="etcetera">etc.</seg>
             <seg offsetBase="#xyz" norm="etcetera" phon="/etsettrə/" startPos="1251" endPos="1253"/>
@@ -126,163 +126,437 @@
             <seg translit="tsar">цар</seg>
             <seg norm="2003-02-23">February 23rd 2003</seg>
             <seg translit="妈" transcr="mā" phon="/ma˥/">媽</seg>
-            <seg transcr="jūjutsu" translit="zyûzyutu" norm="じゅうじゅつ" phon="dʑɯ:dʑɯtsɯ" lemmaRef="https://jpdct.com/FGCG">柔術</seg>
+            <seg transcr="jūjutsu" translit="zyûzyutu" norm="じゅうじゅつ" phon="dʑɯ:dʑɯtsɯ"
+              lemmaRef="https://jpdct.com/FGCG">柔術</seg>
             <seg phon="じゅうじゅつ">柔術</seg>
             <seg translit="jūjutsu" norm="柔術">じゅうじゅつ</seg>
             <!--     jūjutsu is Rōmaji (Hepburn) transcription of the hiragana じゅうじゅつ      -->
             <!--     zyûzyutu is Nihon-shiki romanization of the same, which in this case can be thought of as transliteration of a kana transcription of the kanji 柔術        -->
           </s>
-                </p>
+        </p>
 
-            </div>
-            <div>
-                <head>Figure 10+</head>
-                <p>Just add an example with @join. This is straightforward. Probably comment on the
-                    global and streaming strategies (for "both"), as it's done in the att.linguistic
-                    spec.</p>
-                
-                <p>
-                    <s>
-                        <seg norm="ϰαλὸϛ">ϰαλο</seg>
-                        <seg norm="ϰαι" join="left">ϰ</seg>
-                        <seg norm="αγαϑὸϛ" join="left">αγαϑὸϛ</seg>
-                    </s>
-                </p>
-            </div>
+      </div>
+      <div>
+        <head>Figure 10+</head>
+        <p>Just add an example with @join. This is straightforward. Probably comment on the global
+          and streaming strategies (for "both"), as it's done in the att.linguistic spec.</p>
 
-            <div>
-                <head>Figure 11 and 12</head>
-                <p>
-                    <s offsetBase="#xyz">
-                        <seg norm="etcetera" startPos="0" endPos="3"/>
-                        <seg norm="." startPos="3" endPos="3"/>
-                    </s>
-                    
+        <p>
+          <s>
+            <seg norm="ϰαλὸϛ">ϰαλο</seg>
+            <seg norm="ϰαι" join="left">ϰ</seg>
+            <seg norm="αγαϑὸϛ" join="left">αγαϑὸϛ</seg>
+          </s>
+        </p>
+      </div>
 
-                    <!-- look: the <s> element also cirumscribes a domain that 
+      <div>
+        <head>Figure 11 and 12</head>
+        <p>
+          <s offsetBase="#xyz">
+            <seg norm="etcetera" startPos="0" endPos="3"/>
+            <seg norm="." startPos="3" endPos="3"/>
+          </s>
+          <!-- look: the <s> element also cirumscribes a domain that 
                         can be identified by offsets:  -->
-                    <s offsetBase="#sentence_xyz" startPos="0" endPos="27">
-                        <seg norm="etcetera" startPos="0" endPos="3"/>
-                        <seg norm="." startPos="3" endPos="3"/>
-                        ....
-                    </s>
-                </p>
+          <s offsetBase="#sentence_xyz" startPos="0" endPos="27">
+            <seg norm="etcetera" startPos="0" endPos="3"/>
+            <seg norm="." startPos="3" endPos="3"/> .... </s>
+        </p>
 
-                
-                <!-- Note the empty token below-->
-                <p>
-                    <s>
-                        <seg norm="etcetera">etc.</seg>
-                        <seg norm="." join="overlap"/>
-                    </s>
-                </p>
-            </div>
-            
-            <div>
-                <head>Figure 13 (coarse)</head>
-                <p> NEVER KEEP a span UN-@typed, except if the type is on spanGrp; 
-                    we probably need some Schematron to enforce that
-                    
-                    <seg xml:id="t0">auquel</seg>
-                    <span type="wordForm" lemma="à" pos="#pos.prep" target="#t0"/>
-                    <span type="wordForm" lemma="lequel" pos="#pos.pronrel" target="#t0"/>
-                </p>
-            </div>
 
-            <!--   we need to take a decision on figure 14: empty tokens inline feel wrong     -->
-            <div>
-                <head>Figure 14 (fine)</head>
-                <p>
-                    <seg norm="a" xml:id="t01">auquel</seg>
-                    <seg norm="lequel" xml:id="t111" join="overlap"/>
-                    <span type="wordForm" lemma="à" pos="#pos.prep" target="#t01"/>
-                    <span type="wordForm" lemma="lequel" pos="#pos.pronrel" target="#t111"/>
-                </p>
-            </div>
+        <!-- Note the empty token below-->
+        <p>
+          <s>
+            <seg norm="etcetera">etc.</seg>
+            <seg norm="." join="overlap"/>
+          </s>
+        </p>
+      </div>
 
-            <div>
-                <head>Figure 19</head>
-                <p>Figures 15-18 are no challenge. </p>
-                <p><s>
-                    <seg xml:id="t411">to</seg>
-                    <seg xml:id="t421">boldly</seg>
-                    <seg xml:id="t43">go</seg>
-                    <span type="wordForm" lemmaRef="urn:lexicon:en:go:to" target="#t411 #t43"/>
-                  <span type="wordForm" lemmaRef="urn:lexicon:en:boldly" target="#t421"/>
-                  <span type="wordForm" lemmaRef="urn:lexicon:en:go:main" target="#t411 #t43"/>
-                </s></p>                
-            </div>
+      <div>
+        <head>Figure 13 (coarse)</head>
+        <p> NEVER KEEP a span UN-@typed, except if the type is on spanGrp; we probably need some
+          Schematron to enforce that <seg xml:id="t0">auquel</seg>
+          <span type="wordForm" lemma="à" pos="#pos.prep" target="#t0"/>
+          <span type="wordForm" lemma="lequel" pos="#pos.pronrel" target="#t0"/>
+        </p>
+      </div>
 
-            <div>
-                <head>Figure 27</head>
-                <p>
-                     <s><seg xml:id="w1">I</seg>
-                         <seg xml:id="w2">wanna</seg>
-                         <seg xml:id="w3">put</seg>
-                         <seg xml:id="w4">up</seg>
-                         <seg xml:id="w5">new</seg>
-                         <seg xml:id="w6">wallpaper</seg>
-                         <seg>.</seg>
-                     </s>
-                </p>
-                <spanGrp type="wordForm">
-                     <span target="#w1" ana="#fs1" lemmaRef="#entry1"/>
-                     <span target="#w2" ana="#fs2" lemmaRef="#entry2"/>
-                     <span target="#w2" ana="#fs3" lemmaRef="#entry3"/>
-                     <span target="#w3 #w4" ana="#fs4" lemmaRef="#entry4"/>
-                     <span target="#w5" ana="#fs5" lemmaRef="#entry5"/>
-                     <span target="#w6" ana="#fs6" lemmaRef="#entry6"/>
-                </spanGrp>
-                
-                <fs xml:id="fs1">
-                     <f name="lemma">
-                      <string>I</string>
-                     </f>
-                     <f name="pos">
-                      <symbol value="PP"/>
-                     </f>
-                </fs>
-                <fs xml:id="fs2">
-                     <f name="lemma">
-                      <string>want</string>
-                     </f>
-                     <f name="pos">
-                      <symbol value="VBP"/>
-                     </f>
-                </fs>
-                <fs xml:id="fs3">
-                     <f name="lemma">
-                      <string>to</string>
-                     </f>
-                     <f name="pos">
-                      <symbol value="TO"/>
-                     </f>
-                </fs>
-                <fs xml:id="fs4">
-                     <f name="lemma">
-                      <string>put up</string>
-                     </f>
-                     <f name="pos">
-                      <symbol value="VB"/>
-                     </f>
-                </fs>
-                <fs xml:id="fs5">
-                     <f name="lemma">
-                      <string>new</string>
-                     </f>
-                     <f name="pos">
-                      <symbol value="JJ"/>
-                     </f>
-                </fs>
-                <fs xml:id="fs6">
-                     <f name="lemma">
-                      <string>wallpaper</string>
-                     </f>
-                     <f name="pos">
-                      <symbol value="NN"/>
-                     </f>
-                </fs>
-<!--
+      <!--   we need to take a decision on figure 14: empty tokens inline feel wrong     -->
+      <div>
+        <head>Figure 14 (fine)</head>
+        <p>
+          <seg norm="a" xml:id="t01">auquel</seg>
+          <seg norm="lequel" xml:id="t111" join="overlap"/>
+          <span type="wordForm" lemma="à" pos="#pos.prep" target="#t01"/>
+          <span type="wordForm" lemma="lequel" pos="#pos.pronrel" target="#t111"/>
+        </p>
+      </div>
+
+
+      <!--Section 6-->
+      <div>
+        <head>Figure 15</head>
+        <p><s>
+            <seg xml:id="t610">apple</seg>
+            <span type="wordForm" lemma="apple" target="#t610"/>
+          </s></p>
+      </div>
+
+
+<div>
+<head>Figure 16</head>
+<p>
+<s>
+<seg xml:id="t20">prime</seg>
+<seg xml:id="t21">minister</seg>
+<span type="wordForm" lemma="prime_minister" target="#t20 #t21"/>
+</s></p>
+</div>
+
+<div>
+<head>Figure 17</head>
+<p>
+<s>
+<seg xml:id="t31">afin</seg>
+<seg xml:id="t32">justement</seg>
+<seg xml:id="t33">de</seg>
+<span type="wordForm" lemma="afin_de" target="#t31 t33"/>
+<span type="wordForm" lemma="justement" target="#t32"/>
+</s></p>
+</div>
+      
+<div>
+<head>Figure 18</head>
+<p>
+<s>
+<seg xml:id="t41">to</seg>
+<seg xml:id="t42">boldly</seg>
+<seg xml:id="t43">go</seg>
+<span type="wordForm" lemma="to_go" target="#t41 #t43"/>
+<span type="wordForm" lemma="boldly" target="#t42"/>
+</s></p>
+</div>
+      
+      
+<div>
+<head>Figure 19</head>
+<p><s>
+<seg xml:id="t411">to</seg>
+<seg xml:id="t421">boldly</seg>
+<seg xml:id="t431">go</seg>
+<span type="wordForm" lemmaRef="urn:lexicon:en:go:to" target="#t411 #t431"/>
+<span type="wordForm" lemmaRef="urn:lexicon:en:boldly" target="#t421"/>
+<span type="wordForm" lemmaRef="urn:lexicon:en:go:main" target="#t411 #t431"/>
+</s></p>
+</div>
+      
+      
+<div>
+<head>Figure 20</head>
+<p>
+<s>
+<seg xml:id="t51">Jean</seg>
+<seg xml:id="t52">propose</seg>
+<seg xml:id="t53">de</seg>
+<seg xml:id="t55">partir</seg>
+<span type="wordForm" lemma="Jean" target="#t51"/>
+<span type="wordForm" lemma="proposer" target="#t52"/>
+<span type="wordForm" lemma="de" target="#t53"/>
+<span type="wordForm" lemma="PRO"/>
+<span type="wordForm" lemma="partir" target="#t55"/>
+</s></p>
+</div>
+      
+      
+<div>
+<head>Figure 21</head>
+<p>
+<s>
+<seg norm="dammelo" xml:id="t61">Dammelo</seg>
+<span type="wordForm" lemma="dare" target="#t61"/>
+<span type="wordForm" lemma="mi" target="#t61"/>
+<span type="wordForm" lemma="lo" target="#t61"/>
+<!--Figure 21  — Multiple word-forms in ‘dammelo’ (it – ‘Give it to me’)-->
+</s></p>
+</div>
+      
+<div>
+<head>Figure 22</head>
+<p><s>
+<seg xml:id="t70">auquel</seg>
+<span type="wordForm" lemma="à" msd="#pos.prep" target="#t70"/>
+<span type="wordForm" lemma="lequel" msd="#pos.pronrel" target="#t70"/>
+</s></p>
+</div>
+      
+<div>
+<head>Figure 23</head>
+<p>
+<s>
+<seg xml:id="t621">Prime</seg>
+<seg xml:id="t622">minister</seg>
+<span type="wordForm" lemmaRef="urn:lexicon:en:prime_minister" target="#t621 #t622"/>
+</s></p>
+</div>
+      
+      
+<div>
+<head>Figure 24</head>
+<p>
+<s>
+<seg xml:id="t71">to</seg>
+<seg xml:id="t72">eventually</seg>
+<seg xml:id="t73">decide</seg>
+<span type="wordForm" lemmaRef="urn:lexicon:en:decide:to" target="#t71 #t73"/>
+<span type="wordForm" lemmaRef="urn:lexicon:en:eventually" target="#t72"/>
+<span type="wordForm" lemmaRef="urn:lexicon:en:decide:main" target="#t71 #t73"/>
+</s></p>
+</div>
+      
+      
+<div>
+<head>Figure 25</head>
+<p>
+<s>
+<seg xml:id="t80">October</seg>
+<seg xml:id="t81">,</seg>
+<seg xml:id="t82">23rd</seg>
+<seg xml:id="t83">2005</seg>
+<span type="wordForm" lemma="DATE" norm="2005/10/23" target="#t80 #t81 #t82 #t83"/>
+</s></p>
+</div>
+      
+      
+<div>
+<head>Figure 26</head>
+<p>
+<s>
+<seg norm="Geburtstag" xml:id="t91" join="right">Geburtstags</seg>
+<seg norm="Geschenk" xml:id="t92" join="right">geschenk</seg>
+<seg norm="Papier" xml:id="t93">papier</seg>
+<span type="wordForm" target="#t91 #t92 #t93">
+  <span type="wordForm" lemmaRef="urn:lexicon:de:geburstag" lemma="geburtstag" target="#t91"/>
+  <span type="wordForm" lemmaRef="urn:lexicon:de:geschenk" lemma="geschenk" target="#t92"/>
+  <span type="wordForm" lemmaRef="urn:lexicon:de:papier" lemma="papier" target="#t93"/>
+</span>
+</s></p>
+</div>
+      
+      
+<div>
+<head>Figure 27</head>
+<p><s>
+<seg xml:id="t701">belle</seg>
+<span type="wordForm" lemmaRef="urn:lexicon:fr:beau" lemma="beau" target="#t701">
+ <fs>
+  <f name="pos">
+   <symbol value="adjective"/>
+  </f>
+  <f name="adj_type">
+   <symbol value="qualifier"/>
+  </f>
+  <f name="gender">
+   <symbol value="feminine"/>
+  </f>
+  <f name="number">
+   <symbol value="singular"/>
+  </f>
+ </fs>
+</span>
+</s></p>
+</div>
+      
+      
+<div>
+<head>Figure 28</head>
+<p>
+<s>
+<seg xml:id="t770">belle</seg>
+<span type="wordForm" target="#t770" lemmaRef="urn:lexicon:fr:beau"
+      ana="#pos.adj #adj_type.qual #gender.fem #num.sg"/>
+</s></p>
+</div>
+      
+      
+<div>
+<head>Figure 29</head>
+<p><s>
+<fvLib n="French morpho values">
+  <symbol xml:id="noun" value="noun"/>
+  <symbol xml:id="sing" value="singular"/>
+  <symbol xml:id="plu" value="plural"/>
+  <symbol xml:id="masc" value="masculine"/>
+  <symbol xml:id="fem" value="feminine"/>
+</fvLib>
+</s></p>
+</div>
+      
+      
+<div>
+<head>Figure 30</head>
+<p><s>
+<fLib>
+  <f xml:id="pos.n" name="pos" fVal="#noun"/>
+  <f xml:id="num.sg" name="number" fVal="#sing"/>
+  <f xml:id="num.p" name="number" fVal="#plu"/>
+  <f xml:id="gen.f" name="gender" fVal="#fem"/>
+  <f xml:id="gen.m" name="gender" fVal="#masc"/>
+</fLib>
+</s></p>
+</div>
+      
+      
+<div>
+<head>Figure 31</head>
+<p><s>
+<span type="wordForm" target="#t1 #t2" 
+      lemma="prime_minister" ana="#pos.n #num.sg #gen.f"/>
+</s></p>
+</div>
+      
+      
+<div>
+<head>Figure 32</head>
+<p><s>
+      <fvLib>
+       <vAlt xml:id="firstOrThird">
+        <symbol value="first"/>
+        <symbol value="third"/>
+       </vAlt>
+       <symbol xml:id="verb" value="verb"/>
+       <symbol xml:id="sg" value="singular"/>
+      </fvLib>
+<!--A feature specification library-->
+      <fLib>
+       <f xml:id="pers.13" name="pers" fVal="#firstOrThird"/>
+       <f xml:id="pos.v" name="pos" fVal="#verb"/>
+       <f xml:id="num.sg" name="number" fVal="#sg"/>
+      </fLib>
+<!--Annotated document-->
+      <seg xml:id="t100">porte</seg>
+      <span type="wordForm" target="#t100" lemmaRef="urn:lexicon:fr:porter"
+       ana="#pos.v #pers.13 #num.sg"/>
+</s></p>
+</div>
+      
+      
+   <div>
+    <head>Figure 33</head>
+    <p><s>
+      <seg xml:id="t880">mange</seg>
+      <span type="wordForm" target="t880" lemmaRef="urn:lexicon:fr:manger">
+       <fs>
+        <f name="pos">
+         <symbol value="verb"/>
+        </f>
+        <f name="aux">
+         <symbol value="avoir"/>
+        </f>
+        <f name="mood">
+         <symbol value="indicative"/>
+        </f>
+        <f name="tense">
+         <symbol value="present"/>
+        </f>
+        <f name="person">
+         <vAlt>
+          <symbol value="first"/>
+          <symbol value="third"/>
+         </vAlt>
+        </f>
+        <f name="number">
+         <symbol value="singular"/>
+        </f>
+       </fs>
+      </span>
+     </s></p>
+   </div>
+      
+      
+   <div>
+    <head>Figure 34</head>
+    <p>
+     <s>
+      <seg xml:id="t101">mange</seg>
+      <span type="wordForm" target="#t101" lemmaRef="urn:lexicon:fr:manger"
+       ana="#pos.v #aux.avoir #mood.i #tense.p #pers.13 #num.sg"/>
+     </s></p>
+   </div>
+      
+      
+
+      <div>
+        <head>Figure 3</head>
+        <p>
+          <s><seg xml:id="w1">I</seg>
+            <seg xml:id="w2">wanna</seg>
+            <seg xml:id="w3">put</seg>
+            <seg xml:id="w4">up</seg>
+            <seg xml:id="w5">new</seg>
+            <seg xml:id="w6">wallpaper</seg>
+            <seg>.</seg>
+          </s>
+        </p>
+        <spanGrp type="wordForm">
+          <span target="#w1" ana="#fs1" lemmaRef="#entry1"/>
+          <span target="#w2" ana="#fs2" lemmaRef="#entry2"/>
+          <span target="#w2" ana="#fs3" lemmaRef="#entry3"/>
+          <span target="#w3 #w4" ana="#fs4" lemmaRef="#entry4"/>
+          <span target="#w5" ana="#fs5" lemmaRef="#entry5"/>
+          <span target="#w6" ana="#fs6" lemmaRef="#entry6"/>
+        </spanGrp>
+
+        <fs xml:id="fs1">
+          <f name="lemma">
+            <string>I</string>
+          </f>
+          <f name="pos">
+            <symbol value="PP"/>
+          </f>
+        </fs>
+        <fs xml:id="fs2">
+          <f name="lemma">
+            <string>want</string>
+          </f>
+          <f name="pos">
+            <symbol value="VBP"/>
+          </f>
+        </fs>
+        <fs xml:id="fs3">
+          <f name="lemma">
+            <string>to</string>
+          </f>
+          <f name="pos">
+            <symbol value="TO"/>
+          </f>
+        </fs>
+        <fs xml:id="fs4">
+          <f name="lemma">
+            <string>put up</string>
+          </f>
+          <f name="pos">
+            <symbol value="VB"/>
+          </f>
+        </fs>
+        <fs xml:id="fs5">
+          <f name="lemma">
+            <string>new</string>
+          </f>
+          <f name="pos">
+            <symbol value="JJ"/>
+          </f>
+        </fs>
+        <fs xml:id="fs6">
+          <f name="lemma">
+            <string>wallpaper</string>
+          </f>
+          <f name="pos">
+            <symbol value="NN"/>
+          </f>
+        </fs>
+        <!--
               <entry xml:id="entry1">
                      <form type="lemma">
                       <orth>I</orth>
@@ -314,17 +588,16 @@
                      </form>
                 </entry>
 -->
-            </div>
-            
-            <div>
-                <head>More</head>
-                <p>I can't see any challenges -- apart from tagset definitions and lattices, but
-                    these can naturally be handled by means of feature structures and graph
-                    notation.</p>
-            </div>
-            
-            
-        </body>
+      </div>
+
+      <div>
+        <head>More</head>
+        <p>I can't see any challenges -- apart from tagset definitions and lattices, but these can
+          naturally be handled by means of feature structures and graph notation.</p>
+      </div>
+
+
+    </body>
     </text>
     <standOff>
         <listAnnotation corresp="#ex1.1" xml:id="std.ex1.1">
