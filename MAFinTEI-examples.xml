@@ -432,8 +432,11 @@
       <fLib>
        <f xml:id="pers.13" name="pers" fVal="#firstOrThird"/>
        <f xml:id="pos.v" name="pos" fVal="#verb"/>
-       <f xml:id="num.sg" name="number" fVal="#sg"/>
+       <f xml:id="num.sg." name="number" fVal="#sg"/>
       </fLib>
+<!--  This example fails validation because the ID "num.sg" is getting redefined; that is why an extra dot is added here ("num.sg.") -->
+  
+  
 <!--Annotated document-->
       <seg xml:id="t100">porte</seg>
       <span type="wordForm" target="#t100" lemmaRef="urn:lexicon:fr:porter"
