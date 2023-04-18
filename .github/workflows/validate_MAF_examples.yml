@@ -22,7 +22,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       
     # install the necessary stuff
     # it turns out that libxml is missing by design, although it's used to parse
@@ -30,8 +30,8 @@ jobs:
     # https://github.com/actions/virtual-environments/issues/423
     - name: install libxml2
       run: |
-        sudo apt-get update
-        sudo apt-get install libxml2-utils
+        apt-get update
+        sudo apt-get install libxml2-utils -y
 
     # validate
     - name: Validate with xmllint --noout --xinclude 
