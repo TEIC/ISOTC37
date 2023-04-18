@@ -35,5 +35,5 @@ jobs:
 
     # validate
     - name: Validate with xmllint --noout --xinclude 
-      run: xmllint --noout --xinclude --relaxng $GITHUB_WORKSPACE/ISOTC37/MAF/MAF.rng $GITHUB_WORKSPACE/ISOTC37/MAF/MAF1-examples.xml
+      run: xmllint --noout --xinclude --relaxng $GITHUB_WORKSPACE/ISOTC37/MAF/MAF-1.rng $GITHUB_WORKSPACE/ISOTC37/MAF/MAF-1_examples.xml
    
