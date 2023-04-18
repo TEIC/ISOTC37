@@ -4,7 +4,7 @@
 # create the RNG from ODD, simply because I also expect this to be done before a push 
 # (or a pull request). But, who knows where we end up, so here's a piece of working functionality
 
-name: validate_examples
+name: validate_MAF_examples
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events, for the master branch and also for the test branch (which can be created to
@@ -35,5 +35,5 @@ jobs:
 
     # validate
     - name: Validate with xmllint --noout --xinclude 
-      run: xmllint --noout --xinclude --relaxng $GITHUB_WORKSPACE/MAFinTEI.rng $GITHUB_WORKSPACE/MAFinTEI-examples.xml
+      run: xmllint --noout --xinclude --relaxng $GITHUB_WORKSPACE/ISOTC37/MAF/MAF.rng $GITHUB_WORKSPACE/ISOTC37/MAF/MAF1-examples.xml
    
