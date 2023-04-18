@@ -1,4 +1,4 @@
-![validate_examples](https://github.com/TEIC/ISOTC37/workflows/validate_MAF_examples/badge.svg?event=push)
+![validate_examples](https://github.com/TEIC/ISOTC37/workflows/actions/validate_MAF_examples/badge.svg?event=push)
 # MAF Core (ISO 24611-1)
 
 The documents in this repository present the ongoing work on the TEI serialization of MAF (Morphosyntactic Annotation Framework, [ISO 24611](https://www.iso.org/standard/51934.html)). So far, only MAF Core (part 1 of the MAF family) is represented here.
