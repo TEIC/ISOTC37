@@ -43,7 +43,7 @@ jobs:
     # https://github.com/actions/virtual-environments/issues/423
     - name: install libxml2
       run: |
-        apt-get update
+        sudo apt-get update
         sudo apt-get install libxml2-utils -y
 
     # validate
