@@ -19,7 +19,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v2
+        - uses: actions/checkout@v3
         - name: a guessing game
           run: |
             echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
