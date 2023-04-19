@@ -24,4 +24,6 @@ jobs:
           run: |
             echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
             ls
+            pwd
+            
  
