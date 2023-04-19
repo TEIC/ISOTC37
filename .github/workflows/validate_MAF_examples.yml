@@ -16,15 +16,15 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
 
-  test:
-    runs-on: ubuntu-latest
-    steps:
-        - uses: actions/checkout@v3
-        - name: a guessing game
-          run: |
-            echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-            ls
-            pwd
+#  test:
+#    runs-on: ubuntu-latest
+#    steps:
+#        - uses: actions/checkout@v3
+#        - name: a guessing game
+#          run: |
+#            echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+#            ls
+#            pwd
             
    
   validate:
