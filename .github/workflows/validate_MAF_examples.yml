@@ -11,6 +11,7 @@ name: validate_MAF_examples
 # test some stuff, then deleted, and again.
 on:
   push:
+  pull_request:
     branches: [master,  test]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -50,4 +51,3 @@ jobs:
     - name: Validate with xmllint --noout --xinclude
       run: xmllint --noout --xinclude --relaxng $GITHUB_WORKSPACE/MAF/MAF-1.rng $GITHUB_WORKSPACE/MAF/MAF-1_examples.xml
    
-
