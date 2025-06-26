@@ -36,7 +36,7 @@ jobs:
     steps:
     
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     
     # install the necessary stuff
     # it turns out that libxml is missing by design, although it's used to parse
